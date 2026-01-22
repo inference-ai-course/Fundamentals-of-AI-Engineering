@@ -1,69 +1,69 @@
-# Level 3（深度优化与专家阶段）课程概览
+# Level 3 (Deep Optimization & Expert Track) Overview
 
-## 定位
+## Positioning
 
-**Level 3** 面向希望“打开黑盒”并具备企业级交付与优化能力的学习者，覆盖：
+**Level 3** is for learners who want to “open the black box” and gain enterprise-grade delivery and optimization skills. It covers:
 
-*   微调与数据工程（SFT/LoRA/QLoRA，数据质量门控）
-*   评测体系与迭代证据（离线/在线、LLM-as-a-Judge 的风险与校准）
-*   推理优化与部署（量化、并发、吞吐/延迟、成本与稳定性）
-*   Meta Learning（读源码/复现论文/复杂 Debug）
+*   Fine-tuning and data engineering (SFT/LoRA/QLoRA, data quality gates)
+*   Evaluation systems and iteration evidence (offline/online evaluation; risks and calibration for LLM-as-a-Judge)
+*   Inference optimization and deployment (quantization, concurrency, throughput/latency, cost and stability)
+*   Meta-learning (reading source code, paper-to-code reproduction, complex debugging)
 
-## 适合人群
+## Target Learners
 
-*   有经验的高级开发者
-*   已完成 Level 2，并希望掌握“效果提升证据 + 性能与成本优化 + 可上线运维”的学习者
+*   Experienced senior developers
+*   Learners who completed Level 2 and want “quality evidence + performance/cost optimization + production operations” capability
 
-## 先修要求
+## Prerequisites
 
-*   能交付一个完整的 LLM 应用系统（RAG/Agent/API/工程化）
-*   具备基本的实验与评测意识（知道要对比基线、记录配置、输出失败样例）
-*   对 Linux/命令行/日志定位具备熟练度
+*   Can deliver a complete LLM application system (RAG/agents/APIs/engineering practices)
+*   Has basic experimentation and evaluation habits (baseline comparisons, config logging, failure case analysis)
+*   Comfortable with Linux/CLI/log-based debugging
 
-## 教学周期与课时
+## Duration & Weekly Hours
 
-*   **10 周**（可压缩到 8 周或扩展到 12 周）
-*   每周 **5 课时**（建议：2 课时原理 + 1 课时案例拆解 + 2 课时实验/部署 Workshop）
+*   **10 weeks** (can be compressed to 8 weeks or extended to 12 weeks)
+*   **5 class hours per week** (recommended: 2 hours theory + 1 hour case study + 2 hours experiment/deployment workshop)
 
-## 核心能力支柱覆盖
+## Pillar Coverage
 
-*   **AI 概念（进阶）**：SFT/RLHF/DPO 直觉，量化/推理加速的原理边界
-*   **AI 代码实操（专家）**：微调、评测、量化、部署、压测的工程闭环
-*   **Meta Learning（核心）**：源码阅读、Paper-to-Code、复杂 Debug（OOM/CUDA/性能瓶颈）
-*   **System Design（专家）**：高并发推理服务、可观测、降级策略、成本治理
+*   **AI Concepts (Advanced)**: intuition for SFT/RLHF/DPO; boundaries of quantization and inference acceleration
+*   **AI Engineering (Expert)**: end-to-end pipeline for fine-tuning, evaluation, quantization, deployment, and load testing
+*   **Meta-Learning (Core)**: source reading, paper-to-code, complex debugging (OOM/CUDA/performance bottlenecks)
+*   **System Design (Expert)**: high-concurrency inference services, observability, fallback strategies, cost governance
 
-## 学习产出（Learning Outcomes）
+## Learning Outcomes
 
-完成 Level 3 后，你应当能够：
+After completing Level 3, you should be able to:
 
-1. 构建高质量数据集并完成一次可复现微调（含失败复盘与回归验证）
-2. 搭建评测体系，能用评测证明“变好/没变好”，并输出失败样例驱动迭代
-3. 掌握至少一种量化路线，并能评估质量损失与性能收益
-4. 部署推理服务并完成最小压测，输出吞吐/延迟分布与瓶颈分析
-5. 面对陌生报错或新技术，能快速定位关键资料并产出验证 Demo
+1. Build a high-quality dataset and complete a reproducible fine-tuning run (including failure retrospective and regression verification)
+2. Build an evaluation system to prove whether things improved, and iterate based on failure cases
+3. Master at least one quantization path and evaluate quality regression vs performance gains
+4. Deploy an inference service and run a minimal load test, producing throughput/latency distributions and bottleneck analysis
+5. Handle unfamiliar errors or new techniques by quickly locating key references and shipping validation demos
 
-## 推荐技术栈（Level 3）
+## Recommended Tech Stack (Level 3)
 
-*   微调：Unsloth 或 Llama-Factory（二选一即可）
-*   推理部署：vLLM（或等价高性能推理方案）
-*   评测：Ragas/DeepEval（或自建最小评测脚本 + LLM Judge）
-*   量化：GGUF/AWQ/GPTQ（任选其一形成完整实验）
-*   工程：结构化日志、基本指标统计（p95/p99）、压测脚本
+*   Fine-tuning: Unsloth or Llama-Factory (choose one)
+*   Inference deployment: vLLM (or an equivalent high-performance inference solution)
+*   Evaluation: Ragas/DeepEval (or a minimal custom evaluation script + LLM-as-a-Judge)
+*   Quantization: GGUF/AWQ/GPTQ (choose one path and run a complete experiment)
+*   Engineering: structured logging, basic metrics (p95/p99), load testing scripts
 
-## 考核与评分建议（可选）
+## Assessment (Suggested)
 
-*   平时作业与实验记录：40%
-*   课堂 Workshop 完成度：20%
-*   Capstone（全链路闭环）：40%
+*   Homework and experiment logs: 40%
+*   Workshop completion: 20%
+*   Capstone (full lifecycle): 40%
 
-## 结课门槛（Exit Criteria）
+## Exit Criteria
 
-*   能独立完成一次可复现的微调实验，并用评测证明结果
-*   能处理推理部署中的常见性能与稳定性问题（延迟、吞吐、显存、并发）
-*   能产出一份 Meta Learning 证据包（源码/论文/排障档案）
+*   Independently complete a reproducible fine-tuning experiment and prove results via evaluation
+*   Handle common deployment performance and stability issues (latency, throughput, VRAM, concurrency)
+*   Produce a meta-learning evidence pack (source reading / paper reproduction / debugging dossier)
 
-## 文档导航
+## Document Navigation
 
-*   周计划：见 [weekly_plan_10w.md](weekly_plan_10w.md)
-*   作业列表与要求：见 [assignments.md](assignments.md)
-*   Capstone 项目说明：见 [capstone.md](capstone.md)
+*   Weekly plan: see [weekly_plan_10w.md](weekly_plan_10w.md)
+*   Assignments: see [assignments.md](assignments.md)
+*   Capstone: see [capstone.md](capstone.md)

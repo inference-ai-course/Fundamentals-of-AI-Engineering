@@ -1,59 +1,60 @@
-# Level 3 作业与评测（Assignments & Assessment）
+# Level 3 Assignments & Assessment
 
-## 提交规范（强制建议）
+## Submission Requirements (Strongly Recommended)
 
-*   每次作业必须提交：
-    *   **实验配置**（配置文件/命令行参数）
-    *   **数据版本信息**（来源、切分、哈希/版本号、变更说明）
-    *   **结果与证据**（指标/失败样例/曲线）
-    *   **复现说明**（同样步骤可跑出同类结果）
+Each assignment submission must include:
 
-## 作业列表（建议 6 次 + 1 个 Capstone）
+*   **Experiment configuration** (config files and/or CLI arguments)
+*   **Data version information** (source, splits, hash/version, change notes)
+*   **Results and evidence** (metrics, failure cases, curves)
+*   **Reproduction instructions** (how to reproduce comparable results with the same steps)
 
-### C1：实验模板与 baseline 评测
+## Assignment List (Suggested: 6 assignments + 1 Capstone)
 
-*   **目标**：建立可复现的实验骨架
-*   **要求**：提供统一的运行入口（脚本/Makefile/任务命令皆可），能跑 baseline 评测
-*   **验收**：第三方按 README 可复现得到同类结果
+### C1: Experiment Template + Baseline Evaluation
 
-### C2：数据审计与质量门控
+*   **Goal**: build a reproducible experimentation skeleton
+*   **Requirements**: provide a unified run entry (scripts/Makefile/task runner are all fine) and run a baseline evaluation
+*   **Acceptance**: a third party can reproduce comparable results by following the README
 
-*   **目标**：避免“垃圾进垃圾出”
-*   **要求**：数据审计脚本：长度分布、重复率、异常样例、敏感信息策略说明
-*   **验收**：输出审计报告 + 至少 5 条被拦截/标注的样例
+### C2: Data Audit + Quality Gates
 
-### C3：LoRA/QLoRA 微调实验
+*   **Goal**: avoid “garbage in, garbage out”
+*   **Requirements**: a data audit script: length distributions, duplication rate, outliers, sensitive-data strategy notes
+*   **Acceptance**: output an audit report + at least 5 blocked/flagged examples
 
-*   **目标**：跑通一次可复现微调
-*   **要求**：训练 + 导出 adapter + 推理验证；记录超参与训练曲线
-*   **验收**：提供 base vs tuned 的对比样例（至少 20 条）
+### C3: LoRA/QLoRA Fine-Tuning Experiment
 
-### C4：评测脚本与失败样例驱动迭代
+*   **Goal**: complete one reproducible fine-tuning run
+*   **Requirements**: training + export adapters + inference validation; record hyperparameters and training curves
+*   **Acceptance**: provide base vs tuned comparisons (at least 20 examples)
 
-*   **目标**：用证据驱动改进
-*   **要求**：对比评测（base vs tuned）；输出指标 + 失败样例；基于失败样例做一次迭代
-*   **验收**：必须展示一次“迭代前后”的对比证据（指标或失败样例减少）
+### C4: Evaluation Script + Failure-Case-Driven Iteration
 
-### C5：量化对比报告
+*   **Goal**: improve with evidence
+*   **Requirements**: comparative evaluation (base vs tuned); output metrics + failure cases; iterate once based on failure cases
+*   **Acceptance**: must show before/after evidence (improved metrics and/or fewer failure cases)
 
-*   **目标**：掌握质量-性能-成本权衡
-*   **要求**：选择一种量化路线，记录质量变化与性能收益
-*   **验收**：报告包含“适用场景”与“风险/限制”
+### C5: Quantization Comparison Report
 
-### C6：推理服务压测与瓶颈分析
+*   **Goal**: master the quality–performance–cost tradeoff
+*   **Requirements**: choose one quantization path and record quality changes and performance gains
+*   **Acceptance**: report includes “best-fit scenarios” and “risks/limitations”
 
-*   **目标**：让模型可上线使用
-*   **要求**：部署推理服务；压测输出吞吐/延迟分布；提出瓶颈与改进建议
-*   **验收**：必须包含 p95/p99 延迟与至少 1 个具体优化动作（哪怕是参数调整）
+### C6: Inference Service Load Test + Bottleneck Analysis
 
-### C7（Meta Learning）：Issue Dossier（问题档案）
+*   **Goal**: make the model usable in production
+*   **Requirements**: deploy an inference service; load test to produce throughput/latency distributions; propose bottlenecks and improvements
+*   **Acceptance**: must include p95/p99 latency and at least one concrete optimization action (even a parameter tuning is fine)
 
-*   **目标**：证明你能解决陌生复杂问题
-*   **要求**：选一个真实问题（OOM/CUDA/性能/依赖冲突/框架 bug 等），完成：复现 -> 定位 -> 修复/绕过 -> 回归
-*   **验收**：文档必须包含最小复现与回归验证步骤
+### C7 (Meta-Learning): Issue Dossier
+
+*   **Goal**: prove you can solve unfamiliar complex problems
+*   **Requirements**: pick one real issue (OOM/CUDA/performance/dependency conflicts/framework bugs, etc.) and complete: reproduce -> locate -> fix/workaround -> regression
+*   **Acceptance**: document includes minimal reproduction and regression validation steps
 
 ---
 
 ## Capstone
 
-Capstone 要求见 [capstone.md](capstone.md)
+See [capstone.md](capstone.md) for Capstone requirements.

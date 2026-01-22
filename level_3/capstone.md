@@ -1,83 +1,87 @@
-# Level 3 Capstone：企业级私有化模型解决方案（全链路闭环）
+# Level 3 Capstone: Enterprise Private Model Solution (Full Lifecycle)
 
-## 项目目标
+## Project Goal
 
-从数据到上线，完成“**数据清洗 -> 微调 -> 评测 -> 量化 -> 高并发部署**”的闭环交付，并用证据回答：
+From data to production, deliver a full lifecycle pipeline:
 
-*   **效果是否提升？提升在哪里？代价是什么？**
-*   **性能是否达标？瓶颈在哪里？成本如何控制？**
-*   **风险与限制是什么？如何监控与降级？**
+**data cleaning -> fine-tuning -> evaluation -> quantization -> high-concurrency deployment**
 
-## 建议选题
+and answer with evidence:
 
-选择一个可收集到足够指令数据的垂直任务（例）：
+*   **Did quality improve? Where did it improve, and what did it cost?**
+*   **Does performance meet requirements? Where are the bottlenecks, and how do you control cost?**
+*   **What are the risks and limitations? How do you monitor and fall back?**
 
-*   企业客服问答（FAQ/工单总结/标准回复）
-*   领域写作与审校（合同条款审阅、合规改写、报告生成）
-*   结构化信息抽取（票据/条款/表格转结构化）
+## Suggested Topics
 
-## 必选范围（Must Have）
+Pick a vertical task where you can collect enough instruction data, for example:
 
-### 1）数据链路
+*   Enterprise customer support Q&A (FAQ/ticket summaries/standard replies)
+*   Domain writing and review (contract review, compliant rewriting, report generation)
+*   Structured information extraction (invoices/clauses/tables to structured outputs)
 
-*   数据收集与清洗策略说明
-*   数据版本化（至少做到“能说清楚这次训练用了哪份数据”）
-*   数据审计报告（长度、重复、异常、敏感）
+## Must Have Scope
 
-### 2）微调链路
+### 1) Data Pipeline
 
-*   训练配置可复现
-*   至少一次 LoRA/QLoRA 微调
-*   失败复盘（至少 1 次失败实验）
+*   Document data collection and cleaning strategy
+*   Data versioning (at minimum, be able to say exactly which dataset version was used)
+*   Data audit report (length, duplication, outliers, sensitive content)
 
-### 3）评测链路
+### 2) Fine-Tuning Pipeline
 
-*   基准集（小而有效）
-*   对比：base vs tuned（必要时再加 tuned-v2）
-*   输出：指标 + 失败样例 + 结论（提升/不提升的原因）
+*   Reproducible training configuration
+*   At least one LoRA/QLoRA fine-tuning run
+*   Failure retrospective (at least one failed experiment)
 
-### 4）量化与回归
+### 3) Evaluation Pipeline
 
-*   至少一次量化实验
-*   质量回归评测（证明量化没有不可接受的退化）
+*   A benchmark set (small but effective)
+*   Comparison: base vs tuned (optionally tuned-v2)
+*   Output: metrics + failure cases + conclusions (why it improved or did not)
 
-### 5）部署与压测
+### 4) Quantization + Regression
 
-*   推理服务化（HTTP 接口）
-*   最小可观测：健康检查 + 日志 + 基本指标
-*   压测报告：吞吐、延迟分布（p95/p99）、并发上限与瓶颈分析
+*   At least one quantization experiment
+*   Quality regression evaluation (prove quantization did not degrade quality beyond acceptable thresholds)
 
-## 交付物（Deliverables）
+### 5) Deployment + Load Testing
 
-*   一条可复现流水线：数据版本化 -> 训练 -> 评测 -> 导出 -> 部署（脚本/Makefile/CI 均可）
-*   一份“效果证据包”：
-    *   基线 vs 微调 vs（可选）迭代版 的对比
-    *   失败样例分析（至少 20 条）
-    *   偏差与风险说明（例如过拟合、幻觉、敏感内容）
-*   一份“性能与成本报告”：
-    *   吞吐/延迟/资源占用/并发策略与上限
-    *   优化动作与收益（至少 1 项具体优化）
-*   一份“Meta Learning 证据包”：
-    *   Issue Dossier（复杂问题排障档案）
-    *   源码阅读记录或 Paper-to-Code 复现记录（二选一，或都做）
+*   Serviceize inference (HTTP API)
+*   Minimum observability: health checks + logs + basic metrics
+*   Load testing report: throughput, latency distributions (p95/p99), concurrency ceiling and bottleneck analysis
 
-## 验收标准（Acceptance）
+## Deliverables
 
-*   **评测可复现**：同一版本代码与数据，结果波动在可解释范围
-*   **效果有证据**：明确说明在哪类样例上变好/变坏以及原因
-*   **部署可用**：具备健康检查、基本监控指标、错误处理与降级策略
-*   **性能有证据**：提供压测复现步骤与 p95/p99 数据
+*   A reproducible pipeline: data versioning -> training -> evaluation -> export -> deployment (scripts/Makefile/CI are all acceptable)
+*   A “quality evidence pack”:
+    *   Baseline vs fine-tuned vs (optional) iterated version comparison
+    *   Failure case analysis (at least 20 examples)
+    *   Bias and risk notes (e.g., overfitting, hallucinations, sensitive content)
+*   A “performance & cost report”:
+    *   Throughput/latency/resource usage/concurrency strategy and limits
+    *   Optimization actions and gains (at least one concrete optimization)
+*   A “meta-learning evidence pack”:
+    *   Issue Dossier (complex debugging record)
+    *   Either source code reading notes or paper-to-code reproduction notes (choose one, or do both)
 
-## 评分维度（Rubric，建议）
+## Acceptance Criteria
 
-*   全链路完整度与可复现性：30%
-*   效果证据与评测质量：30%
-*   性能、稳定性与成本意识：25%
-*   Meta Learning 证据（源码/论文/排障）：15%
+*   **Evaluation is reproducible**: same code + data versions yield results within explainable variance
+*   **Quality has evidence**: clearly explain where it got better/worse and why
+*   **Deployment is usable**: health checks, basic monitoring, error handling, and fallback strategies
+*   **Performance has evidence**: provide reproducible load test steps and p95/p99 numbers
 
-## 加分项（Stretch Goals）
+## Rubric (Suggested)
 
-*   在线 A/B 或回放评测（Replay Evaluation）
-*   风险治理：红队测试、敏感内容过滤与审计
-*   自动化迭代：失败样例回收 -> 生成新数据 -> 再训练/再评测
-*   多模型路由：按成本/延迟/质量动态选择模型
+*   Lifecycle completeness and reproducibility: 30%
+*   Quality evidence and evaluation quality: 30%
+*   Performance, stability, and cost awareness: 25%
+*   Meta-learning evidence (source/paper/debugging): 15%
+
+## Stretch Goals
+
+*   Online A/B or replay-based evaluation (Replay Evaluation)
+*   Risk governance: red-teaming, sensitive content filtering and auditing
+*   Automated iteration: collect failure cases -> generate new data -> retrain/reevaluate
+*   Multi-model routing: dynamically select models by cost/latency/quality

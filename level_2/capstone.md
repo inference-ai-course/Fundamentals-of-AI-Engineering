@@ -1,67 +1,67 @@
-# Level 2 Capstone：垂直领域智能助手系统（RAG + Agent）
+# Level 2 Capstone: Vertical Domain Assistant System (RAG + Agents)
 
-## 项目目标
+## Project Goal
 
-交付一个端到端可演示、可复现运行的垂直领域智能助手系统，具备：
+Deliver an end-to-end, demo-ready, reproducible vertical domain assistant system with:
 
-*   垂直领域知识库（可导入/可更新）
-*   RAG 问答（引用溯源、拒答/澄清）
-*   Agent 工具调用（至少 1 条 workflow）
-*   最小评测与反馈闭环（能证明系统在变好）
+*   A domain knowledge base (ingestable and updatable)
+*   RAG Q&A (citations, refusal/clarification)
+*   Agent tool calling (at least one workflow)
+*   A minimal evaluation + feedback loop (evidence the system improves)
 
-## 选题建议（任选其一）
+## Topic Suggestions (Pick One)
 
-*   法律咨询助手（基于法规/判例片段）
-*   医疗用药知识助手（基于公开说明书/指南片段）
-*   教学助教（基于课程讲义/作业/FAQ）
-*   金融产品助手（基于产品说明/条款/风险披露）
+*   Legal assistant (based on statutes/case snippets)
+*   Medication knowledge assistant (based on public labels/guidelines)
+*   Teaching assistant (based on course notes/assignments/FAQ)
+*   Financial product assistant (based on product docs/terms/risk disclosures)
 
-## 功能范围（MVP）
+## MVP Scope
 
-*   **用户侧**：
-    *   对话问答
-    *   引用展示（来源文档 + 片段）
-    *   反馈按钮（好/坏 + 可选文本）
-*   **管理侧**：
-    *   上传/导入知识库
-    *   触发重建索引
-    *   查看评测结果或失败样例
-*   **Agent 能力（至少一种）**：
-    *   研究型：规划 -> 搜索/检索 -> 汇总 -> 输出结论
-    *   或工作型：生成草稿 -> 自检 -> 改写 -> 输出
+*   **User side**:
+    *   Chat Q&A
+    *   Citation display (source document + snippet)
+    *   Feedback buttons (good/bad + optional text)
+*   **Admin side**:
+    *   Upload/ingest knowledge base
+    *   Trigger index rebuild
+    *   View evaluation results or failure cases
+*   **Agent capability (at least one)**:
+    *   Research style: plan -> search/retrieve -> synthesize -> conclude
+    *   Or work style: draft -> self-check -> rewrite -> deliver
 
-## 非功能要求
+## Non-Functional Requirements
 
-*   **可复现**：一键启动说明（本地或容器化）
-*   **可观测**：日志能追踪一次请求的完整链路（检索/生成/工具调用）
-*   **可控**：对库外问题不瞎编（拒答/澄清/降级）
-*   **可评测**：最小评测集 + 评测脚本，能复现你宣称的改进
+*   **Reproducibility**: one-command startup instructions (local or containerized)
+*   **Observability**: logs can trace a full request lifecycle (retrieval/generation/tool calls)
+*   **Control**: do not make things up for out-of-KB questions (refusal/clarification/fallback)
+*   **Evaluability**: minimal eval set + eval script that reproduces claimed improvements
 
-## 交付物（Deliverables）
+## Deliverables
 
-*   架构图（组件与数据流）
-*   API 文档（至少包含 chat、ingest、eval 三类接口）
-*   知识库样例（若受限于版权，可用合成/公开材料）
-*   评测集与评测脚本
-*   Demo 录屏或现场演示脚本（demo story）
+*   Architecture diagram (components and data flow)
+*   API documentation (at minimum: chat, ingest, eval endpoints)
+*   Knowledge base samples (if copyright restricted, use synthetic/public materials)
+*   Evaluation set and evaluation script
+*   Demo recording or a live demo script (demo story)
 
-## 验收标准（Acceptance）
+## Acceptance Criteria
 
-*   对“知识库内问题”回答能提供引用，且引用可追溯到原文片段
-*   对“知识库外问题”触发拒答/澄清策略（需给出测试用例）
-*   Agent workflow 可稳定运行，工具失败时有降级策略
-*   评测脚本可复现，且至少展示一次迭代带来的指标/失败样例改善
+*   For in-KB questions, answers include citations traceable to source snippets
+*   For out-of-KB questions, refusal/clarification is triggered (provide test cases)
+*   Agent workflows run reliably; tool failures have fallback strategies
+*   Evaluation is reproducible and demonstrates at least one iteration that improves metrics and/or reduces failure cases
 
-## 评分维度（Rubric，建议）
+## Rubric (Suggested)
 
-*   架构合理性与工程质量：35%
-*   RAG 质量与可解释性：30%
-*   Agent 设计与稳定性：20%
-*   评测与迭代证据：15%
+*   Architecture and engineering quality: 35%
+*   RAG quality and explainability: 30%
+*   Agent design and stability: 20%
+*   Evaluation and iteration evidence: 15%
 
-## 加分项（Stretch Goals）
+## Stretch Goals
 
-*   混合检索（BM25 + 向量）与 rerank
-*   prompt 注入防护与工具白名单策略强化
-*   基本压测与 p95 延迟统计
-*   反馈驱动的自动化数据回收与再索引策略
+*   Hybrid retrieval (BM25 + vectors) and rerank
+*   Prompt-injection defenses and stronger tool allowlist strategies
+*   Basic load testing and p95 latency reporting
+*   Feedback-driven automated data collection and re-indexing strategy

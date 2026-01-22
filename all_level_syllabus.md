@@ -9,7 +9,7 @@ This syllabus follows a **sequential progression** approach. It develops four co
 | Level | Focus Pillars | Key Goal |
 | :--- | :--- | :--- |
 | **Level 1** | **AI fundamentals + Python practice** | Build the foundation: understand principles, write Python, and reliably call APIs. |
-| **Level 2** | **System design + AI application engineering** | Build systems: master RAG/Agents and ship quickly with AI-assisted coding (Vibe Coding). |
+| **Level 2** | **System design + AI application engineering** | Build systems: master RAG/agents and ship quickly with AI-assisted coding (Vibe Coding). |
 | **Level 3** | **Fine-tuning + meta-learning** | Optimize deeply: master fine-tuning/evaluation and become capable of research-grade self-learning and problem solving. |
 
 ### Delivery Format
@@ -42,7 +42,7 @@ This syllabus follows a **sequential progression** approach. It develops four co
 | :--- | :--- | :--- | :--- |
 | **Complete beginners (non-technical)** | Level 1 | Basic CLI usage; can write simple Python scripts (vars/loops/functions); can read the “usage” section of English docs | Level 1 -> Level 2 -> Level 3 |
 | **Junior developers (technical background)** | Level 1 or Level 2 | Familiar with at least one of Git/HTTP/SQL; can finish a small web/script project | Level 1 (fast-track) -> Level 2 -> Level 3 |
-| **Senior developers (experienced)** | Level 2 or Level 3 | Comfortable with system design and engineering; can debug independently; has production delivery experience | Level 2 (fill in LLM/RAG/Agents) -> Level 3 (deep optimization) |
+| **Senior developers (experienced)** | Level 2 or Level 3 | Comfortable with system design and engineering; can debug independently; has production delivery experience | Level 2 (fill in LLM/RAG/agents) -> Level 3 (deep optimization) |
 
 ### Graduation Competency Matrix
 

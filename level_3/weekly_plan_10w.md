@@ -1,87 +1,87 @@
-# Level 3（深度优化与专家阶段）10 周周计划（每周 5 课时）
+# Level 3 (Deep Optimization & Expert Track) 10-Week Plan (5 class hours/week)
 
-## 每周授课节奏（建议模板）
+## Weekly Teaching Rhythm (Recommended)
 
-*   **2 课时**：原理与设计权衡（为什么这么做、边界在哪里）
-*   **1 课时**：案例拆解（开源实现/生产问题复盘/论文思路）
-*   **2 课时**：实验/部署 Workshop（跑通、记录、对比、定位瓶颈）
-
----
-
-## 10 周基准计划（10W Baseline）
-
-### Week 1：实验可复现与数据版本化（为微调做准备）
-
-*   **讲授（3h）**：实验记录规范、数据版本与泄漏、训练日志与回滚；最小对照实验设计
-*   **Workshop（2h）**：建立实验模板：配置文件 + 日志目录 + 结果汇总脚本
-*   **产出**：`experiments/` 模板（能跑一次 baseline 推理评测）
-
-### Week 2：微调全景（SFT/LoRA/QLoRA）与数据结构
-
-*   **讲授（3h）**：SFT 与对齐流程直觉；LoRA/QLoRA 的参数效率与边界
-*   **Workshop（2h）**：准备指令数据格式（instruction/input/output）；构建数据审计脚本
-*   **产出**：数据审计报告（长度分布/重复率/敏感信息排查策略说明）
-
-### Week 3：SFT 实战（第一条可复现训练链路）
-
-*   **讲授（3h）**：训练超参、过拟合迹象、checkpoint 策略；训练失败的常见原因
-*   **Workshop（2h）**：跑通一次 LoRA 微调，导出 adapter 并进行推理验证
-*   **产出**：一次完整实验记录（配置、曲线、样例、失败点）
-
-### Week 4：微调评测（证明是否变好）
-
-*   **讲授（3h）**：评测设计（基准集/对照/盲测）；LLM-as-a-Judge 的风险与校准思路
-*   **Workshop（2h）**：搭建评测脚本：对比 base vs fine-tuned，输出指标 + 失败样例
-*   **产出**：`eval_compare.py` + 失败样例分析
-
-### Week 5：偏好优化与数据迭代（选修方向，可做轻量 DPO）
-
-*   **讲授（3h）**：偏好数据、DPO/RLHF 直觉；何时该做、何时不该做
-*   **Workshop（2h）**：基于失败样例做一轮数据迭代（补数据/改模板/再训练）
-*   **产出**：迭代证据包（问题 -> 数据改动 -> 结果对比）
-
-### Week 6：量化（质量-性能-成本三角）
-
-*   **讲授（3h）**：GGUF/AWQ/GPTQ 的基本差异；量化误差与任务敏感性
-*   **Workshop（2h）**：做一次量化对比：质量回归 + 显存/速度收益记录
-*   **产出**：量化对比报告（收益与代价）
-
-### Week 7：推理服务化与并发（vLLM 或等价方案）
-
-*   **讲授（3h）**：吞吐/延迟/p95/p99；批处理、KV cache、流式输出；限流与熔断
-*   **Workshop（2h）**：部署推理服务 + 写压测脚本，输出延迟分布与吞吐
-*   **产出**：压测结果与瓶颈初步分析
-
-### Week 8：线上可用性（监控、回放、降级）
-
-*   **讲授（3h）**：可观测最小集（日志/指标/trace）；故障回放；降级策略（模型/检索/功能）
-*   **Workshop（2h）**：为推理服务加入健康检查、基本指标输出与失败重试/降级策略
-*   **产出**：可运行的“线上最小可用”部署形态说明
-
-### Week 9：Meta Learning 强化（源码阅读 + 复杂 Debug 演练）
-
-*   **讲授（3h）**：源码阅读路径；最小复现/二分定位；OOM 与性能瓶颈定位套路
-*   **Workshop（2h）**：完成一次“问题档案”：从报错 -> 复现 -> 定位 -> 修复 -> 回归
-*   **产出**：Issue Dossier（可复现、可回归）
-
-### Week 10：Capstone 全链路答辩（企业级方案）
-
-*   **讲授（3h）**：如何呈现“效果证据 + 性能证据 + 风险说明”；如何写技术方案文档
-*   **Workshop（2h）**：最终答辩与走读：流水线复现、评测复跑、压测复现
-*   **产出**：Capstone 最终交付 + 复盘与下一步路线
+*   **2 class hours**: principles and design tradeoffs (why we do it, and where the boundaries are)
+*   **1 class hour**: case study (open-source implementations, production incident retrospectives, paper ideas)
+*   **2 class hours**: experiment/deployment workshop (run it, record it, compare it, find bottlenecks)
 
 ---
 
-## 8 周压缩建议（8W Compression）
+## 10-Week Baseline Plan
 
-*   **合并 Week 2-3**：数据准备 + LoRA 微调一次跑通
-*   **合并 Week 4-5**：评测 + 轻量迭代合并，以“有证据”为底线
-*   **Week 8（线上可用性）**：压缩为“最小监控 + 健康检查 + 降级策略说明”
+### Week 1: Reproducibility & Data Versioning (Preparing for Fine-Tuning)
+
+*   **Lecture (3h)**: experiment logging standards, data versions and leakage, training logs and rollback; minimal controlled experiment design
+*   **Workshop (2h)**: build an experiment template: config files + log directories + result summarization scripts
+*   **Deliverable**: an `experiments/` template (can run one baseline inference evaluation)
+
+### Week 2: Fine-Tuning Landscape (SFT/LoRA/QLoRA) + Data Formats
+
+*   **Lecture (3h)**: SFT and alignment intuition; parameter efficiency and boundaries of LoRA/QLoRA
+*   **Workshop (2h)**: prepare instruction data format (instruction/input/output); build a data audit script
+*   **Deliverable**: data audit report (length distribution/duplication/sensitive-data checking strategy notes)
+
+### Week 3: SFT in Practice (First Reproducible Training Run)
+
+*   **Lecture (3h)**: hyperparameters, overfitting signals, checkpoint strategy; common training failures
+*   **Workshop (2h)**: run one LoRA fine-tune; export adapters and validate via inference
+*   **Deliverable**: a complete experiment record (configs, curves, samples, failure points)
+
+### Week 4: Fine-Tuning Evaluation (Prove Whether It Improved)
+
+*   **Lecture (3h)**: evaluation design (benchmark/controls/blind tests); risks and calibration for LLM-as-a-Judge
+*   **Workshop (2h)**: build an evaluation script comparing base vs fine-tuned; output metrics + failure cases
+*   **Deliverable**: `eval_compare.py` + failure case analysis
+
+### Week 5: Preference Optimization & Data Iteration (Optional; Light DPO)
+
+*   **Lecture (3h)**: preference data; intuition for DPO/RLHF; when you should/should not use them
+*   **Workshop (2h)**: iterate once based on failure cases (add data / adjust templates / retrain)
+*   **Deliverable**: iteration evidence pack (problem -> data changes -> result comparison)
+
+### Week 6: Quantization (Quality–Performance–Cost Triangle)
+
+*   **Lecture (3h)**: differences between GGUF/AWQ/GPTQ; quantization error and task sensitivity
+*   **Workshop (2h)**: run one quantization comparison: quality regression + VRAM/speed gains
+*   **Deliverable**: quantization comparison report (gains and tradeoffs)
+
+### Week 7: Inference Service & Concurrency (vLLM or Equivalent)
+
+*   **Lecture (3h)**: throughput/latency/p95/p99; batching, KV cache, streaming output; rate limiting and circuit breakers
+*   **Workshop (2h)**: deploy an inference service + write a load test script to measure latency distributions and throughput
+*   **Deliverable**: load test results + initial bottleneck analysis
+
+### Week 8: Production Readiness (Monitoring, Replay, Fallback)
+
+*   **Lecture (3h)**: minimum observability set (logs/metrics/tracing); incident replay; fallback strategies (model/retrieval/features)
+*   **Workshop (2h)**: add health checks, basic metrics output, and retry/fallback strategies to the inference service
+*   **Deliverable**: a runnable “minimum viable production” deployment notes
+
+### Week 9: Meta-Learning Intensive (Source Reading + Complex Debugging)
+
+*   **Lecture (3h)**: source reading paths; minimal reproduction/binary search; OOM and performance bottleneck playbooks
+*   **Workshop (2h)**: complete one “issue dossier”: error -> reproduction -> investigation -> fix -> regression
+*   **Deliverable**: Issue Dossier (reproducible and regression-tested)
+
+### Week 10: Capstone Defense (Enterprise End-to-End Solution)
+
+*   **Lecture (3h)**: presenting “quality evidence + performance evidence + risk notes”; writing a technical proposal
+*   **Workshop (2h)**: final defense and walkthrough: reproduce pipeline, rerun evaluation, reproduce load testing
+*   **Deliverable**: final Capstone delivery + retrospective and next-step roadmap
 
 ---
 
-## 12 周扩展建议（12W Expansion）
+## 8-Week Compression Guidance
 
-*   插入 1 周：**数据质量与对齐风险**（偏差、敏感内容、红队测试、合规）
-*   插入 1 周：**性能深挖**（profiling、GPU 利用率、batch 策略、KV cache 调优）
-*   Capstone 多 1 周：做一次“线上回放评测”与“失败样例驱动的数据再迭代”
+*   **Merge Week 2–3**: data preparation + one LoRA fine-tuning run
+*   **Merge Week 4–5**: evaluation + lightweight iteration; keep “evidence-driven” as the baseline
+*   **Week 8 (production readiness)**: compress to “minimum monitoring + health checks + fallback strategy notes”
+
+---
+
+## 12-Week Expansion Guidance
+
+*   Add 1 week: **Data quality and alignment risks** (bias, sensitive content, red-teaming, compliance)
+*   Add 1 week: **Deep performance profiling** (profiling, GPU utilization, batching strategies, KV cache tuning)
+*   Add 1 Capstone week: **replay-based evaluation** and **failure-case-driven data iteration**
