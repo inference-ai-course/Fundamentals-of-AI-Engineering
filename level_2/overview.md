@@ -1,68 +1,68 @@
-# Level 2（系统构建与工程化）课程概览
+# Level 2 (System Building & Engineering) Overview
 
-## 定位
+## Positioning
 
-**Level 2** 面向具备基本编码能力、希望把 LLM 用于真实业务系统交付的学习者。本 Level 聚焦：
+**Level 2** is for learners who can code and want to deliver LLM capabilities as real systems. This level focuses on:
 
-*   **System Design**：把 AI 能力嵌入产品与服务架构（API/数据/权限/观测/成本）
-*   **AI 应用开发**：RAG、Agent Workflow、多工具编排
-*   **AI 辅助交付**：Vibe Coding/Agentic Coding 的方法论与质量控制
+*   **System Design**: embedding AI capabilities into product/service architecture (APIs, data, permissions, observability, cost)
+*   **AI Application Engineering**: RAG, agent workflows, multi-tool orchestration
+*   **AI-Assisted Delivery**: Vibe Coding / agentic coding methods and quality control
 
-## 适合人群
+## Target Learners
 
-*   有技术背景的初级/中级开发者
-*   完成 Level 1 并希望进入“可上线系统”能力的学习者
+*   Junior/mid-level developers with a technical background
+*   Learners who completed Level 1 and want “deployable system” capability
 
-## 先修要求
+## Prerequisites
 
-*   能独立完成 Python 项目（依赖管理、模块拆分、基础测试）
-*   理解基本 Web 概念（HTTP/JSON）与工程概念（配置、日志、异常）
-*   具备至少一次稳定调用 LLM 的经验（若无，建议先完成 Level 1 的 LLM 工程化部分）
+*   Can independently complete a Python project (dependency management, modularization, basic tests)
+*   Understand basic web concepts (HTTP/JSON) and engineering concepts (configuration, logging, exceptions)
+*   Has experience making stable LLM calls (if not, complete the Level 1 LLM API engineering portion first)
 
-## 教学周期与课时
+## Duration & Weekly Hours
 
-*   **10 周**（可压缩到 8 周或扩展到 12 周）
-*   每周 **5 课时**（建议：2 课时架构讲授 + 1 课时案例拆解 + 2 课时工程 Workshop）
+*   **10 weeks** (can be compressed to 8 weeks or extended to 12 weeks)
+*   **5 class hours per week** (recommended: 2 hours architecture lecture + 1 hour case study + 2 hours engineering workshop)
 
-## 核心能力支柱覆盖
+## Pillar Coverage
 
-*   **System Design（核心）**：RAG 系统分层、数据导入与索引、服务化、扩展性与可观测性
-*   **AI 代码实操（进阶）**：LangChain/LlamaIndex、向量库（Chroma/Milvus 等）、rerank、工具调用
-*   **Meta Learning（工程向）**：读框架源码/文档定位关键接口；用日志与 trace 定位 bug
-*   **AI 概念（应用向）**：检索质量与幻觉成因；评估与反馈闭环的基本方法
+*   **System Design (Core)**: RAG layering, ingestion and indexing, serviceization, scalability, and observability
+*   **AI Engineering (Advanced)**: LangChain/LlamaIndex, vector databases (Chroma/Milvus, etc.), re-ranking (rerank), tool calling
+*   **Meta-Learning (Engineering)**: read framework source/docs to locate key APIs; debug with logs and traces
+*   **AI Concepts (Applied)**: retrieval quality and hallucination causes; basics of evaluation and feedback loops
 
-## 学习产出（Learning Outcomes）
+## Learning Outcomes
 
-完成 Level 2 后，你应当能够：
+After completing Level 2, you should be able to:
 
-1. 设计并实现端到端 RAG 系统：ETL -> Chunk -> Embedding -> Vector DB -> Retrieval -> Generation
-2. 为 RAG 加入可解释性与质量控制：引用溯源、拒答/澄清、基本离线评测
-3. 实现至少一种 Agent Workflow：规划/工具调用/状态管理/失败恢复
-4. 将系统封装为可运行的服务（API + 配置 + 日志 + 基本测试），具备交付 Demo 的能力
-5. 使用 AI 辅助开发提升交付效率，但能通过测试/审查保证代码质量
+1. Design and implement an end-to-end RAG system: ETL -> Chunk -> Embedding -> Vector DB -> Retrieval -> Generation
+2. Add explainability and quality controls: citations, refusal/clarification, minimal offline evaluation
+3. Implement at least one agent workflow: planning/tool calling/state management/failure recovery
+4. Package the system as a runnable service (API + config + logs + basic tests) and deliver a demo
+5. Use AI-assisted development to speed up delivery while maintaining quality through tests/review
 
-## 推荐技术栈（Level 2）
+## Recommended Tech Stack (Level 2)
 
-*   Python Web：FastAPI（推荐）
-*   RAG 框架：LangChain 或 LlamaIndex（二选一即可）
-*   向量库：Chroma（本地/轻量）或 Milvus（工程化/可扩展）
-*   评测：Ragas（RAG 评测）或自建最小评测脚本
-*   可观测性：结构化日志 + 请求 ID + 基本 trace（实现方式自定）
+*   Python web: FastAPI (recommended)
+*   RAG framework: LangChain or LlamaIndex (choose one)
+*   Vector DB: Chroma (local/lightweight) or Milvus (more scalable/production-oriented)
+*   Evaluation: Ragas (RAG evaluation) or a minimal custom evaluation script
+*   Observability: structured logs + request IDs + basic tracing (implementation is flexible)
 
-## 考核与评分建议（可选）
+## Assessment (Suggested)
 
-*   平时作业：35%
-*   课堂 Lab/Workshop：25%
-*   Capstone 项目：40%
+*   Homework: 35%
+*   Labs/Workshops: 25%
+*   Capstone: 40%
 
-## 结课门槛（Exit Criteria）
+## Exit Criteria
 
-*   能交付一个端到端 RAG + Agent 的 Web 应用 Demo
-*   系统具备基本的可解释性与失败策略（引用/拒答/降级）
-*   有最小评测集与可复现评测脚本
+*   Deliver a runnable web app demo with end-to-end RAG + an agent workflow
+*   The system has basic explainability and failure strategies (citations/refusal/fallback)
+*   Includes a minimal evaluation set and a reproducible evaluation script
 
-## 文档导航
+## Document Navigation
 
-*   周计划：见 [weekly_plan_10w.md](weekly_plan_10w.md)
-*   作业列表与要求：见 [assignments.md](assignments.md)
-*   Capstone 项目说明：见 [capstone.md](capstone.md)
+*   Weekly plan: see [weekly_plan_10w.md](weekly_plan_10w.md)
+*   Assignments: see [assignments.md](assignments.md)
+*   Capstone: see [capstone.md](capstone.md)

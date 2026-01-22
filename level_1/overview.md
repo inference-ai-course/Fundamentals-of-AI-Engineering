@@ -1,62 +1,62 @@
-# Level 1（基础夯实）课程概览
+# Level 1 (Foundation) Overview
 
-## 定位
+## Positioning
 
-**Level 1** 面向需要从 0 到 1 建立 AI 与 LLM 工程基础的学习者，强调“概念直觉 + Python 实操 + 可复现的小项目交付”。
+**Level 1** is designed for learners who need to build GenAI/LLM engineering fundamentals from 0 to 1. The emphasis is on **concept intuition + Python hands-on practice + reproducible small project delivery**.
 
-## 适合人群
+## Target Learners
 
-*   非技术背景小白（希望转型 AI/数据/应用开发）
-*   有技术背景但 AI 基础不系统的开发者（希望补齐 ML/LLM 基础与工程习惯）
+*   Complete beginners (non-technical background) who want to transition into AI/data/application development
+*   Developers with a technical background but without a systematic AI foundation (want to fill in ML/LLM fundamentals and engineering habits)
 
-## 先修要求
+## Prerequisites
 
-*   能完成基础命令行操作（安装依赖、运行脚本、查看日志）
-*   具备最基本的编程概念（变量、分支、循环、函数）；如不具备，建议在开课前用 1 周完成 Python 入门
+*   Can do basic CLI operations (install dependencies, run scripts, read logs)
+*   Has basic programming concepts (variables, conditionals, loops, functions). If not, complete a 1-week Python crash course before starting.
 
-## 教学周期与课时
+## Duration & Weekly Hours
 
-*   **10 周**（可压缩到 8 周或扩展到 12 周）
-*   每周 **5 课时**（建议：3 课时讲授/讨论 + 2 课时 Lab/Workshop）
+*   **10 weeks** (can be compressed to 8 weeks or extended to 12 weeks)
+*   **5 class hours per week** (recommended: 3 hours lecture/discussion + 2 hours lab/workshop)
 
-## 核心能力支柱覆盖
+## Pillar Coverage
 
-*   **AI 概念（基础）**：训练/验证/过拟合、损失函数与指标、Transformer/Token/上下文窗口等
-*   **AI 代码实操（基础）**：Python 数据栈、传统 ML 小实验、LLM API 工程化调用、本地推理（Ollama）
-*   **Meta Learning（入门）**：能读官方文档“用法章节”、能做最小复现与基础 Debug
-*   **System Design（入门）**：能把脚本拆成模块（配置/数据/模型/报告/日志），并用清晰接口组织代码
+*   **AI Concepts (Basics)**: train/validation/overfitting, loss functions and metrics, Transformers/tokens/context window
+*   **AI Engineering (Basics)**: Python data stack, traditional ML mini-experiments, production-minded LLM API usage, local inference (Ollama)
+*   **Meta-Learning (Intro)**: read the “usage” section of official docs; create minimal reproductions and do basic debugging
+*   **System Design (Intro)**: modularize scripts (config/data/model/report/logging) and use clear interfaces
 
-## 学习产出（Learning Outcomes）
+## Learning Outcomes
 
-完成 Level 1 后，你应当能够：
+After completing Level 1, you should be able to:
 
-1. 解释传统 ML 与 LLM 的关键基础概念，并能对一个问题选择合适的基线方案
-2. 用 Python 完成一次可复现的 ML 小实验（数据切分、训练、评估、保存产物）
-3. 稳定调用至少一种在线 LLM API，并具备工程化能力（超时、重试、日志、限流、缓存的基础实现）
-4. 使用本地推理（Ollama）运行并对比不同模型的输出质量与性能差异
-5. 交付一个可运行的 Capstone 项目，并具备 README/环境/可复现运行方式
+1. Explain key fundamentals of traditional ML and LLMs, and choose a reasonable baseline approach for a task
+2. Complete a reproducible ML mini-experiment in Python (data split, training, evaluation, saving artifacts)
+3. Reliably call at least one hosted LLM API with basic production practices (timeouts, retries, logging, rate limiting, simple caching)
+4. Run local inference (Ollama) and compare model output quality and performance differences
+5. Deliver a runnable Capstone project with a README, environment setup, and reproducible run steps
 
-## 推荐技术栈（Level 1）
+## Recommended Tech Stack (Level 1)
 
-*   Python 3.10+（建议 3.11）
-*   基础库：`numpy`、`pandas`、`scikit-learn`、`matplotlib`/`seaborn`
-*   工程化：`pytest`、`python-dotenv`（或等价）、结构化日志（任意实现方式）
-*   LLM：在线 API（OpenAI/Anthropic/等价）+ 本地 Ollama
+*   Python 3.10+ (recommended 3.11)
+*   Core libraries: `numpy`, `pandas`, `scikit-learn`, `matplotlib`/`seaborn`
+*   Engineering: `pytest`, `python-dotenv` (or equivalent), structured logging (any reasonable implementation)
+*   LLM: hosted API (OpenAI/Anthropic/equivalent) + local inference via Ollama
 
-## 考核与评分建议（可选）
+## Assessment (Suggested)
 
-*   平时作业（Homework）：40%
-*   实验/Lab 完成度：20%
-*   Capstone 项目：40%
+*   Homework: 40%
+*   Labs/Workshops: 20%
+*   Capstone: 40%
 
-## 结课门槛（Exit Criteria）
+## Exit Criteria
 
-*   能独立完成一个带配置、日志、错误处理的 Python 小项目
-*   能解释训练/验证/过拟合与常见指标含义，并给出至少一次实验对比
-*   能稳定调用至少一种在线 LLM API 与一种本地推理方案
+*   Independently complete a small Python project with configuration, logging, and error handling
+*   Explain train/validation/overfitting and common metrics, and provide at least one experiment comparison
+*   Reliably call at least one hosted LLM API and one local inference option
 
-## 文档导航
+## Document Navigation
 
-*   周计划：见 [weekly_plan_10w.md](weekly_plan_10w.md)
-*   作业列表与要求：见 [assignments.md](assignments.md)
-*   Capstone 项目说明：见 [capstone.md](capstone.md)
+*   Weekly plan: see [weekly_plan_10w.md](weekly_plan_10w.md)
+*   Assignments: see [assignments.md](assignments.md)
+*   Capstone: see [capstone.md](capstone.md)

@@ -1,31 +1,31 @@
-# Level 1 Capstone：智能数据分析脚本
+# Level 1 Capstone: Intelligent Data Analysis Script
 
-## 项目目标
+## Project Goal
 
-实现一个可复现运行的 Python 工程：读取 CSV 数据，通过传统统计分析 + LLM 解释生成结构化报告，体现“基础 ML/数据直觉 + LLM 工程化调用 + 软件工程基本功”。
+Deliver a reproducible Python project that reads CSV data and produces a structured report via **traditional statistics + LLM explanations**. This Capstone should demonstrate **basic ML/data intuition + production-minded LLM calls + software engineering fundamentals**.
 
-## 功能范围（MVP）
+## MVP Scope
 
-*   **输入**：CSV 文件路径
-*   **处理**：
-    *   数据概览：列类型、缺失值、重复值、基本统计
-    *   异常提示：可用简单规则（IQR/Z-score/自定义阈值）
-    *   抽样与压缩：避免把整表直接塞给模型
-    *   LLM 解释：用结构化 Prompt 生成“洞察 + 建议 + 风险提示”
-*   **输出**：
-    *   `report.json`（机器可读、结构稳定）
-    *   `report.md`（人类可读）
+*   **Input**: CSV file path
+*   **Processing**:
+    *   Data overview: column types, missing values, duplicates, basic statistics
+    *   Anomaly hints: simple rules are fine (IQR / Z-score / custom thresholds)
+    *   Sampling & compression: avoid sending the entire dataset to the model
+    *   LLM interpretation: use structured prompts to generate “insights + recommendations + risk notes”
+*   **Output**:
+    *   `report.json` (machine-readable, stable schema)
+    *   `report.md` (human-readable)
 
-## 非功能要求
+## Non-Functional Requirements
 
-*   **稳定性**：具备超时、重试与可理解的错误信息
-*   **可复现**：提供环境文件（`requirements.txt` 或 `pyproject.toml`）与 README
-*   **可维护**：代码按模块组织（例如：data/llm/report/utils）
-*   **可测试**：至少 3 个测试用例（正常输入、空/缺列、超长/异常数据）
+*   **Reliability**: timeouts, retries, and clear error messages
+*   **Reproducibility**: provide an environment file (`requirements.txt` or `pyproject.toml`) and a README
+*   **Maintainability**: organize code into modules (e.g., data/llm/report/utils)
+*   **Testability**: at least 3 test cases (normal input, empty/missing columns, oversized/invalid data)
 
-## 推荐项目结构（示例）
+## Suggested Project Structure (Example)
 
-*   `analyze.py`（CLI 入口）
+*   `analyze.py` (CLI entrypoint)
 *   `src/`
     *   `data_profile.py`
     *   `sampling.py`
@@ -34,33 +34,33 @@
 *   `tests/`
 *   `README.md`
 
-## 交付物（Deliverables）
+## Deliverables
 
-*   代码仓库（或目录）
-*   可一键运行命令（写在 README）：
+*   Source code repository (or a directory)
+*   One-command run instructions in README:
     *   `python analyze.py --input data.csv --out output/`
-*   输出样例（`output/` 目录至少包含一次成功运行产物）
-*   `postmortem.md`：记录 1 个你遇到的关键问题（比如输出不稳定/超时/数据太大）与解决过程
+*   Output samples (the `output/` directory contains at least one successful run)
+*   `postmortem.md`: document one key issue you encountered (e.g., unstable outputs/timeouts/large data) and how you solved it
 
-## 验收标准（Acceptance）
+## Acceptance Criteria
 
-*   10MB 以内 CSV 能稳定运行；失败要输出可理解的错误原因
-*   LLM 输出结构稳定：`report.json` 字段固定，不随运行漂移
-*   具备重试/超时；日志可定位失败阶段（数据处理/模型调用/输出写入）
-*   报告内容至少包含：
-    *   数据概览
-    *   异常与风险提示
-    *   至少 3 条可行动建议
+*   Runs reliably on CSV files up to 10MB; failures must have understandable error messages
+*   Stable LLM output schema: `report.json` fields should not drift across runs
+*   Includes retries/timeouts; logs can pinpoint which stage failed (data processing / model call / output writing)
+*   Report must include at least:
+    *   Data overview
+    *   Anomalies and risk notes
+    *   At least 3 actionable recommendations
 
-## 评分维度（Rubric，建议）
+## Rubric (Suggested)
 
-*   工程质量（结构/可读性/可运行性/测试）：40%
-*   稳定性与失败处理（超时/重试/日志/边界）：30%
-*   报告质量（结构、洞察合理性、可行动建议）：30%
+*   Engineering quality (structure/readability/runnability/tests): 40%
+*   Reliability and failure handling (timeouts/retries/logging/edge cases): 30%
+*   Report quality (structure, reasonable insights, actionable recommendations): 30%
 
-## 加分项（Stretch Goals）
+## Stretch Goals
 
-*   增加简单可视化输出（图表 + 自动嵌入报告）
-*   支持多数据源（CSV + Excel）
-*   支持本地推理与在线 API 的可切换后端（统一接口）
-*   增加缓存：同一输入数据哈希命中则复用 LLM 结果
+*   Add simple visualizations (charts + auto-embedded into the report)
+*   Support multiple data sources (CSV + Excel)
+*   Switchable backends for local inference vs hosted APIs (unified interface)
+*   Add caching: reuse LLM results when the input data hash matches

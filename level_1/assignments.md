@@ -1,63 +1,64 @@
-# Level 1 作业与评测（Assignments & Assessment）
+# Level 1 Assignments & Assessment
 
-## 提交规范（建议）
+## Submission Guidelines (Recommended)
 
-*   每次作业必须包含：
-    *   可运行方式（README，含环境与命令）
-    *   关键输出样例（截图或示例文件）
-    *   失败场景说明（至少 1 个你遇到的坑与解决过程）
+Each assignment submission should include:
 
-## 作业列表（建议 6 次 + 1 个 Capstone）
+*   How to run (README with environment setup and commands)
+*   Key output examples (screenshots or sample output files)
+*   Failure case notes (at least one pitfall you encountered and how you fixed it)
 
-### A1：数据剖析脚本（Data Profiling）
+## Assignment List (Suggested: 6 assignments + 1 Capstone)
 
-*   **目标**：熟悉 Pandas/数据清洗，建立“输出可复现结果”的习惯
-*   **要求**：
-    *   输入：CSV 路径
-    *   输出：缺失值统计、数值列分布、异常值提示（规则自定）、保存到 `output/`
-*   **验收**：对异常输入（空文件/缺列）有明确错误信息
+### A1: Data Profiling Script
 
-### A2：传统 ML 最小训练闭环
+*   **Goal**: Get comfortable with Pandas/data cleaning and build the habit of reproducible outputs
+*   **Requirements**:
+    *   Input: CSV path
+    *   Output: missing-value stats, numeric column distributions, anomaly hints (your rule), saved to `output/`
+*   **Acceptance**: Clear error messages for invalid inputs (empty file/missing columns)
 
-*   **目标**：掌握训练/验证/评估/保存
-*   **要求**：`train.py` 支持参数化（数据路径、模型类型、随机种子）
-*   **验收**：输出指标（至少 Accuracy/F1 二选一）+ 保存模型文件
+### A2: Minimal Traditional ML Training Loop
 
-### A3：对比实验与失败复盘
+*   **Goal**: Master train/validation/evaluate/save
+*   **Requirements**: `train.py` is parameterized (data path, model type, random seed)
+*   **Acceptance**: Print metrics (at least one of Accuracy/F1) + save model artifacts
 
-*   **目标**：建立“对比基线”的实验思维
-*   **要求**：
-    *   对比 2 组超参或 2 个模型
-    *   写 `report.md`：记录一次失败实验与改进思路
-*   **验收**：实验可复现（同样命令重复跑，结果波动可解释）
+### A3: Comparative Experiments + Failure Retrospective
 
-### A4：Prompt 结构化输出（JSON Schema）
+*   **Goal**: Build baseline comparison thinking
+*   **Requirements**:
+    *   Compare two hyperparameter sets or two models
+    *   Write `report.md`: one failed experiment and how you would iterate
+*   **Acceptance**: Reproducible runs (re-running the same command yields explainable variance)
 
-*   **目标**：从提示词走向“接口契约”
-*   **要求**：实现一个信息抽取任务，输出 JSON；对不合格输出做重试或修复
-*   **验收**：至少覆盖 3 个边界输入（短文本/长文本/噪声文本）
+### A4: Structured Prompt Outputs (JSON Schema)
 
-### A5：LLM Client 工程化
+*   **Goal**: Move from “prompts” to “API contracts”
+*   **Requirements**: Implement an information extraction task with JSON output; retry/repair invalid outputs
+*   **Acceptance**: Cover at least 3 edge inputs (short text/long text/noisy text)
 
-*   **目标**：学会稳定调用模型
-*   **要求**：实现 `llm_client.py`（超时、重试、日志、简单缓存）
-*   **验收**：有单元测试；能模拟失败并验证重试逻辑
+### A5: Production-Minded LLM Client
 
-### A6：本地推理对比与结论
+*   **Goal**: Reliably call models
+*   **Requirements**: Implement `llm_client.py` (timeouts, retries, logging, simple caching)
+*   **Acceptance**: Includes unit tests; can simulate failures and validate retry behavior
 
-*   **目标**：理解本地推理的价值与限制
-*   **要求**：用 Ollama 对比 2-3 个模型在同一任务上的质量/延迟；提交对比报告
-*   **验收**：结论必须包含“适用场景”与“风险/限制”
+### A6: Local Inference Comparison and Conclusions
+
+*   **Goal**: Understand the value and limitations of local inference
+*   **Requirements**: Use Ollama to compare 2–3 models on the same task (quality/latency); submit a comparison report
+*   **Acceptance**: Conclusions must include “best-fit scenarios” and “risks/limitations”
 
 ---
 
-## 短测与课堂活动（可选）
+## Quizzes & In-Class Activities (Optional)
 
-*   每 2 周一次 10 分钟短测：概念辨析（训练/验证、过拟合、Token、Context Window）
-*   代码走读：每人挑选一次作业中的关键模块，讲清楚输入/输出与错误处理
+*   Bi-weekly 10-minute quizzes: concept checks (train/validation, overfitting, tokens, context window)
+*   Code walkthroughs: each learner explains one key module from an assignment (I/O and error handling)
 
 ---
 
 ## Capstone
 
-Capstone 要求见 [capstone.md](capstone.md)
+See [capstone.md](capstone.md) for Capstone requirements.
