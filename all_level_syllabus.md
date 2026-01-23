@@ -12,9 +12,18 @@ This syllabus follows a **sequential progression** approach. It develops four co
 | **Level 2** | **System design + AI application engineering** | Build systems: master RAG/agents and ship quickly with AI-assisted coding (Vibe Coding). |
 | **Level 3** | **Fine-tuning + meta-learning** | Optimize deeply: master fine-tuning/evaluation and become capable of research-grade self-learning and problem solving. |
 
+### Key Terms (Quick Glossary)
+
+*   **RAG**: Retrieval-Augmented Generation (retrieve context, then generate an answer).
+*   **Agent / agent workflow**: a multi-step process where an LLM uses tools and state to complete tasks.
+*   **SFT**: Supervised Fine-Tuning (fine-tune on instruction-response pairs).
+*   **RLHF**: Reinforcement Learning from Human Feedback (preference optimization methods).
+*   **DPO**: Direct Preference Optimization (a simpler preference-optimization method).
+*   **LoRA / QLoRA**: parameter-efficient fine-tuning (QLoRA uses quantization to reduce training VRAM).
+
 ### Delivery Format
 
-*   Each level is designed as **10 weeks** (can be compressed to **8 weeks** or extended to **12 weeks**).
+*   Each level is designed as **8 weeks** (can be expanded to **10 weeks** or extended to **12 weeks**).
 *   **5 class hours per week** (recommended split: 3 hours lecture/discussion + 2 hours lab/workshop).
 *   Each level ends with one assessable Capstone/Project.
 
@@ -46,6 +55,8 @@ This syllabus follows a **sequential progression** approach. It develops four co
     *   Bridge checklist: [Level 2 overview -> Beginner Bridge](level_2/overview.md#beginner-bridge-if-level-2-feels-too-steep)
     *   Terms glossary: [Level 2 overview -> Key Terms](level_2/overview.md#key-terms-quick-glossary)
     *   Definition of done: [Level 2 assignments -> Definition of Done](level_2/assignments.md#definition-of-done-level-2)
+*   Level 3:
+    *   Terms glossary: [Level 3 overview -> Key Terms](level_3/overview.md#key-terms-quick-glossary)
 
 ### Placement (Tracks)
 

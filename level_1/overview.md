@@ -14,6 +14,14 @@
 *   Can do basic CLI operations (install dependencies, run scripts, read logs)
 *   Has basic programming concepts (variables, conditionals, loops, functions). If not, complete a 1-week Python crash course before starting.
 
+## For Learners Without an Engineering Background
+
+If you have never used Git, testing frameworks, or production-style logging, Level 1 is still designed to be approachable:
+
+*   Git is helpful but not required at the beginning (a zipped project folder is an acceptable submission format).
+*   Automated tests are introduced gradually; early on, a clear manual test checklist is acceptable.
+*   The course emphasizes “runnable code + reproducible outputs” over advanced engineering patterns.
+
 ## Onboarding Checklist (Week 0)
 
 Before Week 1, learners should be able to complete these steps end-to-end:
@@ -31,6 +39,61 @@ If any of the above steps fail, the learner should be able to provide:
 *   The full error output
 *   Their OS/Python version
 
+## How to Ask for Help (Required)
+
+When you ask for help (from instructors, classmates, or online), follow this procedure:
+
+1. Reproduce the issue at least once (do not guess).
+2. Copy/paste the exact command you ran and the full output.
+3. Identify what you expected vs what happened.
+4. Do a quick search first (official docs / error message / GitHub issues).
+5. Make a minimal reproduction if possible (smallest script/input that still fails).
+6. Share what you already tried (so others do not repeat your steps).
+
+Required items in every help request:
+
+*   Goal: what you are trying to do
+*   Context: which assignment / which step
+*   Exact command(s) + full output (not screenshots only)
+*   Your environment: OS, Python version, dependency file (`requirements.txt` or `pyproject.toml`)
+*   Relevant code snippet(s) (the smallest piece that shows the issue)
+*   What you tried + what changed
+
+## Essential Engineering Tools (Beginner Primer)
+
+You do not need to master these on Day 1, but you should recognize what they are and why they matter:
+
+*   **IDE (VS Code)**: where you edit code, run/debug, and manage projects.
+*   **Git**: version control (save checkpoints, collaborate, roll back changes).
+*   **SSH**: secure remote access to servers (common for deployment and remote GPUs).
+*   **Linux commands**: basic terminal skills to run scripts, inspect files, and read logs.
+*   **Docker**: packages an app + dependencies so it runs consistently on different machines.
+
+## How to Search and Read Technical Docs
+
+Practical habits that prevent getting stuck:
+
+*   Prefer official docs for installation and quickstarts; use GitHub issues for specific error messages.
+*   Search with concrete keywords:
+    *   library name + error message (or a key phrase from the traceback)
+    *   library name + "quickstart" / "examples" / "API reference"
+    *   "python" + task + "minimal example"
+*   Learn the structure of typical docs pages:
+    *   Installation / Requirements
+    *   Quickstart / Tutorial
+    *   Examples
+    *   API Reference
+    *   FAQ / Troubleshooting
+*   Using AI is encouraged, but include the source link and ask targeted questions (e.g., "Explain this traceback" or "What is the minimal change needed?").
+
+## Debug / Test / Deploy (Basic Workflow)
+
+You will practice this loop repeatedly in Level 1:
+
+*   **Debug**: read the full error, isolate the failing line, simplify inputs, add prints/logs, and confirm the fix by re-running.
+*   **Test**: define 3+ test cases (normal + edge + failure), and run them after every change (manual checklist is acceptable early).
+*   **Deploy**: make the project runnable from a clean environment using README steps, configure secrets via `.env`, and verify a basic health run (script completes or API endpoint responds).
+
 ## Key Terms (Quick Glossary)
 
 *   **CLI**: Command-line interface (a terminal where you run commands).
@@ -40,7 +103,12 @@ If any of the above steps fail, the learner should be able to provide:
 *   **`requirements.txt` / `pyproject.toml`**: files that declare project dependencies.
 *   **README**: the first file people read; should explain setup, how to run, and expected outputs.
 *   **pytest**: a Python testing framework used to run automated tests.
+*   **Train/validation split**: splitting data into training vs evaluation portions to avoid fooling yourself.
+*   **Overfitting**: when a model memorizes training data but performs poorly on new data.
 *   **LLM**: Large language model.
+*   **Tokenization**: converting text into tokens that a model can process.
+*   **Context window**: the maximum number of tokens a model can consider at once.
+*   **Transformer**: the neural network architecture behind most modern LLMs.
 *   **Hosted API**: A cloud model endpoint you call over HTTP (usually needs an API key).
 *   **Timeout / retry**: Reliability controls for network calls (stop waiting after a limit; try again on failure).
 *   **Structured output / JSON schema**: A fixed output format that code can reliably parse.
@@ -48,7 +116,7 @@ If any of the above steps fail, the learner should be able to provide:
 
 ## Duration & Weekly Hours
 
-*   **10 weeks** (can be compressed to 8 weeks or extended to 12 weeks)
+*   **8 weeks** (can be expanded to 10 weeks or extended to 12 weeks)
 *   **5 class hours per week** (recommended: 3 hours lecture/discussion + 2 hours lab/workshop)
 
 ## Pillar Coverage

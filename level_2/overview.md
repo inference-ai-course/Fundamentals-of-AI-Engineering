@@ -65,7 +65,7 @@ To reduce decision overhead for learners, use these defaults unless you have a r
 
 ## Duration & Weekly Hours
 
-*   **10 weeks** (can be compressed to 8 weeks or extended to 12 weeks)
+*   **8 weeks** (can be expanded to 10 weeks or extended to 12 weeks)
 *   **5 class hours per week** (recommended: 2 hours architecture lecture + 1 hour case study + 2 hours engineering workshop)
 
 ## Pillar Coverage

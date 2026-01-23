@@ -8,6 +8,13 @@ Each assignment submission should include:
 *   Key output examples (screenshots or sample output files)
 *   Failure case notes (at least one pitfall you encountered and how you fixed it)
 
+If you need help, follow the required procedure in [Level 1 overview](overview.md#how-to-ask-for-help-required) and include:
+
+*   The exact command you ran + full output
+*   Your OS/Python version
+*   A minimal code snippet/input that reproduces the problem
+*   What you tried already
+
 ## Recommended Submission Template
 
 To make grading and debugging easier for beginners, use a consistent structure:
@@ -17,6 +24,8 @@ To make grading and debugging easier for beginners, use a consistent structure:
 *   `src/` (or a small number of top-level scripts)
 *   `tests/` (even if minimal)
 *   `output/` (sample outputs that match your README commands)
+
+If you are not comfortable with Git yet, submitting a zipped folder is acceptable as long as it contains the items above.
 
 Definition of done (quick checklist):
 
@@ -59,7 +68,7 @@ Definition of done (quick checklist):
 
 *   **Goal**: Reliably call models
 *   **Requirements**: Implement `llm_client.py` (timeouts, retries, logging, simple caching)
-*   **Acceptance**: Includes unit tests; can simulate failures and validate retry behavior
+*   **Acceptance**: Includes unit tests (preferred) or a clear manual test checklist; can simulate failures and validate retry behavior
 
 ### A6: Local Inference Comparison and Conclusions
 

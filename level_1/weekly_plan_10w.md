@@ -1,4 +1,4 @@
-# Level 1 (Foundation) 10-Week Plan (5 class hours/week)
+# Level 1 (Foundation) 8-Week Plan (5 class hours/week)
 
 ## Weekly Teaching Rhythm (Recommended)
 
@@ -11,9 +11,10 @@ You can also use a 2+1+2 format:
 *   Session 2 (1 hour): short quiz/recap/code walkthrough
 *   Session 3 (2 hours): lab/workshop
 
+
 ---
 
-## 10-Week Baseline Plan
+## 8-Week Core Plan
 
 ### Week 1: Environment Setup & Data Processing Basics
 
@@ -21,55 +22,43 @@ You can also use a 2+1+2 format:
 *   **Workshop (2h)**: read CSV -> clean missing values -> basic stats -> export report (Markdown/JSON)
 *   **Deliverable**: a runnable `data_profile.py` + README
 
-### Week 2: The ML Training Loop (0 to 1)
+### Week 2: The ML Training Loop + Reproducible Baselines (Merged)
 
-*   **Lecture (3h)**: train/validation split, overfitting/generalization, meaning of losses and metrics
-*   **Workshop (2h)**: `scikit-learn` binary classification: split -> train -> metrics -> save model
-*   **Deliverable**: `train.py` (parameterized) + `report.md` (metric explanation + one failed experiment)
+*   **Lecture (3h)**: train/validation split, overfitting/generalization, meaning of losses and metrics; random seeds and experiment logging
+*   **Workshop (2h)**: `scikit-learn` classification: split -> train -> metrics -> save model; compare 2 settings/models
+*   **Deliverable**: `train.py` (parameterized) + `report.md` (metric explanation + one failed experiment) + minimal `experiments/`
 
-### Week 3: Features, Baselines, and Reproducible Experiments
+### Week 3: LLM Fundamentals + Prompt Engineering (Merged)
 
-*   **Lecture (3h)**: feature intuition, scaling/missing handling, cross-validation; random seeds and experiment logging
-*   **Workshop (2h)**: compare 2 models or 2 hyperparameter sets; output a comparison table and failure cases
-*   **Deliverable**: an `experiments/` folder (config-driven runs)
+*   **Lecture (3h)**: tokenization, context window, Transformer intuition; hallucinations; prompts as API contracts
+*   **Workshop (2h)**: structured JSON output + validation + retries/repair; compare prompt variants
+*   **Deliverable**: `extract.py` (schema-driven) + at least 3 edge input tests
 
-### Week 4: LLM Fundamentals (Intuition)
-
-*   **Lecture (3h)**: tokenization, context window, Transformer intuition; what inference is and why hallucinations happen
-*   **Workshop (2h)**: compare prompt structures for the same task (zero-shot/structured output/examples)
-*   **Deliverable**: `prompt_playground.py` (input file -> structured output)
-
-### Week 5: Prompt Engineering (Controllable Outputs)
-
-*   **Lecture (3h)**: system prompts, constrained outputs, error recovery; from “writing prompts” to “writing API contracts”
-*   **Workshop (2h)**: define an output schema (JSON) for an extraction task and implement validation + retries
-*   **Deliverable**: `extract.py` + schema validation and recovery
-
-### Week 6: LLM API Engineering (Reliability & Cost)
+### Week 4: LLM API Engineering (Reliability & Cost)
 
 *   **Lecture (3h)**: timeouts, retries, rate limiting, idempotency, caching; minimum observability set
 *   **Workshop (2h)**: implement `llm_client.py` (timeouts/retries/simple cache/structured logs)
 *   **Deliverable**: reusable LLM client module + unit tests
 
-### Week 7: Local Inference (Ollama) and Model Comparison
+### Week 5: Local Inference (Ollama) and Model Comparison
 
 *   **Lecture (3h)**: boundaries of local inference (speed/VRAM/capability/context); why local matters
 *   **Workshop (2h)**: install and call Ollama; compare 2–3 models on the same task for quality/latency
 *   **Deliverable**: `benchmark_local_llm.py` + written conclusions
 
-### Week 8: Integrate LLMs into the Data Analysis Pipeline
+### Week 6: Capstone Prototype (End-to-End Flow)
 
-*   **Lecture (3h)**: sampling, long-text splitting, input compression; from “scripts” to reusable pipelines
+*   **Lecture (3h)**: sampling, long-text splitting, input compression; from scripts to pipelines
 *   **Workshop (2h)**: implement CSV -> profiling -> LLM explanation -> report generation
-*   **Deliverable**: a Capstone prototype (main flow runs end-to-end)
+*   **Deliverable**: Capstone prototype (main flow runs end-to-end)
 
-### Week 9: Capstone Engineering & Quality
+### Week 7: Capstone Engineering & Quality
 
 *   **Lecture (3h)**: CLI design, config management (env/config files), error codes and explainable failures
 *   **Workshop (2h)**: add tests, handle edge cases, stabilize outputs (JSON + Markdown)
 *   **Deliverable**: Capstone submission-ready version
 
-### Week 10: Capstone Demo & Retrospective (Preparing for Level 2)
+### Week 8: Capstone Demo & Retrospective (Preparing for Level 2)
 
 *   **Lecture (3h)**: retrospective: what breaks most often; how to prepare for RAG/agents
 *   **Workshop (2h)**: project demo and code walkthrough; refactor once based on feedback
@@ -77,13 +66,12 @@ You can also use a 2+1+2 format:
 
 ---
 
-## 8-Week Compression Guidance
+## 10-Week Expansion Guidance
 
-If you need to compress to 8 weeks, keep the three main threads unchanged: **training loop + LLM engineering + Capstone**.
+If you expand back to 10 weeks, add depth without changing the core arc:
 
-*   **Merge Week 2 & Week 3**: de-emphasize cross-validation details; keep reproducibility and comparisons
-*   **Merge Week 4 & Week 5**: teach LLM intuition + controllable prompting in one week
-*   Capstone: start a 2-week sprint from Week 7 (Week 7–8)
+*   Split Week 2 into “training loop” and “comparative experiments”
+*   Split Week 3 into “LLM fundamentals” and “structured prompting + validation”
 
 ---
 

@@ -21,7 +21,7 @@ Deliver a reproducible Python project that reads CSV data and produces a structu
 *   **Reliability**: timeouts, retries, and clear error messages
 *   **Reproducibility**: provide an environment file (`requirements.txt` or `pyproject.toml`) and a README
 *   **Maintainability**: organize code into modules (e.g., data/llm/report/utils)
-*   **Testability**: at least 3 test cases (normal input, empty/missing columns, oversized/invalid data)
+*   **Testability**: at least 3 test cases (normal input, empty/missing columns, oversized/invalid data). Automated tests are preferred, but a manual test checklist or a simple `smoke_test.py` is acceptable.
 
 ## Suggested Project Structure (Example)
 

@@ -20,9 +20,24 @@
 *   Has basic experimentation and evaluation habits (baseline comparisons, config logging, failure case analysis)
 *   Comfortable with Linux/CLI/log-based debugging
 
+## Key Terms (Quick Glossary)
+
+*   **Fine-tuning**: training a base model on your task data to change its behavior.
+*   **SFT (Supervised Fine-Tuning)**: fine-tuning on instruction-response pairs.
+*   **Preference optimization**: training to follow human preferences (helpfulness/harmlessness/style).
+*   **RLHF**: reinforcement learning from human feedback; a family of methods for preference optimization.
+*   **DPO**: Direct Preference Optimization; a simpler preference-optimization method that avoids full RL loops.
+*   **LoRA**: Low-Rank Adaptation; trains small adapter weights instead of updating all model weights.
+*   **QLoRA**: LoRA with quantization to reduce VRAM during training.
+*   **Checkpoint**: a saved training state you can resume from or compare.
+*   **Offline evaluation**: evaluating with a fixed dataset and scripts (reproducible).
+*   **LLM-as-a-Judge**: using an LLM to score outputs; useful but requires calibration and spot checks.
+*   **Quantization**: reducing numerical precision to speed up inference and reduce memory usage.
+*   **Throughput / latency (p95/p99)**: how many requests you can serve vs how long requests take; tail latency matters in production.
+
 ## Duration & Weekly Hours
 
-*   **10 weeks** (can be compressed to 8 weeks or extended to 12 weeks)
+*   **8 weeks** (can be expanded to 10 weeks or extended to 12 weeks)
 *   **5 class hours per week** (recommended: 2 hours theory + 1 hour case study + 2 hours experiment/deployment workshop)
 
 ## Pillar Coverage
