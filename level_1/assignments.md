@@ -8,6 +8,23 @@ Each assignment submission should include:
 *   Key output examples (screenshots or sample output files)
 *   Failure case notes (at least one pitfall you encountered and how you fixed it)
 
+## Recommended Submission Template
+
+To make grading and debugging easier for beginners, use a consistent structure:
+
+*   `README.md`
+*   `requirements.txt` or `pyproject.toml`
+*   `src/` (or a small number of top-level scripts)
+*   `tests/` (even if minimal)
+*   `output/` (sample outputs that match your README commands)
+
+Definition of done (quick checklist):
+
+*   A clean run works on a new machine after following your README
+*   Inputs/outputs are explicit (paths, formats, schemas)
+*   Errors are readable (not just stack traces without context)
+*   At least one failure case is documented with the fix
+
 ## Assignment List (Suggested: 6 assignments + 1 Capstone)
 
 ### A1: Data Profiling Script

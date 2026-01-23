@@ -14,6 +14,38 @@
 *   Can do basic CLI operations (install dependencies, run scripts, read logs)
 *   Has basic programming concepts (variables, conditionals, loops, functions). If not, complete a 1-week Python crash course before starting.
 
+## Onboarding Checklist (Week 0)
+
+Before Week 1, learners should be able to complete these steps end-to-end:
+
+*   Install Python 3.10+ and confirm `python --version`
+*   Create and activate a virtual environment (venv/conda are both fine)
+*   Install dependencies from `requirements.txt` (or `pyproject.toml`) and run a script successfully
+*   Use Git for clone/commit/pull (or have a clear alternative for submitting code)
+*   Set environment variables for secrets via `.env` (do not hardcode API keys)
+*   (Optional) Install Ollama and run one local model once
+
+If any of the above steps fail, the learner should be able to provide:
+
+*   The exact command they ran
+*   The full error output
+*   Their OS/Python version
+
+## Key Terms (Quick Glossary)
+
+*   **CLI**: Command-line interface (a terminal where you run commands).
+*   **Virtual environment (venv/conda)**: An isolated Python environment so dependencies do not conflict.
+*   **Dependency management**: Installing and pinning packages so a project runs consistently.
+*   **`.env`**: A file for environment variables (commonly used for secrets like API keys).
+*   **`requirements.txt` / `pyproject.toml`**: files that declare project dependencies.
+*   **README**: the first file people read; should explain setup, how to run, and expected outputs.
+*   **pytest**: a Python testing framework used to run automated tests.
+*   **LLM**: Large language model.
+*   **Hosted API**: A cloud model endpoint you call over HTTP (usually needs an API key).
+*   **Timeout / retry**: Reliability controls for network calls (stop waiting after a limit; try again on failure).
+*   **Structured output / JSON schema**: A fixed output format that code can reliably parse.
+*   **Local inference (Ollama)**: Running a model locally on your machine instead of via a hosted API.
+
 ## Duration & Weekly Hours
 
 *   **10 weeks** (can be compressed to 8 weeks or extended to 12 weeks)

@@ -36,6 +36,17 @@ This syllabus follows a **sequential progression** approach. It develops four co
     *   [assignments.md](level_3/assignments.md)
     *   [capstone.md](level_3/capstone.md)
 
+### Beginner Scaffolding (Start Here)
+
+*   Level 1:
+    *   Onboarding checklist: [Level 1 overview -> Onboarding Checklist](level_1/overview.md#onboarding-checklist-week-0)
+    *   Terms glossary: [Level 1 overview -> Key Terms](level_1/overview.md#key-terms-quick-glossary)
+    *   Submission template: [Level 1 assignments -> Recommended Submission Template](level_1/assignments.md#recommended-submission-template)
+*   Level 2:
+    *   Bridge checklist: [Level 2 overview -> Beginner Bridge](level_2/overview.md#beginner-bridge-if-level-2-feels-too-steep)
+    *   Terms glossary: [Level 2 overview -> Key Terms](level_2/overview.md#key-terms-quick-glossary)
+    *   Definition of done: [Level 2 assignments -> Definition of Done](level_2/assignments.md#definition-of-done-level-2)
+
 ### Placement (Tracks)
 
 | Audience | Recommended Start | Entry Criteria (Suggested) | Target Path |

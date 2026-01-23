@@ -10,6 +10,16 @@ Each assignment submission should include:
 
 Each assignment should also include at least one “failure path” note: how you discovered, investigated, and fixed it.
 
+## Definition of Done (Level 2)
+
+For beginner-friendly delivery, each submission should include these minimum artifacts:
+
+*   A single “happy path” command that produces a working demo
+*   A sample input dataset (or instructions to download it) that matches your demo command
+*   A minimal API contract: example request/response JSON for the main endpoint
+*   Logs showing one successful run and one failure run
+*   A short note on what you would monitor in production (even if you do not implement it yet)
+
 ## Assignment List (Suggested: 6 assignments + 1 Capstone)
 
 ### B1: FastAPI Service Skeleton (Engineering Minimum)
