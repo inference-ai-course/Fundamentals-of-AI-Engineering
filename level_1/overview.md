@@ -12,7 +12,7 @@
 ## Prerequisites
 
 *   Can do basic CLI operations (install dependencies, run scripts, read logs)
-*   Has basic programming concepts (variables, conditionals, loops, functions). If not, complete a 1-week Python crash course before starting.
+*   Has basic programming concepts (variables, conditionals, loops, functions). If not, complete Python crash course before starting (Including data structures & Algorithm questions on Leetcode, some OOP concepts and practice).
 
 ## For Learners Without an Engineering Background
 
@@ -157,6 +157,17 @@ After completing Level 1, you should be able to:
 
 ## Document Navigation
 
-*   Weekly plan: see [weekly_plan_10w.md](weekly_plan_10w.md)
+*   Weekly plan: see [weekly_plan_8w.md](weekly_plan_8w.md)
 *   Assignments: see [assignments.md](assignments.md)
 *   Capstone: see [capstone.md](capstone.md)
+
+Weekly concept notes + coding starters (per-week folders):
+
+*   Week 1: [week_01/README.md](week_01/README.md) | [week_01/practice.ipynb](week_01/practice.ipynb)
+*   Week 2: [week_02/README.md](week_02/README.md) | [week_02/practice.ipynb](week_02/practice.ipynb)
+*   Week 3: [week_03/README.md](week_03/README.md) | [week_03/practice.ipynb](week_03/practice.ipynb)
+*   Week 4: [week_04/README.md](week_04/README.md) | [week_04/practice.ipynb](week_04/practice.ipynb)
+*   Week 5: [week_05/README.md](week_05/README.md) | [week_05/practice.ipynb](week_05/practice.ipynb)
+*   Week 6: [week_06/README.md](week_06/README.md) | [week_06/practice.ipynb](week_06/practice.ipynb)
+*   Week 7: [week_07/README.md](week_07/README.md) | [week_07/practice.ipynb](week_07/practice.ipynb)
+*   Week 8: [week_08/README.md](week_08/README.md) | [week_08/practice.ipynb](week_08/practice.ipynb)

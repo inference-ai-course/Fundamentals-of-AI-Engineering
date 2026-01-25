@@ -15,6 +15,11 @@ Deliver an end-to-end, demo-ready, reproducible vertical domain assistant system
 *   Medication knowledge assistant (based on public labels/guidelines)
 *   Teaching assistant (based on course notes/assignments/FAQ)
 *   Financial product assistant (based on product docs/terms/risk disclosures)
+*   Customer support assistant (based on help center articles + ticket snippets)
+*   Developer documentation assistant (based on API docs + changelogs)
+*   HR policy assistant (based on internal policy documents and onboarding guides)
+
+Or propose your own domain, as long as you meet the MVP scope and acceptance criteria (RAG + citations + agent workflow + eval + feedback loop).
 
 ## MVP Scope
 

@@ -4,6 +4,19 @@
 
 Deliver a reproducible Python project that reads CSV data and produces a structured report via **traditional statistics + LLM explanations**. This Capstone should demonstrate **basic ML/data intuition + production-minded LLM calls + software engineering fundamentals**.
 
+## Topic Suggestions (Pick One)
+
+Pick a topic that is interesting to you, but keep the same I/O contract: **CSV in -> `report.json` + `report.md` out**.
+
+*   Sales / revenue analysis (orders, customers, products)
+*   Marketing campaign analysis (impressions, clicks, conversion)
+*   Customer support analysis (tickets, categories, resolution time)
+*   HR / recruiting analysis (applications, funnel stages, time-to-hire)
+*   Operations / quality analysis (defects, incidents, on-call tickets)
+*   Education / learning analytics (quiz scores, completion, engagement)
+
+If you do not have access to real data, use public datasets or generate synthetic data with a clear schema.
+
 ## MVP Scope
 
 *   **Input**: CSV file path
