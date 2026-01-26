@@ -6,6 +6,13 @@
 - Explain your design decisions and trade-offs.
 - Write a short retrospective focused on learning and iteration.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_demo_readiness.md](01_demo_readiness.md)
+- [02_retrospective_template.md](02_retrospective_template.md)
+- [03_preparing_for_level2.md](03_preparing_for_level2.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

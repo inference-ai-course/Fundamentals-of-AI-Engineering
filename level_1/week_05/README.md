@@ -6,6 +6,13 @@
 - Compare 2–3 models on the same task using a consistent benchmark script.
 - Explain the practical constraints: speed, memory (VRAM/RAM), context limits, and output quality.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_local_inference_setup.md](01_local_inference_setup.md)
+- [02_ollama_http_client.md](02_ollama_http_client.md)
+- [03_benchmarking_script.md](03_benchmarking_script.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

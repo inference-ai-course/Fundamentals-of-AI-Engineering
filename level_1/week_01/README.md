@@ -6,6 +6,12 @@
 - Run a project from a README on a fresh machine (or a fresh folder).
 - Build a small “data profiling” script that reads a CSV and produces reproducible outputs.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_environment_setup.md](01_environment_setup.md)
+- [02_data_profiling_script.md](02_data_profiling_script.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

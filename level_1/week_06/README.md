@@ -6,6 +6,14 @@
 - Keep prompts within limits by sampling/compressing inputs.
 - Produce stable artifacts: `report.json` and `report.md`.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_pipeline_design.md](01_pipeline_design.md)
+- [02_sampling_compression.md](02_sampling_compression.md)
+- [03_chunking_synthesis.md](03_chunking_synthesis.md)
+- [04_capstone_runner.md](04_capstone_runner.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

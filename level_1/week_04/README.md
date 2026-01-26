@@ -6,6 +6,15 @@
 - Explain why timeouts/retries/rate limits/caching exist.
 - Add logging that helps you debug failures quickly.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_timeouts_failures.md](01_timeouts_failures.md)
+- [02_retries_backoff_idempotency.md](02_retries_backoff_idempotency.md)
+- [03_rate_limiting.md](03_rate_limiting.md)
+- [04_caching_logging.md](04_caching_logging.md)
+- [05_llm_client_skeleton.md](05_llm_client_skeleton.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

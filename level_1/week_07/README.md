@@ -6,6 +6,14 @@
 - Improve reliability: better error messages, safer file handling, stable outputs.
 - Add tests (or an equivalent smoke-test + manual checklist).
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_cli_design.md](01_cli_design.md)
+- [02_config_secrets.md](02_config_secrets.md)
+- [03_error_handling.md](03_error_handling.md)
+- [04_testing_strategy.md](04_testing_strategy.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

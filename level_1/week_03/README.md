@@ -6,6 +6,13 @@
 - Design prompts as contracts: clear inputs, clear output schema.
 - Produce valid JSON outputs and validate them programmatically.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_tokens_context.md](01_tokens_context.md)
+- [02_prompt_contracts.md](02_prompt_contracts.md)
+- [03_structured_outputs_validation.md](03_structured_outputs_validation.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

@@ -6,6 +6,13 @@
 - Train a baseline model, evaluate it, and save artifacts.
 - Compare two runs and write a short failure retrospective.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_training_loop.md](01_training_loop.md)
+- [02_reproducibility_package.md](02_reproducibility_package.md)
+- [03_compare_runs_report.md](03_compare_runs_report.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

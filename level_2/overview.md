@@ -110,3 +110,16 @@ After completing Level 2, you should be able to:
 *   Weekly plan: see [weekly_plan_10w.md](weekly_plan_10w.md)
 *   Assignments: see [assignments.md](assignments.md)
 *   Capstone: see [capstone.md](capstone.md)
+
+Weekly concept notes + coding starters (per-week folders):
+
+*   Week 1: [week_01/README.md](week_01/README.md) | [week_01/practice.ipynb](week_01/practice.ipynb)
+*   Week 2: [week_02/README.md](week_02/README.md) | [week_02/practice.ipynb](week_02/practice.ipynb)
+*   Week 3: [week_03/README.md](week_03/README.md) | [week_03/practice.ipynb](week_03/practice.ipynb)
+*   Week 4: [week_04/README.md](week_04/README.md) | [week_04/practice.ipynb](week_04/practice.ipynb)
+*   Week 5: [week_05/README.md](week_05/README.md) | [week_05/practice.ipynb](week_05/practice.ipynb)
+*   Week 6: [week_06/README.md](week_06/README.md) | [week_06/practice.ipynb](week_06/practice.ipynb)
+*   Week 7: [week_07/README.md](week_07/README.md) | [week_07/practice.ipynb](week_07/practice.ipynb)
+*   Week 8: [week_08/README.md](week_08/README.md) | [week_08/practice.ipynb](week_08/practice.ipynb)
+*   Week 9: [week_09/README.md](week_09/README.md) | [week_09/practice.ipynb](week_09/practice.ipynb)
+*   Week 10: [week_10/README.md](week_10/README.md) | [week_10/practice.ipynb](week_10/practice.ipynb)
