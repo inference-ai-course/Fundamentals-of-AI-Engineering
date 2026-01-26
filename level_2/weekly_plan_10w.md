@@ -12,57 +12,57 @@
 
 ### Week 1: From Requirements to Architecture (AI Application System View)
 
-*   **Lecture (3h)**: requirement decomposition, module boundaries, SLA/cost/privacy; API contracts and error codes
-*   **Workshop (2h)**: bootstrap a FastAPI skeleton (configuration, logging, health check, base routes)
-*   **Deliverable**: runnable service skeleton + README
+*   **Lecture (3h)**: requirement decomposition, module boundaries, SLA/cost/privacy; API contracts and error codes; choose one RAG framework (LangChain or LlamaIndex)
+*   **Workshop (2h)**: bootstrap a FastAPI skeleton (configuration, logging, health check, base routes) + request/response models
+*   **Deliverable**: runnable service skeleton + README + framework choice noted
 
-### Week 2: RAG End-to-End Overview + Ingestion (ETL)
+### Week 2: RAG + Vector DB Foundations (Ingestion to Index)
 
-*   **Lecture (3h)**: RAG pipeline and failure modes; data import/cleaning/denoising; document structuring
-*   **Workshop (2h)**: implement ingestion pipeline: files -> parsing -> chunking -> indexing
-*   **Deliverable**: `ingest.py` (repeatable runs + incremental update strategy notes)
+*   **Lecture (3h)**: RAG pipeline and failure modes; how vector DBs store embeddings; metadata schema design; what “upsert/query/delete” means in practice
+*   **Workshop (2h)**: implement ingestion end-to-end into a vector store (Chroma default): files -> parsing -> chunking -> embeddings -> upsert + basic dedup strategy
+*   **Deliverable**: `ingest.py` (repeatable runs + incremental update strategy notes) + a minimal `query.py` that retrieves top-k chunks by text query
 
-### Week 3: Chunking & Embeddings (The First Key to Retrieval Quality)
+### Week 3: Retrieval API + Debuggable Retrieval Metrics (RAG Without Generation Yet)
 
-*   **Lecture (3h)**: chunk size/overlap/structure; embedding choice and dimensionality intuition
-*   **Workshop (2h)**: compare two chunking strategies; measure retrieval hits and answer quality differences
-*   **Deliverable**: chunking experiment report + reproducible experiment scripts
+*   **Lecture (3h)**: filters and query constraints (metadata, top-k); what “good retrieval” means; retrieval failure taxonomy; retrieval metrics (hit rate/recall@k) and how to build a small query set
+*   **Workshop (2h)**: implement `/search` API with filtering + pagination strategy notes; add structured logs so you can inspect retrieved chunks per query
+*   **Deliverable**: `/search` API + a small query set + `eval_retrieval.py` that outputs retrieval metrics and a list of misses
 
-### Week 4: Vector DB & Retrieval (Recall and Filtering)
+### Week 4: RAG v1 (Chat + Citations + Refusal/Clarification)
 
-*   **Lecture (3h)**: vector DB basics, metadata filters, top-k; recall vs precision tradeoffs
-*   **Workshop (2h)**: connect Chroma/Milvus; implement a retrieval API (with filtering + pagination strategy notes)
-*   **Deliverable**: `/search` API + minimal dataset demo
+*   **Lecture (3h)**: prompt/context assembly; grounding and citation formatting; refusal/clarification strategies when context is insufficient
+*   **Workshop (2h)**: implement `/chat` using `/search` results; enforce citations (source + snippet) and a failure strategy
+*   **Deliverable**: RAG v1: chat endpoint + citations + refusal/clarification + minimal test questions
 
-### Week 5: Re-Ranking (Rerank) and Citations (Make Answers Explainable)
+### Week 5: RAG Quality Iteration + Minimal Evaluation (Compressed)
 
-*   **Lecture (3h)**: when hybrid search and rerank are necessary; product/compliance value of citations
-*   **Workshop (2h)**: add rerank (optional) + enforce citations (answers must include source snippets)
-*   **Deliverable**: RAG v1: answer + citations + failure strategy (refusal/clarification)
+*   **Lecture (3h)**: chunk size/overlap tradeoffs; embedding choice intuition; when rerank or hybrid retrieval helps; latency/cost tradeoffs; offline evaluation concepts (hit/coverage/consistency)
+*   **Workshop (2h)**: run controlled experiments (one variable at a time): compare chunking and/or embedding configs; optionally add rerank or query rewriting; build a minimal eval set (10–20 items) + a small reproducible eval script
+*   **Deliverable**: RAG v1.1 with one documented quality improvement + `eval_rag.py` (minimal) + updated failure case notes
 
-### Week 6: RAG Evaluation + Feedback Loop (Minimum Viable)
+### Week 6: Agent Foundations (Tool Calling, State, and Reliability)
 
-*   **Lecture (3h)**: offline evaluation (hit/coverage/consistency) vs online feedback; how to build a small but effective eval set
-*   **Workshop (2h)**: build a minimal eval set (20–50 items) + eval script (reproducible metrics)
-*   **Deliverable**: `eval_rag.py` + failure case set
+*   **Lecture (3h)**: what an agent is (vs a prompt); the agent loop (plan -> act -> observe -> reflect); state and memory (conversation state vs working memory vs long-term memory); tool contracts (schema, validation, timeouts, retries, fallbacks)
+*   **Workshop (2h)**: implement an Agent v1 that calls at least 2 tools (e.g., retrieve/search + summarize/write) with typed inputs/outputs, structured logs, and one failure recovery path
+*   **Deliverable**: Agent v1 (runnable) + tool interface definitions + workflow design doc
 
-### Week 7: Agent Workflows (Tool Calling and State Management)
+### Week 7: Agent Design Patterns (Planning, Guardrails, and Multi-Step Tasks)
 
-*   **Lecture (3h)**: ReAct/Planning/Reflection; tool contracts (schema/retries/timeouts/fallback)
-*   **Workshop (2h)**: implement a Research Agent: plan -> search -> summarize -> conclude
-*   **Deliverable**: Agent v1 (runnable) + workflow design doc
+*   **Lecture (3h)**: task decomposition, role prompting, and planning depth control; guardrails (allowlists, refusal conditions, budget limits); how to debug agents (trace per-step decisions); when to use (and not use) multi-agent
+*   **Workshop (2h)**: add one agent capability: multi-step research report, self-check/rewrite, or a reviewer role; add a trace-style log view of agent steps
+*   **Deliverable**: Agent v1.1 with one reliability/guardrail improvement + 3 demo tasks + logs showing a failure and recovery
 
-### Week 8: Multi-Agent Collaboration & Task Decomposition (Controlled Complexity)
-
-*   **Lecture (3h)**: multi-agent roles, conflicts, and consistency; when you should NOT use multi-agent
-*   **Workshop (2h)**: implement a three-role pipeline (retrieval/writing/review), plus failure recovery
-*   **Deliverable**: Agent v2 (with failure recovery)
-
-### Week 9: Productize RAG + Agents (Service + Front-End)
+### Week 8: Productize RAG + Agents (Service + Front-End)
 
 *   **Lecture (3h)**: session management, permissions/auditing, cost control; front-end/back-end boundary
 *   **Workshop (2h)**: package as a demo: chat endpoint + admin ingestion + feedback button
 *   **Deliverable**: Capstone baseline version (demo-ready)
+
+### Week 9: Hardening & Operations (Reliability, Security, and Scale)
+
+*   **Lecture (3h)**: observability (structured logs, request IDs, basic tracing), permissions and auditing, prompt-injection defenses, and cost controls; when (not) to add multi-agent
+*   **Workshop (2h)**: add one hardening feature (choose one): tracing spans, basic rate limiting, auth/roles for ingestion, prompt-injection guardrails, or multi-agent extension with failure recovery
+*   **Deliverable**: Capstone hardened version + a short ops checklist (what to monitor, what can fail, how to debug)
 
 ### Week 10: Capstone Sprint & Defense (Assessable Delivery)
 
@@ -74,9 +74,10 @@
 
 ## 8-Week Compression Guidance
 
-*   **Merge Week 2–3**: ingestion + chunking/embeddings in one week; prioritize “usable” over “perfect”
-*   **Merge Week 4–5**: retrieval + citations in one week; treat rerank as a stretch goal
-*   **Week 8 (multi-agent)**: optional; if compressing, keep it as a Capstone extension feature
+*   **Merge Week 2–3**: ingestion + retrieval API + retrieval metrics in one week; prioritize “usable” over “perfect”
+*   **Merge Week 4–5**: RAG v1 + quality iteration + minimal evaluation in one week
+*   **Agents start**: if compressing, treat Week 6 (agents) as the start of the second half; keep multi-agent as optional
+*   **Rerank**: optional; if compressing, treat it as a stretch goal (focus on chunking and clean citations first)
 
 ---
 

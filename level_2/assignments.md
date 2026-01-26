@@ -31,19 +31,20 @@ For beginner-friendly delivery, each submission should include these minimum art
 ### B2: RAG Ingestion Pipeline (ETL/Indexing)
 
 *   **Goal**: make the knowledge base maintainable and updatable
-*   **Requirements**: implement `ingest.py` with incremental ingestion (strategy notes are sufficient)
+*   **Requirements**: implement `ingest.py` that parses/chunks/embeds and indexes into your vector store; include an incremental ingestion strategy (strategy notes are sufficient)
 *   **Acceptance**: repeated ingestion should not cause obvious duplication pollution (dedup/version/hash are all acceptable)
 
-### B3: Chunking Comparison Experiment
+### B3: Retrieval API + Chunking Comparison (Retrieval Quality Before Chat)
 
-*   **Goal**: understand how chunking impacts retrieval quality
-*   **Requirements**: implement and compare two chunking strategies; submit a comparison report
+*   **Goal**: make retrieval debuggable and understand what improves retrieval quality
+*   **Requirements**: implement a minimal retrieval surface (e.g., `/search` API or a `query.py`) + a small retrieval metric script (e.g., hit rate/recall@k), then compare two chunking strategies; submit a comparison report
 *   **Acceptance**: report includes failure cases and root-cause hypotheses
 
 ### B4: RAG v1 (Citations + Refusal/Clarification)
 
 *   **Goal**: make answers explainable and controllable
 *   **Requirements**: answers must include citations; when context is insufficient, refuse or ask clarifying questions
+*   **Optional extension**: add a rerank or query-improvement step and show a documented before/after quality improvement
 *   **Acceptance**: provide 5 test questions covering in-KB, out-of-KB, and edge cases
 
 ### B5: Minimal Evaluation Set + Evaluation Script
