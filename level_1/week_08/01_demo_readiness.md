@@ -4,6 +4,23 @@
 
 A demo is successful when another person can reproduce it.
 
+---
+
+## Underlying theory: a demo is an argument with evidence
+
+When you demo, you are implicitly making claims:
+
+- “the system runs from scratch”
+- “the outputs are stable and interpretable”
+- “failures are explainable”
+
+The README + one-command runner are the evidence that supports those claims.
+
+Practical implication:
+
+- if your demo requires “magic steps”, it is not reproducible
+- a failure-case story increases credibility because it shows you understand system limits
+
 This means:
 
 - a clean setup section
@@ -31,6 +48,11 @@ This means:
 - Failure case:
   - show what happens when an input is invalid
   - show how logs help
+
+If you have time, add one “performance realism” note:
+
+- expected runtime on your machine
+- known slow step (e.g., first model call)
 
 ---
 

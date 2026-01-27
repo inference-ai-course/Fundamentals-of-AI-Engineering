@@ -12,6 +12,26 @@ A good error message contains:
 
 ---
 
+## Underlying theory: errors are part of your product surface
+
+When something fails, the error message becomes the user experience.
+
+You can think of your program as an interface that returns either:
+
+- a result
+- or an explainable failure
+
+Practical failure taxonomy (Level 1):
+
+- **input errors** (missing/empty file, missing columns)
+- **config errors** (missing API key)
+- **external errors** (timeouts, rate limits)
+- **output/parse errors** (invalid JSON from model)
+
+Good errors point to the next action (fix input, set env var, retry later) instead of just crashing.
+
+---
+
 ## Practical pattern
 
 ```python
@@ -29,6 +49,8 @@ def require_file(path: str) -> Path:
         raise ValueError(f"Input file is empty: {p}. Provide a non-empty CSV.")
     return p
 ```
+
+Practical tip: keep “user-facing” errors short and actionable. If you also want a stack trace for debugging, log the exception separately.
 
 ---
 

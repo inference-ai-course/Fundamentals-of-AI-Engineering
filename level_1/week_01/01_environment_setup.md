@@ -12,6 +12,23 @@ That means:
 
 ---
 
+## Underlying theory: reproducibility is an interface
+
+Treat “running your project” like a function:
+
+$$
+\text{result} = f(\text{code}, \text{data}, \text{config}, \text{dependencies})
+$$
+
+If any input is implicit (unrecorded packages, hidden OS assumptions, manual clicks), then $f$ is not repeatable.
+
+Practical implication:
+
+- your `requirements.txt` (or `pyproject.toml`) is part of your project’s public interface
+- the goal is not “it runs once” but “it runs again tomorrow, and on someone else’s machine”
+
+---
+
 ## Mental model: why environments exist
 
 A Python project depends on libraries (e.g., `pandas`). Different projects often require different versions.
@@ -21,6 +38,14 @@ A **virtual environment** isolates dependencies per project so:
 - Project A can use `pandas==x`.
 - Project B can use `pandas==y`.
 - You avoid “it works on my machine” surprises.
+
+You can view dependency management as keeping a consistent *snapshot* of a dependency graph:
+
+- your code imports packages
+- those packages import other packages
+- package versions change over time
+
+If you do not record versions, re-installing later may silently pull different packages and change behavior.
 
 ---
 
@@ -53,8 +78,10 @@ python -m pip install --upgrade pip
 For this week:
 
 ```bash
-pip install pandas
+python -m pip install pandas
 ```
+
+Using `python -m pip` reduces confusion when your system has multiple Python interpreters installed.
 
 ### 5) Save your dependency list
 
@@ -63,6 +90,11 @@ pip freeze > requirements.txt
 ```
 
 This turns your environment setup into something repeatable.
+
+Note: `pip freeze` captures the *full resolved set* of installed packages. This is good for reproducing a working environment, but it can be noisy. In later levels you may learn about tools that separate:
+
+- “direct” dependencies you chose
+- “transitive” dependencies pulled in automatically
 
 ---
 
@@ -107,6 +139,10 @@ If this works, you’ve done real engineering.
 - **`python` points to a different interpreter than expected**
   - Fix: run `which python` (Linux/macOS) and confirm it points inside `.venv`.
 
+- **`requirements.txt` exists, but results still differ across machines**
+  - Explanation: OS differences (Windows vs Linux), CPU architecture, and binary wheels can change what gets installed.
+  - Fix: record OS + Python version in your README; if needed later, learn Docker to fully standardize runtime.
+
 - **You forgot to record dependencies**
   - Fix: run `pip freeze > requirements.txt` after installs.
 
@@ -116,6 +152,7 @@ If this works, you’ve done real engineering.
 
 - Can you recreate your environment from scratch using only `requirements.txt`?
 - Can you explain *why* environments prevent dependency conflicts?
+- If you delete `.venv`, can you recreate it and still run the project with the same commands?
 
 ---
 

@@ -18,6 +18,19 @@ So we implement:
 
 ---
 
+## Underlying theory: validation turns model text into a typed interface
+
+LLMs emit text. Your application needs structured data.
+
+Validation is what converts “soft” model behavior into a “hard” engineering interface:
+
+- **parse** is a syntax check (is it JSON?)
+- **schema validation** is a type check (does it match the shape you promised?)
+
+You can think of this as a boundary where untrusted text becomes trusted data.
+
+---
+
 ## Step 1: Define a schema (Pydantic)
 
 Install:
@@ -58,6 +71,11 @@ This will fail in two different ways:
 
 That separation helps debugging.
 
+Practical implication:
+
+- if parsing fails, your prompt/formatting constraints are the issue
+- if schema validation fails, your prompt/spec is incomplete or the model is hallucinating keys/types
+
 ---
 
 ## Step 3: Retry/repair loop
@@ -94,6 +112,13 @@ def extract_with_repair(text: str, call_llm, max_retries: int = 2) -> Extracted:
     raise ValueError(f"Failed to extract valid JSON after retries. Last error: {last_error}")
 ```
 
+Why the repair prompt includes the invalid output and the error:
+
+- the invalid output is concrete evidence of what went wrong
+- the error message is a compact “diff target” (what must be fixed)
+
+This pattern is the simplest version of an **inner correction loop**.
+
 ---
 
 ## Why cap retries
@@ -111,6 +136,14 @@ A cap forces you to:
 - return a clear error
 - log the incident
 
+Also, retries can amplify load and cost. Even a small retry rate changes expected spend:
+
+$$
+\mathbb{E}[\text{attempts}] = 1 + p + p^2 + \cdots + p^{R} = \frac{1-p^{R+1}}{1-p}
+$$
+
+where $p$ is the probability an attempt fails and $R$ is the max retries.
+
 ---
 
 ## Common pitfalls
@@ -118,6 +151,9 @@ A cap forces you to:
 - Asking for JSON but not banning extra text
 - Not separating parse failure vs schema failure
 - No retry cap
+
+- Mixing business logic with parsing/validation
+  - Fix: keep “call model”, “parse JSON”, and “validate schema” as separate steps so you can test/debug each one.
 
 ---
 

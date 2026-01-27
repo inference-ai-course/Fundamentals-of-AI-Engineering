@@ -12,6 +12,23 @@ A good CLI:
 
 ---
 
+## Underlying theory: a CLI is a contract over user behavior
+
+Users (including “future you”) will misuse your tool. A CLI contract reduces ambiguity by making:
+
+- valid usage explicit (required flags, clear help)
+- invalid usage fast-failing (clear errors)
+- outputs predictable (stable locations, stable schemas)
+
+Good defaults are not just convenience; they are a *policy* that encodes the “safe/typical” way to run your system.
+
+Practical implication:
+
+- if the CLI is stable, demos/tests become repeatable
+- if the CLI changes unpredictably, your README and users break
+
+---
+
 ## Minimum CLI checklist
 
 - descriptive help text
@@ -35,6 +52,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--seed", type=int, default=42)
     return p
 ```
+
+Practical tips:
+
+- keep flag names consistent across scripts (`--input`, `--output_dir`, `--seed`)
+- choose defaults that make “copy/paste from README” work
+- include enough info in `--help` that a teammate can run without opening code
 
 ---
 

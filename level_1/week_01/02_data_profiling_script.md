@@ -20,6 +20,29 @@ You will build `data_profile.py` that:
 
 ---
 
+## Underlying theory: profiling is a contract over unknown inputs
+
+Real-world data is an *untrusted input*.
+
+You should treat the dataset like a value $X$ drawn from an unknown distribution $\mathcal{D}$, and your script as a function that must behave predictably:
+
+$$
+\text{profile} = g(X)
+$$
+
+The goal is not “fancy statistics”, it is **fast falsification of assumptions**:
+
+- “This column exists”
+- “This column is numeric”
+- “Missing values are rare”
+- “The file is non-empty and parseable”
+
+Practical implication:
+
+- a profiler is a *guardrail* that prevents you from building downstream ML/LLM logic on top of broken data
+
+---
+
 ## Output contract (what your script guarantees)
 
 Given the same input CSV, the script should always produce:
@@ -32,6 +55,12 @@ And it should fail with **clear errors** for:
 - missing file
 - empty file
 - missing required columns (optional extension)
+
+This is a small example of **defensive programming**:
+
+- validate early (fail fast)
+- error messages should teach the user what to fix
+- outputs should be deterministic so that diffs are meaningful
 
 ---
 
@@ -120,6 +149,11 @@ if __name__ == "__main__":
     main()
 ```
 
+Two details above matter for reproducibility:
+
+- `sort_keys=True` makes JSON output stable (so two runs can be byte-for-byte identical)
+- writing to a single `output_dir` makes the project easier to test and share
+
 ---
 
 ## How to run
@@ -142,6 +176,8 @@ Run twice with the same input and confirm:
 - JSON keys are sorted (we used `sort_keys=True`)
 - outputs are identical across runs
 
+If you later add timestamps, random samples, or “top N” operations, be careful: those can break determinism unless you explicitly control ordering and randomness.
+
 ---
 
 ## Extensions (recommended)
@@ -154,17 +190,26 @@ Add a flag like:
 
 Then fail with a clear message if any are missing.
 
+Why this matters: you are turning vague assumptions into explicit *preconditions*. If the preconditions do not hold, everything downstream is unreliable.
+
 ### 2) Numeric summaries
 
 For numeric columns compute:
 
 - min/max/mean
 
+Interpretation (light intuition):
+
+- mean estimates the “typical” value: $\mu = \frac{1}{n}\sum_{i=1}^n x_i$
+- min/max catch obvious outliers or wrong units
+
 ### 3) Frequent values
 
 For categorical columns compute:
 
 - top 5 values
+
+Practical implication: frequent-value tables often reveal data quality bugs (e.g., “N/A”, “unknown”, “-”, whitespace-only strings).
 
 ---
 
@@ -179,6 +224,10 @@ For categorical columns compute:
 
 - **Outputs go to random locations**
   - Fix: always write to a single folder like `output/`.
+
+- **Non-deterministic column ordering or summaries**
+  - Symptom: diffs look noisy even when the data didn’t change.
+  - Fix: sort column names where appropriate, and be consistent about ordering in markdown tables.
 
 ---
 

@@ -17,6 +17,28 @@ We will write `benchmark_local_llm.py` that:
 
 ---
 
+## Underlying theory: benchmarking is measurement under controlled conditions
+
+You are trying to estimate two things:
+
+- **speed** (latency / throughput)
+- **quality** (correctness, format adherence, completeness)
+
+The key rule is controlling variables:
+
+- same prompts
+- same settings
+- same machine state as much as possible
+
+Latency is a distribution, not a single number. Two useful summaries:
+
+- average latency (typical case)
+- slowest case / tail latency (worst case)
+
+Practical implication: a model that is “fast on average” but has very slow worst cases may still feel bad in a demo.
+
+---
+
 ## Benchmark harness (example)
 
 ```python
@@ -69,6 +91,12 @@ if __name__ == "__main__":
     main()
 ```
 
+Benchmark hygiene notes:
+
+- consider a warmup run per model (do not record it) to avoid counting model load time
+- keep prompts short enough that you are comparing models, not just comparing how long tokenization takes
+- avoid changing the prompt set while you compare models (version your prompt list)
+
 ---
 
 ## How to compare models
@@ -80,6 +108,12 @@ Compare:
   - correctness
   - adherence to format
   - completeness
+
+If you want a simple “quality heuristic” without heavy math:
+
+- for JSON prompts: count parse failures
+- for extraction: check if required keys exist
+- for summaries: check length caps and whether key facts are present
 
 ---
 

@@ -13,6 +13,27 @@ Instead you send a compressed representation:
 
 ---
 
+## Underlying theory: you are fitting information into a fixed budget
+
+The model has a fixed context window, so your input must satisfy a budget constraint.
+
+From Week 3, a simplified budget looks like:
+
+$$
+C \ge T_{\text{prompt}} + T_{\text{table}} + T_{\text{output}}
+$$
+
+If your table is large, $T_{\text{table}}$ dominates. Compression reduces $T_{\text{table}}$ by replacing raw rows with summaries.
+
+You can think of this as an information bottleneck:
+
+- raw data is high detail but too large
+- summaries are smaller but may lose rare edge cases
+
+Practical implication: good compression keeps *the facts that matter for the task* (distributions, missingness, anomalies) while dropping redundant detail.
+
+---
+
 ## Example: compress a dataframe
 
 ```python
@@ -55,6 +76,17 @@ def to_json(ct: CompressedTable) -> str:
         sort_keys=True,
     )
 ```
+
+Why the design choices matter:
+
+- sampling uses a `seed` so results are stable across runs
+- `sort_keys=True` produces deterministic JSON (diff-friendly)
+- a structured object (`CompressedTable`) makes it easier to evolve the contract later
+
+Calibration tip:
+
+- start with a small `sample_n` (e.g., 5–10)
+- if the LLM misses important patterns, add targeted summaries (top values, numeric ranges, anomaly counts) rather than dumping more rows blindly
 
 ---
 

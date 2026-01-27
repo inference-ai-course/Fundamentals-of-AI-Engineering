@@ -12,6 +12,25 @@ That means:
 
 ---
 
+## Underlying theory: the runner is your system’s public interface
+
+From Week 1, reproducibility is an interface. The runner is the concrete version of that idea:
+
+- given inputs and config, it produces outputs in predictable locations
+
+You can treat it like a function contract:
+
+$$
+\text{outputs} = r(\text{input},\ \text{config})
+$$
+
+Practical implication:
+
+- if the runner is stable, testing and demos become easy
+- if the runner requires manual steps, failures become non-reproducible
+
+---
+
 ## Suggested CLI
 
 Example interface:
@@ -35,6 +54,11 @@ Optionally:
 - `output/compressed_input.json`
 
 Those intermediate artifacts make debugging faster.
+
+Failure-mode design tip:
+
+- write intermediate artifacts *before* the LLM call
+- if the LLM call fails, your run still leaves evidence (profile + compressed input) for debugging
 
 ---
 

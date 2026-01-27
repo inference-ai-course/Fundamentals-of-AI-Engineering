@@ -12,6 +12,23 @@ This section gives you a mental model to reason about:
 
 ---
 
+## Underlying theory: every request has a fixed token budget
+
+For a given model, there is a maximum context window $C$ (tokens).
+
+Every request spends that budget on multiple parts:
+
+$$
+C \ge T_{\text{system}} + T_{\text{prompt}} + T_{\text{context}} + T_{\text{tools}} + T_{\text{output}}
+$$
+
+If the left side is fixed and you increase one term (e.g. you paste more input), something else must shrink (often $T_{\text{output}}$), or the provider truncates/refuses.
+
+Practical implication:
+
+- “the model ignored my instruction” is often “the instruction was pushed out / diluted by too much context”
+- “my JSON broke” is often “the model had too little output budget, or the request was truncated”
+
 ## Tokens: what they are (engineering view)
 
 A token is a unit the model processes.
@@ -23,6 +40,8 @@ Practical consequences:
 
 - Token count is what drives cost (hosted APIs).
 - Token count is what drives latency (often).
+
+Rule of thumb: token count grows roughly with text length, but not perfectly. Two strings with the same character length can tokenize very differently.
 
 ---
 
@@ -40,6 +59,12 @@ The budget must include:
 
 So if you “use up” the budget with input, the model has less space to respond.
 
+In practice, you should reserve output budget *up front* (even if you don’t measure tokens precisely). For example:
+
+- “I want a concise answer”
+- “Return at most 20 JSON objects”
+- “Return at most 200 tokens” (if your provider supports it)
+
 ---
 
 ## Why long inputs fail
@@ -49,6 +74,12 @@ If you send too much text:
 - the model may ignore earlier instructions
 - output can be truncated
 - “strict JSON” instructions get violated
+
+Why “strict JSON” is fragile under budget pressure:
+
+- JSON requires balanced braces/quotes
+- truncation in the middle almost always produces invalid JSON
+- long contexts increase the chance the model drifts into prose
 
 This is why in Week 6 you’ll practice:
 
@@ -65,6 +96,12 @@ Even if you don’t know exact token counts, you should:
 - keep prompts short
 - keep schemas small
 - request concise outputs
+
+If you later use tools like `tiktoken`, you can make this quantitative:
+
+- count tokens for your prompt
+- decide a fixed maximum output token budget
+- enforce a maximum input length before calling the model
 
 ---
 

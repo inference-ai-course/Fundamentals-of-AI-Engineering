@@ -18,6 +18,26 @@ Even if you later focus on LLMs, this disciplined loop is the basis for:
 
 ---
 
+## Underlying theory: training is optimization, evaluation is estimation
+
+At a high level, supervised learning tries to find parameters $\theta$ that minimize a loss over training data:
+
+$$
+\hat{\theta} = \arg\min_{\theta} \frac{1}{n}\sum_{i=1}^{n} \ell\big(f_{\theta}(x_i), y_i\big)
+$$
+
+But the thing you actually care about is performance on *new* samples from the real world distribution.
+
+Validation is an attempt to estimate that “future performance” without having to deploy first.
+
+Practical implication:
+
+- training metrics can lie (models can memorize)
+- validation metrics are still noisy estimates (they vary with the split)
+- saving artifacts makes results explainable and debuggable after the fact
+
+---
+
 ## Why we split train vs validation
 
 If you evaluate on training data, you’re measuring memorization.
@@ -29,6 +49,11 @@ A good baseline is one that:
 - is simple
 - runs quickly
 - produces a measurable metric
+
+You can think of “baseline first” as a debugging strategy:
+
+- if a simple model performs surprisingly well, your data may be easy (or leaking labels)
+- if a simple model performs terribly, your pipeline may be broken (bad labels, bad features, preprocessing issues)
 
 ---
 
@@ -48,6 +73,12 @@ pandas==2.2.3
 scikit-learn==1.5.2
 joblib==1.4.2
 ```
+
+Why these pieces exist:
+
+- `scikit-learn` gives a clean split/train/eval workflow
+- `joblib` persists trained models so you can re-load them later
+- pinning versions reduces “works yesterday, breaks today” failures
 
 ### Code
 
@@ -163,6 +194,13 @@ if __name__ == "__main__":
     main()
 ```
 
+What makes this “engineering” (not just a notebook experiment):
+
+- **explicit config** (`TrainConfig` saved to `config.json`)
+- **metric traceability** (`metrics.json` + `val_report.txt`)
+- **model persistence** (`model.joblib`)
+- **per-run folder** so you can compare runs without overwriting
+
 ---
 
 ## How to run
@@ -183,6 +221,12 @@ You have a folder like:
 - `artifacts/run_.../model.joblib`
 
 If those exist and your script prints metrics, you have a baseline.
+
+If you later improve features or models, you should always be able to answer:
+
+- “Which exact run produced this metric?”
+- “What config produced that run?”
+- “Can I re-load the model and reproduce predictions?”
 
 ---
 

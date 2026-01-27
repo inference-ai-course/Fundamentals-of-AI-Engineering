@@ -13,6 +13,23 @@ In engineering culture, “blameless postmortems” emphasize learning.
 
 ---
 
+## Underlying theory: retrospectives turn incidents into reusable knowledge
+
+Without a retrospective, failures stay as vague memories.
+
+A good retrospective separates:
+
+- **symptoms** (what you observed)
+- **root causes** (why it happened)
+- **fixes** (what changed in code/process)
+
+Practical implication:
+
+- root causes become design rules (e.g., “always validate inputs”, “always cap retries”)
+- you build a personal playbook you can reuse in Level 2 systems
+
+---
+
 ## Template
 
 Create `RETROSPECTIVE.md` (example):

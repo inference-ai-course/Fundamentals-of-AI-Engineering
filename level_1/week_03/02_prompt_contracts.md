@@ -8,6 +8,30 @@ If you treat the model like a service, your prompt is the API contract.
 
 ---
 
+## Underlying theory: prompts define preconditions and postconditions
+
+In software engineering, a contract describes:
+
+- **preconditions**: what inputs are valid
+- **postconditions**: what outputs must look like
+
+For LLMs, prompts play a similar role:
+
+- the prompt defines the task and constraints
+- your parser/validator enforces the postconditions
+
+Useful mindset: treat an LLM call like a typed function.
+
+Example (conceptually):
+
+$$
+\texttt{extract}: \texttt{str} \rightarrow \{\texttt{person}: \texttt{str|null},\ \texttt{company}: \texttt{str|null}\}
+$$
+
+The model is not guaranteed to respect the type. Your job is to *make the type checkable*.
+
+---
+
 ## Contract template
 
 A useful contract includes:
@@ -52,6 +76,12 @@ Input:
 "<TEXT>"
 ```
 
+Why the contract is structured this way:
+
+- “Return ONLY valid JSON” tries to eliminate ambiguous prose
+- “exactly these keys” makes it possible to validate reliably
+- “Use null if not found” prevents hallucinated values from looking like real facts
+
 ---
 
 ## Common failure modes (and how contracts help)
@@ -59,6 +89,14 @@ Input:
 - Vague prompt → vague output
 - “Return JSON” without schema → almost-JSON
 - No refusal conditions → hallucinated values
+
+Additional common failures:
+
+- too many constraints at once (the model drops one)
+- conflicting instructions across system/developer/user messages
+- hidden formatting requirements (e.g., “no markdown”) not explicitly stated
+
+Practical implication: if you can’t write a validator for the output, your contract is not concrete enough.
 
 ---
 

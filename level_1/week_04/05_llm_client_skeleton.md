@@ -14,6 +14,23 @@ This is a Level 1 skeleton (provider-agnostic). You can adapt it to OpenAI/Anthr
 
 ---
 
+## Underlying theory: the client is a reliability boundary
+
+Your application code wants a simple contract:
+
+- “given a request, return text or raise a clear error”
+
+The client module enforces reliability invariants:
+
+- bounded waiting (timeouts)
+- bounded retries (caps)
+- debuggability (logs with request id / attempt)
+- cost control (caching)
+
+Keeping these concerns centralized prevents every script from reinventing them inconsistently.
+
+---
+
 ## Skeleton design
 
 We’ll define:
@@ -21,6 +38,8 @@ We’ll define:
 - a request payload (model + prompt + settings)
 - a stable cache key
 - a `call()` method
+
+The cache key must represent the “effective input” to the model. If two requests differ in any setting that can change output, they must not share a key.
 
 ---
 
@@ -93,6 +112,8 @@ class LLMClient:
                 )
                 if attempt < max_retries:
                     time.sleep(min(2 ** attempt, 4))
+
+In more robust clients, you often also add jitter to avoid “retry storms” (many clients retrying at the same time). For Level 1, the simple backoff is enough.
 
         raise RuntimeError(f"LLM call failed after retries: {last_err}")
 ```

@@ -4,6 +4,22 @@
 
 Ollama exposes a local HTTP API. This lets you treat local inference like a normal service call.
 
+---
+
+## Underlying theory: local inference is still a distributed system (just smaller)
+
+Even though the model is on your machine, your Python script is still making a network-style call:
+
+- your client process sends a request
+- the Ollama server process does work
+- you receive a response (or a failure)
+
+So the same engineering principles apply:
+
+- always set timeouts
+- log failures with enough context to debug
+- treat response parsing as untrusted input (validate what you need)
+
 We’ll implement a minimal `call_ollama.py` that:
 
 - sends a prompt
@@ -59,6 +75,11 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+
+Two practical notes:
+
+- `timeout=60` is a policy choice. Slower hardware or larger models may need longer.
+- when you later build a benchmark, consider warmup: the first call can be slower due to model loading.
 
 ---
 
