@@ -6,6 +6,13 @@
 - Build a small retrieval query set and compute simple retrieval metrics (hit rate / recall@k).
 - Produce logs that let you inspect which chunks were retrieved and why.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_retrieval_as_api.md](01_retrieval_as_api.md)
+- [02_filters_topk_tradeoffs.md](02_filters_topk_tradeoffs.md)
+- [03_retrieval_evaluation.md](03_retrieval_evaluation.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

@@ -6,6 +6,13 @@
 - Produce an operations checklist: what to monitor, how to debug, how to control costs.
 - Define a minimal security posture appropriate for the project scope.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_observability_tracing.md](01_observability_tracing.md)
+- [02_rate_limiting_retry_policies.md](02_rate_limiting_retry_policies.md)
+- [03_ops_checklist.md](03_ops_checklist.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

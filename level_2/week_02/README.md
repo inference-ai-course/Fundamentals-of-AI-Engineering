@@ -6,6 +6,13 @@
 - Design basic metadata that enables filtering and debugging.
 - Run a minimal retrieval query against your indexed data.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_vector_db_fundamentals.md](01_vector_db_fundamentals.md)
+- [02_chunking_idempotent_ingestion.md](02_chunking_idempotent_ingestion.md)
+- [03_ingest_query_workflow.md](03_ingest_query_workflow.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

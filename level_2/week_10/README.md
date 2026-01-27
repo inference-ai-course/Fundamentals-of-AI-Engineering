@@ -6,6 +6,13 @@
 - Re-run evaluation and present evidence (metrics + failure cases).
 - Defend architecture and tradeoffs (what you built and why).
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_demo_script.md](01_demo_script.md)
+- [02_evidence_pack.md](02_evidence_pack.md)
+- [03_defense_checklist.md](03_defense_checklist.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

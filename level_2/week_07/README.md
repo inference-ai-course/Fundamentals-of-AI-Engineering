@@ -6,6 +6,13 @@
 - Add guardrails: tool allowlists, refusal conditions, budget limits.
 - Debug agents using trace-style logs (step-by-step decisions).
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_planning_patterns.md](01_planning_patterns.md)
+- [02_guardrails.md](02_guardrails.md)
+- [03_trace_debugging.md](03_trace_debugging.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

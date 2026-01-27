@@ -8,6 +8,28 @@
 
 ---
 
+## Learning principle for Level 2 (beyond checklists)
+
+In Level 2, the goal is to build systems where you can explain *why* they work and debug *why* they fail.
+
+For each major concept, aim to teach and learn it in the sequence:
+
+1. definition (what is it?)
+2. intuition (what does it mean?)
+3. (light) math (what is the formal object/metric/decision rule?)
+4. practice (how do we use it in a system?)
+5. pitfalls (how does it fail in production?)
+6. evidence (what can we measure/log to know it worked?)
+
+Across the 10 weeks, the recurring system invariants are:
+
+- retrieval must be debuggable (separate `/search` from `/chat`)
+- grounded answers must be auditable (citations are verifiable pointers)
+- evaluation must be reproducible (configs + metrics + failure sets)
+- reliability must be bounded (timeouts, caps, retries with backoff)
+
+---
+
 ## 10-Week Baseline Plan
 
 Weekly concept notes (self-study + citations) and practice notebooks:

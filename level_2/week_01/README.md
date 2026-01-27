@@ -6,6 +6,13 @@
 - Run a FastAPI service locally with configuration, logging, and a health check.
 - Define request/response models and error behavior (status codes + error payloads).
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_requirements_to_architecture.md](01_requirements_to_architecture.md)
+- [02_fastapi_service_skeleton.md](02_fastapi_service_skeleton.md)
+- [03_error_handling_request_ids.md](03_error_handling_request_ids.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

@@ -6,6 +6,14 @@
 - Implement an agent that calls at least two tools with typed inputs/outputs.
 - Add reliability behaviors: timeouts, retries, fallbacks, and structured step logs.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_agent_loop_state.md](01_agent_loop_state.md)
+- [02_tool_contracts.md](02_tool_contracts.md)
+- [03_reliability_step_logs.md](03_reliability_step_logs.md)
+- [04_agent_v1_blueprint.md](04_agent_v1_blueprint.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

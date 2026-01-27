@@ -6,6 +6,13 @@
 - Create a minimal evaluation set (10–20 items) and a reproducible eval script.
 - Record failure cases and show a before/after improvement for at least one metric.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_controlled_iteration.md](01_controlled_iteration.md)
+- [02_eval_set_design.md](02_eval_set_design.md)
+- [03_eval_script_failure_analysis.md](03_eval_script_failure_analysis.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)

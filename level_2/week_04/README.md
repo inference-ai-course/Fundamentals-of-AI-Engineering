@@ -6,6 +6,14 @@
 - Implement refusal/clarification when retrieved context is insufficient.
 - Define what counts as “in-KB” vs “out-of-KB” for your domain.
 
+Tutorials:
+ 
+- [tutorial.md](tutorial.md)
+- [01_context_assembly_grounding.md](01_context_assembly_grounding.md)
+- [02_citations_enforcement.md](02_citations_enforcement.md)
+- [03_refusal_clarification.md](03_refusal_clarification.md)
+- [04_chat_endpoint_contract.md](04_chat_endpoint_contract.md)
+
 Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (with explanations + citations)
