@@ -27,6 +27,20 @@ Underlying theory you should internalize this week:
 2. Read 02 and regenerate evidence.
 3. Read 03 and prepare the defense narrative.
 
+Why this order works:
+
+1. **Repeatable demo first**
+    - If the demo is flaky, you can’t trust any claims you make about quality.
+    - What to verify: you can run the demo twice and get the same high-level behavior and artifacts.
+
+2. **Evidence second**
+    - Claims must be backed by artifacts (metrics + failure cases) that someone else can rerun.
+    - What to verify: your eval script produces a before/after summary and you can point to raw outputs.
+
+3. **Defense narrative third**
+    - Once you have evidence, you can answer questions about tradeoffs and limitations credibly.
+    - What to verify: you can explain precision/recall, latency/reliability, and strictness/UX tradeoffs using your project’s data.
+
 ## What “done” looks like
 
 - You can run the demo start-to-finish without surprises.

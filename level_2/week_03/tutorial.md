@@ -21,6 +21,20 @@ Week 3 turns retrieval into a debuggable service component:
 2. Read 02 and implement filters and logs.
 3. Read 03 and build an eval set + script.
 
+Why this order works:
+
+1. **Define `/search` first**
+    - Retrieval should be testable without generation. A clean `/search` contract makes failures localized.
+    - What to verify: you can call `/search` with a known query and get a typed response.
+
+2. **Filters + logs second**
+    - Filters are a common source of “why is retrieval empty?” bugs; logs make this diagnosable.
+    - What to verify: each request logs query, filters, `top_k`, and returned `chunk_id`/`doc_id`.
+
+3. **Eval third**
+    - Without a query set and metrics, improvements become subjective.
+    - What to verify: your eval script writes `output/metrics.json` and a list of misses you can inspect.
+
 ## What “done” looks like
 
 - `/search` is a real endpoint with typed request/response models.

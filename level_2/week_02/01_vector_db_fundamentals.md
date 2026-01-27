@@ -25,6 +25,12 @@
  2. At query time, you compute `q = embed(query)`.
  3. You retrieve the nearest vectors to `q` under a distance function.
  
+ What to verify (so this is debuggable, not magic):
+ 
+ - **During ingestion**: record the embedding model name and ensure every stored vector has a stable `chunk_id` and traceable metadata.
+ - **During query**: log the query text, `top_k`, any filters, and the returned `chunk_id` + `doc_id/source` + score.
+ - **When debugging**: given a retrieved `chunk_id`, you should be able to locate the original text location (file/url + section/page + chunk index).
+ 
  Key implication:
  
  - the DB returns what is *numerically close*, not what is *semantically correct*.

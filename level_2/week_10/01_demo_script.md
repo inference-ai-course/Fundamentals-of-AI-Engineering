@@ -67,6 +67,27 @@ This builds credibility because it shows engineering control.
   - top failures with labels
 - Close with roadmap (two concrete iterations).
 
+Concrete examples (to reduce “demo anxiety”):
+
+- Problem + constraints sentence template:
+  - “We built a RAG assistant for X. It must answer with citations, refuse when evidence is missing, and stay under Y seconds latency.”
+
+- In-KB question examples:
+  - Pick a question you *know* is answerable from your indexed docs.
+  - Show that the answer includes at least one citation, and that the cited `chunk_id` exists in retrieval output.
+
+- Out-of-KB question examples:
+  - Ask something plausible but not in your docs.
+  - Show the system returns `mode=clarify` or `mode=refuse` (not a confident hallucinated answer).
+
+- Showing `/search` output (optional but powerful):
+  - Point out top_k hits, scores, and doc_id/source.
+  - If retrieval is empty, explicitly connect it to the refusal/clarification decision.
+
+- Evidence pack presentation:
+  - Open `runs/<run_id>/metrics.json` and highlight 1–2 numbers only.
+  - Open `runs/<run_id>/failures.json` and show 1–2 labeled failures (with root-cause notes).
+
 Practical rule:
 
 - if you show “before vs after”, name the single variable you changed and the metric that moved

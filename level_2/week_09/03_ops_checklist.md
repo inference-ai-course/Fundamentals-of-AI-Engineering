@@ -55,10 +55,21 @@ Leading indicators to watch for RAG systems:
 
 ## Debug procedure
 
-1. find request_id
-2. inspect logs by component
-3. check retrieval hits
-4. check model errors
+1. **Find `request_id`**
+    - Start from the user-visible failure (HTTP response, CLI output) and locate the request identifier.
+    - If you do not have a `request_id`, add one. Debugging without it becomes guessing.
+
+2. **Inspect logs by component**
+    - Split logs by stage: ingest → search/retrieve → chat/generate → validate.
+    - Look for the first error in the trace, not the last error in the cascade.
+
+3. **Check retrieval hits**
+    - Confirm retrieval returned any chunks.
+    - If hits are empty, the safest behavior is to clarify/refuse rather than hallucinate.
+
+4. **Check model errors**
+    - Separate “provider failed” (timeouts/429/5xx) from “model answered but invalid” (bad JSON, missing citations).
+    - If 429 rates spike, reduce concurrency and ensure retries have backoff.
 
 ## Cost controls
 
@@ -80,6 +91,12 @@ When something is wrong in a demo or production-ish run:
     - check model call succeeded
     - check citation validation
 4. Decide the safest fallback (clarify/refuse) instead of hallucinating.
+
+Example “triage” outcomes:
+
+- If retrieval returns zero hits for known in-KB questions, suspect ingestion/indexing or metadata filters.
+- If retrieval hits exist but the answer is wrong, suspect context assembly (ordering, truncation, missing chunk text).
+- If the answer is correct but citations are missing, suspect citation enforcement and output validation.
 
 Principle:
 

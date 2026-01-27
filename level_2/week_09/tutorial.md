@@ -27,6 +27,20 @@ Underlying theory you should internalize this week:
 2. Read 02 and control abuse/cost.
 3. Read 03 and write the ops checklist.
 
+Why this order works:
+
+1. **Make latency debuggable first**
+    - You can’t improve what you can’t measure. Traces tell you where time is spent.
+    - What to verify: you can break `/chat` latency into retrieval vs model vs total.
+
+2. **Control abuse/cost second**
+    - Retries and agents amplify traffic. Rate limits and budgets keep failures from cascading.
+    - What to verify: expensive endpoints are rate-limited and retries are bounded with backoff.
+
+3. **Write the runbook third**
+    - A checklist forces you to define “how to debug” before you’re in an incident.
+    - What to verify: given a failed request, you can follow the runbook to locate the first failing stage.
+
 ## What “done” looks like
 
 - Every request has a `request_id` in logs and in responses.

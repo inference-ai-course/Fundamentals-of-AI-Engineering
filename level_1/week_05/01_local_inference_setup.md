@@ -49,6 +49,27 @@ Trade-offs:
 3. Pull a model
 4. Run a test prompt
 
+What to do and what “success” looks like:
+
+1. **Install Ollama**
+    - Goal: have the `ollama` CLI available.
+    - What to verify: running `ollama --version` prints a version.
+
+2. **Start the Ollama service**
+    - Goal: have a local server process ready to accept requests.
+    - What to verify: `ollama serve` starts without immediately exiting.
+    - Common failure: port conflicts or permission issues; if the service won’t start, fix that before touching your client code.
+
+3. **Pull a model**
+    - Goal: download at least one model so you can run an end-to-end request.
+    - What to verify: `ollama list` shows the model.
+    - Practical note: start small (a smaller model/quantization) to avoid memory failures.
+
+4. **Run a test prompt**
+    - Goal: confirm that request → generation works locally.
+    - What to verify: `ollama run <model_name>` produces output quickly and doesn’t crash.
+    - If this step is slow, it may still be “working”; your hardware and model choice dominate latency.
+
 ---
 
 ## What “model size / context window / quantization” mean

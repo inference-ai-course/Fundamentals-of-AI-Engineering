@@ -17,3 +17,17 @@ These tutorials expand Week 2 into a step-by-step, reproducible baseline ML work
 3. Read 03 and practice controlled comparisons.
 
 Use [practice.ipynb](practice.ipynb) for extra hands-on work.
+
+Why this order works:
+
+1. **Baseline first**
+    - A baseline run proves the whole loop works end-to-end (load → split → train → eval → save).
+    - What to verify: you can produce an `artifacts/run_.../metrics.json` and re-run without overwriting.
+
+2. **Reproducibility second**
+    - Once it runs, make it repeatable: same command should produce explainably similar results.
+    - What to verify: your run saves a config (seed, split settings) and you can point to the exact run that produced a metric.
+
+3. **Comparisons third**
+    - Only compare experiments after you’ve controlled variables; otherwise you can’t learn from results.
+    - What to verify: you change one thing at a time (e.g., `max_iter`, model type, or one feature).

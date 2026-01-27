@@ -21,6 +21,17 @@ For each major concept, aim to teach and learn it in the sequence:
 5. pitfalls (how does it fail in production?)
 6. evidence (what can we measure/log to know it worked?)
 
+Concrete example (apply the sequence to one concept):
+
+Example concept: **retrieval recall@k**
+
+1. **Definition**: recall@k is the fraction of queries where at least one relevant chunk appears in the top-k retrieval results.
+2. **Intuition**: if recall@k is low, `/chat` is starved of evidence and will either hallucinate or refuse often.
+3. **(Light) math**: for each query, define `hit=1` if any relevant chunk is in top-k; recall@k is the mean of `hit` over the eval set.
+4. **Practice**: build a 10–20 query eval set, run `/search`, and compute recall@k; then change one knob (chunk size/overlap) and re-run.
+5. **Pitfalls**: labels are noisy; “relevance” is subjective; changing many knobs at once makes causality unclear.
+6. **Evidence**: save `output/metrics.json` and `output/misses.json` plus a few concrete misses that explain *why* retrieval failed.
+
 Across the 10 weeks, the recurring system invariants are:
 
 - retrieval must be debuggable (separate `/search` from `/chat`)

@@ -24,6 +24,20 @@ You will practice:
 
 Use [practice.ipynb](practice.ipynb) for additional work.
 
+Why this order works:
+
+1. **Contract first**
+    - A written contract prevents “coding into ambiguity”. It forces you to decide schemas and error behavior up front.
+    - What to verify: you can write an example request/response for `/search` and `/chat` without looking at code.
+
+2. **Runnable service second**
+    - Once the skeleton starts, you can test incrementally and avoid building everything in a vacuum.
+    - What to verify: `GET /health` works locally and `/docs` shows your endpoints.
+
+3. **Debuggability third**
+    - If something breaks, you need to locate the failure quickly (request_id + structured logs).
+    - What to verify: every error response includes a `request_id` and you can find the matching logs.
+
 ## What “done” looks like
 
 - You can start the API locally and hit `GET /health`.

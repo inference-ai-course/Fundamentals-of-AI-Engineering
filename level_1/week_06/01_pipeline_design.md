@@ -41,11 +41,35 @@ Practical implication:
 
 ## Suggested capstone stages
 
-1. **Load**: read CSV
-2. **Profile**: compute stats
-3. **Compress**: sample rows, compute summaries
-4. **LLM**: send compressed representation
-5. **Report**: produce `report.json` + `report.md`
+For each stage, aim to make the contract explicit.
+
+1. **Load**
+    - **Inputs**: `data/*.csv` (or a single CSV path)
+    - **Outputs**: an in-memory dataframe/table OR a saved intermediate like `output/loaded.parquet`
+    - **Common pitfalls**: silent dtype changes, unexpected delimiters/encodings, missing columns that only fail later.
+
+2. **Profile**
+    - **Inputs**: loaded table
+    - **Outputs**: `output/profile.json` (machine-readable) and optionally `output/profile.md` (human-readable)
+    - **What “profile” means**: row/column counts, missing values per column, basic numeric stats, top categories.
+
+3. **Compress**
+    - **Inputs**: table + profiling results
+    - **Outputs**: `output/compressed_input.json`
+    - **Goal**: fit the most decision-relevant information into a bounded context window.
+    - **Common pitfalls**: sampling that drops rare-but-important cases; summaries that remove units/definitions.
+
+4. **LLM**
+    - **Inputs**: prompt template + `output/compressed_input.json`
+    - **Outputs**: `output/llm_raw.txt` (or JSON) and `output/llm_validated.json`
+    - **Common pitfalls**: calling the model without saving the exact prompt/context; not handling timeouts/429s.
+
+5. **Report**
+    - **Inputs**: validated LLM output + (optional) original profile
+    - **Outputs**: `output/report.json` and `output/report.md`
+    - **Goal**: produce a stable, demo-friendly artifact with predictable keys/sections.
+
+A useful rule of thumb: if a stage fails, you should still have the previous stage’s artifact saved so you can debug without re-running everything.
 
 For Level 1, this can all be in one script, but you should treat these stages explicitly.
 

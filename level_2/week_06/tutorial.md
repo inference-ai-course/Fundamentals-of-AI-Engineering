@@ -23,6 +23,24 @@ Week 6 introduces **agents**:
 3. Read 03 and make behavior observable.
 4. Implement 04.
 
+Why this order works:
+
+1. **State model first**
+    - Agents are hard to debug when state is implicit. Make state a first-class object.
+    - What to verify: your `state` includes task, plan, steps, and final.
+
+2. **Tool schemas second**
+    - Tools are APIs; without schemas/validation, you get garbage-in/garbage-out.
+    - What to verify: invalid tool inputs fail fast with clear errors.
+
+3. **Observability third**
+    - Step logs let you answer: “what did the agent do, and why did it stop?”
+    - What to verify: each tool call is logged with inputs, outputs, and error status.
+
+4. **Blueprint last**
+    - After contracts and logging exist, a minimal agent loop is straightforward and testable.
+    - What to verify: you can show a successful trace and a trace that hits a stop condition.
+
 ## What “done” looks like
 
 - You can explain the agent loop in your own words.

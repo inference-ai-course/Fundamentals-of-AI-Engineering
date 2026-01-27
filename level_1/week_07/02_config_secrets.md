@@ -31,12 +31,18 @@ Practical implication:
 ## Minimal `.env` pattern
 
 1. Create a `.env` file (do not commit it):
+    - Goal: keep secrets out of code while keeping local development convenient.
+    - What to verify: `.env` is listed in `.gitignore` and does not show up in `git status`.
+    - Common mistakes: forgetting to add `.env` to `.gitignore`, or accidentally committing it.
 
 ```env
 OPENAI_API_KEY=...
 ```
 
 2. Load it in Python:
+    - Goal: load environment variables into the process before you read them.
+    - What to verify: `load_dotenv()` is called near startup (before any API client initialization).
+    - Common mistakes: loading `.env` too late, or not loading it at all.
 
 ```python
 from dotenv import load_dotenv
@@ -45,6 +51,9 @@ load_dotenv()
 ```
 
 3. Read via environment variables:
+    - Goal: fail early with a clear error if a required secret is missing.
+    - What to verify: the error message names the exact missing variable and tells the user how to set it.
+    - Common mistakes: unclear error messages, or not checking for missing secrets at all.
 
 ```python
 import os

@@ -37,16 +37,57 @@ This makes it easy to reproduce runs and compare results.
 4. Compute embeddings
 5. Upsert into vector DB with metadata
  
+What “good” looks like for each step:
+ 
+1. **Find input files**
+    - Prefer deterministic ordering (e.g., sort paths) so reruns are comparable.
+    - Decide what you will ignore early (e.g., skip hidden files, skip very large binaries).
+ 
+2. **Load text**
+    - Normalize encoding if needed (UTF-8 is the usual baseline).
+    - Keep a clear `doc_id` per source (e.g., relative path) so you can trace retrieval later.
+ 
+3. **Chunk text**
+    - Chunking is a recall/precision tradeoff: smaller chunks improve specificity but can lose context.
+    - Store chunk metadata like `chunk_index`, `start_char`, `end_char` (even if you don’t use it yet).
+ 
+4. **Compute embeddings**
+    - Log which embedding model you used and any important parameters.
+    - If you stub embeddings for learning, keep the stub obvious so you don’t confuse “it runs” with “it retrieves well”.
+ 
+5. **Upsert with metadata**
+    - Use a stable `chunk_id` so ingestion is idempotent.
+    - Minimum useful metadata is typically `doc_id`, `source`, `chunk_index`.
+ 
+If you can’t answer “where did this retrieved text come from?” you are missing metadata.
+ 
 You can stub embeddings initially (for learning), then swap in a real embedding model.
  
 ---
- 
 ## Minimal `query.py` responsibilities
  
 1. Embed the query
 2. Query vector DB for top-k
 3. Print results in a human-debuggable format
 4. (optional) Write a JSON file for later evaluation
+ 
+Practical tips:
+ 
+1. **Embed the query**
+    - Use the same embedding model family as ingestion.
+    - Log the model name so “bad retrieval” can be traced to a mismatch.
+ 
+2. **Query top-k**
+    - Start with a small `top_k` (e.g., 3–8). Large values can hide the fact that your top results are poor.
+    - Print the score/distance so you can see whether the system is confident.
+ 
+3. **Print in a debuggable way**
+    - Always include `rank`, `score`, `doc_id`, `chunk_id`.
+    - Print only a preview of text so logs are readable.
+ 
+4. **(Optional) Write JSON**
+    - Save the exact inputs and outputs for later eval (query text, top_k, returned ids, scores).
+    - This lets you compare retrieval changes without relying on memory.
  
 ## Minimal `query.py` contract
  
@@ -124,6 +165,8 @@ Add these behaviors early so you don’t suffer later:
 - input parsing failures are explicit (file not found, empty file)
 - you can rerun ingest/query and get consistent outputs
 - you can log which embedding model + chunking config you used
+ 
+A concrete way to implement stable IDs is to base `chunk_id` on identifiers you already have (for example: `doc_id` + `chunk_index`), rather than random UUIDs.
  
 ---
  

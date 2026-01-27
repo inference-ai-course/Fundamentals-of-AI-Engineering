@@ -23,3 +23,17 @@ This week you build the **capstone happy path** end-to-end:
 3. Implement 04 to run everything with one command.
 
 Use [practice.ipynb](practice.ipynb) for extra work.
+
+Why this order works:
+
+1. **Pipeline stages first**
+    - If you don’t define stages and artifacts, debugging becomes “rerun everything and hope”.
+    - What to verify: each stage has an input/output and writes an artifact you can inspect.
+
+2. **Context constraints second**
+    - Most capstone failures are context-budget failures (too much input, not enough output budget).
+    - What to verify: you can generate a bounded `compressed_input.json` that is stable across reruns.
+
+3. **One-command runner last**
+    - A single entrypoint is the reproducibility test: can someone else run it without “magic steps”?
+    - What to verify: one command produces `report.json` + `report.md` in a predictable location.

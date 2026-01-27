@@ -98,6 +98,20 @@ Before returning a response:
 - verify each citation chunk_id is in retrieved hits
 - optionally verify snippet overlap
 
+What to verify (practical):
+
+- The validator uses the **retrieved hits from this request**, not some global set.
+- A citation should fail if:
+  - `chunk_id` is missing
+  - `chunk_id` was not retrieved
+  - `snippet` is not found in the stored chunk text
+- Log enough context to debug:
+  - requested `top_k`
+  - retrieved `chunk_id`s
+  - the model’s returned citations
+
+If you log these, you can quickly tell whether the failure is retrieval (wrong chunks) or generation (wrong citations).
+
 If not, treat as failure and:
 
 - retry with a repair prompt
@@ -133,6 +147,15 @@ When validation fails:
 
 1. retry once with a “repair” instruction (don’t change everything)
 2. if still invalid, switch to `mode=refuse`
+
+A concrete repair instruction that often works:
+
+- “Return the same answer, but fix citations so that every `chunk_id` is one of: {retrieved_chunk_ids}. The `snippet` must be copied exactly from the corresponding chunk text. Return ONLY JSON.”
+
+Why only one retry:
+
+- If the model can’t produce valid citations after one targeted repair, repeated retries usually just waste time and cost.
+- A deterministic refusal is better UX than a long hang or an unverifiable answer.
 
 This gives you deterministic behavior instead of random hallucination.
 

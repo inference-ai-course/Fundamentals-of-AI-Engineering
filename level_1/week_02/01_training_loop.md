@@ -5,10 +5,20 @@
 This is the smallest ML workflow that is still “real engineering”:
 
 1. Load data
+    - What it means: read inputs into a consistent table (rows = examples, columns = features).
+    - What to verify: you can print row/column counts and confirm the label column exists.
 2. Split train/validation
+    - What it means: separate “data you learn from” vs “data you test on”.
+    - What to verify: the split is reproducible (fixed seed) and train/val are disjoint.
 3. Train a baseline model
+    - What it means: start with a simple model to prove the pipeline works end-to-end.
+    - What to verify: training completes and you can serialize the model.
 4. Evaluate on validation
+    - What it means: estimate performance on unseen data.
+    - What to verify: metrics are computed on validation, not on training.
 5. Save artifacts
+    - What it means: save evidence (config + metrics + model/report) so results are explainable later.
+    - What to verify: artifacts are written into a per-run folder so reruns don’t overwrite.
 
 Even if you later focus on LLMs, this disciplined loop is the basis for:
 

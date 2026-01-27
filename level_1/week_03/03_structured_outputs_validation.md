@@ -16,6 +16,14 @@ So we implement:
 3. validate schema
 4. if invalid, retry with a repair prompt (capped)
 
+A concrete example of the target output shape:
+
+```json
+{"person": "Ada Lovelace", "company": null}
+```
+
+The important engineering point: downstream code should never need to “guess” if the output is valid. It should be able to fail fast or proceed.
+
 ---
 
 ## Underlying theory: validation turns model text into a typed interface
@@ -70,6 +78,15 @@ This will fail in two different ways:
 - `model_validate` fails → wrong schema
 
 That separation helps debugging.
+
+Example failures you should expect during development:
+
+- Parse failure (not JSON):
+  - model output contains extra text like `Here is the JSON:` or uses single quotes.
+- Schema failure (wrong shape):
+  - model returns `{"name": "..."}` instead of `{"person": "..."}`.
+
+A practical habit that helps: save the raw model output to disk (e.g., `output/llm_raw.txt`) whenever parsing/validation fails, so you can inspect what the model actually produced.
 
 Practical implication:
 

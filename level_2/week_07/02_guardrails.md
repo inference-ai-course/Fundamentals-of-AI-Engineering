@@ -6,10 +6,20 @@ Guardrails prevent runaway agents and unsafe actions.
 
 Implement in this order:
 
-1. tool allowlist
-2. step cap
-3. timeout cap
-4. budget cap
+1. **Tool allowlist**
+    - This is the most important guardrail because it restricts *what actions are possible*.
+    - Example: only allow `search` and `write_answer`. Deny filesystem/network by default.
+2. **Step cap**
+    - Prevents infinite loops when the model keeps trying “one more attempt”.
+    - Example: max 4 tool calls per request.
+3. **Timeout cap**
+    - Prevents a single request from hanging forever (or slowly burning money).
+    - Example: each tool call must finish within 10–30 seconds.
+4. **Budget cap**
+    - Limits blast radius on cost and context size even when the system is “working”.
+    - Example: max output tokens; max retrieved chunks; max total context length.
+
+Why this order matters:
 
 ---
 
@@ -69,6 +79,13 @@ Practical enforcement ideas:
 - cap: max tokens per request
 - cap: max context length
 - cap: max runtime
+
+Concrete student-friendly interpretation:
+
+- If the agent tries to call a tool not on the allowlist, return an error like “tool not allowed” and stop.
+- If step count hits the cap, return a safe fallback (clarify/refuse) instead of continuing.
+- If context length is too large, reduce retrieved chunks or summarize before calling the model.
+- If runtime is exceeded, terminate and return a partial result with a message that the system timed out.
 
 Practical note:
 

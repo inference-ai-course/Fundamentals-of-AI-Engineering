@@ -22,3 +22,17 @@ These tutorials expand Week 3 into practical LLM engineering skills:
 3. Read 03 and implement validation + repair.
 
 Use [practice.ipynb](practice.ipynb) for additional hands-on work.
+
+Why this order works:
+
+1. **Tokens/context first**
+    - Many failures look like “the model is dumb”, but are actually context overflow or truncation.
+    - What to verify: you can estimate whether your input will fit (prompt + context + output).
+
+2. **Prompt contracts second**
+    - Treat the prompt like an API spec: define inputs, outputs, and constraints.
+    - What to verify: your prompt includes explicit output requirements (e.g., exact JSON keys, allowed values).
+
+3. **Validation + repair third**
+    - LLMs are probabilistic; you need a deterministic wrapper (parse/validate/retry) for reliability.
+    - What to verify: invalid JSON triggers a retry/repair path with a hard retry limit.

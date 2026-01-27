@@ -42,6 +42,17 @@ Add one more journey that students often skip:
   - what logs do we need?
   - what identifiers link logs across components?
 
+What to produce for this step (student-friendly):
+
+- Write the journeys as short bullet stories (3–6 bullets each).
+- Add at least one concrete example question for each journey.
+  - Happy path example: “What is RAG?” (should retrieve an intro chunk).
+  - Failure example: “What is our 2026 refund policy?” (if not in KB, should clarify/refuse).
+- For observability, name the minimum debug artifacts:
+  - a `request_id`
+  - logged retrieval hit IDs/scores
+  - the final `mode` decision (answer/clarify/refuse)
+
 ---
 
 ## Step 2: Convert journeys into minimal endpoints
@@ -58,6 +69,13 @@ A minimal contract for a RAG-style service usually includes:
 - `POST /chat`
   - generation endpoint
   - uses `/search` results
+
+Practical verification for Step 2:
+
+- You should be able to point to exactly one endpoint responsible for retrieval (`/search`).
+- You should be able to simulate a failure in each endpoint and describe what the user sees.
+  - Example: invalid JSON input → 400 with a clear message.
+  - Example: provider timeout → 502/503 with a `request_id`.
 
 ## What is RAG? (Retrieval-Augmented Generation)
 
@@ -110,6 +128,13 @@ Optional (but common) additions you may want later:
 ## Step 3: Define the API contract (examples first)
 
 Before coding, write one example request/response per endpoint.
+
+What to verify for Step 3:
+
+- Requests include only what is needed (avoid “kitchen sink” schemas early).
+- Responses are stable and debuggable:
+  - retrieval returns `chunk_id`, `doc_id`, `score`, `metadata`
+  - chat returns `mode` and citations (or a refusal/clarification message)
 
 ### Example: `/health`
 
@@ -191,6 +216,12 @@ Why this matters:
 - you can search logs by `request_id`
 - your service contract stays stable even if internals change
 
+Practical tips:
+
+- Always include a human-actionable `message` (what to do next).
+- Keep `type` values finite and predictable so clients can handle them (e.g., `invalid_request`, `rate_limited`, `provider_timeout`).
+- Log the same `request_id` in your server logs so you can correlate a user report to internal traces.
+
 If you want a standardized format later, you can align with RFC 7807 (Problem Details).
 
 ---
@@ -204,6 +235,13 @@ You don’t need a huge system design doc. A half-page is enough:
 - Failure modes: what can go wrong and what the user sees
 
 The discipline here is what prevents “spaghetti endpoints”.
+
+What to verify for Step 5:
+
+- Each component has a single primary responsibility.
+  - retrieval does retrieval; chat does generation + validation; ingestion updates the index.
+- You can say what happens when a component fails (and what the user sees).
+- You can name the key “contracts” between components (input/output shapes), not just code files.
 
 ---
 

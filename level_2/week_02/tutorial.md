@@ -45,6 +45,20 @@ Keep the structure boring and obvious:
 2. Read 02 and implement chunk ids / dedup.
 3. Read 03 and run ingest + query end-to-end.
 
+Why this order works:
+
+1. **Schema first**
+    - If you don’t decide what to store, debugging retrieval later becomes nearly impossible.
+    - What to verify: every chunk has `chunk_id`, `doc_id/source`, and enough info to locate the original text.
+
+2. **Idempotency second**
+    - Ingestion will be re-run constantly. If it creates duplicates, every later metric becomes meaningless.
+    - What to verify: ingesting the same folder twice does not increase collection size.
+
+3. **End-to-end loop third**
+    - The real learning loop is: ingest → query → inspect → tweak chunking → rerun.
+    - What to verify: `query.py` prints stable fields (`rank`, `score`, `doc_id`, `chunk_id`) plus a text preview.
+
 ## What “done” looks like (acceptance checklist)
 
 - You can ingest the same folder twice and the collection size does not double.

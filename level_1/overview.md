@@ -50,6 +50,40 @@ When you ask for help (from instructors, classmates, or online), follow this pro
 5. Make a minimal reproduction if possible (smallest script/input that still fails).
 6. Share what you already tried (so others do not repeat your steps).
 
+Why this procedure works:
+
+- It turns debugging from “opinions” into evidence.
+- It minimizes back-and-forth questions (others can run the same command and see the same failure).
+- It helps you learn faster because you practice isolating variables.
+
+A strong help request example (copy/paste style):
+
+```text
+Goal: Run Week 2 baseline training script and save artifacts.
+Context: level_1/week_02 Part 01, running train.py.
+
+Command:
+  python train.py --input data.csv --label_col label --seed 42
+
+Expected:
+  Script prints metrics and creates artifacts/run_.../metrics.json
+
+Actual:
+  ValueError: label_col not found: label
+
+Environment:
+  OS: Ubuntu 22.04
+  Python: 3.11.6
+  requirements.txt: pandas==2.2.3, scikit-learn==1.5.2
+
+What I tried:
+  - Opened data.csv and saw the column is named `target`, not `label`.
+  - Re-ran with --label_col target and it worked.
+  - Remaining question: should we standardize on `label` or allow configurable label columns?
+```
+
+Notice how this request includes a reproducible command, the full error, and the smallest relevant detail (the column name). That’s what makes it easy to help.
+
 Required items in every help request:
 
 *   Goal: what you are trying to do
@@ -131,10 +165,20 @@ You will practice this loop repeatedly in Level 1:
 After completing Level 1, you should be able to:
 
 1. Explain key fundamentals of traditional ML and LLMs, and choose a reasonable baseline approach for a task
+    - What this means: you can explain train/validation/overfitting and tokens/context in plain language.
+    - What to demonstrate: given a task, you can justify a baseline (simple model or simple prompt + validation).
 2. Complete a reproducible ML mini-experiment in Python (data split, training, evaluation, saving artifacts)
+    - What this means: you can rerun the same command and get consistent artifacts (config + metrics + model file).
+    - What to demonstrate: you can point to the exact run folder that produced the reported metric.
 3. Reliably call at least one hosted LLM API with basic production practices (timeouts, retries, logging, rate limiting, simple caching)
+    - What this means: your code fails fast on timeouts/429s and produces actionable logs instead of hanging.
+    - What to demonstrate: a forced failure case (invalid key / timeout) with a clear error and request/run identifier.
 4. Run local inference (Ollama) and compare model output quality and performance differences
+    - What this means: you can run a local model end-to-end and measure latency distribution (not just one run).
+    - What to demonstrate: a small benchmark comparison across 2 models or 2 quantizations.
 5. Deliver a runnable Capstone project with a README, environment setup, and reproducible run steps
+    - What this means: a teammate can follow your README on a fresh machine and reproduce outputs without “magic steps”.
+    - What to demonstrate: one-command run that produces `report.json` + `report.md` in a predictable location.
 
 ## Recommended Tech Stack (Level 1)
 

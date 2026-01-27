@@ -26,6 +26,20 @@ Underlying theory you should internalize this week:
 2. Read 02 and add minimal access control.
 3. Read 03 and make demo reproducible.
 
+Why this order works:
+
+1. **Boundaries first**
+    - If you don’t separate user vs admin capabilities, you can’t enforce policy correctly.
+    - What to verify: you can list user endpoints vs admin endpoints and what each can do.
+
+2. **Access control second**
+    - Admin actions (ingest/eval) have high blast radius. Protect them early.
+    - What to verify: admin endpoints reject unauthorized requests and create audit logs.
+
+3. **Reproducible demo third**
+    - Productization is only real if a teammate can run it from README.
+    - What to verify: a one-command run works on a clean machine with only documented steps.
+
 ## What “done” looks like
 
 - You have an endpoint map with:

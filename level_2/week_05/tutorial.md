@@ -22,6 +22,20 @@ You will:
 2. Read 02 and build the eval set.
 3. Read 03 and produce before/after evidence.
 
+Why this order works:
+
+1. **Run discipline first**
+    - If you can’t reproduce a run, you can’t trust comparisons.
+    - What to verify: every run has a `run_id` folder with config + outputs.
+
+2. **Eval set second**
+    - The eval set is your measuring stick. Build it before you start tweaking knobs.
+    - What to verify: your eval set includes at least some in-KB, ambiguous, and out-of-KB queries.
+
+3. **Evidence third**
+    - “Improvement” must be shown with metrics + concrete failures.
+    - What to verify: you can show 3–5 failures before/after and explain what changed.
+
 ## What “done” looks like
 
 - You have a baseline run (run id + config + outputs).

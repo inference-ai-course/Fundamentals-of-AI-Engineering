@@ -62,6 +62,12 @@ Works best when the task is predictable.
 4. Self-check against requirements
 ```
 
+Concrete example (fixed plan works well):
+
+- Task: “Summarize the company policy from our handbook.”
+- Predictable tools: `search` (retrieve handbook chunks) → `write_answer` (summarize with citations).
+- Why it works: you expect retrieval to return relevant chunks almost every time.
+
 Failure mode: if tool output surprises you, the plan becomes wrong.
 
 When to prefer fixed plans:
@@ -81,6 +87,12 @@ After each tool call:
 - stop early if task is done
 
 This pattern prevents wasted steps.
+
+Concrete example (replanning is necessary):
+
+- Task: “Answer a user question, but only if the KB contains evidence.”
+- If `search` returns zero hits, the correct next step is not “try harder”; it is to clarify/refuse.
+- Replanning lets the agent switch from “answer” mode to “clarify” mode based on observed tool output.
 
 When to prefer replanning:
 
@@ -104,6 +116,10 @@ If the budget is hit, switch to:
 - or return best-effort partial output + what is missing
 
 This is how you prevent runaway agents.
+
+A useful way to message this to users:
+
+- “I hit the step/time budget while searching. Here is what I found so far, and here is the single missing piece I need from you to continue.”
 
 Practical heuristic:
 

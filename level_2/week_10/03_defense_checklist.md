@@ -48,6 +48,21 @@ If you can name the tradeoff and show what you chose, reviewers will trust your 
 - security posture
 - next 2 iterations
 
+What “good” looks like:
+
+- **architecture diagram**
+  - Names components and boundaries (API, retrieval, generation, vector store, eval).
+- **data flow explanation**
+  - Can narrate one request end-to-end: user → retrieve → assemble context → generate → validate → respond.
+- **failure modes and mitigations**
+  - Shows at least one real failure case and what changed (or what fallback triggers).
+- **cost controls**
+  - Mentions concrete limits (token caps, top_k caps, rate limits, caching policy if any).
+- **security posture**
+  - Explains how admin endpoints are protected (even a simple API key) and how actions are audited.
+- **next 2 iterations**
+  - Tied to observed evidence: “we saw failure type X, so we’ll try change Y”.
+
 ---
 
 ## Defense questions you should be able to answer

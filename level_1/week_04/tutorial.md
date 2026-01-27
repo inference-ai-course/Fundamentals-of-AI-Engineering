@@ -24,3 +24,13 @@ This week you engineer LLM API calls like a production system:
 2. Implement 05 and use it as a base for your capstone.
 
 Use [practice.ipynb](practice.ipynb) for extra hands-on work.
+
+Why this order works:
+
+1. **Mental models first**
+    - Reliability features interact: retries without timeouts can hang forever; retries without backoff can cause storms.
+    - What to verify: you can explain what happens on timeout vs 429 vs 5xx, and what your client should do in each case.
+
+2. **Client skeleton second**
+    - The reusable client is where engineering habits live (timeouts, retries, logging, caching).
+    - What to verify: you can force a failure (bad key, forced timeout) and your client exits with a clear error and useful logs.

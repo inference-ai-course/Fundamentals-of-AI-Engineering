@@ -24,3 +24,17 @@ You will practice:
 3. Read 03 and build a benchmark harness.
 
 Use [practice.ipynb](practice.ipynb) for extra work.
+
+Why this order works:
+
+1. **Confirm the local runtime first**
+    - Until the local server runs, any “client bug” is actually an environment/runtime issue.
+    - What to verify: `ollama serve` works and you can run one model once.
+
+2. **Single prompt end-to-end second**
+    - Prove the HTTP contract: request → response → basic validation.
+    - What to verify: you can send a prompt, get a response, and handle timeouts/errors cleanly.
+
+3. **Benchmark harness last**
+    - Once one request works, scale to many requests and measure latency distribution.
+    - What to verify: your benchmark saves outputs and latency metrics so you can compare models later.

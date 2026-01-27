@@ -21,6 +21,20 @@ Week 7 extends agents with design patterns and guardrails:
 2. Read 02 and restrict tool usage.
 3. Read 03 and make traces interpretable.
 
+Why this order works:
+
+1. **Step cap first**
+    - The simplest runaway failure mode is infinite looping. Cap it before adding complexity.
+    - What to verify: after N steps, the agent stops and returns a safe message.
+
+2. **Restrict tools second**
+    - Tool allowlists prevent prompt injection from turning into high-impact actions.
+    - What to verify: unknown tools are rejected deterministically.
+
+3. **Readable traces third**
+    - Traces are only useful if a human can interpret them quickly.
+    - What to verify: a trace shows the sequence of tool calls, inputs, outputs, and the final decision.
+
 ## What “done” looks like
 
 - Your agent has a max step cap and a time budget.

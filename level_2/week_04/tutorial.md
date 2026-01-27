@@ -21,6 +21,20 @@ Week 4 builds **RAG v1**:
 2. Read 03 and add deterministic safety behaviors.
 3. Read 04 and wire it into your API.
 
+Why this order works:
+
+1. **Auditability first (grounding + citations)**
+    - If you can’t show what context produced an answer, you can’t debug hallucinations.
+    - What to verify: given a response, you can point to the exact retrieved `chunk_id`s it cites.
+
+2. **Deterministic safety second**
+    - Rules like clarify/refuse should not rely on “prompt vibes”. Make them explicit so behavior is stable.
+    - What to verify: empty/low-context retrieval leads to `mode=clarify` or `mode=refuse` (not a confident answer).
+
+3. **Wire the endpoint last**
+    - Once the core behavior is correct, expose it via `/chat` with a stable API contract.
+    - What to verify: `/chat` responses always include `mode` and structured citations.
+
 ## What “done” looks like
 
 - `/chat` always returns one of:

@@ -22,3 +22,16 @@ You will practice:
 1. Read 01 and make your demo reproducible.
 2. Read 02 and write your retrospective.
 3. Read 03 to understand the next-level skills.
+
+Why this order works:
+
+1. **Demo reproducibility first**
+    - A demo is a test of your interfaces: README steps, CLI defaults, stable outputs.
+    - What to verify: a “fresh clone + README steps” run works without you editing code live.
+
+2. **Retrospective second**
+    - Writing a retrospective forces you to separate symptoms (“it crashed”) from root causes (“timeouts + no retries”).
+    - What to include: one failure case, the evidence (logs/artifacts), and the fix.
+
+3. **Level 2 transition last**
+    - After you have a stable Level 1 project, you can understand what changes in Level 2 (eval sets, observability, trust boundaries).

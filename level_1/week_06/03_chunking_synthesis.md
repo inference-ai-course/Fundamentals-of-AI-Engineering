@@ -4,9 +4,21 @@
 
 When text is too long for the context window:
 
-1. split into chunks
-2. process each chunk
-3. synthesize a final summary
+1. **Split into chunks**
+    - Goal: create pieces that are small enough to fit comfortably in the model context along with instructions and output budget.
+    - What to verify: each chunk is non-empty and you can trace a chunk back to its position in the original document (chunk index or character offsets).
+    - Practical tip: if the document has strong cross-paragraph references, add overlap between chunks (otherwise “boundary facts” get lost).
+2. **Process each chunk**
+    - Goal: produce a stable intermediate representation per chunk.
+    - What to verify: per-chunk outputs follow a consistent structure so you can combine them later.
+    - Example per-chunk schema (simple and robust):
+      - `summary_bullets`: 3–5 bullets
+      - `key_entities`: list of entities
+      - `open_questions`: what is unclear/missing
+3. **Synthesize a final summary**
+    - Goal: merge the per-chunk outputs into one coherent answer.
+    - What to verify: the synthesis step references evidence from the chunk summaries and does not invent new facts.
+    - Practical tip: synthesis works better when chunk outputs are short (bounded) and consistent.
 
 Even without a framework, you should understand the pattern.
 

@@ -46,6 +46,12 @@ Practical warning:
 
 Save as artifacts so reviewers can inspect.
 
+Practical guidance:
+
+- Treat this as “fresh evidence”: regenerate close to demo time so results match your current code/config.
+- Prefer writing files to a per-run folder like `runs/<run_id>/...` so you never overwrite previous evidence.
+- Make sure every artifact can be traced back to the exact run configuration (chunking, embedding model, top_k, etc.).
+
 ---
 
 ## Evidence pack checklist (what to include)
@@ -55,10 +61,28 @@ Save as artifacts so reviewers can inspect.
 - `runs/<run_id>/failures.json`
 - `runs/<run_id>/samples.md` (a few example Q/A with citations)
 
+What these files should contain:
+
+- `config.json`
+  - The “knobs” you changed: chunk size/overlap, embedding model name, retrieval top_k, any reranker usage.
+- `metrics.json`
+  - A small set of headline metrics (e.g., hit_rate/recall@k for retrieval, answerable rate, citation validity rate).
+- `failures.json`
+  - A list of failures with labels so reviewers can skim.
+  - Example fields: `query`, `expected`, `observed`, `failure_type`, `evidence` (retrieved chunk ids/scores), `notes`.
+- `samples.md`
+  - 3–5 representative examples (in-KB, ambiguous, out-of-KB) with the answer and citations.
+
 Also include:
 
 - a short README describing how to reproduce the run
 - one “before vs after” comparison
+
+For “before vs after”, keep it controlled:
+
+- **before**: baseline run_id + metrics + failures
+- **after**: one change + new run_id + metrics + failures
+- **claim**: one sentence linking change → expected mechanism → metric movement
 
 Reviewers should be able to inspect without reading your entire codebase.
 

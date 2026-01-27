@@ -80,10 +80,20 @@ To reduce decision overhead for learners, use these defaults unless you have a r
 After completing Level 2, you should be able to:
 
 1. Design and implement an end-to-end RAG system: ETL -> Chunk -> Embedding -> Vector DB -> Retrieval -> Generation
+    - What this means: you can explain where data enters the system, how it is chunked/embedded, and how retrieval feeds generation.
+    - What to demonstrate: a runnable ingest → `/search` → `/chat` flow with saved artifacts (config + logs).
 2. Add explainability and quality controls: citations, refusal/clarification, minimal offline evaluation
+    - What this means: the system can refuse safely when evidence is missing and every answer can be traced to retrieved chunks.
+    - What to demonstrate: a small labeled set (in-KB / ambiguous / out-of-KB) plus an eval script that outputs metrics and failures.
 3. Implement at least one agent workflow: planning/tool calling/state management/failure recovery
+    - What this means: the agent is a bounded loop over explicit state, not a “one-shot prompt”.
+    - What to demonstrate: step logs for a successful run and a run that hits a guardrail/timeout and falls back.
 4. Package the system as a runnable service (API + config + logs + basic tests) and deliver a demo
+    - What this means: the system is reproducible from README and debuggable via request IDs and logs.
+    - What to demonstrate: one-command startup + a test request (`/health` and one `/chat` example) on a clean environment.
 5. Use AI-assisted development to speed up delivery while maintaining quality through tests/review
+    - What this means: you can use AI tools to accelerate coding, but still enforce correctness with contracts, tests, and evidence.
+    - What to demonstrate: at least a small regression guard (smoke test or unit tests) and a changelog-style record of improvements.
 
 ## Recommended Tech Stack (Level 2)
 
