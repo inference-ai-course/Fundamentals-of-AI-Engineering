@@ -137,9 +137,50 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  U[Client (curl/UI)] --> API[FastAPI service]
+
+  API --> H[/health/]
+  API --> S[/search/]
+  API --> C[/chat/]
+
+  API --> CFG[Config (.env)]
+  API --> LOG[Structured logs + request_id]
+
+  subgraph Core[Core modules]
+    RET[retrieval module]
+    GEN[generation module]
+    EVAL[eval script/job]
+  end
+
+  S --> RET
+  C --> RET
+  C --> GEN
+  EVAL --> RET
+  EVAL --> GEN
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+flowchart TD
+  A[Ingest documents] --> B[Chunk + embed]
+  B --> V[(Vector store)]
+
+  Q[User query] --> S[/search/]
+  S --> V
+  V --> R[Top-k chunks + metadata]
+
+  Q --> C[/chat/]
+  C --> R
+  R --> P[Prompt/context assembly]
+  P --> L[LLM call]
+  L --> ANS[Answer + citations]
+
+  ANS --> M[Metrics + failure logs]
+  M --> E[Evaluation report]
+```
 
 ## Self-check questions
 

@@ -110,9 +110,32 @@ Citations:
 
 ### Figure A: The ML training loop (split -> train -> evaluate -> save)
 
+```mermaid
+flowchart TD
+  A[Load data] --> B[Split train/val]
+  B --> C[Train model on train]
+  C --> D[Predict on val]
+  D --> E[Compute metrics]
+  E --> F[Save artifacts]
+  F --> G[Compare runs]
+
+  F --> F1[config.json]
+  F --> F2[metrics.json]
+  F --> F3[model.joblib]
+  F --> F4[val_report.txt]
+```
 
 ### Figure B: Overfitting intuition (training vs validation curves)
 
+```mermaid
+flowchart LR
+  A[Start training]
+  A --> B[Train metric increases steadily]
+  A --> C[Val metric increases at first]
+  C --> D[Val metric peaks]
+  D --> E[Val metric declines (overfitting)]
+  B --> F[High train / lower val gap]
+```
 
 ## Self-check questions
 

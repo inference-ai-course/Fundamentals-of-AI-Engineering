@@ -77,9 +77,32 @@ Citations:
 
 ### Figure A: Capstone architecture overview (modules and data flow)
 
+```mermaid
+flowchart TD
+  CLI[run_capstone.py (CLI)] --> P[Pipeline orchestrator]
+  P --> DP[data_profile.py]
+  P --> CP[compress_table()]
+  P --> LLM[llm_client.py]
+  LLM --> VAL[parse + validate]
+  P --> OUT[output/ artifacts]
+
+  DP --> OUT
+  CP --> OUT
+  VAL --> OUT
+```
 
 ### Figure B: Iteration loop (run -> observe -> fix -> re-run)
 
+```mermaid
+flowchart LR
+  A[Run] --> B[Observe outputs/logs]
+  B --> C[Pick one change]
+  C --> D[Implement fix]
+  D --> E[Re-run]
+  E --> F{Improved?}
+  F -->|yes| G[Record evidence]
+  F -->|no| C
+```
 
 ## Self-check questions
 

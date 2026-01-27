@@ -98,9 +98,37 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  CFG[Run config(chunking/top_k/embeddings)] --> RUN[Experiment run_id]
+  RUN --> ING[Index build]
+  ING --> V[(Vector DB)]
+
+  QSET[Eval set] --> EVAL[eval_rag.py]
+  EVAL --> API[/search + /chat]
+  API --> V
+  EVAL --> MET[Metrics + failures]
+  MET --> REP[Report (before/after)]
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+flowchart TD
+  A[Baseline run] --> B[Metrics + failures]
+  B --> C[Pick one lever]
+  C --> D[Variant run]
+  D --> E[Metrics + failures]
+  E --> F{Improved?}
+  F -->|yes| G[Keep change + record evidence]
+  F -->|no| H[Rollback + try next lever]
+
+  Q[Eval queries] --> E1[eval_rag.py]
+  E1 --> S[/search/]
+  E1 --> CH[/chat/]
+  S --> V[(Vector DB)]
+  CH --> V
+```
 
 ## Self-check questions
 

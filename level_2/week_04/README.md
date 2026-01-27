@@ -101,9 +101,43 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  U[Client/UI] --> API[FastAPI]
+
+  API --> S[/search/]
+  API --> C[/chat/]
+
+  S --> RET[Retrieval]
+  RET --> V[(Vector DB)]
+
+  C --> ASM[Context assembly]
+  ASM --> LLM[LLM]
+  LLM --> OUT[Answer + citations]
+
+  OUT --> POL[Refusal/clarification rules]
+  POL --> OUT
+
+  API --> LOG[Logs: request_id + retrieved chunk_ids]
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+flowchart TD
+  Q[User question] --> C[/chat/]
+  C --> S[/search/]
+  S --> V[(Vector DB)]
+  V --> H[Top-k chunks + scores]
+
+  H --> G{Sufficient context?}
+  G -->|no| R[Refuse or ask clarifying question]
+  G -->|yes| P[Prompt with CONTEXT block]
+  P --> L[LLM call]
+  L --> A[Answer]
+  A --> X[Enforce citations]
+  X --> RESP[Return response]
+```
 
 ## Self-check questions
 

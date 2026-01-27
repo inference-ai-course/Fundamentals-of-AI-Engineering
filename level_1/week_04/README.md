@@ -111,9 +111,32 @@ Citations:
 
 ### Figure A: Reliable LLM call lifecycle (request -> retry -> parse -> validate)
 
+```mermaid
+flowchart TD
+  A[Build request] --> B[Call provider]
+  B -->|ok| C[Raw text]
+  B -->|timeout/429/5xx| R[Retry + backoff]
+  R --> B
+  C --> D{Parse}
+  D -->|fail| E[Repair prompt or fail]
+  D -->|ok| F{Validate schema}
+  F -->|fail| E
+  F -->|ok| G[Return structured result]
+  G --> H[Downstream logic]
+  E --> X[Return explainable error]
+```
 
 ### Figure B: Cache flow (request -> cache hit/miss -> provider)
 
+```mermaid
+flowchart LR
+  A[LLMRequest] --> K[Make cache key]
+  K --> C{Cache hit?}
+  C -->|yes| H[Return cached response]
+  C -->|no| P[Provider call]
+  P --> S[Store response]
+  S --> O[Return response]
+```
 
 ## Self-check questions
 

@@ -96,9 +96,42 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  UI[Front-end UI] --> API[Back-end API]
+
+  API --> H[/health/]
+  API --> C[/chat/]
+  API --> S[/search/]
+  API --> I[/ingest/ (admin)]
+  API --> E[/eval/ (admin)]
+
+  API --> AUTH[Auth/roles]
+  API --> AUDIT[Audit log]
+
+  API --> V[(Vector DB)]
+  API --> LLM[LLM provider]
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+flowchart TD
+  Admin[Admin] --> I[/ingest/]
+  I --> PARSE[Parse/Chunk/Embed]
+  PARSE --> V[(Vector DB)]
+
+  User[User] --> C[/chat/]
+  C --> S[/search/]
+  S --> V
+  V --> H[Retrieved chunks]
+  H --> P[Prompt/context]
+  P --> L[LLM call]
+  L --> A[Answer + citations]
+
+  Admin --> E[/eval/]
+  E --> M[Metrics + failures]
+```
 
 ## Self-check questions
 

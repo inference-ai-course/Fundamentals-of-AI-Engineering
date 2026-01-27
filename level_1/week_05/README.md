@@ -88,9 +88,36 @@ Citations:
 
 ### Figure A: Hosted API vs local inference (cost, privacy, latency)
 
+```mermaid
+flowchart LR
+  subgraph Hosted[Hosted API]
+    U1[Your app] --> N1[Internet]
+    N1 --> P1[Provider endpoint]
+    P1 --> M1[Large model cluster]
+    M1 --> P1
+    P1 --> N1
+    N1 --> U1
+  end
+
+  subgraph Local[Local inference]
+    U2[Your app] --> O[Ollama local server]
+    O --> HW[CPU/GPU + RAM/VRAM]
+    HW --> O
+    O --> U2
+  end
+```
 
 ### Figure B: Benchmark summary table (models x prompts -> metrics)
 
+```mermaid
+flowchart TD
+  M[Models] -->|loop| R[Run prompt set]
+  P[Prompt set] -->|loop| R
+  R --> L[Record latency_s]
+  R --> Q[Save output artifacts]
+  L --> S[summary.json]
+  Q --> S
+```
 
 ## Self-check questions
 

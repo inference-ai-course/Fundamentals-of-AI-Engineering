@@ -94,9 +94,34 @@ Citations:
 
 ### Figure A: End-to-end Capstone pipeline (CSV -> profile -> sample -> LLM -> report)
 
+```mermaid
+flowchart TD
+  A[CSV] --> B[Profile]
+  B --> C[profile.json]
+  B --> D[Compress/sample]
+  D --> E[compressed_input.json]
+  E --> F[LLM client]
+  F --> G[Validate + format]
+  G --> H[report.json]
+  G --> I[report.md]
+
+  C --> J[Debug/inspect]
+  E --> J
+  H --> J
+```
 
 ### Figure B: Context budget diagram (what consumes tokens)
 
+```mermaid
+flowchart LR
+  C[Context window C]
+  C --> P[Prompt]
+  C --> X[Compressed input]
+  C --> O[Output]
+  C --> T[Tool/log payloads]
+
+  style C fill:#f3f4f6,stroke:#111827
+```
 
 ## Self-check questions
 

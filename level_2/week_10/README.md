@@ -59,9 +59,41 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  UI[Demo UI / curl] --> API[Service]
+  API --> I[/ingest/]
+  API --> S[/search/]
+  API --> C[/chat/]
+  API --> E[/eval/]
+ 
+  I --> V[(Vector DB)]
+  S --> V
+  C --> V
+  C --> LLM[LLM provider]
+ 
+  API --> LOG[Logs + traces]
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+flowchart TD
+  D[Demo script] --> R1[In-KB question]
+  R1 --> C[/chat/]
+  C --> A1[Answer + citations]
+ 
+  D --> R2[Out-of-KB question]
+  R2 --> C
+  C --> A2[Refusal/clarification]
+ 
+  D --> EV[Run eval]
+  EV --> E[/eval/]
+  E --> M[Metrics + failures]
+  M --> PACK[Evidence pack]
+ 
+  PACK --> DEF[Defense: tradeoffs + roadmap]
+```
 
 ## Self-check questions
 

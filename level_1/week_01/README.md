@@ -114,9 +114,31 @@ Citations:
 
 ### Figure A: Environment setup flow (Python -> venv -> install -> run)
 
+```mermaid
+flowchart TD
+  A[System Python] --> B[Create venv: python -m venv .venv]
+  B --> C[Activate venv]
+  C --> D[Upgrade pip]
+  D --> E[Install deps]
+  E --> F[Freeze: requirements.txt]
+  F --> G[Run script]
+  G --> H[Recreate env from requirements.txt]
+```
 
 ### Figure B: Data profiling pipeline (read -> validate -> stats -> export)
 
+```mermaid
+flowchart TD
+  A[Input CSV] --> B[Load CSV]
+  B --> C{Validate}
+  C -->|missing file| E1[Fail: FileNotFoundError]
+  C -->|empty file| E2[Fail: ValueError]
+  C -->|ok| D[Compute stats]
+  D --> F[Write output/profile.json]
+  D --> G[Write output/profile.md]
+  F --> H[Done]
+  G --> H
+```
 
 ## Self-check questions
 

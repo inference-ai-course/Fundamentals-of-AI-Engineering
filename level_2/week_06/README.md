@@ -104,9 +104,40 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  U[User] --> A[Agent controller]
+  A --> M[LLM planner/decider]
+
+  A --> T1[Tool 1]
+  A --> T2[Tool 2]
+
+  T1 --> DS1[Data source]
+  T2 --> DS2[Data source]
+
+  A --> LOG[Step logs]
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+flowchart TD
+  S0[Input task] --> P[Plan]
+  P --> L[Loop: decide next action]
+  L -->|tool call| TC[Execute tool]
+  TC --> TR[Tool result]
+  TR --> OBS[Observe + update state]
+  OBS --> L
+  L -->|stop condition| FIN[Final answer]
+
+  subgraph Guards[Guardrails]
+    CAP[Step cap]
+    TO[Timeouts]
+    RET[Retries]
+  end
+  L --> Guards
+  TC --> Guards
+```
 
 ## Self-check questions
 

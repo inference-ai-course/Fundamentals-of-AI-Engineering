@@ -109,9 +109,33 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  U[Client] --> API[FastAPI]
+  API --> S[/search/]
+  API --> C[/chat/ (later)]
+
+  S --> RET[Retrieval service]
+  RET --> V[(Vector DB)]
+  RET --> LOG[Logs: query + filters + top_k + hits]
+
+  EVAL[retrieval_eval.py] --> RET
+  EVAL --> REP[Metrics report]
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+flowchart TD
+  QSET[Query set (10-20 items)] --> EVAL[Eval runner]
+  EVAL --> S[/search/]
+  S --> RET[Retrieve top-k]
+  RET --> V[(Vector DB)]
+  V --> H[Hits + scores]
+  H --> J[Judge: hit? recall@k?]
+  J --> M[Metrics summary]
+  H --> F[Top failures + evidence]
+```
 
 ## Self-check questions
 

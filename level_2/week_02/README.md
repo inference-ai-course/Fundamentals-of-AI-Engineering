@@ -116,9 +116,35 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  SRC["Docs(files/URLs)"] --> ING[Ingest pipeline]
+  ING --> PARSE[Parse]
+  PARSE --> CH[Chunk]
+  CH --> EMB[Embed]
+  EMB --> UPS[Upsert]
+  UPS --> V[(Vector DB)]
+
+  Q[Query script/API] --> V
+  V --> H[Hits: id + score + metadata + text]
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+flowchart TD
+  A[Source docs] --> B[Parse]
+  B --> C[Chunk]
+  C --> D[Compute chunk_id (hash)]
+  D --> E[Embed vectors]
+  E --> F[Upsert {id, vector, metadata, text}]
+  F --> V[(Vector DB)]
+
+  Q[Query] --> G[Embed query]
+  G --> V
+  V --> H[Top-k chunks]
+  H --> I[Inspect: source/doc_id/chunk_id]
+```
 
 ## Self-check questions
 

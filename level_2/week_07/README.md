@@ -110,9 +110,36 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  U[User] --> A[Agent]
+  A --> PL[Planner]
+  A --> EX[Executor]
+
+  EX --> TOOLS[Tool allowlist]
+  EX --> BUD[Budgets: steps/time/tokens]
+  EX --> REF[Refusal policy]
+
+  A --> TRACE[Trace logs]
+  TRACE --> VIEW[Trace viewer/debug]
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+sequenceDiagram
+  participant U as User
+  participant A as Agent
+  participant T as Tool
+  U->>A: Task
+  A->>A: Plan (bounded)
+  loop Steps (cap N)
+    A->>T: Tool call (validated)
+    T-->>A: Result / Error
+    A->>A: Decide next step
+  end
+  A-->>U: Answer (or clarify/refuse)
+```
 
 ## Self-check questions
 

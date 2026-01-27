@@ -108,9 +108,34 @@ Citations:
 
 ### Figure A: Prompt as contract (inputs -> model -> validated JSON)
 
+```mermaid
+flowchart TD
+  A[Inputs: raw text] --> B[Prompt contract]
+  B --> C[LLM call]
+  C --> D[Raw output text]
+  D --> E{Parse JSON}
+  E -->|fail| R1[Repair prompt + retry]
+  R1 --> C
+  E -->|ok| F{Validate schema}
+  F -->|fail| R2[Repair prompt + retry]
+  R2 --> C
+  F -->|ok| G[Typed object / dict]
+  G --> H[Downstream code]
+```
 
 ### Figure B: Context window budget (prompt + context + output)
 
+```mermaid
+flowchart LR
+  C[Context window C tokens]
+  C --> S[System instructions]
+  C --> P[Prompt/user input]
+  C --> R[Retrieved context]
+  C --> T[Tool outputs]
+  C --> O[Model output]
+
+  style C fill:#f3f4f6,stroke:#111827
+```
 
 ## Self-check questions
 

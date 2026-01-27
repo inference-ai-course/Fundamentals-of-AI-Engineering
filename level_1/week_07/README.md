@@ -88,9 +88,32 @@ Citations:
 
 ### Figure A: CLI and config flow (args/env -> config -> pipeline)
 
+```mermaid
+flowchart LR
+  A[CLI args] --> C[Config object]
+  B[.env / env vars] --> C
+  C --> D[Pipeline runner]
+  D --> E[Artifacts: output/]
+  D --> F[Logs]
+ 
+  F --> G[Debug: request_id/run_id]
+```
 
 ### Figure B: Test strategy overview (happy path + edge + failure)
 
+```mermaid
+flowchart TD
+  T[Tests] --> U[Unit tests]
+  T --> S[Smoke test]
+ 
+  U --> U1[Parsing/validation]
+  U --> U2[File handling]
+  U --> U3[Cache key / utils]
+ 
+  S --> S1[Happy path]
+  S --> S2[Edge case]
+  S --> S3[Failure case]
+```
 
 ## Self-check questions
 

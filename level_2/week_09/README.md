@@ -86,9 +86,40 @@ Citations:
 
 ### Figure A: System architecture overview
 
+```mermaid
+flowchart LR
+  U[Clients] --> API[Service]
+  API --> AUTH[Auth/roles]
+  API --> RL[Rate limiter]
+
+  API --> RET[Retrieval]
+  RET --> V[(Vector DB)]
+  API --> GEN[Generation]
+  GEN --> LLM[LLM provider]
+
+  API --> LOG[Structured logs]
+  API --> TR[Traces (OpenTelemetry)]
+  API --> MET[Metrics/counters]
+```
 
 ### Figure B: Data and control flow (ingestion -> retrieval -> generation -> evaluation)
 
+```mermaid
+sequenceDiagram
+  participant U as User
+  participant API as API
+  participant RET as Retrieval
+  participant GEN as LLM
+  participant OBS as Logs/Traces
+  U->>API: /chat request
+  API->>OBS: start trace + request_id
+  API->>RET: retrieve top-k
+  RET-->>API: chunks + scores
+  API->>GEN: prompt + context
+  GEN-->>API: answer
+  API->>OBS: spans + latency + counters
+  API-->>U: response
+```
 
 ## Self-check questions
 
