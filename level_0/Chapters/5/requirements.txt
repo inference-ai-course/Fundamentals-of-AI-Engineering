@@ -1,0 +1,49 @@
+# Chapter 5: Resource Monitoring and Containerization
+# Python 3.10+ required
+
+# Deep Learning Framework
+torch>=2.6.0
+torchvision>=0.19.0
+torchaudio>=2.6.0
+
+# Transformers and NLP
+transformers>=4.40.0
+huggingface-hub>=0.22.0
+
+# Data Science
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# System Monitoring
+psutil>=5.9.0
+pynvml>=11.5.0
+
+# Web Frameworks (for serving)
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+
+# Jupyter
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipywidgets>=8.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0
+requests>=2.31.0
+tqdm>=4.66.0
+
+# Logging and Monitoring
+mlflow>=2.11.0
+
+# Docker SDK (for Python interaction with Docker)
+docker>=7.0.0
+
+# Testing
+pytest>=8.0.0
+pytest-cov>=4.1.0
