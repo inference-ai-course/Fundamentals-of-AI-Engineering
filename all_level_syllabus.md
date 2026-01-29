@@ -31,7 +31,7 @@ This syllabus follows a **sequential progression** approach. It develops four co
 
 *   Level 1 (Foundation):
     *   [overview.md](level_1/overview.md)
-    *   [weekly_plan_10w.md](level_1/weekly_plan_10w.md)
+    *   [weekly_plan_8w.md](level_1/weekly_plan_8w.md)
     *   [assignments.md](level_1/assignments.md)
     *   [capstone.md](level_1/capstone.md)
 *   Level 2 (System Building):
@@ -46,6 +46,19 @@ This syllabus follows a **sequential progression** approach. It develops four co
     *   [capstone.md](level_3/capstone.md)
 
 ### Beginner Scaffolding (Start Here)
+
+#### Level 0 (Canonical Fundamentals)
+
+Use Level 0 as the canonical source for fundamentals. Level 1+ assumes Level 0 is complete.
+
+*   Schedule: [level_0/Schedule.md](level_0/Schedule.md)
+*   Overview: [level_0/README.md](level_0/README.md)
+*   Chapters:
+    *   [Chapter 1: Tool Preparation](level_0/Chapters/1/Chapter1.md)
+    *   [Chapter 2: Python and Environment Management](level_0/Chapters/2/Chapter2.md)
+    *   [Chapter 3: AI Engineering Fundamentals](level_0/Chapters/3/Chapter3.md)
+    *   [Chapter 4: Hugging Face Platform and Local Inference](level_0/Chapters/4/Chapter4.md)
+    *   [Chapter 5: Resource Monitoring and Containerization](level_0/Chapters/5/Chapter5.md)
 
 *   Level 1:
     *   Onboarding checklist: [Level 1 overview -> Onboarding Checklist](level_1/overview.md#onboarding-checklist-week-0)
