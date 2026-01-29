@@ -28,42 +28,17 @@ Even if you later focus on LLMs, this disciplined loop is the basis for:
 
 ---
 
-## Underlying theory: training is optimization, evaluation is estimation
+## Pre-study (Level 0)
 
-At a high level, supervised learning tries to find parameters $\theta$ that minimize a loss over training data:
+Level 1 assumes Level 0 is complete. If you need a refresher on evaluation mindset and metrics:
 
-$$
-\hat{\theta} = \arg\min_{\theta} \frac{1}{n}\sum_{i=1}^{n} \ell\big(f_{\theta}(x_i), y_i\big)
-$$
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Evaluation metrics (accuracy/precision/recall/F1)](../../level_0/Chapters/4/02_core_concepts.md)
 
-But the thing you actually care about is performance on *new* samples from the real world distribution.
+Why it matters here (Week 2):
 
-Validation is an attempt to estimate that “future performance” without having to deploy first.
-
-Practical implication:
-
-- training metrics can lie (models can memorize)
-- validation metrics are still noisy estimates (they vary with the split)
-- saving artifacts makes results explainable and debuggable after the fact
-
----
-
-## Why we split train vs validation
-
-If you evaluate on training data, you’re measuring memorization.
-
-Validation data approximates “future unseen data”.
-
-A good baseline is one that:
-
-- is simple
-- runs quickly
-- produces a measurable metric
-
-You can think of “baseline first” as a debugging strategy:
-
-- if a simple model performs surprisingly well, your data may be easy (or leaking labels)
-- if a simple model performs terribly, your pipeline may be broken (bad labels, bad features, preprocessing issues)
+- You will compare runs using saved artifacts; metrics must be computed on a hold-out split.
+- Small metric changes can come from split randomness; controlling seed + saving config makes results explainable.
 
 ---
 

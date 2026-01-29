@@ -13,20 +13,17 @@ In engineering culture, “blameless postmortems” emphasize learning.
 
 ---
 
-## Underlying theory: retrospectives turn incidents into reusable knowledge
+## Pre-study (Level 0)
 
-Without a retrospective, failures stay as vague memories.
+Level 1 assumes Level 0 is complete. If you need a refresher on the overall roadmap and prerequisites:
 
-A good retrospective separates:
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 Schedule](../../level_0/Schedule.md)
 
-- **symptoms** (what you observed)
-- **root causes** (why it happened)
-- **fixes** (what changed in code/process)
+Why it matters here (Week 8):
 
-Practical implication:
-
-- root causes become design rules (e.g., “always validate inputs”, “always cap retries”)
-- you build a personal playbook you can reuse in Level 2 systems
+- Retrospectives turn one-off failures into reusable rules you can apply in future systems.
+- Keep it evidence-based: cite artifacts/logs and name concrete fixes.
 
 ---
 

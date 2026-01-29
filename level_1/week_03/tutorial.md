@@ -1,5 +1,12 @@
 # Level 1 — Week 3 Tutorials
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 3: AI Engineering Fundamentals](../../level_0/Chapters/3/Chapter3.md)
+
 ## Overview
 
 These tutorials expand Week 3 into practical LLM engineering skills:

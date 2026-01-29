@@ -12,22 +12,17 @@ This section gives you a mental model to reason about:
 
 ---
 
-## Underlying theory: every request has a fixed token budget
+## Pre-study (Level 0)
 
-For a given model, there is a maximum context window $C$ (tokens).
+Level 1 assumes Level 0 is complete. If you need a refresher on tokenization, prompts, and evaluation mindset:
 
-Every request spends that budget on multiple parts:
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Prompt engineering and evaluation](../../level_0/Chapters/3/02_prompt_engineering_evaluation.md)
 
-$$
-C \ge T_{\text{system}} + T_{\text{prompt}} + T_{\text{context}} + T_{\text{tools}} + T_{\text{output}}
-$$
+Why it matters here (Week 3):
 
-If the left side is fixed and you increase one term (e.g. you paste more input), something else must shrink (often $T_{\text{output}}$), or the provider truncates/refuses.
-
-Practical implication:
-
-- “the model ignored my instruction” is often “the instruction was pushed out / diluted by too much context”
-- “my JSON broke” is often “the model had too little output budget, or the request was truncated”
+- Many “ignored instructions” and broken JSON outputs are caused by context budget pressure and truncation.
+- Treat output length as a resource you must reserve up front.
 
 ## Tokens: what they are (engineering view)
 

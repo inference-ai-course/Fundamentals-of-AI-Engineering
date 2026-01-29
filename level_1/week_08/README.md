@@ -1,5 +1,12 @@
 # Level 1 — Week 8: Capstone Demo & Retrospective (Preparing for Level 2)
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 Schedule](../../level_0/Schedule.md)
+
 ## What you should be able to do by the end of this week
 
 - Deliver a demo-ready Capstone that runs end-to-end without “magic steps”.
@@ -15,49 +22,12 @@ Tutorials:
 
 Practice notebook: [practice.ipynb](practice.ipynb)
 
-## Key Concepts (with explanations + citations)
+## Key Concepts (Level 0 refresher)
 
-### 1) Demo readiness and documentation
+Level 1 assumes you already completed Level 0. If you need a refresher:
 
-**Mental model**:
-
-- A demo is successful when another person can reproduce it.
-- Your README is the primary interface for users and graders.
-
-Citations:
-
-- GitHub — About READMEs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes
-
-### 2) Retrospectives and postmortems
-
-**Mental model**:
-
-- A retrospective is a structured reflection:
-  - what went wrong
-  - why it went wrong
-  - what you changed
-  - what you would do next
-
-For engineering culture, “blameless postmortems” emphasize learning.
-
-Citations:
-
-- Google SRE Book — postmortem culture: https://sre.google/sre-book/postmortem-culture/
-
-### 3) Preparing for Level 2 (what changes)
-
-**Mental model**:
-
-- Level 1: single-project pipeline, mostly offline and script-based.
-- Level 2: systems thinking:
-  - knowledge bases
-  - retrieval
-  - evaluation loops
-  - agent workflows
-
-Citations:
-
-- Retrieval-Augmented Generation (RAG) overview (Pinecone): https://www.pinecone.io/learn/retrieval-augmented-generation/
+- Overall roadmap and sequencing:
+  - ../../level_0/Schedule.md
 
 ## Workshop / Implementation Plan
 

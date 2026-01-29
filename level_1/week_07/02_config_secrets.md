@@ -8,23 +8,17 @@ Never hardcode or commit API keys.
 
 ---
 
-## Underlying theory: config is an input, secrets are a trust boundary
+## Pre-study (Level 0)
 
-Treat configuration as a runtime input that can change across environments:
+Level 1 assumes Level 0 is complete. If you need a refresher on environments and safe project habits:
 
-- dev vs demo vs CI
-- different datasets
-- different models
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 2: Python and Environment Management](../../level_0/Chapters/2/Chapter2.md)
 
-Secrets are special because they grant access. So the boundary is:
+Why it matters here (Week 7):
 
-- code can be public (GitHub)
-- secrets must stay private
-
-Practical implication:
-
-- if you commit an API key once, assume it is leaked and rotate it
-- `.env` is a local convenience, not a secure secret manager (but it’s fine for Level 1)
+- Config should be reproducible (safe to commit); secrets must not be committed.
+- Fail early with a clear error if a required env var is missing.
 
 ---
 

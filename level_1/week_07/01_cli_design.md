@@ -12,22 +12,17 @@ A good CLI:
 
 ---
 
-## Underlying theory: a CLI is a contract over user behavior
+## Pre-study (Level 0)
 
-Users (including “future you”) will misuse your tool. A CLI contract reduces ambiguity by making:
+Level 1 assumes Level 0 is complete. If you need a refresher on Python modules, exceptions, and CLI-adjacent habits:
 
-- valid usage explicit (required flags, clear help)
-- invalid usage fast-failing (clear errors)
-- outputs predictable (stable locations, stable schemas)
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Modules and exception handling](../../level_0/Chapters/2/02_modules_exceptions.md)
 
-Good defaults are not just convenience; they are a *policy* that encodes the “safe/typical” way to run your system.
+Why it matters here (Week 7):
 
-Practical implication:
-
-- if the CLI is stable, demos/tests become repeatable
-- if the CLI changes unpredictably, your README and users break
-
----
+- A stable CLI makes demos, smoke tests, and README instructions repeatable.
+- Good defaults and clear errors reduce “support time” and speed up debugging.
 
 ## Minimum CLI checklist
 

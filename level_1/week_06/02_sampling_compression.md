@@ -13,24 +13,17 @@ Instead you send a compressed representation:
 
 ---
 
-## Underlying theory: you are fitting information into a fixed budget
+## Pre-study (Level 0)
 
-The model has a fixed context window, so your input must satisfy a budget constraint.
+Level 1 assumes Level 0 is complete. If you need a refresher on context limits and AI engineering workflow:
 
-From Week 3, a simplified budget looks like:
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 3: AI Engineering Fundamentals](../../level_0/Chapters/3/Chapter3.md)
 
-$$
-C \ge T_{\text{prompt}} + T_{\text{table}} + T_{\text{output}}
-$$
+Why it matters here (Week 6):
 
-If your table is large, $T_{\text{table}}$ dominates. Compression reduces $T_{\text{table}}$ by replacing raw rows with summaries.
-
-You can think of this as an information bottleneck:
-
-- raw data is high detail but too large
-- summaries are smaller but may lose rare edge cases
-
-Practical implication: good compression keeps *the facts that matter for the task* (distributions, missingness, anomalies) while dropping redundant detail.
+- You must fit decision-relevant information into a bounded context window.
+- Good compression keeps distributions/missingness/anomalies while staying small and stable across reruns.
 
 ---
 
@@ -39,17 +32,18 @@ Practical implication: good compression keeps *the facts that matter for the tas
 ```python
 import json
 from dataclasses import dataclass
+from typing import Any, Dict, List, Tuple
 
 import pandas as pd
 
 
 @dataclass
 class CompressedTable:
-    shape: tuple[int, int]
-    columns: list[str]
-    dtypes: dict[str, str]
-    missing: dict[str, int]
-    sample_rows: list[dict]
+    shape: Tuple[int, int]
+    columns: List[str]
+    dtypes: Dict[str, str]
+    missing: Dict[str, int]
+    sample_rows: List[Dict[str, Any]]
 
 
 def compress_table(df: pd.DataFrame, sample_n: int = 8, seed: int = 42) -> CompressedTable:

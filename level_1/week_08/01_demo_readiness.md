@@ -6,27 +6,17 @@ A demo is successful when another person can reproduce it.
 
 ---
 
-## Underlying theory: a demo is an argument with evidence
+## Pre-study (Level 0)
 
-When you demo, you are implicitly making claims:
+Level 1 assumes Level 0 is complete. If you need a refresher on the overall roadmap and prerequisites:
 
-- “the system runs from scratch”
-- “the outputs are stable and interpretable”
-- “failures are explainable”
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 Schedule](../../level_0/Schedule.md)
 
-The README + one-command runner are the evidence that supports those claims.
+Why it matters here (Week 8):
 
-Practical implication:
-
-- if your demo requires “magic steps”, it is not reproducible
-- a failure-case story increases credibility because it shows you understand system limits
-
-This means:
-
-- a clean setup section
-- one command to run
-- predictable outputs
-- at least one failure-case story
+- A demo is a reproducibility test: “fresh clone + README steps” should work without magic steps.
+- A failure-case story with saved artifacts/logs increases credibility and shows system understanding.
 
 ---
 

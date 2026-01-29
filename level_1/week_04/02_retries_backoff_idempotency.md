@@ -10,17 +10,17 @@ Idempotency ensures retries do not cause duplicate side effects.
 
 ---
 
-## Underlying theory: retries are a control policy under uncertainty
+## Pre-study (Level 0)
 
-If a single attempt succeeds with probability $q$, then with up to $R$ retries (so $R+1$ total attempts), the probability of eventual success is:
+Level 1 assumes Level 0 is complete. If you need a refresher on reliability/operations and failure handling:
 
-$$
-P(\text{success}) = 1 - (1-q)^{R+1}
-$$
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 5: Resource Monitoring and Containerization](../../level_0/Chapters/5/Chapter5.md)
 
-Retries increase success probability, but they also increase load and cost.
+Why it matters here (Week 4):
 
-This is why backoff and caps exist: you want to improve success rate *without* amplifying overload.
+- Retries improve success rate, but they also increase load and cost; caps + backoff prevent retry storms.
+- Treat retries as a policy: only retry failures that are likely transient.
 
 ---
 

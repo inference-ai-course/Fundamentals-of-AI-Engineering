@@ -1,5 +1,13 @@
 # Level 1 — Week 4: LLM API Engineering (Reliability & Cost)
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 3: AI Engineering Fundamentals](../../level_0/Chapters/3/Chapter3.md)
+- [Level 0 — Chapter 5: Resource Monitoring and Containerization](../../level_0/Chapters/5/Chapter5.md)
+
 ## What you should be able to do by the end of this week
 
 - Implement an `llm_client.py` that is safe to reuse across projects.
@@ -17,83 +25,14 @@ Tutorials:
 
 Practice notebook: [practice.ipynb](practice.ipynb)
 
-## Key Concepts (with explanations + citations)
+## Key Concepts (Level 0 refresher)
 
-### 1) Timeouts (always set them)
+Level 1 assumes you already learned the fundamentals in Level 0. If you need a refresher for this week:
 
-**Mental model**:
-
-- Without a timeout, your program can hang indefinitely.
-- Timeouts turn “unknown waiting” into a controlled failure.
-
-Citations:
-
-- `requests` timeouts: https://requests.readthedocs.io/en/latest/user/quickstart/#timeouts
-
-### 2) Retries and backoff
-
-**Mental model**:
-
-- Some failures are transient (network hiccups, temporary overload).
-- Retrying immediately can make overload worse; backoff helps.
-
-Citations:
-
-- Tenacity: https://tenacity.readthedocs.io/
-
-### 3) Rate limiting
-
-**Mental model**:
-
-- Providers protect their systems and enforce fairness.
-- You need graceful behavior:
-  - wait + retry
-  - or degrade (fallback)
-
-Citations:
-
-- HTTP 429 Too Many Requests (MDN): https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
-
-### 4) Idempotency (safe retries)
-
-**Mental model**:
-
-- Retrying should not create duplicated side effects.
-- Even if your project is “just inference”, this concept becomes critical in real systems.
-
-Citations:
-
-- Stripe idempotency (conceptual best practice): https://stripe.com/docs/idempotency
-
-### 5) Caching (cost and latency)
-
-**Mental model**:
-
-- If the exact same request happens often, caching avoids re-paying cost.
-- Cache keys must include everything that affects output:
-  - prompt
-  - model
-  - temperature
-  - system instructions
-
-Citations:
-
-- `functools.lru_cache`: https://docs.python.org/3/library/functools.html#functools.lru_cache
-
-### 6) Observability basics (logging)
-
-**Mental model**:
-
-- A minimal “request log” should tell you:
-  - request id
-  - model
-  - latency
-  - success/failure
-  - where it failed (provider call vs parsing)
-
-Citations:
-
-- Python logging: https://docs.python.org/3/library/logging.html
+- Reliability mindset, prompt/tool contracts, and evaluation practices:
+  - ../../level_0/Chapters/3/Chapter3.md
+- Operational concerns (monitoring, reliability, production constraints):
+  - ../../level_0/Chapters/5/Chapter5.md
 
 ## Workshop / Implementation Plan
 

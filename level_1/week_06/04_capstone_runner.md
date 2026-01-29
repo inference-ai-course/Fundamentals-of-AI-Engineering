@@ -12,22 +12,18 @@ That means:
 
 ---
 
-## Underlying theory: the runner is your system’s public interface
+## Pre-study (Level 0)
 
-From Week 1, reproducibility is an interface. The runner is the concrete version of that idea:
+Level 1 assumes Level 0 is complete. If you need a refresher on reproducibility and pipeline contracts:
 
-- given inputs and config, it produces outputs in predictable locations
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 2: Python and Environment Management](../../level_0/Chapters/2/Chapter2.md)
+- [Level 0 — Chapter 3: AI Engineering Fundamentals](../../level_0/Chapters/3/Chapter3.md)
 
-You can treat it like a function contract:
+Why it matters here (Week 6):
 
-$$
-\text{outputs} = r(\text{input},\ \text{config})
-$$
-
-Practical implication:
-
-- if the runner is stable, testing and demos become easy
-- if the runner requires manual steps, failures become non-reproducible
+- A one-command runner is the practical test of reproducibility for your capstone.
+- Stable inputs/config → predictable artifact locations makes demos and smoke tests feasible.
 
 ---
 

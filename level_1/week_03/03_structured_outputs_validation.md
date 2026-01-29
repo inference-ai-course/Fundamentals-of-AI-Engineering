@@ -26,16 +26,17 @@ The important engineering point: downstream code should never need to “guess�
 
 ---
 
-## Underlying theory: validation turns model text into a typed interface
+## Pre-study (Level 0)
 
-LLMs emit text. Your application needs structured data.
+Level 1 assumes Level 0 is complete. If you need a refresher on structured outputs, schemas, and validation mindset:
 
-Validation is what converts “soft” model behavior into a “hard” engineering interface:
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Structured outputs and schemas](../../level_0/Chapters/3/01_function_calling_structured_outputs.md)
 
-- **parse** is a syntax check (is it JSON?)
-- **schema validation** is a type check (does it match the shape you promised?)
+Why it matters here (Week 3):
 
-You can think of this as a boundary where untrusted text becomes trusted data.
+- Treat LLM output as untrusted text until it passes parse + schema validation.
+- Validation gives downstream code a deterministic pass/fail boundary.
 
 ---
 
@@ -50,12 +51,14 @@ pip install pydantic
 Schema:
 
 ```python
+from typing import Optional
+
 from pydantic import BaseModel
 
 
 class Extracted(BaseModel):
-    person: str | None
-    company: str | None
+    person: Optional[str]
+    company: Optional[str]
 ```
 
 ---
@@ -110,7 +113,7 @@ def extract_with_repair(text: str, call_llm, max_retries: int = 2) -> Extracted:
         f"Input:\n{text}\n"
     )
 
-    last_error: str | None = None
+    last_error = None  # type: Optional[str]
 
     prompt = base_prompt
     for attempt in range(max_retries + 1):

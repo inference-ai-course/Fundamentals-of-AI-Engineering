@@ -9,24 +9,17 @@ A timeout is the simplest reliability feature:
 
 ---
 
-## Underlying theory: you are bounding tail latency
+## Pre-study (Level 0)
 
-Real systems do not have a single “latency”. They have a latency *distribution*.
+Level 1 assumes Level 0 is complete. If you need a refresher on reliability/operations and debugging practices:
 
-- most requests are fast
-- a small fraction are slow (the tail)
-- some never return (stuck connections, blackholed packets, server bugs)
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 5: Resource Monitoring and Containerization](../../level_0/Chapters/5/Chapter5.md)
 
-A timeout is a policy that sets an upper bound on how long you are willing to wait:
+Why it matters here (Week 4):
 
-$$
-\text{wait time} \le \tau
-$$
-
-Practical implication:
-
-- you are choosing a tradeoff between **user experience** (fail fast) and **success rate** (wait longer)
-- even if 99% of requests succeed, the remaining 1% can freeze your whole script if you do not bound it
+- Timeouts are the simplest way to prevent a single bad request from freezing your whole script.
+- A timeout turns “unknown waiting” into a controlled, debuggable failure.
 
 ---
 

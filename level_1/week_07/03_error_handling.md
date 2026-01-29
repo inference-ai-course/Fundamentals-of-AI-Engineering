@@ -12,23 +12,17 @@ A good error message contains:
 
 ---
 
-## Underlying theory: errors are part of your product surface
+## Pre-study (Level 0)
 
-When something fails, the error message becomes the user experience.
+Level 1 assumes Level 0 is complete. If you need a refresher on exceptions and debugging patterns:
 
-You can think of your program as an interface that returns either:
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Modules and exception handling](../../level_0/Chapters/2/02_modules_exceptions.md)
 
-- a result
-- or an explainable failure
+Why it matters here (Week 7):
 
-Practical failure taxonomy (Level 1):
-
-- **input errors** (missing/empty file, missing columns)
-- **config errors** (missing API key)
-- **external errors** (timeouts, rate limits)
-- **output/parse errors** (invalid JSON from model)
-
-Good errors point to the next action (fix input, set env var, retry later) instead of just crashing.
+- Errors are part of your product surface: they should tell the user what to do next.
+- Prefer short, actionable user-facing errors; log deeper details separately.
 
 ---
 

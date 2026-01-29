@@ -1,5 +1,13 @@
 # Level 1 — Week 7: Capstone Engineering & Quality
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 2: Python and Environment Management](../../level_0/Chapters/2/Chapter2.md)
+- [Level 0 — Chapter 5: Resource Monitoring and Containerization](../../level_0/Chapters/5/Chapter5.md)
+
 ## What you should be able to do by the end of this week
 
 - Improve usability: CLI flags, clear defaults, good `--help`.
@@ -16,64 +24,15 @@ Tutorials:
 
 Practice notebook: [practice.ipynb](practice.ipynb)
 
-## Key Concepts (with explanations + citations)
+## Key Concepts (Level 0 refresher)
 
-### 1) CLI design
+Level 1 assumes you already learned the fundamentals in Level 0. If you need a refresher for this week:
 
-**Mental model**:
-
-- Your CLI is an interface like an API.
-- A good CLI makes the correct usage easy and incorrect usage obvious.
-
-**Practical checklist**:
-
-- descriptive `--help`
-- sensible defaults
-- explicit inputs/outputs
-
-Citations:
-
-- Python `argparse`: https://docs.python.org/3/library/argparse.html
-- Click (CLI library): https://click.palletsprojects.com/
-
-### 2) Config management and secrets
-
-**Mental model**:
-
-- Keep configuration out of code.
-- Never hardcode or commit API keys.
-
-Citations:
-
-- Twelve-Factor App — config: https://12factor.net/config
-- python-dotenv: https://github.com/theskumar/python-dotenv
-
-### 3) Error handling that teaches the user what to do
-
-**Mental model**:
-
-- “Explainable failures” reduce support burden and speed up debugging.
-- Good error messages contain:
-  - what went wrong
-  - where it happened
-  - what the user should try next
-
-Citations:
-
-- Python errors and exceptions: https://docs.python.org/3/tutorial/errors.html
-
-### 4) Testing options (pytest vs smoke tests)
-
-**Mental model**:
-
-- Tests are just executable checks that protect you from regressions.
-- For Level 1, you can choose:
-  - `pytest` unit tests (preferred)
-  - or `smoke_test.py` + a manual checklist (acceptable)
-
-Citations:
-
-- pytest documentation: https://docs.pytest.org/
+- Modules, exception handling patterns, and file I/O habits:
+  - ../../level_0/Chapters/2/02_modules_exceptions.md
+- Environments, reproducibility, and operational basics:
+  - ../../level_0/Chapters/2/Chapter2.md
+  - ../../level_0/Chapters/5/Chapter5.md
 
 ## Workshop / Implementation Plan
 

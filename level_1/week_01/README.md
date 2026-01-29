@@ -1,5 +1,13 @@
 # Level 1 — Week 1: Environment Setup & Data Processing Basics
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 1: Tool Preparation](../../level_0/Chapters/1/Chapter1.md)
+- [Level 0 — Chapter 2: Python and Environment Management](../../level_0/Chapters/2/Chapter2.md)
+
 ## What you should be able to do by the end of this week
 
 - Create a clean Python environment and install dependencies reliably.
@@ -14,86 +22,17 @@ Tutorials:
 
 Practice notebook: [practice.ipynb](practice.ipynb)
 
-## Key Concepts (with explanations + citations)
+## Key Concepts (Level 0 refresher)
 
-### 1) Python environments and dependency management
+Level 1 assumes you already learned the fundamentals in Level 0. If you need a refresher for this week:
 
-**Mental model**:
-
-- Your OS can have many Python versions and many package versions.
-- A **virtual environment** isolates packages for one project so that:
-  - Project A can use `pandas==x` and Project B can use `pandas==y` without conflicts.
-  - “It works on my machine” becomes less common.
-
-**What to practice**:
-
-- Create an environment.
-- Install dependencies from `requirements.txt` or `pyproject.toml`.
-- Record versions so another person can reproduce your run.
-
-Citations:
-
-- Python `venv` (official): https://docs.python.org/3/library/venv.html
-- Python Packaging User Guide (official): https://packaging.python.org/
-- pip user guide (official): https://pip.pypa.io/en/stable/user_guide/
-
-### 2) Project structure: scripts vs modules
-
-**Mental model**:
-
-- A **script** is an entrypoint (e.g. `python data_profile.py --input ...`).
-- A **module** is reusable code (e.g. `src/data_profile.py`) imported by scripts.
-- In Level 1, it’s acceptable to start with simple scripts; you’ll modularize more later.
-
-**Why it matters**:
-
-- Clean structure makes debugging easier (you know where logic lives).
-- A clear entrypoint makes “one-command runs” possible.
-
-Citations:
-
-- Python tutorial (modules): https://docs.python.org/3/tutorial/modules.html
-
-### 3) Exceptions vs logs (debugging intuition)
-
-**Mental model**:
-
-- An **exception** tells you what failed and where.
-- **Logs** tell you what happened leading up to the failure.
-
-**Practical approach**:
-
-- When debugging, do not start by guessing.
-- First, capture:
-  - the exact command
-  - the full stack trace
-  - the input that triggered the failure
-
-Citations:
-
-- Python errors and exceptions (official): https://docs.python.org/3/tutorial/errors.html
-- Python `logging` (official): https://docs.python.org/3/library/logging.html
-
-### 4) Pandas I/O and basic cleaning
-
-**Mental model**:
-
-- A dataframe is a table with:
-  - rows = records
-  - columns = features/attributes
-- “Data cleaning” usually means making types consistent and handling missing/bad values.
-
-**What to practice**:
-
-- Read a CSV.
-- Inspect dtypes.
-- Compute missing value stats.
-- Export a report (JSON/Markdown) to `output/`.
-
-Citations:
-
-- Pandas getting started: https://pandas.pydata.org/docs/getting_started/index.html
-- Pandas I/O (CSV): https://pandas.pydata.org/docs/user_guide/io.html
+- Environment management (conda/venv):
+  - ../../level_0/Chapters/2/03_conda_environments.md
+  - ../../level_0/Chapters/1/04_conda_environment_management.md
+- Jupyter basics:
+  - ../../level_0/Chapters/1/05_jupyter_interactive_computing.md
+- Modules, exception handling, and JSON/file I/O patterns:
+  - ../../level_0/Chapters/2/02_modules_exceptions.md
 
 ## Common pitfalls
 

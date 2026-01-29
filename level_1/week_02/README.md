@@ -1,5 +1,12 @@
 # Level 1 — Week 2: The ML Training Loop + Reproducible Baselines
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 2: Python and Environment Management](../../level_0/Chapters/2/Chapter2.md)
+
 ## What you should be able to do by the end of this week
 
 - Explain why we split data into train/validation.
@@ -15,75 +22,14 @@ Tutorials:
 
 Practice notebook: [practice.ipynb](practice.ipynb)
 
-## Key Concepts (with explanations + citations)
+## Key Concepts (Level 0 refresher)
 
-### 1) The ML training loop (split -> train -> evaluate -> save)
+Level 1 assumes you already learned the fundamentals in Level 0. If you need a refresher for this week:
 
-**Mental model**:
-
-- Training is an optimization process: the model adjusts parameters to reduce a loss.
-- Evaluation is how you check if the model generalizes beyond the training set.
-- Saving artifacts (model + config + metrics) is what makes experiments reproducible.
-
-Citations:
-
-- scikit-learn: getting started (training/eval workflow): https://scikit-learn.org/stable/getting_started.html
-
-### 2) Train/validation split and overfitting
-
-**Why this is non-trivial**:
-
-- A model can score very well on training data by memorizing patterns/noise.
-- What you care about is performance on **unseen** data.
-
-**Rule of thumb**:
-
-- If training score keeps improving but validation score stalls or worsens, you may be overfitting.
-
-If the math feels heavy, focus on the core idea of **generalization**.
-
-Citations:
-
-- scikit-learn: cross-validation (concepts): https://scikit-learn.org/stable/modules/cross_validation.html
-- Google ML Crash Course — generalization: https://developers.google.com/machine-learning/crash-course/generalization/video-lecture
-
-### 3) Metrics: Accuracy vs F1
-
-**Mental model**:
-
-- Accuracy answers: “How often am I correct overall?”
-- F1 answers: “How good am I at finding positives without too many false positives/negatives?”
-
-**When accuracy misleads**:
-
-- If one class dominates (class imbalance), a dumb model can get high accuracy.
-
-Citations:
-
-- scikit-learn model evaluation: https://scikit-learn.org/stable/modules/model_evaluation.html
-- F1 score explanation: https://en.wikipedia.org/wiki/F1_score
-
-### 4) Reproducibility basics (seeds, parameters, artifacts)
-
-**Mental model**:
-
-- Two sources of “uncontrolled variance”:
-  - random initialization/splitting
-  - changing code/config without recording it
-
-**Minimum reproducibility package**:
-
-- fixed `random_state` / seed
-- parameterized script flags (data path, model type, seed)
-- saved artifacts:
-  - trained model
-  - metrics
-  - the config used
-
-Citations:
-
-- scikit-learn pitfalls: controlling randomness: https://scikit-learn.org/stable/common_pitfalls.html#controlling-randomness
-- scikit-learn model persistence: https://scikit-learn.org/stable/model_persistence.html
+- Reproducible environments, dependencies, and basic Python project habits:
+  - ../../level_0/Chapters/2/Chapter2.md
+- Evaluation mindset and metrics (accuracy/precision/recall/F1):
+  - ../../level_0/Chapters/4/02_core_concepts.md
 
 ## Common pitfalls
 

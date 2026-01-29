@@ -1,5 +1,12 @@
 # Level 1 — Week 8 Tutorials
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 Schedule](../../level_0/Schedule.md)
+
 ## Overview
 
 This week you make your capstone **demo-ready** and write a **retrospective**.

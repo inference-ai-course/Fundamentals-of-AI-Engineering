@@ -1,5 +1,12 @@
 # Level 1 — Week 5: Local Inference (Ollama) and Model Comparison
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 4: Hugging Face Platform and Local Inference](../../level_0/Chapters/4/Chapter4.md)
+
 ## What you should be able to do by the end of this week
 
 - Run at least one model locally using Ollama.
@@ -15,62 +22,12 @@ Tutorials:
 
 Practice notebook: [practice.ipynb](practice.ipynb)
 
-## Key Concepts (with explanations + citations)
+## Key Concepts (Level 0 refresher)
 
-### 1) What “local inference” means
+Level 1 assumes you already learned the fundamentals in Level 0. If you need a refresher for this week:
 
-**Mental model**:
-
-- “Inference” is using a trained model to generate outputs (no training happens).
-- “Local inference” means the model runs on your machine instead of a hosted API.
-
-**Why local inference is useful**:
-
-- Privacy: sensitive data can stay on-device.
-- Cost: no per-call API billing (but you pay compute).
-- Offline capability.
-
-**Common trade-offs**:
-
-- Quality: local models may be smaller/less capable.
-- Hardware limits: large models may not fit in VRAM.
-- Latency: depends heavily on your hardware and model size.
-
-Citations:
-
-- Ollama (official site): https://ollama.com/
-- Ollama GitHub (docs/issues): https://github.com/ollama/ollama
-
-### 2) Model selection basics (size, context window, quantization)
-
-**Mental model**:
-
-- Larger models usually improve reasoning/fluency, but cost more compute.
-- Context window affects how much text you can send in one request.
-- Some local models are distributed in quantized formats to reduce memory usage.
-
-If quantization details are too math-heavy, focus on the practical effect: **smaller memory footprint can make local models usable**.
-
-Citations:
-
-- Hugging Face model cards (overview): https://huggingface.co/docs/hub/model-cards
-
-### 3) Benchmarking: quality and latency
-
-**Mental model**:
-
-- A good benchmark uses:
-  - the same prompts
-  - the same test set
-  - the same measurement method
-- Compare:
-  - latency (average and tail)
-  - output quality (human inspection + simple heuristics)
-
-Citations:
-
-- Python `timeit` (official): https://docs.python.org/3/library/timeit.html
-- Python `time` (official): https://docs.python.org/3/library/time.html
+- Local inference fundamentals and model/platform concepts:
+  - ../../level_0/Chapters/4/Chapter4.md
 
 ## Workshop / Implementation Plan
 

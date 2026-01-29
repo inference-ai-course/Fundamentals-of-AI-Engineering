@@ -1,5 +1,12 @@
 # Level 1 — Week 3: LLM Fundamentals + Prompt Engineering
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 3: AI Engineering Fundamentals](../../level_0/Chapters/3/Chapter3.md)
+
 ## What you should be able to do by the end of this week
 
 - Explain tokens, context windows, and why long inputs fail.
@@ -15,86 +22,14 @@ Tutorials:
 
 Practice notebook: [practice.ipynb](practice.ipynb)
 
-## Key Concepts (with explanations + citations)
+## Key Concepts (Level 0 refresher)
 
-### 1) Tokens and context windows
+Level 1 assumes you already learned the fundamentals in Level 0. If you need a refresher for this week:
 
-**Mental model**:
-
-- LLMs operate on tokens, not characters.
-- The **context window** is a hard limit: prompt + retrieved context + tool outputs + model output must fit.
-
-Citations:
-
-- OpenAI tiktoken (tokenization library): https://github.com/openai/tiktoken
-
-### 2) Transformer intuition
-
-**Mental model**:
-
-- A Transformer uses attention to decide which tokens matter for predicting the next token.
-- You do not need the full math to use LLMs effectively, but you should know:
-  - long contexts are expensive
-  - attention patterns can be brittle
-
-Citations:
-
-- The Illustrated Transformer (Jay Alammar): https://jalammar.github.io/illustrated-transformer/
-- “Attention Is All You Need” (original paper): https://arxiv.org/abs/1706.03762
-
-### 3) Hallucinations and typical failure modes
-
-**Mental model**:
-
-- LLMs are pattern completion systems; they can sound confident even when wrong.
-- Your job as an engineer is to constrain behavior with:
-  - schema constraints
-  - verification steps
-  - retrieval/tooling
-
-Citations:
-
-- Prompt Engineering Guide (community): https://www.promptingguide.ai/
-- Anthropic Cookbook (GitHub): https://github.com/anthropics/anthropic-cookbook
-
-### 4) Prompts as API contracts
-
-**Mental model**:
-
-- A “good prompt” is not poetry; it’s a spec.
-- Define:
-  - task
-  - allowed inputs
-  - output format
-  - refusal conditions
-
-Citations:
-
-- OpenAI Python SDK examples (GitHub): https://github.com/openai/openai-python
-
-### 5) Structured output validation (JSON + schema)
-
-**Why this matters**:
-
-- A model can produce almost-JSON, which breaks downstream code.
-- Validation turns messy model output into a pass/fail condition.
-
-Citations:
-
-- JSON Schema (official): https://json-schema.org/
-- Python `json` module: https://docs.python.org/3/library/json.html
-- Pydantic validation: https://docs.pydantic.dev/latest/
-
-### 6) Retry/repair patterns
-
-**Mental model**:
-
-- Retries are for transient problems (formatting, occasional provider hiccups).
-- Always cap retries.
-
-Citations:
-
-- Tenacity (retry library): https://tenacity.readthedocs.io/
+- Prompt engineering fundamentals and evaluation mindset:
+  - ../../level_0/Chapters/3/02_prompt_engineering_evaluation.md
+- Structured outputs and validation mindset:
+  - ../../level_0/Chapters/3/01_function_calling_structured_outputs.md
 
 ## Workshop / Implementation Plan
 

@@ -17,25 +17,17 @@ We will write `benchmark_local_llm.py` that:
 
 ---
 
-## Underlying theory: benchmarking is measurement under controlled conditions
+## Pre-study (Level 0)
 
-You are trying to estimate two things:
+Level 1 assumes Level 0 is complete. If you need a refresher on local inference + practical evaluation:
 
-- **speed** (latency / throughput)
-- **quality** (correctness, format adherence, completeness)
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 4: Hugging Face Platform and Local Inference](../../level_0/Chapters/4/Chapter4.md)
 
-The key rule is controlling variables:
+Why it matters here (Week 5):
 
-- same prompts
-- same settings
-- same machine state as much as possible
-
-Latency is a distribution, not a single number. Two useful summaries:
-
-- average latency (typical case)
-- slowest case / tail latency (worst case)
-
-Practical implication: a model that is “fast on average” but has very slow worst cases may still feel bad in a demo.
+- Benchmarks only work if you control variables (same prompt set, same settings, same measurement method).
+- Treat latency as a distribution (average and tail) and keep artifacts so you can compare quality later.
 
 ---
 

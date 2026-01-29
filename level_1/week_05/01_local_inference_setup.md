@@ -8,37 +8,17 @@
 
 ---
 
-## Underlying theory: moving the boundary changes your constraints
+## Pre-study (Level 0)
 
-When you use a hosted API, the provider owns the compute and you mostly worry about:
+Level 1 assumes Level 0 is complete. If you need a refresher on local inference and model/platform fundamentals:
 
-- request formatting
-- rate limits
-- latency and cost
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 4: Hugging Face Platform and Local Inference](../../level_0/Chapters/4/Chapter4.md)
 
-When you run locally, you become the provider. That means **hardware is now part of your system design**.
+Why it matters here (Week 5):
 
-You can think of local inference performance as a function:
-
-$$
-\text{latency} = f(\text{model size},\ \text{context length},\ \text{hardware},\ \text{quantization})
-$$
-
-Practical implication:
-
-- if a model does not fit in RAM/VRAM, it won’t run (or will thrash)
-- even if it fits, throughput/latency can vary dramatically across machines
-
-This is useful for:
-
-- privacy (data stays local)
-- cost control (no per-request billing)
-- offline capability
-
-Trade-offs:
-
-- quality may be lower than top hosted models
-- performance depends on your CPU/GPU/RAM/VRAM
+- When you run locally, hardware constraints (RAM/VRAM/CPU/GPU) become part of your system design.
+- The setup checklist below is the fastest way to prove the local runtime works before you debug client code.
 
 ---
 

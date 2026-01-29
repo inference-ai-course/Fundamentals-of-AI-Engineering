@@ -11,21 +11,17 @@ In practice, reproducibility is a *package* of habits.
 
 ---
 
-## Underlying theory: results must be traceable to inputs
+## Pre-study (Level 0)
 
-Treat an experiment outcome like a function:
+Level 1 assumes Level 0 is complete. If you need a refresher on environments, dependency recording, and “what makes a run reproducible”:
 
-$$
-\text{metric} = h(\text{code}, \text{data}, \text{config}, \text{seed}, \text{environment})
-$$
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 2: Python and Environment Management](../../level_0/Chapters/2/Chapter2.md)
 
-Reproducibility is the discipline of recording these inputs so you can:
+Why it matters here (Week 2):
 
-- reproduce the metric
-- explain differences when the metric changes
-- debug failures without guessing
-
-Important nuance: even with a fixed seed, some systems are not perfectly deterministic (multithreading, GPU kernels). In Level 1, the goal is mostly **traceability** and **reasonable stability**.
+- You will compare runs; without saved config + artifacts, you can’t explain why metrics changed.
+- “Reproducible” in Level 1 mostly means **traceable**: same inputs/seed/command → you can recreate and debug the run.
 
 ---
 

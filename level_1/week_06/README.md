@@ -1,5 +1,12 @@
 # Level 1 — Week 6: Capstone Prototype (End-to-End Flow)
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 3: AI Engineering Fundamentals](../../level_0/Chapters/3/Chapter3.md)
+
 ## What you should be able to do by the end of this week
 
 - Implement the Capstone “happy path” end-to-end.
@@ -16,70 +23,12 @@ Tutorials:
 
 Practice notebook: [practice.ipynb](practice.ipynb)
 
-## Key Concepts (with explanations + citations)
+## Key Concepts (Level 0 refresher)
 
-### 1) From scripts to pipelines
+Level 1 assumes you already learned the fundamentals in Level 0. If you need a refresher for this week:
 
-**Mental model**:
-
-- A pipeline is a sequence of stages where each stage has:
-  - inputs
-  - outputs
-  - clear responsibilities
-
-**Why it matters**:
-
-- Debugging is easier when you can isolate which stage failed.
-- Reproducibility improves when each stage saves intermediate outputs.
-
-Citations:
-
-- Twelve-Factor App (logs/config mindset): https://12factor.net/
-
-### 2) Sampling and input compression
-
-**Mental model**:
-
-- Real datasets can be large; you often cannot send the full table to an LLM.
-- You can still get useful analysis by combining:
-  - descriptive statistics (counts, means, missing values)
-  - representative samples
-  - detected anomalies
-
-Citations:
-
-- Pandas sampling: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sample.html
-
-### 3) Chunking / splitting long text
-
-**Mental model**:
-
-- When text is too long:
-  - split into chunks
-  - process chunks
-  - synthesize a summary
-
-Even if you don’t adopt a framework, the pattern is important.
-
-Citations:
-
-- LangChain text splitters (reference): https://python.langchain.com/docs/how_to/#text-splitters
-
-### 4) Stable schemas and deterministic outputs
-
-**Mental model**:
-
-- Your code needs stable machine-readable outputs even if the model is “creative”.
-- Stability comes from:
-  - explicit schemas
-  - validation
-  - retries/repair
-  - deterministic formatting of the final JSON
-
-Citations:
-
-- JSON Schema (official): https://json-schema.org/
-- Python `json` (official): https://docs.python.org/3/library/json.html
+- Pipeline and artifact mindset (inputs/outputs/contracts):
+  - ../../level_0/Chapters/3/Chapter3.md
 
 ## Workshop / Implementation Plan
 

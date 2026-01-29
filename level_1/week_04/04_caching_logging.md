@@ -13,19 +13,17 @@ Logging makes failures diagnosable.
 
 ---
 
-## Underlying theory: caching is memoization of a pure-ish function
+## Pre-study (Level 0)
 
-If your LLM call were a pure function:
+Level 1 assumes Level 0 is complete. If you need a refresher on production constraints, observability, and operational habits:
 
-$$
-y = f(x)
-$$
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 5: Resource Monitoring and Containerization](../../level_0/Chapters/5/Chapter5.md)
 
-then caching would be memoization: store $f(x)$ so repeated calls return instantly.
+Why it matters here (Week 4):
 
-LLM calls are only “pure-ish” because settings affect output. So your cache key must include every input that can change the result.
-
-Practical implication: incorrect cache keys cause **silent wrong answers**, which are worse than visible failures.
+- Caching reduces cost/latency during iteration, but incorrect cache keys can create silent wrong answers.
+- Logging is how you debug failures without guessing.
 
 ---
 

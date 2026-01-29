@@ -20,26 +20,12 @@ You will build `data_profile.py` that:
 
 ---
 
-## Underlying theory: profiling is a contract over unknown inputs
+## Pre-study (Level 0)
 
-Real-world data is an *untrusted input*.
+Level 1 assumes Level 0 is complete. If you need a refresher on modules, file I/O, exceptions, or JSON:
 
-You should treat the dataset like a value $X$ drawn from an unknown distribution $\mathcal{D}$, and your script as a function that must behave predictably:
-
-$$
-\text{profile} = g(X)
-$$
-
-The goal is not “fancy statistics”, it is **fast falsification of assumptions**:
-
-- “This column exists”
-- “This column is numeric”
-- “Missing values are rare”
-- “The file is non-empty and parseable”
-
-Practical implication:
-
-- a profiler is a *guardrail* that prevents you from building downstream ML/LLM logic on top of broken data
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Modules and exception handling](../../level_0/Chapters/2/02_modules_exceptions.md)
 
 ---
 
@@ -74,6 +60,8 @@ import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+from typing import Dict, List
+
 import pandas as pd
 
 
@@ -81,9 +69,9 @@ import pandas as pd
 class Profile:
     rows: int
     cols: int
-    columns: list[str]
-    dtypes: dict[str, str]
-    missing_by_column: dict[str, int]
+    columns: List[str]
+    dtypes: Dict[str, str]
+    missing_by_column: Dict[str, int]
 
 
 def load_csv(path: Path) -> pd.DataFrame:

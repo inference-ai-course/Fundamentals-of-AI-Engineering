@@ -14,20 +14,17 @@ This is a Level 1 skeleton (provider-agnostic). You can adapt it to OpenAI/Anthr
 
 ---
 
-## Underlying theory: the client is a reliability boundary
+## Pre-study (Level 0)
 
-Your application code wants a simple contract:
+Level 1 assumes Level 0 is complete. If you need a refresher on reliability/operations and debugging practices:
 
-- “given a request, return text or raise a clear error”
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 5: Resource Monitoring and Containerization](../../level_0/Chapters/5/Chapter5.md)
 
-The client module enforces reliability invariants:
+Why it matters here (Week 4):
 
-- bounded waiting (timeouts)
-- bounded retries (caps)
-- debuggability (logs with request id / attempt)
-- cost control (caching)
-
-Keeping these concerns centralized prevents every script from reinventing them inconsistently.
+- The client is the reliability boundary: timeouts/retries/logs/caching should be consistent across scripts.
+- Centralizing these behaviors prevents “every notebook reinvents reliability differently”.
 
 ---
 
@@ -51,7 +48,7 @@ import json
 import logging
 import time
 from dataclasses import asdict, dataclass
-from typing import Any
+from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -65,9 +62,9 @@ class LLMRequest:
 
 class SimpleMemoryCache:
     def __init__(self) -> None:
-        self._store: dict[str, str] = {}
+        self._store: Dict[str, str] = {}
 
-    def get(self, key: str) -> str | None:
+    def get(self, key: str) -> Optional[str]:
         return self._store.get(key)
 
     def set(self, key: str, value: str) -> None:
@@ -80,7 +77,7 @@ def make_cache_key(req: LLMRequest) -> str:
 
 
 class LLMClient:
-    def __init__(self, cache: SimpleMemoryCache | None = None) -> None:
+    def __init__(self, cache: Optional[SimpleMemoryCache] = None) -> None:
         self._cache = cache or SimpleMemoryCache()
 
     def _provider_call(self, req: LLMRequest, timeout_s: float) -> str:
@@ -93,7 +90,7 @@ class LLMClient:
             logger.info("llm_cache_hit", extra={"model": req.model})
             return cached
 
-        last_err: Exception | None = None
+        last_err = None  # type: Optional[Exception]
         for attempt in range(max_retries + 1):
             t0 = time.time()
             try:

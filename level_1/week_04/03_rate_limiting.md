@@ -11,22 +11,17 @@ Your client should behave gracefully:
 
 ---
 
-## Underlying theory: rate limiting is a capacity allocation policy
+## Pre-study (Level 0)
 
-You can think of a provider as having finite capacity. Rate limiting enforces a maximum request rate per user.
+Level 1 assumes Level 0 is complete. If you need a refresher on production constraints and graceful failure handling:
 
-A common conceptual model is a token bucket:
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 5: Resource Monitoring and Containerization](../../level_0/Chapters/5/Chapter5.md)
 
-- a bucket has capacity $B$
-- tokens refill at rate $r$ tokens/second
-- each request spends tokens
+Why it matters here (Week 4):
 
-If there are not enough tokens, requests are rejected or delayed.
-
-Practical implication:
-
-- bursts may succeed, but sustained high QPS will hit limits
-- your client must treat 429s as normal and recover gracefully
+- Treat 429s as normal: the client should recover predictably (wait/backoff) or degrade.
+- Your capstone will be more stable if rate limiting is handled centrally in the client.
 
 ---
 

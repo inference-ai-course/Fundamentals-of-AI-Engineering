@@ -17,25 +17,17 @@ This structure improves:
 
 ---
 
-## Underlying theory: pipelines make dataflow explicit
+## Pre-study (Level 0)
 
-You can view a pipeline as a composition of functions:
+Level 1 assumes Level 0 is complete. If you need a refresher on pipeline structure, artifacts, and basic AI engineering workflow:
 
-$$
-Y = (f_k \circ f_{k-1} \circ \cdots \circ f_1)(X)
-$$
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 3: AI Engineering Fundamentals](../../level_0/Chapters/3/Chapter3.md)
 
-Each stage $f_i$ should have a small, testable contract:
+Why it matters here (Week 6):
 
-- **inputs**: what files/values it needs
-- **outputs**: what artifacts it produces
-- **invariants**: what must be true after it runs (schema, counts, non-empty, etc.)
-
-Practical implication:
-
-- a bug is easier to locate because you can bisect stages
-- you can cache/reuse artifacts (don’t redo expensive work unnecessarily)
-- you can re-run only the stage you changed (faster iteration)
+- The capstone becomes debuggable when you can isolate stages and inspect intermediate artifacts.
+- Explicit stage contracts make it easier to re-run only what changed (faster iteration).
 
 ---
 

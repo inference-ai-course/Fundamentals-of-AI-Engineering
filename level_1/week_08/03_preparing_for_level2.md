@@ -17,21 +17,16 @@ Level 2 shifts toward **systems thinking**:
 
 ---
 
-## Underlying theory: Level 2 adds feedback loops and new failure surfaces
+## Pre-study (Level 0)
 
-In Level 1, many workflows are “run once and inspect outputs”.
+Level 1 assumes Level 0 is complete. If you need a refresher on the overall roadmap and prerequisites:
 
-In Level 2, you will build systems with feedback loops:
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 Schedule](../../level_0/Schedule.md)
 
-- retrieval quality affects generation quality
-- evaluation metrics guide iteration
-- multi-step workflows introduce compounding failure probability
+Why it matters here (Week 8):
 
-Practical implication:
-
-- you need observability (traces/logs) to debug why a system answered
-- you need eval sets to prevent “prompt overfitting”
-- you need trust boundaries to resist prompt injection when external data is involved
+- Level 2 introduces new failure surfaces (retrieval + multi-step workflows) and requires tighter observability and evaluation.
 
 ---
 

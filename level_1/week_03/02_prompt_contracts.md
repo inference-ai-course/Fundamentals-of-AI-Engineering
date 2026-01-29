@@ -8,27 +8,18 @@ If you treat the model like a service, your prompt is the API contract.
 
 ---
 
-## Underlying theory: prompts define preconditions and postconditions
+## Pre-study (Level 0)
 
-In software engineering, a contract describes:
+Level 1 assumes Level 0 is complete. If you need a refresher on prompt engineering fundamentals, guardrails, and evaluation mindset:
 
-- **preconditions**: what inputs are valid
-- **postconditions**: what outputs must look like
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Prompt engineering and evaluation](../../level_0/Chapters/3/02_prompt_engineering_evaluation.md)
+- [Level 0 — Structured outputs and schemas](../../level_0/Chapters/3/01_function_calling_structured_outputs.md)
 
-For LLMs, prompts play a similar role:
+Why it matters here (Week 3):
 
-- the prompt defines the task and constraints
-- your parser/validator enforces the postconditions
-
-Useful mindset: treat an LLM call like a typed function.
-
-Example (conceptually):
-
-$$
-\texttt{extract}: \texttt{str} \rightarrow \{\texttt{person}: \texttt{str|null},\ \texttt{company}: \texttt{str|null}\}
-$$
-
-The model is not guaranteed to respect the type. Your job is to *make the type checkable*.
+- Treat prompts as specs so you can write a deterministic parser/validator.
+- If you can’t validate the output shape, the contract is not concrete enough.
 
 ---
 

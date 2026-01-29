@@ -6,26 +6,17 @@ Tests are executable checks that protect you from regressions.
 
 ---
 
-## Underlying theory: tests reduce uncertainty when you change things
+## Pre-study (Level 0)
 
-Every change introduces risk. Tests are a way to keep the system stable while you iterate.
+Level 1 assumes Level 0 is complete. If you need a refresher on project structure, environments, and reproducibility:
 
-Two common layers:
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 2: Python and Environment Management](../../level_0/Chapters/2/Chapter2.md)
 
-- **unit tests**: small, fast checks (parsing, validation, file handling)
-- **smoke tests**: end-to-end checks (the pipeline runs and produces artifacts)
+Why it matters here (Week 7):
 
-For LLM projects, you often cannot assert exact text outputs. Instead you assert:
-
-- output is valid JSON
-- required keys exist
-- file artifacts are created
-- failures are handled gracefully (timeouts, missing inputs)
-
-For Level 1 you can choose:
-
-- `pytest` unit tests (preferred)
-- or a `smoke_test.py` plus a manual checklist (acceptable)
+- Interfaces are now stable enough (CLI/config/error behavior) that tests can protect you from regressions.
+- For LLM projects, assert contracts (valid JSON/required keys/artifacts), not exact text.
 
 ---
 

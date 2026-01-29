@@ -24,24 +24,25 @@ Even without a framework, you should understand the pattern.
 
 ---
 
-## Underlying theory: chunking is a strategy for bounded-context reasoning
+## Pre-study (Level 0)
 
-If the document is longer than what you can send at once, you have two options:
+Level 1 assumes Level 0 is complete. If you need a refresher on context limits and workflow patterns:
 
-- **lossy compression**: summarize first (risk losing details)
-- **chunking**: split and process pieces (risk missing cross-chunk dependencies)
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 3: AI Engineering Fundamentals](../../level_0/Chapters/3/Chapter3.md)
 
-Chunking introduces a boundary effect:
+Why it matters here (Week 6):
 
-- information near chunk boundaries can be separated
-- the model may miss references that span chunks
-
-Practical implication: if correctness depends on cross-paragraph links, you may need overlap or a second pass.
+- Chunking is a practical strategy when inputs exceed the context window.
+- Use overlap and a synthesis step when cross-chunk references matter.
 
 ## Simple chunking utility
 
 ```python
-def chunk_text(text: str, chunk_size: int = 2000) -> list[str]:
+from typing import List
+
+
+def chunk_text(text: str, chunk_size: int = 2000) -> List[str]:
     chunks = []
     i = 0
     while i < len(text):

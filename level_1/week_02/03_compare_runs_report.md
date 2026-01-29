@@ -8,32 +8,17 @@ This makes improvement explainable.
 
 ---
 
-## Underlying theory: comparisons are causal claims
+## Pre-study (Level 0)
 
-When you say “Variant B is better than Baseline A”, you are making a causal claim:
+Level 1 assumes Level 0 is complete. If you need a refresher on evaluation metrics (accuracy/precision/recall/F1):
 
-- “the one change I made caused the metric to change”
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Evaluation metrics](../../level_0/Chapters/4/02_core_concepts.md)
 
-If you change multiple things at once, you lose the ability to attribute cause.
+Why it matters here (Week 2):
 
-In classification, metrics come from a confusion matrix:
-
-- true positives (TP), false positives (FP)
-- true negatives (TN), false negatives (FN)
-
-Two useful derived quantities:
-
-$$
-\text{precision} = \frac{TP}{TP+FP},\quad \text{recall} = \frac{TP}{TP+FN}
-$$
-
-F1 is a balance between precision and recall:
-
-$$
-\text{F1} = \frac{2\,\text{precision}\,\text{recall}}{\text{precision}+\text{recall}}
-$$
-
-Practical implication: accuracy can look good even when precision/recall are bad (especially with class imbalance).
+- You will compare two runs; only change **one variable** so the comparison is explainable.
+- Use the saved artifacts (`metrics.json`, `val_report.txt`) as evidence in your report.
 
 ---
 

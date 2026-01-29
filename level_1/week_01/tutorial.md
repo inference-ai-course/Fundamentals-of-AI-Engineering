@@ -1,5 +1,13 @@
 # Level 1 — Week 1 Tutorials
 
+## Pre-study (Level 0)
+
+Level 1 assumes Level 0 is complete. If you need a refresher:
+
+- [Pre-study index (Level 1 → Level 0)](../PRESTUDY.md)
+- [Level 0 — Chapter 1: Tool Preparation](../../level_0/Chapters/1/Chapter1.md)
+- [Level 0 — Chapter 2: Python and Environment Management](../../level_0/Chapters/2/Chapter2.md)
+
 ## Overview
 
 These tutorials expand Week 1 into a step-by-step, chapter-style walkthrough.
