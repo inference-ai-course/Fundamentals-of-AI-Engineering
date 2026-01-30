@@ -13,8 +13,6 @@ Tutorials:
 - [02_evidence_pack.md](02_evidence_pack.md)
 - [03_defense_checklist.md](03_defense_checklist.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
-
 ## Key Concepts (with explanations + citations)
 
 ### 1) Demo story and defense

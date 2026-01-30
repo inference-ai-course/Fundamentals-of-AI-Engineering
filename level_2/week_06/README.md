@@ -14,8 +14,6 @@ Tutorials:
 - [03_reliability_step_logs.md](03_reliability_step_logs.md)
 - [04_agent_v1_blueprint.md](04_agent_v1_blueprint.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
-
 ## Key Concepts (with explanations + citations)
 
 ### 1) Agent loop and state

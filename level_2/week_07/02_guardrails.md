@@ -93,6 +93,146 @@ Practical note:
 
 ---
 
+## Concrete implementation examples
+
+### Example 1: Tool allowlist enforcement
+
+```python
+ALLOWED_TOOLS = {"search", "write_answer"}
+
+def call_tool(tool_name: str, tool_input: dict) -> dict:
+    """
+    Call a tool only if it's on the allowlist.
+    """
+    if tool_name not in ALLOWED_TOOLS:
+        raise ValueError(f"Tool '{tool_name}' not allowed. Allowed tools: {ALLOWED_TOOLS}")
+    
+    # Dispatch to actual tool implementation
+    if tool_name == "search":
+        return tool_search(tool_input)
+    elif tool_name == "write_answer":
+        return tool_write_answer(tool_input)
+    else:
+        raise ValueError(f"Tool '{tool_name}' not implemented")
+```
+
+### Example 2: Step cap with graceful degradation
+
+```python
+MAX_STEPS = 5
+
+def agent_run_with_guardrails(task: str) -> dict:
+    state = {"task": task, "steps": [], "final": None}
+    
+    for step_idx in range(MAX_STEPS):
+        # Decide next action
+        next_action = decide_next_action(state)
+        
+        if next_action is None:
+            break  # Agent decided to stop
+        
+        # Execute tool
+        try:
+            tool_output = call_tool(next_action["tool"], next_action["input"])
+            state["steps"].append({
+                "tool": next_action["tool"],
+                "input": next_action["input"],
+                "output": tool_output
+            })
+        except Exception as e:
+            # Tool failed - log and return safe fallback
+            state["final"] = {
+                "answer": "I encountered an error. Could you try rephrasing your question?",
+                "mode": "clarify",
+                "error": str(e)
+            }
+            return state
+    
+    # If we hit MAX_STEPS, return what we have with a warning
+    if len(state["steps"]) >= MAX_STEPS and state["final"] is None:
+        state["final"] = {
+            "answer": "I couldn't complete the task within the step limit.",
+            "mode": "clarify",
+            "steps_taken": len(state["steps"])
+        }
+    
+    return state
+```
+
+### Example 3: Context length budget
+
+```python
+MAX_CONTEXT_TOKENS = 8000
+
+def build_context_with_budget(chunks: list[dict], max_tokens: int = MAX_CONTEXT_TOKENS) -> str:
+    """
+    Build context block but respect token budget.
+    """
+    context_parts = []
+    estimated_tokens = 0
+    
+    for chunk in chunks:
+        # Rough estimate: 1 token ≈ 4 characters
+        chunk_tokens = len(chunk["text"]) // 4
+        
+        if estimated_tokens + chunk_tokens > max_tokens:
+            break  # Stop adding chunks when budget exhausted
+        
+        context_parts.append(f"[{chunk['chunk_id']}] {chunk['text']}")
+        estimated_tokens += chunk_tokens
+    
+    return "\n".join(context_parts)
+```
+
+### Example 4: Timeout enforcement
+
+```python
+import signal
+from contextlib import contextmanager
+
+TOOL_TIMEOUT_SECONDS = 30
+
+@contextmanager
+def timeout(seconds: int):
+    """Context manager to enforce timeout on a block of code."""
+    def timeout_handler(signum, frame):
+        raise TimeoutError(f"Operation timed out after {seconds}s")
+    
+    # Set alarm
+    old_handler = signal.signal(signal.SIGALRM, timeout_handler)
+    signal.alarm(seconds)
+    
+    try:
+        yield
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old_handler)
+
+def call_tool_with_timeout(tool_name: str, tool_input: dict) -> dict:
+    """Call tool with timeout protection."""
+    try:
+        with timeout(TOOL_TIMEOUT_SECONDS):
+            return call_tool(tool_name, tool_input)
+    except TimeoutError as e:
+        return {"error": str(e), "status": "timeout"}
+```
+
+### Why these guardrails matter
+
+**Without guardrails:**
+- Agent tries 47 steps burning $$$
+- Agent calls `delete_file` tool you forgot to remove
+- Prompt injection makes agent leak secrets
+- Single request hangs for 10 minutes
+
+**With guardrails:**
+- Agent stops at step 5 with clear message
+- Unauthorized tools are blocked at call-time
+- Retrieved text cannot escalate to dangerous actions
+- Request times out gracefully after 30s
+
+---
+
 ## References
 
 - OWASP LLM Top 10: https://owasp.org/www-project-top-10-for-large-language-model-applications/

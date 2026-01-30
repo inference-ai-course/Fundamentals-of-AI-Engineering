@@ -13,8 +13,6 @@ Tutorials:
 - [02_sessions_permissions_audit.md](02_sessions_permissions_audit.md)
 - [03_demo_packaging.md](03_demo_packaging.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
-
 ## Key Concepts (with explanations + citations)
 
 ### 1) Product boundary: API vs UI

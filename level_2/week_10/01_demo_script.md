@@ -94,13 +94,130 @@ Practical rule:
 
 ---
 
+## Concrete demo script example (word-for-word)
+
+Here's what a real 6-minute demo sounds like:
+
+---
+
+**[0:00-1:00] Problem + Constraints**
+
+> "We built a RAG assistant for our internal FastAPI documentation. The requirements were: answer with citations, refuse when evidence is missing, and stay under 2 seconds latency for 95% of requests. Here's the architecture diagram."
+
+*[Show diagram: User → `/chat` → Retrieval → Model → Citations]*
+
+---
+
+**[1:00-3:00] Happy path (in-KB question)**
+
+> "Let me show a typical in-KB question."
+
+```bash
+$ curl -X POST http://localhost:8000/chat \
+  -H "Content-Type: application/json" \
+  -d '{"question": "What endpoint shows health status?", "top_k": 5}'
+```
+
+*Response:*
+```json
+{
+  "answer": "The /health endpoint shows the health status.",
+  "citations": [
+    {"chunk_id": "fastapi#001", "doc_id": "fastapi_docs", "snippet": "GET /health returns..."}
+  ],
+  "mode": "answer"
+}
+```
+
+> "Notice the citation includes `chunk_id` and a snippet. Let me show this chunk actually exists in retrieval."
+
+```bash
+$ curl -X POST http://localhost:8000/search \
+  -d '{"query": "What endpoint shows health status?", "top_k": 5}'
+```
+
+*Response shows `fastapi#001` in top-3 hits*
+
+> "This proves grounding: the citation references a chunk we actually retrieved."
+
+---
+
+**[3:00-4:00] Failure case (out-of-KB question)**
+
+> "Now let's try an out-of-KB question."
+
+```bash
+$ curl -X POST http://localhost:8000/chat \
+  -d '{"question": "What is the weather in Tokyo tomorrow?", "top_k": 5}'
+```
+
+*Response:*
+```json
+{
+  "answer": "",
+  "citations": [],
+  "mode": "refuse"
+}
+```
+
+> "The system refuses because this question is outside our documentation scope. This is deterministic: if retrieval returns empty or low-score hits, we refuse rather than hallucinate."
+
+---
+
+**[4:00-5:00] Evidence pack**
+
+> "Here's our evaluation evidence. We ran 20 test queries."
+
+*[Open `runs/baseline/metrics.json`]*
+
+```json
+{
+  "retrieval_recall_at_5": 0.75,
+  "citation_coverage": 0.90,
+  "refusal_correctness": 1.0,
+  "p95_latency_ms": 1850
+}
+```
+
+> "Recall is 75%, meaning we retrieve the right chunk for 3 out of 4 in-KB questions. Citation coverage is 90%. Refusal correctness is 100% - we never hallucinate on out-of-KB queries. And p95 latency is 1.8 seconds, meeting our SLO."
+
+*[Open `runs/baseline/failures.json`]*
+
+```json
+[
+  {
+    "id": "q_014",
+    "question": "What is the default timeout?",
+    "label": "retrieval_miss",
+    "fix": "config#timeout was ranked 6th. Increase top_k to 8."
+  }
+]
+```
+
+> "Our main failure mode is retrieval misses where the right chunk exists but isn't in top-5. The fix is to increase top_k or improve metadata filters."
+
+---
+
+**[5:00-6:00] Roadmap**
+
+> "Next two iterations:
+> 1. Increase chunk overlap from 100 to 200 characters to reduce boundary issues
+> 2. Add metadata filter for 'source=docs' to improve precision
+> 
+> We expect this to improve recall from 75% to 85% based on failure analysis."
+
+---
+
 ## Self-check
 
 - Can you demo without editing code live?
 - Do you have a clear failure case story?
+- Can you show metrics and explain what they mean in 30 seconds?
+- Do you have a concrete "next 2 iterations" roadmap?
 
 ---
 
 ## References
 
+- Effective presentations: https://sre.google/workbook/non-abstract-large-system-design/golo.com/
 - FastAPI docs (demo via /docs): https://fastapi.tiangolo.com/

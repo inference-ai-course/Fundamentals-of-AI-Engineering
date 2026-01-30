@@ -13,8 +13,6 @@ Tutorials:
 - [02_fastapi_service_skeleton.md](02_fastapi_service_skeleton.md)
 - [03_error_handling_request_ids.md](03_error_handling_request_ids.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
-
 ## Key Concepts (with explanations + citations)
 
 ### 1) Requirements -> architecture -> API contract
@@ -60,6 +58,11 @@ Citations:
 - Logs should tell you what happened; health checks tell you if it is alive/ready.
 - Configuration should come from environment variables or config files, not hardcoded secrets.
 
+Practical definitions:
+
+- **Liveness**: “is the process up and responding to HTTP?” (cheap, should not depend on external services)
+- **Readiness**: “are required dependencies available?” (vector store, required env vars)
+
 **What “runnable” means in practice**:
 
 - A new learner should be able to:
@@ -73,6 +76,9 @@ Citations:
 - Define two health concepts:
   - liveness: process is running
   - readiness: dependencies are available (vector DB, model keys)
+- Treat configuration as a typed interface:
+  - centralize config in a settings object
+  - validate required environment variables at startup (fail fast)
 - Standardize log fields early:
   - timestamp
   - level
@@ -101,6 +107,7 @@ Citations:
 - Input validation errors:
   - return 4xx
   - include which field failed and why
+- In FastAPI, schema validation failures are commonly returned as **422** (valid JSON, invalid schema), while malformed requests are **400**.
 - System errors:
   - return 5xx
   - include a request_id and a short message
@@ -109,6 +116,7 @@ Citations:
 **Request IDs**:
 
 - Generate a request ID at the edge (middleware).
+- If the client already sends `x-request-id`, accept it and propagate it (don’t overwrite it).
 - Propagate it through:
   - logs
   - downstream tool calls

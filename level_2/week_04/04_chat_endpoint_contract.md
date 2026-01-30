@@ -122,10 +122,80 @@ This separation is what makes debugging possible.
 
 ---
 
+## Concrete implementation flow (step-by-step)
+
+Here's what a minimal `/chat` handler does:
+
+```python
+@app.post("/chat", response_model=ChatResponse)
+def chat(req: ChatRequest) -> ChatResponse:
+    # Step 1: Retrieve evidence (reuse /search logic)
+    hits = retrieve(query=req.question, top_k=req.top_k, filters=req.filters)
+    
+    # Step 2: Decide mode based on retrieval signals
+    if not hits:
+        return ChatResponse(answer="", citations=[], mode="refuse")
+    
+    top_score = hits[0].score if hits else 0.0
+    if top_score < CLARIFY_THRESHOLD:
+        return ChatResponse(
+            answer="Could you provide more details about what you're looking for?",
+            citations=[],
+            mode="clarify"
+        )
+    
+    # Step 3: Assemble context
+    context_block = build_context_block(hits)
+    
+    # Step 4: Generate answer with citations
+    prompt = f"""
+    Answer the question using only the CONTEXT below.
+    Include citations as JSON: {{"chunk_id": "...", "snippet": "..."}}
+    
+    CONTEXT:
+    {context_block}
+    
+    QUESTION: {req.question}
+    """
+    
+    raw_response = call_llm(prompt)
+    parsed = parse_json_response(raw_response)
+    
+    # Step 5: Validate citations
+    retrieved_ids = {h.chunk_id for h in hits}
+    chunks_by_id = {h.chunk_id: h.text for h in hits}
+    
+    if not validate_citations(parsed["citations"], retrieved_ids, chunks_by_id):
+        # Retry once with repair prompt or refuse
+        return ChatResponse(answer="", citations=[], mode="refuse")
+    
+    # Step 6: Return validated response
+    return ChatResponse(
+        answer=parsed["answer"],
+        citations=parsed["citations"],
+        mode="answer"
+    )
+```
+
+### Why this structure helps debugging
+
+When something goes wrong, you can inspect:
+- **Step 1**: What chunks were retrieved? (log `hits`)
+- **Step 2**: What was the top score? Did it trigger refusal/clarify?
+- **Step 3**: What context was assembled? (log `context_block` or hash)
+- **Step 4**: What did the model return? (log `raw_response`)
+- **Step 5**: Did citations validate? (log validation failure reason)
+
+Each step has a single responsibility, so failures are attributable.
+
+---
+
 ## Self-check
 
 - Are citations traceable to stored chunks?
 - Does your system refuse/clarify when retrieval is empty?
+- Can you inspect the evidence set (`hits`) without re-running generation?
+- Are your decision thresholds (refusal, clarification) logged per request?
 
 ---
 

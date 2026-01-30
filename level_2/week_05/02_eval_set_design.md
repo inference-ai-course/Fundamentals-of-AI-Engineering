@@ -65,8 +65,9 @@ Keep labels simple and mechanically checkable. This is why chunk_ids are so usef
 
 ---
 
-## Example eval item (JSONL)
+## Example eval items (JSONL format)
 
+### Good example: specific in-KB question
 ```json
 {
   "id": "q_001",
@@ -77,17 +78,95 @@ Keep labels simple and mechanically checkable. This is why chunk_ids are so usef
 }
 ```
 
-Why JSONL:
+### Good example: near-miss requiring exact chunk
+```json
+{
+  "id": "q_002",
+  "question": "What is the default timeout for model calls?",
+  "expected_mode": "answer",
+  "relevant_chunk_ids": ["config#timeout"],
+  "notes": "Must retrieve chunk containing timeout value"
+}
+```
 
-- easy to append
-- easy to diff in git
-- easy to stream/process
+### Good example: out-of-KB question (should refuse)
+```json
+{
+  "id": "q_003",
+  "question": "What is the weather in Tokyo tomorrow?",
+  "expected_mode": "refuse",
+  "relevant_chunk_ids": [],
+  "notes": "Not in KB scope, should refuse"
+}
+```
+
+### Good example: ambiguous question (should clarify)
+```json
+{
+  "id": "q_004",
+  "question": "How do I start it?",
+  "expected_mode": "clarify",
+  "relevant_chunk_ids": [],
+  "notes": "Underspecified - 'it' could be service, ingestion, eval script"
+}
+```
+
+### Bad example: too vague to grade
+```json
+{
+  "id": "bad_001",
+  "question": "Tell me about the system",
+  "expected_mode": "answer",  // ✗ What counts as a correct answer?
+  "relevant_chunk_ids": [],   // ✗ No grading criteria
+  "notes": ""
+}
+```
+
+### Why these examples work
+
+**Good items have:**
+- Specific grading criteria (chunk IDs or clear mode expectation)
+- Realistic user intent (not contrived edge cases)
+- Clear expected behavior (answer with evidence, refuse, or clarify)
+
+**Bad items lack:**
+- Mechanical way to check correctness
+- Clear boundary between pass/fail
+
+### Building your first 10-item set
+
+Start with these 4 categories:
+
+1. **5 obvious in-KB** (testing retrieval baseline)
+   - "What endpoint returns health status?" → should retrieve `fastapi#health`
+   - "How do I configure the model?" → should retrieve `config#model`
+
+2. **3 near-miss** (testing chunking/overlap)
+   - Questions where the answer is in the KB but requires the right chunk
+   - These expose chunking problems early
+
+3. **1-2 out-of-KB** (testing refusal)
+   - Questions clearly outside your domain
+   - Should trigger `mode=refuse`
+
+4. **1-2 ambiguous** (testing clarification)
+   - Underspecified questions
+   - Should trigger `mode=clarify`
+
+### Why JSONL format
+
+- Easy to append new items as you find failures
+- Easy to diff in git (one item per line)
+- Easy to stream/process line-by-line
+- No merge conflicts when multiple people add items
 
 ---
 
 ## Self-check
 
 - Does your eval set cover failure cases you actually observed?
+- Can you mechanically grade each item without human judgment?
+- Do you have at least one item per mode (answer, clarify, refuse)?
 
 ---
 

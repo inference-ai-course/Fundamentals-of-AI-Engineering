@@ -9,6 +9,60 @@ Filters and top-k are your primary retrieval controls.
 
 ---
 
+## Underlying theory: you are trading precision and recall under a constrained budget
+
+### Retrieval with filters as a restricted search
+
+You can model a filter as restricting the candidate set.
+
+Let:
+
+- $\mathcal{D}$ be the full set of indexed chunks
+- $F$ be a filter predicate (e.g., `source == "docs"`)
+- $\mathcal{D}_F = \{x \in \mathcal{D} : F(x) = \text{true}\}$ be the filtered subset
+
+Retrieval then runs nearest-neighbor search over $\mathcal{D}_F$ instead of $\mathcal{D}$.
+
+Practical implications:
+
+- correct filters can increase precision by removing irrelevant regions of the KB
+- incorrect filters can collapse recall to 0 by removing all relevant chunks
+
+### Precision@k and Recall@k (formal)
+
+Let:
+
+- $R$ be the set of relevant chunk ids for a query
+- $L_k = [\ell_1, \ldots, \ell_k]$ be the ordered list of retrieved chunk ids
+- $\text{hits}_k = R \cap \{\ell_1, \ldots, \ell_k\}$
+
+Then:
+
+$$
+\mathrm{Precision@k} = \frac{|\text{hits}_k|}{k}
+$$
+
+$$
+\mathrm{Recall@k} = \frac{|\text{hits}_k|}{|R|}
+$$
+
+Intuition:
+
+- Precision@k measures noise: “How many of the chunks I retrieved were actually useful?”
+- Recall@k measures coverage: “Did I retrieve the evidence I needed at all?”
+
+### Why this matters for RAG generation
+
+Even if retrieval has decent recall, low precision can hurt generation:
+
+- the model may attend to distractors
+- citations can become invalid or mismatch the answer
+- longer context increases latency and cost
+
+So the goal is not “maximize top_k”, it is “retrieve enough evidence with minimal noise”.
+
+---
+
 ## The tradeoff (with a concrete numeric example)
 
 Assume for a given query there are $|R| = 4$ relevant chunks in your KB.

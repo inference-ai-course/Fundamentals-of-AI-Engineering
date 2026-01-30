@@ -13,8 +13,6 @@ Tutorials:
 - [02_rate_limiting_retry_policies.md](02_rate_limiting_retry_policies.md)
 - [03_ops_checklist.md](03_ops_checklist.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
-
 ## Key Concepts (with explanations + citations)
 
 ### 1) Observability and tracing

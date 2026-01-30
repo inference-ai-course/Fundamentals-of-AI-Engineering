@@ -13,16 +13,29 @@ Tutorials:
 - [02_filters_topk_tradeoffs.md](02_filters_topk_tradeoffs.md)
 - [03_retrieval_evaluation.md](03_retrieval_evaluation.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
-
 ## Key Concepts (with explanations + citations)
 
-### 1) Retrieval as an API (separate from chat)
+### 1) Retrieval as a stable API (separate from chat)
 
 **Mental model**:
 
 - Treat retrieval as a first-class component with its own endpoint and logs.
 - A `/search` API lets you debug retrieval independent of LLM behavior.
+
+**Underlying theory**:
+
+Retrieval can be modeled as a function:
+
+$$
+R(q; \theta) \rightarrow E
+$$
+
+Where:
+- $q$ is the user query text
+- $\theta$ are retrieval parameters (embedding model, distance metric, filters, `top_k`)
+- $E$ is the evidence set (returned chunk hits)
+
+Making `/search` a separate endpoint makes $R$ **observable** and **testable**.
 
 **Why this separation matters**:
 
@@ -75,12 +88,31 @@ Citations:
 - Build a small query set and measure hit rate / recall@k to catch regressions.
 - Track misses and inspect retrieved chunks to form hypotheses.
 
-**Definitions (teach with concrete examples)**:
+**Underlying theory (formal definitions)**:
 
-- Hit rate:
-  - did we retrieve at least one correct chunk for the query?
-- Recall@k:
-  - if the correct chunk is in the index, did it appear in the top k?
+Let:
+- $R$ be the set of relevant chunk ids for a query
+- $L_k = [\ell_1, \ldots, \ell_k]$ be the ordered list of retrieved chunk ids
+- $\text{hits}_k = R \cap \{\ell_1, \ldots, \ell_k\}$
+
+Then:
+
+$$
+\mathrm{Precision@k} = \frac{|\text{hits}_k|}{k}, \quad \mathrm{Recall@k} = \frac{|\text{hits}_k|}{|R|}
+$$
+
+**Intuition**:
+
+- **Precision@k**: "how noisy are the retrieved chunks?"
+- **Recall@k**: "did I get the evidence I needed at all?"
+
+**Hit rate** (a.k.a. success@k):
+
+$$
+\mathrm{Hit@k} = \mathbb{1}[|\text{hits}_k| > 0]
+$$
+
+("Did we retrieve at least one correct chunk?")
 
 **How to build a small query set**:
 

@@ -18,15 +18,13 @@ You will practice:
 
 ## Recommended order
 
-1. Read 01 and write the API contract first.
+1. Read 01 and draft architecture for your project.
 2. Read 02 and get the service running locally.
 3. Read 03 and add debuggability.
 
-Use [practice.ipynb](practice.ipynb) for additional work.
-
 Why this order works:
 
-1. **Contract first**
+1. **Architecture first**
     - A written contract prevents “coding into ambiguity”. It forces you to decide schemas and error behavior up front.
     - What to verify: you can write an example request/response for `/search` and `/chat` without looking at code.
 

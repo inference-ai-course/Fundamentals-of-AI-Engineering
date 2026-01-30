@@ -13,8 +13,6 @@ Tutorials:
 - [02_chunking_idempotent_ingestion.md](02_chunking_idempotent_ingestion.md)
 - [03_ingest_query_workflow.md](03_ingest_query_workflow.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
-
 ## Key Concepts (with explanations + citations)
 
 ### 1) Vector DB fundamentals (what you store and why)
@@ -24,6 +22,20 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 - You store embeddings plus metadata so you can retrieve the most relevant chunks.
 - Metadata enables filtering (source, doc type, date) and debugging.
 - Upsert/query/delete are the basic lifecycle operations.
+
+**Underlying theory (minimal)**:
+
+- An embedding model is a function:
+
+$$
+f: \text{Text} \rightarrow \mathbb{R}^d
+$$
+
+- Retrieval computes a query vector $\mathbf{q}=f(q)$ and returns the top-k chunks whose vectors are closest under a similarity/distance function (cosine similarity, dot product, or L2).
+
+Practical implication:
+
+- the vector DB returns what is *numerically close* under $f$ + the metric, not what is necessarily “true”
 
 **What students usually misunderstand**:
 
@@ -75,6 +87,10 @@ Citations:
   - chunk hash as id
   - store a version field
   - delete-then-rebuild per document
+
+Practical debugging requirement:
+
+- given a retrieved `chunk_id`, you should be able to locate the original source (file/url + section/page + chunk index) using metadata
 
 Citations:
 

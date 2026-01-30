@@ -13,8 +13,6 @@ Tutorials:
 - [02_eval_set_design.md](02_eval_set_design.md)
 - [03_eval_script_failure_analysis.md](03_eval_script_failure_analysis.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
-
 ## Key Concepts (with explanations + citations)
 
 ### 1) Controlled iteration (one variable at a time)

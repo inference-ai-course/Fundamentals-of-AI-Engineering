@@ -60,7 +60,7 @@ If you don’t want a hidden set, at least keep a “frozen baseline” configur
 
 ---
 
-## Failure labeling (root cause)
+## Failure labeling (root cause with examples)
 
 For each failure, label one primary cause:
 
@@ -71,10 +71,87 @@ For each failure, label one primary cause:
 
 This makes iteration focused.
 
-Practical tip:
+### Worked failure examples
 
-- always include one short note: “what would have made this succeed?”
-- this turns failures into actionable changes (chunking, filters, prompt, citation rules)
+**Example 1: Retrieval miss**
+```json
+{
+  "id": "q_007",
+  "question": "What is the default chunk size?",
+  "expected_mode": "answer",
+  "actual_mode": "refuse",
+  "retrieved_chunk_ids": ["config#model", "config#embedding"],
+  "relevant_chunk_ids": ["config#chunking"],
+  "label": "retrieval_miss",
+  "fix": "config#chunking was ranked 6th. Increase top_k from 5 to 8, or improve chunking metadata filters"
+}
+```
+**Root cause:** The relevant chunk exists but wasn't in top-5  
+**Action:** Increase `top_k` or add metadata filter
+
+---
+
+**Example 2: Context too noisy**
+```json
+{
+  "id": "q_008",
+  "question": "How do I configure retry behavior?",
+  "expected_mode": "answer",
+  "actual_mode": "answer",
+  "retrieved_chunk_ids": ["retry#001", "timeout#002", "error#003", "rate_limit#004", "network#005"],
+  "citations": [{"chunk_id": "timeout#002", "snippet": "set timeout to 30s"}],
+  "label": "context_too_noisy",
+  "fix": "Retrieved 5 chunks but only retry#001 is relevant. Model attended to timeout chunk instead. Reduce top_k or improve filters."
+}
+```
+**Root cause:** Too many irrelevant chunks diluted the signal  
+**Action:** Reduce `top_k` or add tighter filters
+
+---
+
+**Example 3: Model ignored citation rules**
+```json
+{
+  "id": "q_009",
+  "question": "What embedding model should I use?",
+  "expected_mode": "answer",
+  "actual_mode": "answer",
+  "retrieved_chunk_ids": ["embedding#001"],
+  "citations": [],
+  "label": "model_ignored_citation_rules",
+  "fix": "Model returned answer but zero citations. Strengthen prompt: 'You MUST include citations. If you cannot cite, refuse.'"
+}
+```
+**Root cause:** Prompt wasn't strict enough about citations  
+**Action:** Make citation requirement non-optional in prompt
+
+---
+
+**Example 4: Prompt ambiguous**
+```json
+{
+  "id": "q_010",
+  "question": "How do I start it?",
+  "expected_mode": "clarify",
+  "actual_mode": "answer",
+  "retrieved_chunk_ids": ["startup#001", "uvicorn#002"],
+  "label": "prompt_ambiguous",
+  "fix": "System should have asked 'What do you want to start?' but model guessed. Add clarification trigger: if query < 5 words and contains pronoun, clarify."
+}
+```
+**Root cause:** Clarification logic didn't trigger on ambiguous query  
+**Action:** Add heuristic for underspecified questions
+
+### Practical tip: "what would fix this?"
+
+Always include one short actionable note:
+
+- "Increase overlap to 200 chars" (for boundary issues)
+- "Add filter: source='docs'" (for retrieval precision)
+- "Strengthen citation requirement in prompt" (for missing citations)
+- "Lower clarify threshold from 0.3 to 0.4" (for false negatives)
+
+This turns failures into your next experiment.
 
 ---
 

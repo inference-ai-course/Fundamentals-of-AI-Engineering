@@ -13,8 +13,6 @@ Tutorials:
 - [02_guardrails.md](02_guardrails.md)
 - [03_trace_debugging.md](03_trace_debugging.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
-
 ## Key Concepts (with explanations + citations)
 
 ### 1) Planning depth control

@@ -77,6 +77,39 @@ Practical verification for Step 2:
   - Example: invalid JSON input → 400 with a clear message.
   - Example: provider timeout → 502/503 with a `request_id`.
 
+---
+
+## Underlying theory: an API contract is schema + semantics + error model
+
+When you say “we have an endpoint”, what you actually have is a contract between:
+
+- **clients** (frontend, CLI, test scripts)
+- **server** (your FastAPI app)
+
+That contract has three parts:
+
+1. **Schema** (shape + types)
+   - what fields exist?
+   - which are required?
+   - what ranges are allowed? (e.g., `top_k` in `[1, 50]`)
+
+2. **Semantics** (meaning)
+   - what does a field *mean*?
+   - what invariants should always hold?
+     - `chunk_id` must identify a real stored chunk
+     - `score` must be comparable across hits within a response
+
+3. **Error model** (how failure is represented)
+   - what status codes do you use for bad input vs server failures?
+   - what error payload shape do you guarantee?
+   - what identifiers help debugging? (e.g., `request_id`)
+
+Practical intuition:
+
+- you can refactor internals (swap vector DBs, change embedding providers) without breaking clients
+- you can write tests against the contract early, even with stubbed implementations
+- you can debug faster because logs and payloads expose stable identifiers
+
 ## What is RAG? (Retrieval-Augmented Generation)
 
 ### Definition

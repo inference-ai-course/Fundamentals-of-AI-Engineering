@@ -93,15 +93,124 @@ def agent_run(task: str) -> dict:
     search_out = tool_search(search_in)
     state["steps"].append({"tool": "search", "input": search_in, "output": search_out})
 
-    # Step 2: write grounded answer
+    # Step 2: decide based on retrieval results
+    if not search_out.get("hits"):
+        state["final"] = {
+            "answer": "I couldn't find relevant information. Could you rephrase your question?",
+            "mode": "clarify",
+            "citations": []
+        }
+        return state
+
+    # Step 3: write grounded answer
     answer_in = {"question": task, "chunks": search_out.get("hits", [])}
     answer_out = tool_write_answer(answer_in)
     state["steps"].append({"tool": "write_answer", "input": answer_in, "output": answer_out})
 
-    # Step 3: validate and finish
-    state["final"] = answer_out
+    # Step 4: validate citations
+    retrieved_ids = {h["chunk_id"] for h in search_out.get("hits", [])}
+    citations_valid = all(
+        c["chunk_id"] in retrieved_ids 
+        for c in answer_out.get("citations", [])
+    )
+    
+    if not citations_valid:
+        # Fallback: refuse instead of returning invalid citations
+        state["final"] = {
+            "answer": "",
+            "mode": "refuse",
+            "citations": []
+        }
+    else:
+        state["final"] = answer_out
+    
     return state
 ```
+
+### Worked example: agent state evolution
+
+**Initial state:**
+```python
+{
+  "task": "What endpoint shows health status?",
+  "plan": ["search", "write_answer"],
+  "steps": [],
+  "final": None
+}
+```
+
+**After step 1 (search):**
+```python
+{
+  "task": "What endpoint shows health status?",
+  "plan": ["search", "write_answer"],
+  "steps": [
+    {
+      "tool": "search",
+      "input": {"query": "What endpoint shows health status?", "top_k": 5},
+      "output": {
+        "hits": [
+          {"chunk_id": "fastapi#001", "text": "GET /health returns {\"status\": \"ok\"}", "score": 0.89}
+        ]
+      }
+    }
+  ],
+  "final": None
+}
+```
+
+**After step 2 (write_answer):**
+```python
+{
+  "task": "What endpoint shows health status?",
+  "plan": ["search", "write_answer"],
+  "steps": [
+    {
+      "tool": "search",
+      "input": {"query": "What endpoint shows health status?", "top_k": 5},
+      "output": {"hits": [{"chunk_id": "fastapi#001", "text": "GET /health returns {\"status\": \"ok\"}", "score": 0.89}]}
+    },
+    {
+      "tool": "write_answer",
+      "input": {"question": "What endpoint shows health status?", "chunks": [...]},
+      "output": {
+        "answer": "The /health endpoint shows the health status.",
+        "citations": [{"chunk_id": "fastapi#001", "snippet": "GET /health returns"}],
+        "mode": "answer"
+      }
+    }
+  ],
+  "final": None
+}
+```
+
+**Final state (after validation):**
+```python
+{
+  "task": "What endpoint shows health status?",
+  "plan": ["search", "write_answer"],
+  "steps": [...],
+  "final": {
+    "answer": "The /health endpoint shows the health status.",
+    "citations": [{"chunk_id": "fastapi#001", "snippet": "GET /health returns"}],
+    "mode": "answer"
+  }
+}
+```
+
+### Why this structure works
+
+**Debuggability:**
+- You can inspect `state.steps` to see exactly what happened
+- Each step has `input` and `output` → reproducible
+
+**Safety:**
+- Decision logic (step 2) prevents hallucination when retrieval fails
+- Validation (step 4) catches invalid citations before returning
+
+**Traceability:**
+- Every tool call is logged
+- You can answer "why did the agent do X?" by reading the step history
 
 If you can log and inspect `state`, you can debug agent behavior.
 
