@@ -213,6 +213,17 @@ Learn essential production skills for deploying and maintaining AI systems:
 
 ## 🚀 Getting Started
 
+### 📘 Self-Study Guide (Recommended Starting Point)
+
+**New to AI engineering?** Follow the comprehensive [Self-Study Guide](./self_study_guide.md) for a beginner-friendly, hands-on learning path with:
+- 📅 **8-week structured plan** with clear weekly goals
+- 💻 **Coding exercises** for every concept (20+ exercises per week)
+- ✅ **Self-assessment checkpoints** to verify understanding
+- 📦 **Weekly deliverables** - Build real projects each week
+- 🎯 **Capstone project** that integrates everything you learned
+
+The guide includes complete code examples, study tips, troubleshooting advice, and multiple learning pace options (4-16 weeks).
+
 ### Quick Start Path
 
 1. **Complete Chapter 1** - Set up your development environment
