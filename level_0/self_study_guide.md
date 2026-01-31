@@ -634,12 +634,12 @@ Keep a learning journal:
 
 ### Documentation
 - [Python Official Tutorial](https://docs.python.org/3/tutorial/)
-- [Git Handbook](https://guides.github.com/introduction/git-handbook/)
+- [Git Documentation](https://docs.github.com/get-started/using-git/about-git)
 - [Docker Getting Started](https://docs.docker.com/get-started/)
 - [Ollama Documentation](https://github.com/ollama/ollama)
 
 ### Community
-- [Python Discord](https://discord.gg/python)
+- [Python Discord](https://discord.com/invite/python)
 - [r/learnpython](https://reddit.com/r/learnpython)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/python)
 

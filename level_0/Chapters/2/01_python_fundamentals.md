@@ -20,7 +20,7 @@ Python dominates AI/ML for compelling reasons:
 2. **Rich Ecosystem**
    - [NumPy](https://numpy.org/doc/), [Pandas](https://pandas.pydata.org/docs/) for data manipulation
    - [TensorFlow](https://www.tensorflow.org/api_docs), [PyTorch](https://pytorch.org/docs/) for deep learning
-   - [Scikit-learn](https://scikit-learn.org/stable/documentation.html) for classical ML
+   - [Scikit-learn](https://scikit-learn.org/stable/) for classical ML
    - [Hugging Face](https://huggingface.co/docs) for LLMs
 
 3. **Community & Resources**

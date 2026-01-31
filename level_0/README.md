@@ -340,7 +340,7 @@ By completing this tutorial series, you will be able to:
 ### Documentation
 - [Hugging Face Documentation](https://huggingface.co/docs)
 - [OpenAI API Reference](https://platform.openai.com/docs/api-reference)
-- [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
+- [PyTorch Documentation](https://pytorch.org/docs)
 - [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)
 
 ### Community
