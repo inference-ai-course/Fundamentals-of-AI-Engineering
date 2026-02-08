@@ -188,54 +188,83 @@ Create a Python program with:
 
 ---
 
-## Week 4: Prompt Engineering and Evaluation
+## Week 4: Vibe Coding Workshop — Shipping the Learning Assistant CLI
 
-**Goal:** Learn to write effective prompts and measure AI output quality
+**Goal:** Transform your Week 3 simulator into a tested CLI app using AI as a pair programmer
 
 ### 📖 What to Read
 - [Chapter 3: AI Engineering Fundamentals](./Chapters/3/Chapter3.md) — **Part 2 only**
-- Focus: Prompt engineering and evaluation
-- Key concepts:
-  - System prompts and role design
-  - Few-shot learning (teaching by example)
-  - Parameter tuning (temperature, top_p)
-  - Evaluation frameworks
-  - Preventing hallucinations
+- Focus: Vibe coding workflow (learn prompting by building)
+- Key concepts you'll learn by doing:
+  - Writing specs that constrain AI output (requirements + non-goals + acceptance tests)
+  - Requesting scaffolding (structure first, implementation second)
+  - Using tests to drive AI iteration (failing test → patch → verify)
+  - AI-assisted code review (checklists, not rewrites)
 
 ### 💻 Where to Practice
-Complete exercises in Chapter 3 Part 2 materials:
-- `02_prompt_engineering.md` — Prompt design patterns and best practices
-- `02_prompt_engineering.ipynb` — Interactive prompt experiments with few-shot learning, evaluation
+Complete Chapter 3 Part 2 materials:
+- `02_prompt_engineering_evaluation.md` — Step-by-step vibe coding workshop
+- `02_prompt_engineering_evaluation_lab.ipynb` — Hands-on exercises with the 5-step loop
 
-**The notebook walks you through:** System prompt design, few-shot examples, output validation, building evaluation frameworks.
+**The materials walk you through:**
+1. Writing a feature spec (10 min)
+2. Requesting project scaffolding (10 min)
+3. Generating tests from the spec (15 min)
+4. Patch loop: test failures → AI fixes (20 min)
+5. AI-assisted review + refactor (15 min)
 
 ### ✅ Checkpoints
 
 **Before moving to Week 5, verify you can:**
-- [ ] Write clear, effective system prompts
-- [ ] Create few-shot examples for a task
-- [ ] Implement basic output validation
-- [ ] Explain how to prevent hallucinations
-- [ ] Build a simple evaluation framework
-- [ ] Understand temperature and top_p parameters
+- [ ] Write a 10-line spec with requirements, non-goals, and acceptance tests
+- [ ] Request a project structure (not a single-file rewrite)
+- [ ] Ask AI to generate pytest tests for your spec
+- [ ] Use test failures as prompts (paste traceback + request minimal fix)
+- [ ] Request a code review checklist (security, errors, config, quality)
+- [ ] Explain what makes a good vs bad prompt for AI pair programming
 
 ### 📦 Weekly Deliverable
 
-**Build: "Prompt Testing Suite"**
+**Build: "Learning Assistant CLI (Vibe-Coded)"**
 
-Create a program that:
-1. Tests 3 different system prompts for the same task
-2. Runs 5+ test cases against each prompt variant
-3. Scores outputs based on quality criteria
-4. Generates a comparison report recommending the best prompt
+Upgrade your Week 3 simulator into a CLI app with:
+
+**Required features:**
+1. CLI with 3–5 subcommands (examples: `recommend`, `track`, `status`, `quiz`, `export`)
+2. Data persistence (JSON file storage)
+3. At least one command outputs **strict JSON** (machine-parseable, schema-validated)
+4. Input validation with helpful error messages
+5. `pytest` tests (>= 5 tests, covering happy path + 3+ failure cases)
+6. Project structure (separate modules: cli, commands, storage, schemas)
+7. README with setup instructions and usage examples
+
+**Required artifact:**
+- **AI Collaboration Log** (`ai_log.md`) documenting:
+  - Spec prompt (what constraints you gave)
+  - Scaffold prompt (structure you requested)
+  - 3+ test-driven patches (test failure → prompt → fix → verify)
+  - 1+ review/refactor cycle (checklist → applied changes)
 
 **Success test:**
-- Multiple prompts tested systematically
-- Clear scoring methodology
-- Actionable recommendations
-- Demonstrates evaluation best practices
+```bash
+# Fresh environment test
+$ python -m venv test_env
+$ source test_env/bin/activate
+$ pip install -r requirements.txt
+$ python -m pytest tests/  # All tests pass
+$ python src/cli.py status  # Valid JSON output
+$ python src/cli.py track python 2.5  # Persists data
+$ python src/cli.py recommend  # Returns suggestion
+```
 
-**Time estimate:** 2-3 hours
+**Evaluation criteria:**
+- [ ] All commands work without crashes
+- [ ] Tests pass and cover failure cases
+- [ ] JSON output is schema-valid
+- [ ] AI log shows clear workflow (not just "AI wrote everything")
+- [ ] Code structure is clean (not a 500-line file)
+
+**Time estimate:** 3–4 hours (mostly iteration and testing)
 
 ---
 

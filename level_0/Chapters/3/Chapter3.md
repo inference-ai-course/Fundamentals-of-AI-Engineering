@@ -18,26 +18,37 @@ Learn to create reliable, machine-readable responses from AI models using JSON s
 - Cross-provider compatibility
 - Reliability and validation techniques
 
-### Part 2: Prompt Engineering and Evaluation
+### Part 2: Vibe Coding Workshop — AI-Assisted Development
 
-**[📄 Read Documentation](./02_prompt_engineering_evaluation.md)** | **[💻 Open Lab Notebook](./02_prompt_engineering_evaluation_lab.ipynb)**
+**[📄 Read Workshop Guide](./02_prompt_engineering_evaluation.md)** | **[💻 Open Lab Notebook](./02_prompt_engineering_evaluation_lab.ipynb)**
 
-Master the art and science of crafting effective prompts that transform unreliable model outputs into production-ready systems. Without proper prompt engineering, AI models can be inconsistent, unreliable, and costly. Learn how to design prompts that deliver consistent results, prevent hallucinations, and optimize both quality and cost.
+Learn to use AI as a pair programmer through hands-on practice. Instead of studying prompt engineering theory, you'll build a tested CLI app using a repeatable 5-step workflow: spec → scaffold → test → iterate → review.
 
-**Why This Matters:**
-- **Consistency**: Eliminate unpredictable outputs that plague production systems
-- **Cost Efficiency**: Reduce token usage by 50% while maintaining quality
-- **Reliability**: Build guardrails that prevent hallucinations and errors
-- **User Experience**: Deliver the right tone, format, and detail every time
-- **Scalability**: Create prompt templates that work across thousands of requests
+**Why This Approach:**
+- **Practical**: Learn by doing, not by reading about prompts
+- **Transferable**: Same workflow applies to any coding task
+- **Quality-Focused**: Tests and reviews keep AI output reliable
+- **Efficient**: Ship in hours what would take days manually
 
-**Key Concepts:**
-- System prompts and role design
-- Few-shot learning and reasoning patterns
-- Guardrails against hallucinations and errors
-- Parameter tuning (temperature, top_p) for optimal performance
-- Evaluation frameworks (LLM-as-judge, human-in-the-loop)
-- Production-ready prompt templates and version control
+**The 5-Step Vibe Coding Loop:**
+1. **Spec Prompt**: Requirements + constraints + acceptance tests
+2. **Scaffold Prompt**: Project structure + minimal stubs
+3. **Test Prompt**: Generate pytest tests from spec
+4. **Patch Loop**: Test failure → minimal fix → verify
+5. **Review/Refactor**: Checklist → targeted improvements
+
+**What You'll Build:**
+A production-ready CLI app (Learning Assistant) with:
+- Multiple commands with argument parsing
+- JSON persistence and validation
+- Comprehensive test coverage
+- Clear project structure
+
+**Key Skills:**
+- Writing prompts that constrain AI behavior
+- Requesting minimal diffs (not rewrites)
+- Using tests to drive iteration
+- AI-assisted code review
 
 ### Part 3: Model Interfaces and Deployment
 

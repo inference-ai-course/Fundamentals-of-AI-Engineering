@@ -83,27 +83,31 @@ This schedule organizes the AI Engineering Starter Tutorial into 6 weeks of stru
 
 ---
 
-## Week 4: Prompt Engineering and Evaluation
-**Focus:** Creating effective, consistent prompts for AI systems
+## Week 4: Vibe Coding Workshop — AI-Assisted Development
+**Focus:** Learn prompting through building (not theory)
 
 ### Topics Covered:
-- System prompts and role design
-- Few-shot learning patterns
-- Guardrails against hallucinations
-- Parameter tuning (temperature, top_p)
-- Evaluation frameworks
-- Production-ready prompt templates
+- Requirements-to-code workflow (spec → scaffold → tests → iterate)
+- Vibe coding loop: 5 steps from idea to tested implementation
+- Requesting minimal diffs and modular structure
+- Using test failures to drive AI iteration
+- AI-assisted code review (checklists and targeted refactors)
+- Verification culture: every AI output must be tested
 
 ### Learning Materials:
 - [Chapter 3: AI Engineering Fundamentals](./Chapters/3/Chapter3.md)
-- Part 2: Prompt Engineering and Evaluation
+- Part 2: Vibe Coding Workshop (revised)
 
 ### Key Outcomes:
-- Design effective system prompts
-- Implement few-shot learning patterns
-- Prevent hallucinations and errors
-- Create production-ready prompt templates
-- Evaluate prompt performance systematically
+- Write specs that constrain AI behavior effectively
+- Request project structure before implementation
+- Use tests as prompts (failing test → minimal patch)
+- Perform AI-assisted reviews with checklists
+- Ship a tested CLI app built with AI assistance
+- Document collaboration workflow in an AI log
+
+### Bridge to Week 5:
+This week's CLI is local-only. Week 5 adds cloud model APIs, authentication, and multi-provider support.
 
 ---
 
