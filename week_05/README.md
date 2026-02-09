@@ -13,6 +13,27 @@ Foundamental Course assumes Self-learn is complete. If you need a refresher:
 - Compare 2–3 models on the same task using a consistent benchmark script.
 - Explain the practical constraints: speed, memory (VRAM/RAM), context limits, and output quality.
 
+### Hosted API vs local inference
+
+```mermaid
+flowchart LR
+  subgraph Hosted[Hosted API]
+    U1[Your app] --> N1[Internet]
+    N1 --> P1[Provider endpoint]
+    P1 --> M1[Large model cluster]
+    M1 --> P1
+    P1 --> N1
+    N1 --> U1
+  end
+
+  subgraph Local[Local inference]
+    U2[Your app] --> O[Ollama local server]
+    O --> HW[CPU/GPU + RAM/VRAM]
+    HW --> O
+    O --> U2
+  end
+```
+
 Tutorials:
  
 - [tutorial.md](tutorial.md)
@@ -41,30 +62,7 @@ Foundamental Course assumes you already learned the fundamentals in Self-learn. 
   - best model for speed
   - “best-fit scenarios” (when you would choose each)
 
-## Figures (Comprehensive Overviews — Leave Blank)
-
-### Figure A: Hosted API vs local inference (cost, privacy, latency)
-
-```mermaid
-flowchart LR
-  subgraph Hosted[Hosted API]
-    U1[Your app] --> N1[Internet]
-    N1 --> P1[Provider endpoint]
-    P1 --> M1[Large model cluster]
-    M1 --> P1
-    P1 --> N1
-    N1 --> U1
-  end
-
-  subgraph Local[Local inference]
-    U2[Your app] --> O[Ollama local server]
-    O --> HW[CPU/GPU + RAM/VRAM]
-    HW --> O
-    O --> U2
-  end
-```
-
-### Figure B: Benchmark summary table (models x prompts -> metrics)
+### Benchmark summary flow
 
 ```mermaid
 flowchart TD
@@ -79,5 +77,5 @@ flowchart TD
 ## Self-check questions
 
 - Can you run the same benchmark twice and get comparable latency distributions?
-- Can you justify why one model is “best” for a specific use case?
+- Can you justify why one model is "best" for a specific use case?
 - What is the biggest limiting factor on your machine (RAM, VRAM, CPU/GPU)?

@@ -14,6 +14,19 @@ Foundamental Course assumes Self-learn is complete. If you need a refresher:
 - Improve reliability: better error messages, safer file handling, stable outputs.
 - Add tests (or an equivalent smoke-test + manual checklist).
 
+### CLI and config flow
+
+```mermaid
+flowchart LR
+  A[CLI args] --> C[Config object]
+  B[.env / env vars] --> C
+  C --> D[Pipeline runner]
+  D --> E[Artifacts: output/]
+  D --> F[Logs]
+ 
+  F --> G[Debug: request_id/run_id]
+```
+
 Tutorials:
  
 - [tutorial.md](tutorial.md)
@@ -43,22 +56,7 @@ Foundamental Course assumes you already learned the fundamentals in Self-learn. 
   - better error messages
 - Stabilize output formatting (JSON field names, deterministic ordering if needed)
 
-## Figures (Comprehensive Overviews — Leave Blank)
-
-### Figure A: CLI and config flow (args/env -> config -> pipeline)
-
-```mermaid
-flowchart LR
-  A[CLI args] --> C[Config object]
-  B[.env / env vars] --> C
-  C --> D[Pipeline runner]
-  D --> E[Artifacts: output/]
-  D --> F[Logs]
- 
-  F --> G[Debug: request_id/run_id]
-```
-
-### Figure B: Test strategy overview (happy path + edge + failure)
+### Test strategy overview
 
 ```mermaid
 flowchart TD

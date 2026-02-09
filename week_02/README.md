@@ -13,6 +13,23 @@ Foundamental Course assumes Self-learn is complete. If you need a refresher:
 - Train a baseline model, evaluate it, and save artifacts.
 - Compare two runs and write a short failure retrospective.
 
+### The ML training loop
+
+```mermaid
+flowchart TD
+  A[Load data] --> B[Split train/val]
+  B --> C[Train model on train]
+  C --> D[Predict on val]
+  D --> E[Compute metrics]
+  E --> F[Save artifacts]
+  F --> G[Compare runs]
+
+  F --> F1[config.json]
+  F --> F2[metrics.json]
+  F --> F3[model.joblib]
+  F --> F4[val_report.txt]
+```
+
 Tutorials:
  
 - [tutorial.md](tutorial.md)
@@ -30,6 +47,19 @@ Foundamental Course assumes you already learned the fundamentals in Self-learn. 
   - ../../self_learn/Chapters/2/Chapter2.md
 - Evaluation mindset and metrics (accuracy/precision/recall/F1):
   - ../../self_learn/Chapters/4/02_core_concepts.md
+
+### Overfitting intuition (training vs validation curves)
+
+```mermaid
+flowchart TD
+  A[Training begins] --> B[Both train & val metrics improve]
+  B --> C[Val metric peaks — best generalization]
+  C --> D[Train metric keeps improving]
+  C --> E[Val metric starts declining]
+  D --> F[Growing gap = overfitting signal]
+  E --> F
+  F --> G[Mitigation: stop early / regularize / simplify]
+```
 
 ## Common pitfalls
 
@@ -51,37 +81,6 @@ Foundamental Course assumes you already learned the fundamentals in Self-learn. 
   - what you changed
   - what happened
   - one failed run + your next experiment idea
-
-## Figures (Comprehensive Overviews — Leave Blank)
-
-### Figure A: The ML training loop (split -> train -> evaluate -> save)
-
-```mermaid
-flowchart TD
-  A[Load data] --> B[Split train/val]
-  B --> C[Train model on train]
-  C --> D[Predict on val]
-  D --> E[Compute metrics]
-  E --> F[Save artifacts]
-  F --> G[Compare runs]
-
-  F --> F1[config.json]
-  F --> F2[metrics.json]
-  F --> F3[model.joblib]
-  F --> F4[val_report.txt]
-```
-
-### Figure B: Overfitting intuition (training vs validation curves)
-
-```mermaid
-flowchart LR
-  A[Start training]
-  A --> B[Train metric increases steadily]
-  A --> C[Val metric increases at first]
-  C --> D[Val metric peaks]
-  D --> E[Val metric declines (overfitting)]
-  B --> F[High train / lower val gap]
-```
 
 ## Self-check questions
 

@@ -13,6 +13,20 @@ Foundamental Course assumes Self-learn is complete. If you need a refresher:
 - Design prompts as contracts: clear inputs, clear output schema.
 - Produce valid JSON outputs and validate them programmatically.
 
+### Context window budget
+
+```mermaid
+flowchart LR
+  C[Context window C tokens]
+  C --> S[System instructions]
+  C --> P[Prompt/user input]
+  C --> R[Retrieved context]
+  C --> T[Tool outputs]
+  C --> O[Model output]
+
+  style C fill:#f3f4f6,stroke:#111827
+```
+
 Tutorials:
  
 - [tutorial.md](tutorial.md)
@@ -39,9 +53,7 @@ Foundamental Course assumes you already learned the fundamentals in Self-learn. 
   - retry/repair on invalid JSON
 - Create a small test set with at least 3 edge inputs
 
-## Figures (Comprehensive Overviews — Leave Blank)
-
-### Figure A: Prompt as contract (inputs -> model -> validated JSON)
+### Prompt as contract flow
 
 ```mermaid
 flowchart TD
@@ -58,22 +70,8 @@ flowchart TD
   G --> H[Downstream code]
 ```
 
-### Figure B: Context window budget (prompt + context + output)
-
-```mermaid
-flowchart LR
-  C[Context window C tokens]
-  C --> S[System instructions]
-  C --> P[Prompt/user input]
-  C --> R[Retrieved context]
-  C --> T[Tool outputs]
-  C --> O[Model output]
-
-  style C fill:#f3f4f6,stroke:#111827
-```
-
 ## Self-check questions
 
 - Why can the model still output invalid JSON even when instructed?
 - What are 3 LLM failure modes you observed?
-- What’s your retry limit and why?
+- What's your retry limit and why?

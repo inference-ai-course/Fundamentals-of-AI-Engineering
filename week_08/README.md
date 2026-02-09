@@ -13,6 +13,22 @@ Foundamental Course assumes Self-learn is complete. If you need a refresher:
 - Explain your design decisions and trade-offs.
 - Write a short retrospective focused on learning and iteration.
 
+### Capstone architecture overview
+
+```mermaid
+flowchart TD
+  CLI[run_capstone.py (CLI)] --> P[Pipeline orchestrator]
+  P --> DP[data_profile.py]
+  P --> CP[compress_table()]
+  P --> LLM[llm_client.py]
+  LLM --> VAL[parse + validate]
+  P --> OUT[output/ artifacts]
+
+  DP --> OUT
+  CP --> OUT
+  VAL --> OUT
+```
+
 Tutorials:
  
 - [tutorial.md](tutorial.md)
@@ -43,25 +59,7 @@ Foundamental Course assumes you already completed Self-learn. If you need a refr
   - fixes
   - next improvements
 
-## Figures (Comprehensive Overviews — Leave Blank)
-
-### Figure A: Capstone architecture overview (modules and data flow)
-
-```mermaid
-flowchart TD
-  CLI[run_capstone.py (CLI)] --> P[Pipeline orchestrator]
-  P --> DP[data_profile.py]
-  P --> CP[compress_table()]
-  P --> LLM[llm_client.py]
-  LLM --> VAL[parse + validate]
-  P --> OUT[output/ artifacts]
-
-  DP --> OUT
-  CP --> OUT
-  VAL --> OUT
-```
-
-### Figure B: Iteration loop (run -> observe -> fix -> re-run)
+### Iteration loop
 
 ```mermaid
 flowchart LR

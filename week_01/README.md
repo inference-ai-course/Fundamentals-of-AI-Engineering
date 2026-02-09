@@ -14,6 +14,19 @@ Foundamental Course assumes Self-learn is complete. If you need a refresher:
 - Run a project from a README on a fresh machine (or a fresh folder).
 - Build a small “data profiling” script that reads a CSV and produces reproducible outputs.
 
+### Environment setup flow
+
+```mermaid
+flowchart TD
+  A[System Python] --> B[Create venv: python -m venv .venv]
+  B --> C[Activate venv]
+  C --> D[Upgrade pip]
+  D --> E[Install deps]
+  E --> F[Freeze: requirements.txt]
+  F --> G[Run script]
+  G --> H[Recreate env from requirements.txt]
+```
+
 Tutorials:
  
 - [tutorial.md](tutorial.md)
@@ -49,22 +62,7 @@ Foundamental Course assumes you already learned the fundamentals in Self-learn. 
   - output: write files to `output/`
   - include clear errors for missing file / empty file / missing columns
 
-## Figures (Comprehensive Overviews — Leave Blank)
-
-### Figure A: Environment setup flow (Python -> venv -> install -> run)
-
-```mermaid
-flowchart TD
-  A[System Python] --> B[Create venv: python -m venv .venv]
-  B --> C[Activate venv]
-  C --> D[Upgrade pip]
-  D --> E[Install deps]
-  E --> F[Freeze: requirements.txt]
-  F --> G[Run script]
-  G --> H[Recreate env from requirements.txt]
-```
-
-### Figure B: Data profiling pipeline (read -> validate -> stats -> export)
+### Data profiling pipeline
 
 ```mermaid
 flowchart TD
@@ -80,6 +78,12 @@ flowchart TD
 ```
 
 ## Self-check questions
+
+- Can you explain the difference between a virtual environment and the system Python?
+- Can you re-run your script and get the same output files from the same input?
+- If someone else runs your README steps, do they succeed without extra "secret" steps?
+
+
 
 - Can you explain the difference between a virtual environment and the system Python?
 - Can you re-run your script and get the same output files from the same input?

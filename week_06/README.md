@@ -9,9 +9,27 @@ Foundamental Course assumes Self-learn is complete. If you need a refresher:
 
 ## What you should be able to do by the end of this week
 
-- Implement the Capstone “happy path” end-to-end.
+- Implement the Capstone "happy path" end-to-end.
 - Keep prompts within limits by sampling/compressing inputs.
 - Produce stable artifacts: `report.json` and `report.md`.
+
+### End-to-end Capstone pipeline
+
+```mermaid
+flowchart TD
+  A[CSV] --> B[Profile]
+  B --> C[profile.json]
+  B --> D[Compress/sample]
+  D --> E[compressed_input.json]
+  E --> F[LLM client]
+  F --> G[Validate + format]
+  G --> H[report.json]
+  G --> I[report.md]
+
+  C --> J[Debug/inspect]
+  E --> J
+  H --> J
+```
 
 Tutorials:
  
@@ -39,27 +57,7 @@ Foundamental Course assumes you already learned the fundamentals in Self-learn. 
   - build `report.json` + `report.md`
 - Ensure the entire pipeline runs with one command.
 
-## Figures (Comprehensive Overviews — Leave Blank)
-
-### Figure A: End-to-end Capstone pipeline (CSV -> profile -> sample -> LLM -> report)
-
-```mermaid
-flowchart TD
-  A[CSV] --> B[Profile]
-  B --> C[profile.json]
-  B --> D[Compress/sample]
-  D --> E[compressed_input.json]
-  E --> F[LLM client]
-  F --> G[Validate + format]
-  G --> H[report.json]
-  G --> I[report.md]
-
-  C --> J[Debug/inspect]
-  E --> J
-  H --> J
-```
-
-### Figure B: Context budget diagram (what consumes tokens)
+### Context budget diagram
 
 ```mermaid
 flowchart LR
