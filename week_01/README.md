@@ -16,15 +16,26 @@ Foundamental Course assumes Self-learn is complete. If you need a refresher:
 
 ### Environment setup flow
 
+Both approaches achieve isolation; choose based on your needs:
+
 ```mermaid
 flowchart TD
-  A[System Python] --> B[Create venv: python -m venv .venv]
-  B --> C[Activate venv]
-  C --> D[Upgrade pip]
-  D --> E[Install deps]
-  E --> F[Freeze: requirements.txt]
-  F --> G[Run script]
-  G --> H[Recreate env from requirements.txt]
+  subgraph venv["Python venv approach"]
+    A1[System Python] --> B1[Create: python -m venv .venv]
+    B1 --> C1[Activate venv: source .venv/bin/activate]
+    C1 --> D1[Upgrade pip]
+    D1 --> E1[Install deps]
+    E1 --> F1[Freeze: requirements.txt]
+    F1 --> G1[Run script]
+  end
+
+  subgraph conda["Conda approach"]
+    A2[Base conda] --> B2[Create: conda create -n myenv]
+    B2 --> C2[Activate: conda activate myenv]
+    C2 --> D2[Install deps via pip or conda]
+    D2 --> E2[Export: conda env export > environment.yml]
+    E2 --> F2[Run script]
+  end
 ```
 
 Tutorials:

@@ -57,19 +57,6 @@ Foundamental Course assumes you already learned the fundamentals in Self-learn. 
   - build `report.json` + `report.md`
 - Ensure the entire pipeline runs with one command.
 
-### Context budget diagram
-
-```mermaid
-flowchart LR
-  C[Context window C]
-  C --> P[Prompt]
-  C --> X[Compressed input]
-  C --> O[Output]
-  C --> T[Tool/log payloads]
-
-  style C fill:#f3f4f6,stroke:#111827
-```
-
 ## Self-check questions
 
 - Can you identify which stage fails when something breaks?
