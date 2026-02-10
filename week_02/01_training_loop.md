@@ -1,5 +1,57 @@
 # Week 2 — Part 01: The ML training loop (split → train → evaluate → save)
 
+### The ML training process
+
+```mermaid
+flowchart TD
+    subgraph Input["Input Stage"]
+        A[Load CSV data] --> B{Validate label column exists}
+        B -->|Yes| C[Separate features X and label y]
+        B -->|No| Z[Error: label_col not found]
+    end
+
+    subgraph Split["Train/Validation Split"]
+        C --> D[train_test_split with seed]
+        D --> E[X_train, y_train]
+        D --> F[X_val, y_val]
+    end
+
+    subgraph Preprocess["Preprocessing Pipeline"]
+        E --> G[Identify numeric & categorical columns]
+        G --> H[Numeric: median imputation]
+        G --> I[Categorical: impute + one-hot encode]
+        H --> J[ColumnTransformer]
+        I --> J
+    end
+
+    subgraph Train["Training"]
+        J --> K[LogisticRegression model]
+        K --> L[Fit on X_train, y_train]
+        L --> M[Record training time]
+    end
+
+    subgraph Evaluate["Evaluation"]
+        F --> N[Predict on X_val]
+        M --> O
+        N --> O[Compute metrics]
+        O --> P[accuracy_score]
+        O --> Q[f1_score]
+        O --> R[classification_report]
+    end
+
+    subgraph Artifacts["Save Artifacts (per-run folder)"]
+        P --> S[config.json]
+        Q --> T[metrics.json]
+        R --> U[val_report.txt]
+        L --> V[model.joblib]
+    end
+
+    style Z fill:#ffcccc
+    style Artifacts fill:#ccffcc
+```
+
+---
+
 ## Overview
 
 This is the smallest ML workflow that is still “real engineering”:
@@ -67,117 +119,7 @@ Why these pieces exist:
 
 ### Code
 
-```python
-import argparse
-import json
-import time
-from dataclasses import asdict, dataclass
-from pathlib import Path
-
-import joblib
-import pandas as pd
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report, f1_score
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder
-
-
-@dataclass
-class TrainConfig:
-    input_csv: str
-    label_col: str
-    test_size: float
-    random_state: int
-    max_iter: int
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Train a reproducible baseline classifier")
-    parser.add_argument("--input", required=True, help="Input CSV")
-    parser.add_argument("--label_col", required=True, help="Label column name")
-    parser.add_argument("--test_size", type=float, default=0.2)
-    parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--max_iter", type=int, default=500)
-    parser.add_argument("--artifacts_dir", default="artifacts")
-    args = parser.parse_args()
-
-    cfg = TrainConfig(
-        input_csv=args.input,
-        label_col=args.label_col,
-        test_size=float(args.test_size),
-        random_state=int(args.seed),
-        max_iter=int(args.max_iter),
-    )
-
-    df = pd.read_csv(cfg.input_csv)
-    if cfg.label_col not in df.columns:
-        raise ValueError(f"label_col not found: {cfg.label_col}")
-
-    y = df[cfg.label_col]
-    X = df.drop(columns=[cfg.label_col])
-
-    X_train, X_val, y_train, y_val = train_test_split(
-        X,
-        y,
-        test_size=cfg.test_size,
-        random_state=cfg.random_state,
-        stratify=y if y.nunique() > 1 else None,
-    )
-
-    numeric_cols = [c for c in X_train.columns if pd.api.types.is_numeric_dtype(X_train[c])]
-    categorical_cols = [c for c in X_train.columns if c not in numeric_cols]
-
-    numeric_pipe = Pipeline(steps=[("imputer", SimpleImputer(strategy="median"))])
-    categorical_pipe = Pipeline(
-        steps=[
-            ("imputer", SimpleImputer(strategy="most_frequent")),
-            ("onehot", OneHotEncoder(handle_unknown="ignore")),
-        ]
-    )
-
-    preprocessor = ColumnTransformer(
-        transformers=[
-            ("num", numeric_pipe, numeric_cols),
-            ("cat", categorical_pipe, categorical_cols),
-        ]
-    )
-
-    model = LogisticRegression(max_iter=cfg.max_iter)
-    clf = Pipeline(steps=[("preprocess", preprocessor), ("model", model)])
-
-    t0 = time.time()
-    clf.fit(X_train, y_train)
-    train_seconds = time.time() - t0
-
-    y_pred = clf.predict(X_val)
-
-    metrics = {
-        "accuracy": float(accuracy_score(y_val, y_pred)),
-        "f1_macro": float(f1_score(y_val, y_pred, average="macro")) if y_val.nunique() > 1 else None,
-        "train_seconds": float(train_seconds),
-        "n_train": int(len(X_train)),
-        "n_val": int(len(X_val)),
-    }
-
-    run_id = time.strftime("run_%Y%m%d_%H%M%S")
-    out_dir = Path(args.artifacts_dir) / run_id
-    out_dir.mkdir(parents=True, exist_ok=True)
-
-    (out_dir / "config.json").write_text(json.dumps(asdict(cfg), indent=2, sort_keys=True))
-    (out_dir / "metrics.json").write_text(json.dumps(metrics, indent=2, sort_keys=True))
-    (out_dir / "val_report.txt").write_text(classification_report(y_val, y_pred))
-    joblib.dump(clf, out_dir / "model.joblib")
-
-    print(json.dumps(metrics, indent=2))
-    print(f"Saved artifacts to: {out_dir}")
-
-
-if __name__ == "__main__":
-    main()
-```
+See [train.py](./train.py) in this directory.
 
 What makes this “engineering” (not just a notebook experiment):
 
