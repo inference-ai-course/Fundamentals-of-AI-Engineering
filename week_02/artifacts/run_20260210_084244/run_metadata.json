@@ -1,0 +1,35 @@
+{
+  "config": {
+    "input_csv": "test_iris.csv",
+    "label_col": "label",
+    "max_iter": 500,
+    "random_state": 42,
+    "test_size": 0.2
+  },
+  "environment": {
+    "joblib": {
+      "error": null,
+      "status": "installed",
+      "version": "1.5.3"
+    },
+    "numpy": {
+      "error": null,
+      "status": "installed",
+      "version": "2.3.2"
+    },
+    "pandas": {
+      "error": null,
+      "status": "installed",
+      "version": "2.3.2"
+    },
+    "scikit-learn": {
+      "error": "No module named 'scikit-learn'",
+      "status": "missing",
+      "version": null
+    }
+  },
+  "git_hash": "f04eae57ab01c344e74a51406977517716edfd40",
+  "platform": "Linux-6.6.87.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python_version": "3.13.5",
+  "timestamp": "2026-02-10 08:42:45"
+}

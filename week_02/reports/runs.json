@@ -1,0 +1,70 @@
+[
+  {
+    "run_id": "run_20260210_073204",
+    "config": {
+      "input_csv": "sample_iris.csv",
+      "label_col": "label",
+      "max_iter": 500,
+      "random_state": 42,
+      "test_size": 0.2
+    },
+    "metrics": {
+      "accuracy": 0.9666666666666667,
+      "f1_macro": 0.9665831244778612,
+      "n_train": 120,
+      "n_val": 30,
+      "train_seconds": 0.016890525817871094
+    }
+  },
+  {
+    "run_id": "run_20260210_073210",
+    "config": {
+      "input_csv": "sample_synthetic.csv",
+      "label_col": "label",
+      "max_iter": 500,
+      "random_state": 42,
+      "test_size": 0.2
+    },
+    "metrics": {
+      "accuracy": 0.6,
+      "f1_macro": 0.6046262582994217,
+      "n_train": 160,
+      "n_val": 40,
+      "train_seconds": 0.007195711135864258
+    }
+  },
+  {
+    "run_id": "run_20260210_084244",
+    "config": {
+      "input_csv": "test_iris.csv",
+      "label_col": "label",
+      "max_iter": 500,
+      "random_state": 42,
+      "test_size": 0.2
+    },
+    "metrics": {
+      "accuracy": 0.9666666666666667,
+      "f1_macro": 0.9665831244778612,
+      "n_train": 120,
+      "n_val": 30,
+      "train_seconds": 0.017902612686157227
+    }
+  },
+  {
+    "run_id": "run_20260210_084248",
+    "config": {
+      "input_csv": "test_iris2.csv",
+      "label_col": "label",
+      "max_iter": 1000,
+      "random_state": 42,
+      "test_size": 0.2
+    },
+    "metrics": {
+      "accuracy": 0.9666666666666667,
+      "f1_macro": 0.9665831244778612,
+      "n_train": 120,
+      "n_val": 30,
+      "train_seconds": 0.00958704948425293
+    }
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "n": 4,
+  "avg_n_train": 130.0,
+  "min_n_train": 120,
+  "max_n_train": 160,
+  "avg_accuracy": 0.875,
+  "min_accuracy": 0.6,
+  "max_accuracy": 0.9666666666666667,
+  "avg_f1_macro": 0.8761,
+  "min_f1_macro": 0.6046262582994217,
+  "max_f1_macro": 0.9665831244778612,
+  "avg_train_seconds": 0.0129,
+  "min_train_seconds": 0.007195711135864258,
+  "max_train_seconds": 0.017902612686157227,
+  "avg_n_val": 32.5,
+  "min_n_val": 30,
+  "max_n_val": 40,
+  "best_n_train": {
+    "run_id": "run_20260210_073210",
+    "value": 160
+  },
+  "best_accuracy": {
+    "run_id": "run_20260210_073204",
+    "value": 0.9666666666666667
+  },
+  "best_f1_macro": {
+    "run_id": "run_20260210_073204",
+    "value": 0.9665831244778612
+  },
+  "best_train_seconds": {
+    "run_id": "run_20260210_084244",
+    "value": 0.017902612686157227
+  },
+  "best_n_val": {
+    "run_id": "run_20260210_073210",
+    "value": 40
+  }
+}
