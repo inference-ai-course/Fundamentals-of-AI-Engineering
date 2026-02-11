@@ -5,7 +5,7 @@
 Foundamental Course assumes Self-learn is complete. If you need a refresher:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 2: Python and Environment Management](../../self_learn/Chapters/2/Chapter2.md)
+- [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 ## What you should be able to do by the end of this week
 
@@ -44,9 +44,9 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 Foundamental Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
 - Reproducible environments, dependencies, and basic Python project habits:
-  - ../../self_learn/Chapters/2/Chapter2.md
+  - ../self_learn/Chapters/2/Chapter2.md
 - Evaluation mindset and metrics (accuracy/precision/recall/F1):
-  - ../../self_learn/Chapters/4/02_core_concepts.md
+  - ../self_learn/Chapters/4/02_core_concepts.md
 
 ### Overfitting intuition (training vs validation curves)
 

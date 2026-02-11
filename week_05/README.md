@@ -5,7 +5,7 @@
 Foundamental Course assumes Self-learn is complete. If you need a refresher:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 4: Hugging Face Platform and Local Inference](../../self_learn/Chapters/4/Chapter4.md)
+- [Self-learn — Chapter 4: Hugging Face Platform and Local Inference](../self_learn/Chapters/4/Chapter4.md)
 
 ## What you should be able to do by the end of this week
 
@@ -48,7 +48,7 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 Foundamental Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
 - Local inference fundamentals and model/platform concepts:
-  - ../../self_learn/Chapters/4/Chapter4.md
+  - ../self_learn/Chapters/4/Chapter4.md
 
 ## Workshop / Implementation Plan
 

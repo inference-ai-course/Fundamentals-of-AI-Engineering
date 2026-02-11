@@ -17,7 +17,7 @@ A good CLI:
 Foundamental Course assumes Self-learn is complete. If you need a refresher on Python modules, exceptions, and CLI-adjacent habits:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Modules and exception handling](../../self_learn/Chapters/2/02_modules_exceptions.md)
+- [Self-learn — Modules and exception handling](../self_learn/Chapters/2/02_modules_exceptions.md)
 
 Why it matters here (Week 7):
 

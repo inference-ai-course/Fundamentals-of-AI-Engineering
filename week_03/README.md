@@ -5,7 +5,7 @@
 Foundamental Course assumes Self-learn is complete. If you need a refresher:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 3: AI Engineering Fundamentals](../../self_learn/Chapters/3/Chapter3.md)
+- [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
 
 ## What you should be able to do by the end of this week
 
@@ -41,9 +41,9 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 Foundamental Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
 - Prompt engineering fundamentals and evaluation mindset:
-  - ../../self_learn/Chapters/3/02_prompt_engineering_evaluation.md
+  - ../self_learn/Chapters/3/02_prompt_engineering_evaluation.md
 - Structured outputs and validation mindset:
-  - ../../self_learn/Chapters/3/01_function_calling_structured_outputs.md
+  - ../self_learn/Chapters/3/01_function_calling_structured_outputs.md
 
 ## Workshop / Implementation Plan
 

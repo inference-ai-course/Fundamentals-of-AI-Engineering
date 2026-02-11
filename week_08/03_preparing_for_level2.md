@@ -22,7 +22,7 @@ Level 2 shifts toward **systems thinking**:
 Foundamental Course assumes Self-learn is complete. If you need a refresher on the overall roadmap and prerequisites:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn Schedule](../../self_learn/Schedule.md)
+- [Self-learn Schedule](../self_learn/Schedule.md)
 
 Why it matters here (Week 8):
 

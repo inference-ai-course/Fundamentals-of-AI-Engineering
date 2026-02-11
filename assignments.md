@@ -8,7 +8,7 @@ Each assignment submission should include:
 *   Key output examples (screenshots or sample output files)
 *   Failure case notes (at least one pitfall you encountered and how you fixed it)
 
-If you need help, follow the required procedure in [Foundamental Course overview](overview.md#how-to-ask-for-help-required) and include:
+If you need help, follow the required procedure in [Foundamental Course overview](README.md) and include:
 
 *   The exact command you ran + full output
 *   Your OS/Python version

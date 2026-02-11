@@ -692,7 +692,7 @@ In this section, you learned:
 
 ## Next Steps
 
-Now you're ready to move on to [Part 5: Advanced Environment Topics](./05_advanced_environments.md), where you'll learn:
+Now you're ready to move on to [Part 4: Advanced Environment Topics](./04_advanced_environments.md), where you'll learn:
 
 - Advanced pip and conda integration
 - Jupyter kernel management

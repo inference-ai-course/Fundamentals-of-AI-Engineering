@@ -25,7 +25,7 @@ You will build `data_profile.py` that:
 Foundamental Course assumes Self-learn is complete. If you need a refresher on modules, file I/O, exceptions, or JSON:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Modules and exception handling](../../self_learn/Chapters/2/02_modules_exceptions.md)
+- [Self-learn — Modules and exception handling](../self_learn/Chapters/2/02_modules_exceptions.md)
 
 ---
 

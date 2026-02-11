@@ -14,7 +14,7 @@ A timeout is the simplest reliability feature:
 Foundamental Course assumes Self-learn is complete. If you need a refresher on reliability/operations and debugging practices:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 5: Resource Monitoring and Containerization](../../self_learn/Chapters/5/Chapter5.md)
+- [Self-learn — Chapter 5: Resource Monitoring and Containerization](../self_learn/Chapters/5/Chapter5.md)
 
 Why it matters here (Week 4):
 

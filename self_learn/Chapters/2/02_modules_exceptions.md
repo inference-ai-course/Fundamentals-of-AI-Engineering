@@ -1157,7 +1157,7 @@ In this section, you learned:
 
 ## Next Steps
 
-Now you're ready to move on to [Part 3: Python Basics - Concepts](./03_python_basics_concepts.md), where you'll learn:
+Now you're ready to move on to [Part 3: Conda Environments](./03_conda_environments.md), where you'll learn:
 
 - Advanced Python concepts and best practices
 - Code organization and structure

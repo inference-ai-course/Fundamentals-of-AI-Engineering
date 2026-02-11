@@ -5,8 +5,8 @@
 Foundamental Course assumes Self-learn is complete. If you need a refresher:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 1: Tool Preparation](../../self_learn/Chapters/1/Chapter1.md)
-- [Self-learn — Chapter 2: Python and Environment Management](../../self_learn/Chapters/2/Chapter2.md)
+- [Self-learn — Chapter 1: Tool Preparation](../self_learn/Chapters/1/Chapter1.md)
+- [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 ## What you should be able to do by the end of this week
 
@@ -51,12 +51,12 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 Foundamental Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
 - Environment management (conda/venv):
-  - ../../self_learn/Chapters/2/03_conda_environments.md
-  - ../../self_learn/Chapters/1/04_conda_environment_management.md
+  - ../self_learn/Chapters/2/03_conda_environments.md
+  - ../self_learn/Chapters/1/04_conda_environment_management.md
 - Jupyter basics:
-  - ../../self_learn/Chapters/1/05_jupyter_interactive_computing.md
+  - ../self_learn/Chapters/1/05_jupyter_interactive_computing.md
 - Modules, exception handling, and JSON/file I/O patterns:
-  - ../../self_learn/Chapters/2/02_modules_exceptions.md
+  - ../self_learn/Chapters/2/02_modules_exceptions.md
 
 ## Common pitfalls
 

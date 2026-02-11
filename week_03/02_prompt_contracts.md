@@ -13,8 +13,8 @@ If you treat the model like a service, your prompt is the API contract.
 Foundamental Course assumes Self-learn is complete. If you need a refresher on prompt engineering fundamentals, guardrails, and evaluation mindset:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Prompt engineering and evaluation](../../self_learn/Chapters/3/02_prompt_engineering_evaluation.md)
-- [Self-learn — Structured outputs and schemas](../../self_learn/Chapters/3/01_function_calling_structured_outputs.md)
+- [Self-learn — Prompt engineering and evaluation](../self_learn/Chapters/3/02_prompt_engineering_evaluation.md)
+- [Self-learn — Structured outputs and schemas](../self_learn/Chapters/3/01_function_calling_structured_outputs.md)
 
 Why it matters here (Week 3):
 

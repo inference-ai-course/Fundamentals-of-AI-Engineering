@@ -13,7 +13,7 @@ This makes improvement explainable.
 Foundamental Course assumes Self-learn is complete. If you need a refresher on evaluation metrics (accuracy/precision/recall/F1):
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Evaluation metrics](../../self_learn/Chapters/4/02_core_concepts.md)
+- [Self-learn — Evaluation metrics](../self_learn/Chapters/4/02_core_concepts.md)
 
 Why it matters here (Week 2):
 

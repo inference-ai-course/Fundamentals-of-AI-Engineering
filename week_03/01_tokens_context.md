@@ -17,7 +17,7 @@ This section gives you a mental model to reason about:
 Foundamental Course assumes Self-learn is complete. If you need a refresher on tokenization, prompts, and evaluation mindset:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Prompt engineering and evaluation](../../self_learn/Chapters/3/02_prompt_engineering_evaluation.md)
+- [Self-learn — Prompt engineering and evaluation](../self_learn/Chapters/3/02_prompt_engineering_evaluation.md)
 
 Why it matters here (Week 3):
 

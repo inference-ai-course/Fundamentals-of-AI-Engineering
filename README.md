@@ -18,13 +18,13 @@
 
 Foundational Course assumes Self-learn is complete. Use these as the canonical fundamentals reference:
 
-*   [Self-learn schedule](../self_learn/Schedule.md)
+*   [Self-learn schedule](self_learn/Schedule.md)
 *   Chapters:
-    *   [Chapter 1: Tool Preparation](../self_learn/Chapters/1/Chapter1.md)
-    *   [Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
-    *   [Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
-    *   [Chapter 4: Hugging Face Platform and Local Inference](../self_learn/Chapters/4/Chapter4.md)
-    *   [Chapter 5: Resource Monitoring and Containerization](../self_learn/Chapters/5/Chapter5.md)
+    *   [Chapter 1: Tool Preparation](self_learn/Chapters/1/Chapter1.md)
+    *   [Chapter 2: Python and Environment Management](self_learn/Chapters/2/Chapter2.md)
+    *   [Chapter 3: AI Engineering Fundamentals](self_learn/Chapters/3/Chapter3.md)
+    *   [Chapter 4: Hugging Face Platform and Local Inference](self_learn/Chapters/4/Chapter4.md)
+    *   [Chapter 5: Resource Monitoring and Containerization](self_learn/Chapters/5/Chapter5.md)
 
 ## For Learners Without an Engineering Background
 

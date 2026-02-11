@@ -5,7 +5,7 @@
 Foundamental Course assumes Self-learn is complete. If you need a refresher:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 4: Hugging Face Platform and Local Inference](../../self_learn/Chapters/4/Chapter4.md)
+- [Self-learn — Chapter 4: Hugging Face Platform and Local Inference](../self_learn/Chapters/4/Chapter4.md)
 
 ## Overview
 

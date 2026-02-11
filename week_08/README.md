@@ -5,7 +5,7 @@
 Foundamental Course assumes Self-learn is complete. If you need a refresher:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn Schedule](../../self_learn/Schedule.md)
+- [Self-learn Schedule](../self_learn/Schedule.md)
 
 ## What you should be able to do by the end of this week
 
@@ -43,7 +43,7 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 Foundamental Course assumes you already completed Self-learn. If you need a refresher:
 
 - Overall roadmap and sequencing:
-  - ../../self_learn/Schedule.md
+  - ../self_learn/Schedule.md
 
 ## Workshop / Implementation Plan
 

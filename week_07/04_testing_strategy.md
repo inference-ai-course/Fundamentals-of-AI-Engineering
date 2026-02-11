@@ -11,7 +11,7 @@ Tests are executable checks that protect you from regressions.
 Foundamental Course assumes Self-learn is complete. If you need a refresher on project structure, environments, and reproducibility:
 
 - [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 2: Python and Environment Management](../../self_learn/Chapters/2/Chapter2.md)
+- [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 Why it matters here (Week 7):
 
