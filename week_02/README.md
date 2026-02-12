@@ -82,6 +82,30 @@ flowchart TD
   - what happened
   - one failed run + your next experiment idea
 
+## Why This Matters for Learning AI
+
+The training loop is the beating heart of machine learning. Every ML system — from a simple spam filter to a state-of-the-art image classifier — follows the same fundamental cycle: load data, train, evaluate, iterate. Understanding this loop deeply is what separates someone who *uses* AI tools from someone who *builds* them.
+
+### Train/validation splits prevent self-deception
+
+If you evaluate a model on the same data it was trained on, it will look artificially good — like a student who memorizes test answers without understanding the material. The train/validation split forces you to measure how well your model *generalizes* to data it has never seen. As [Lightly.ai](https://www.lightly.ai/blog/train-test-validation-split) explains, *"The true measure of a machine learning model is how well it can generalize and make accurate predictions on completely unseen data in real-world scenarios."*
+
+This concept is so fundamental that [Wikipedia's ML article](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets) states: *"The standard machine learning practice is to train on the training set and tune hyperparameters using the validation set, where the validation process selects the model with the lowest validation loss."*
+
+### Baselines give you a reference point
+
+You can't know if a fancy model is "good" unless you compare it to something simple. A baseline model (e.g., logistic regression, majority-class predictor) sets the floor. If your complex deep learning model barely beats a baseline, you know something is wrong — or that the problem is harder than expected.
+
+### Saving artifacts makes experiments trustworthy
+
+Every experiment should produce saved artifacts: the config that was used, the metrics that resulted, and the trained model itself. Without these, you're relying on memory and screenshots — which is how results get lost or misreported. According to [AIMultiple](https://research.aimultiple.com/reproducible-ai/), *"A lack of reproducibility blurs the line between scientific production and marketing"* — saving artifacts is how you stay on the science side.
+
+### References
+
+- [Train Test Validation Split: Best Practices & Examples (Lightly.ai)](https://www.lightly.ai/blog/train-test-validation-split)
+- [Training, validation, and test data sets (Wikipedia)](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets)
+- [Reproducible AI: Why it Matters (AIMultiple, 2026)](https://research.aimultiple.com/reproducible-ai/)
+
 ## Self-check questions
 
 - Can you explain overfitting without using equations?
