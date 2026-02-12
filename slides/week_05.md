@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is Inference?
 
-![bg right:50%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmluZyBQaGFzZV0gLS0-IEJbRmVlZCBkYXRhIHRvIG1vZGVsXQogIEIgLS0-IENbTW9kZWwgbGVhcm5zIHBhdHRlcm5zXQogIEMgLS0-IERbU2F2ZSB0cmFpbmVkIG1vZGVsXQogIEQgLS0-IEVbSW5mZXJlbmNlIFBoYXNlXQogIEUgLS0-IEZbTmV3IGlucHV0IGRhdGFdCiAgRiAtLT4gR1tNb2RlbCBwcmVkaWN0cyBvdXRwdXRd)
+![bg right:33%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmluZyBQaGFzZV0gLS0-IEJbRmVlZCBkYXRhIHRvIG1vZGVsXQogIEIgLS0-IENbTW9kZWwgbGVhcm5zIHBhdHRlcm5zXQogIEMgLS0-IERbU2F2ZSB0cmFpbmVkIG1vZGVsXQogIEQgLS0-IEVbSW5mZXJlbmNlIFBoYXNlXQogIEUgLS0-IEZbTmV3IGlucHV0IGRhdGFdCiAgRiAtLT4gR1tNb2RlbCBwcmVkaWN0cyBvdXRwdXRd)
 
 - **Training**: learn from data (expensive, done once)
 - **Inference**: make predictions (fast, done many times)
@@ -47,15 +47,20 @@ By the end of this week, you should be able to:
 
 # Cloud vs Local Inference
 
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIGFwcF0gLS0-IEJbSW50ZXJuZXRdCiAgQiAtLT4gQ1tDbG91ZCBwcm92aWRlcl0KICBDIC0tPiBEW0xhcmdlIEdQVSBjbHVzdGVyXQogIEQgLS0-IEVbUmVzcG9uc2VdCiAgRSAtLT4gQgogIEIgLS0-IEE=)
+
 ### Cloud (Hosted API)
 
-![h:260 Cloud](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIGFwcF0gLS0-IEJbSW50ZXJuZXRdCiAgQiAtLT4gQ1tDbG91ZCBwcm92aWRlcl0KICBDIC0tPiBEW0xhcmdlIEdQVSBjbHVzdGVyXQogIEQgLS0-IEVbUmVzcG9uc2VdCiAgRSAtLT4gQgogIEIgLS0-IEE=)
+Your app → Internet → cloud provider → large GPU cluster → response back.
+
+**Pros**: best models, no hardware needed.
+**Cons**: cost per call, latency, data leaves your machine.
 
 ---
 
 # Local Inference with Ollama
 
-![bg right:50%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIGFwcF0gLS0-IEJbbG9jYWxob3N0OjExNDM0XQogIEIgLS0-IENbT2xsYW1hIHNlcnZlcl0KICBDIC0tPiBEW1lvdXIgQ1BVL0dQVSArIFJBTV0KICBEIC0tPiBFW1Jlc3BvbnNlXQogIEUgLS0-IEE=)
+![bg right:33%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIGFwcF0gLS0-IEJbbG9jYWxob3N0OjExNDM0XQogIEIgLS0-IENbT2xsYW1hIHNlcnZlcl0KICBDIC0tPiBEW1lvdXIgQ1BVL0dQVSArIFJBTV0KICBEIC0tPiBFW1Jlc3BvbnNlXQogIEUgLS0-IEE=)
 
 Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud APIs, but everything runs on your hardware.
 
@@ -120,7 +125,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 
 # Benchmarking: Consistent Comparison
 
-![bg right:50%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgTVtNb2RlbHMgbGlzdF0gLS0-IFJbUnVuIHByb21wdCBzZXRdCiAgUFtQcm9tcHQgc2V0XSAtLT4gUgogIFIgLS0-IExbUmVjb3JkIGxhdGVuY3ldCiAgUiAtLT4gUVtTYXZlIG91dHB1dHNdCiAgTCAtLT4gU1tzdW1tYXJ5Lmpzb25dCiAgUSAtLT4gUw==)
+![bg right:33%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgTVtNb2RlbHMgbGlzdF0gLS0-IFJbUnVuIHByb21wdCBzZXRdCiAgUFtQcm9tcHQgc2V0XSAtLT4gUgogIFIgLS0-IExbUmVjb3JkIGxhdGVuY3ldCiAgUiAtLT4gUVtTYXZlIG91dHB1dHNdCiAgTCAtLT4gU1tzdW1tYXJ5Lmpzb25dCiAgUSAtLT4gUw==)
 
 **Benchmark hygiene**:
 - Same prompt set for all models

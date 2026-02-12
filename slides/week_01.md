@@ -47,7 +47,7 @@ It's not just about the model — it's about **data quality**, **reproducible pi
 
 # What This Course Builds
 
-![h:200 Course building blocks](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRVtFbnZpcm9ubWVudCBzZXR1cF0gLS0-IFBbUGlwZWxpbmVdCiAgRFBbRGF0YSBwcm9maWxpbmddIC0tPiBQCiAgUltSZXByb2R1Y2liaWxpdHldIC0tPiBQCiAgUCAtLT4gT1tSZWxpYWJsZSBBSSBTeXN0ZW1d)
+![h:200 Course building blocks](https://mermaid.ink/img/Zmxvd2NoYXJ0IExSCiAgVzFbV2VlayAxLTI6IEZvdW5kYXRpb25zXSAtLT4gVzJbV2VlayAzLTU6IExMTSBBUElzXQogIFcyIC0tPiBXM1tXZWVrIDYtODogQ2Fwc3RvbmVd)
 
 - **Week 1**: Environment + data profiling
 - **Weeks 2–5**: ML, LLM APIs, local inference
@@ -74,17 +74,23 @@ LLMs are powerful, but **they don't fix bad engineering**:
 
 **Data profiling** = understanding your data *before* using it: row counts, column types, missing values, distributions.
 
+![bg right:28%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQkRbRGlydHkgZGF0YV0gLS0-IEJNW01vZGVsIHRyYWluZWQgb24gbm9pc2VdCiAgQk0gLS0-IEJPW1dyb25nIHByZWRpY3Rpb25zXQogIEJPIC0tPiBIW0hhbGx1Y2luYXRpb25zXQ==)
+
 ### Without profiling (bad path)
 
-![h:220 Bad path](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQkRbRGlydHkgZGF0YV0gLS0-IEJNW01vZGVsIHRyYWluZWQgb24gbm9pc2VdCiAgQk0gLS0-IEJPW1dyb25nIHByZWRpY3Rpb25zXQogIEJPIC0tPiBIW0hhbGx1Y2luYXRpb25zXQ==)
+Dirty data → model trained on noise → wrong predictions → hallucinations.
+
+Each arrow is a point where profiling could have caught the problem **early**.
 
 ---
 
 # Data Quality → AI Quality
 
+![bg right:28%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgR0RbUHJvZmlsZWQgKyBjbGVhbmVkIGRhdGFdIC0tPiBHTVtNb2RlbCBvbiBxdWFsaXR5IGRhdGFdCiAgR00gLS0-IEdPW1JlbGlhYmxlIG91dHB1dHNdCiAgR08gLS0-IFRbVHJ1c3R3b3J0aHkgcmVzdWx0c10=)
+
 ### With profiling (good path)
 
-![h:200 Good path](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgR0RbUHJvZmlsZWQgKyBjbGVhbmVkIGRhdGFdIC0tPiBHTVtNb2RlbCBvbiBxdWFsaXR5IGRhdGFdCiAgR00gLS0-IEdPW1JlbGlhYmxlIG91dHB1dHNdCiAgR08gLS0-IFRbVHJ1c3R3b3J0aHkgcmVzdWx0c10=)
+Profiled + cleaned data → model on quality data → reliable outputs → trustworthy results.
 
 **For LLM work**: bad data → bad prompts → hallucinations. Profile **early** to avoid expensive failures.
 
@@ -106,13 +112,23 @@ LLM libraries change **fast** — `openai` had a breaking API change from v0.x t
 
 ---
 
-# Environment Setup: venv Approach
+# Environment Setup: venv
 
-![h:180 venv flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTeXN0ZW0gUHl0aG9uXSAtLT4gQltDcmVhdGUgdmVudl0KICBCIC0tPiBDW0FjdGl2YXRlXQogIEMgLS0-IERbSW5zdGFsbCBkZXBzXQogIEQgLS0-IEVbRnJlZXplIHJlcXVpcmVtZW50cy50eHRdCiAgRSAtLT4gRltSdW4gc2NyaXB0XQ==)
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTeXN0ZW0gUHl0aG9uXSAtLT4gQltDcmVhdGUgdmVudl0KICBCIC0tPiBDW0FjdGl2YXRlXQogIEMgLS0-IERbSW5zdGFsbCBkZXBzXQogIEQgLS0-IEVbRnJlZXplIHJlcXVpcmVtZW50cy50eHRdCiAgRSAtLT4gRltSdW4gc2NyaXB0XQ==)
 
-**Alternative**: Conda follows the same pattern — create → activate → install → export → run.
+System Python → create venv → activate → install deps → freeze `requirements.txt` → run script.
 
-![h:180 conda flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtCYXNlIGNvbmRhXSAtLT4gQltDcmVhdGUgZW52XQogIEIgLS0-IENbQWN0aXZhdGVdCiAgQyAtLT4gRFtJbnN0YWxsIGRlcHNdCiAgRCAtLT4gRVtFeHBvcnQgZW52aXJvbm1lbnQueW1sXQogIEUgLS0-IEZbUnVuIHNjcmlwdF0=)
+**Key**: always activate before `pip install`, always freeze after installing.
+
+---
+
+# Environment Setup: Conda
+
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtDb25kYV0gLS0-IEJbUHl0aG9uIHBhY2thZ2VzXQogIEEgLS0-IENbTm9uLVB5dGhvbjogQywgUiwgQ1VEQV0KICBBIC0tPiBEW0Vudmlyb25tZW50IGlzb2xhdGlvbl0KICBEIC0tPiBFW09uZSBlbnYgcGVyIHByb2plY3Rd)
+
+Same pattern as venv — different tool, same discipline.
+
+Base conda → create env → activate → install deps → export `environment.yml` → run script.
 
 ---
 
@@ -151,7 +167,7 @@ openai==1.6.1
 
 # Data Profiling Pipeline
 
-![bg right:50%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtJbnB1dCBDU1ZdIC0tPiBCW0xvYWQgQ1NWXQogIEIgLS0-IEN7VmFsaWRhdGV9CiAgQyAtLT58bWlzc2luZyBmaWxlfCBFMVtGYWlsOiBGaWxlTm90Rm91bmRFcnJvcl0KICBDIC0tPnxlbXB0eSBmaWxlfCBFMltGYWlsOiBWYWx1ZUVycm9yXQogIEMgLS0-fG9rfCBEW0NvbXB1dGUgc3RhdHNdCiAgRCAtLT4gRltXcml0ZSBvdXRwdXQvcHJvZmlsZS5qc29uXQogIEQgLS0-IEdbV3JpdGUgb3V0cHV0L3Byb2ZpbGUubWRdCiAgRiAtLT4gSFtEb25lXQogIEcgLS0-IEg=)
+![bg right:33%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtJbnB1dCBDU1ZdIC0tPiBCe1ZhbGlkYXRlfQogIEIgLS0-fG1pc3NpbmcvZW1wdHl8IENbRmFpbCB3aXRoIGNsZWFyIGVycm9yXQogIEIgLS0-fG9rfCBEW0NvbXB1dGUgc3RhdHNdCiAgRCAtLT4gRVtwcm9maWxlLmpzb24gKyBwcm9maWxlLm1kXQ)
 
 **Defensive programming**: validate early, fail fast.
 

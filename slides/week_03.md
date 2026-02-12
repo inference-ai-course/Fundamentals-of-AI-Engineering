@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is an API?
 
-![bg right:50%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIEFwcF0gLS0-IEJbSFRUUCBSZXF1ZXN0XQogIEIgLS0-IENbSW50ZXJuZXRdCiAgQyAtLT4gRFtQcm92aWRlciBTZXJ2ZXJdCiAgRCAtLT4gRVtQcm9jZXNzIHJlcXVlc3RdCiAgRSAtLT4gRltIVFRQIFJlc3BvbnNlXQogIEYgLS0-IEMKICBDIC0tPiBB)
+![bg right:33%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIEFwcF0gLS0-IEJbSFRUUCBSZXF1ZXN0XQogIEIgLS0-IENbSW50ZXJuZXRdCiAgQyAtLT4gRFtQcm92aWRlciBTZXJ2ZXJdCiAgRCAtLT4gRVtQcm9jZXNzIHJlcXVlc3RdCiAgRSAtLT4gRltIVFRQIFJlc3BvbnNlXQogIEYgLS0-IEMKICBDIC0tPiBB)
 
 **API** (Application Programming Interface) = a way for your code to talk to a remote service.
 
@@ -49,7 +49,7 @@ By the end of this week, you should be able to:
 
 # What is a Large Language Model (LLM)?
 
-![h:160 What is LLM](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmVkIG9uIGJpbGxpb25zIG9mIHRleHRdIC0tPiBNW0xhcmdlIExhbmd1YWdlIE1vZGVsXQogIE0gLS0-IEJbSW5wdXQ6IHRleHQgcHJvbXB0XQogIEIgLS0-IE0KICBNIC0tPiBDW091dHB1dDogZ2VuZXJhdGVkIHRleHRd)
+![bg right:28%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmVkIG9uIGJpbGxpb25zIG9mIHRleHRdIC0tPiBNW0xhcmdlIExhbmd1YWdlIE1vZGVsXQogIE0gLS0-IEJbSW5wdXQ6IHRleHQgcHJvbXB0XQogIEIgLS0-IE0KICBNIC0tPiBDW091dHB1dDogZ2VuZXJhdGVkIHRleHRd)
 
 An LLM is a **very large ML model** (billions of parameters) trained on massive text data.
 
@@ -62,7 +62,7 @@ An LLM is a **very large ML model** (billions of parameters) trained on massive 
 
 # What Happens When You Call an LLM API?
 
-![h:200 LLM API call flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtCdWlsZCBwcm9tcHRdIC0tPiBCW1NlbmQgSFRUUCByZXF1ZXN0XQogIEIgLS0-IENbTW9kZWwgdG9rZW5pemVzIGlucHV0XQogIEMgLS0-IERbTW9kZWwgZ2VuZXJhdGVzIHRva2Vuc10KICBEIC0tPiBFW1JldHVybiByZXNwb25zZSB0ZXh0XQogIEUgLS0-IEZbUGFyc2UgKyB2YWxpZGF0ZSBvdXRwdXRd)
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtCdWlsZCBwcm9tcHRdIC0tPiBCW1NlbmQgSFRUUCByZXF1ZXN0XQogIEIgLS0-IENbTW9kZWwgdG9rZW5pemVzIGlucHV0XQogIEMgLS0-IERbTW9kZWwgZ2VuZXJhdGVzIHRva2Vuc10KICBEIC0tPiBFW1JldHVybiByZXNwb25zZSB0ZXh0XQogIEUgLS0-IEZbUGFyc2UgKyB2YWxpZGF0ZSBvdXRwdXRd)
 
 1. You **build a prompt** (system + user instructions + data)
 2. Send it as an **HTTP request** to the provider
@@ -91,7 +91,7 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 
 # Context Window: A Hard Budget
 
-![bg right:40%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQ1tDb250ZXh0IFdpbmRvd10gLS0-IFNbU3lzdGVtIGluc3RydWN0aW9uc10KICBDIC0tPiBQW1Byb21wdCAvIHVzZXIgaW5wdXRdCiAgQyAtLT4gUltSZXRyaWV2ZWQgY29udGV4dF0KICBDIC0tPiBPW01vZGVsIG91dHB1dF0=)
+![bg right:28%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQ1tDb250ZXh0IFdpbmRvd10gLS0-IFNbU3lzdGVtIGluc3RydWN0aW9uc10KICBDIC0tPiBQW1Byb21wdCAvIHVzZXIgaW5wdXRdCiAgQyAtLT4gUltSZXRyaWV2ZWQgY29udGV4dF0KICBDIC0tPiBPW01vZGVsIG91dHB1dF0=)
 
 Everything must fit inside the context window.
 
@@ -138,7 +138,7 @@ A strong prompt is not "clever wording" — it's a **specification**.
 
 # Prompt Contract Flow
 
-![h:240 Prompt contract flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgdGV4dCBpbnB1dF0gLS0-IEJbUHJvbXB0IGNvbnRyYWN0XQogIEIgLS0-IENbTExNIGNhbGxdCiAgQyAtLT4gRFtSYXcgb3V0cHV0IHRleHRdCiAgRCAtLT4gRVtQYXJzZSBKU09OXQogIEUgLS0-IEZbVmFsaWRhdGUgc2NoZW1hXQogIEYgLS0-IEdbVHlwZWQgcmVzdWx0XQ==)
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgdGV4dCBpbnB1dF0gLS0-IEJbUHJvbXB0IGNvbnRyYWN0XQogIEIgLS0-IENbTExNIGNhbGxdCiAgQyAtLT4gRFtSYXcgb3V0cHV0IHRleHRdCiAgRCAtLT4gRVtQYXJzZSBKU09OXQogIEUgLS0-IEZbVmFsaWRhdGUgc2NoZW1hXQogIEYgLS0-IEdbVHlwZWQgcmVzdWx0XQ==)
 
 Raw text → prompt contract → LLM call → parse JSON → validate schema → typed result.
 
@@ -160,7 +160,7 @@ Each step can fail independently — separating them helps debugging.
 
 # Retry / Repair Loop
 
-![h:220 Retry repair](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTZW5kIHByb21wdF0gLS0-IEJbR2V0IHJlc3BvbnNlXQogIEIgLS0-IEN7VmFsaWQgSlNPTj99CiAgQyAtLT58eWVzfCBEe1NjaGVtYSBPSz99CiAgRCAtLT58eWVzfCBFW1JldHVybiByZXN1bHRdCiAgQyAtLT58bm98IEZbUmVwYWlyIHByb21wdCArIHJldHJ5XQogIEQgLS0-fG5vfCBGCiAgRiAtLT4gQg==)
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTZW5kIHByb21wdF0gLS0-IEJbR2V0IHJlc3BvbnNlXQogIEIgLS0-IEN7VmFsaWQgSlNPTiArIFNjaGVtYT99CiAgQyAtLT58eWVzfCBEW1JldHVybiByZXN1bHRdCiAgQyAtLT58bm98IEVbUmVwYWlyIHByb21wdCArIHJldHJ5XQogIEUgLS0-IEI)
 
 When the LLM returns invalid output:
 1. **Parse fails** → tell the model what went wrong, retry

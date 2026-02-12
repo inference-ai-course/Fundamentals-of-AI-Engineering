@@ -47,9 +47,9 @@ Human writes rules → computer follows them.
 
 # Machine Learning: The Key Difference
 
-### Machine Learning
+![bg right:28%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRFtEYXRhICsgZXhwZWN0ZWQgb3V0cHV0XSAtLT4gTFtMZWFybmluZyBhbGdvcml0aG1dCiAgTCAtLT4gTVtNb2RlbF0KICBNIC0tPiBQW05ldyBwcmVkaWN0aW9uc10=)
 
-![h:180 ML](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRFtEYXRhICsgZXhwZWN0ZWQgb3V0cHV0XSAtLT4gTFtMZWFybmluZyBhbGdvcml0aG1dCiAgTCAtLT4gTVtNb2RlbF0KICBNIC0tPiBQW05ldyBwcmVkaWN0aW9uc10=)
+### Machine Learning
 
 Computer **learns** rules from data + expected outputs. A **model** is the result — a program that was learned, not hand-written.
 
@@ -59,7 +59,7 @@ An **LLM** (Large Language Model) is a very large ML model trained on massive te
 
 # What is Training?
 
-![bg right:50%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmluZyBEYXRhOiB0aG91c2FuZHMgb2YgZXhhbXBsZXNdIC0tPiBCW01vZGVsIHNlZXMgZXhhbXBsZXNdCiAgQiAtLT4gQ1tBZGp1c3RzIGludGVybmFsIHdlaWdodHNdCiAgQyAtLT4gRHtDaGVjazogcHJlZGljdGlvbnMgY29ycmVjdD99CiAgRCAtLT58bm90IHlldHwgQgogIEQgLS0-fGdvb2QgZW5vdWdofCBFW1RyYWluZWQgTW9kZWxdCiAgRSAtLT4gRltVc2UgZm9yIG5ldyBwcmVkaWN0aW9uc10=)
+![bg right:33%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmluZyBEYXRhOiB0aG91c2FuZHMgb2YgZXhhbXBsZXNdIC0tPiBCW01vZGVsIHNlZXMgZXhhbXBsZXNdCiAgQiAtLT4gQ1tBZGp1c3RzIGludGVybmFsIHdlaWdodHNdCiAgQyAtLT4gRHtDaGVjazogcHJlZGljdGlvbnMgY29ycmVjdD99CiAgRCAtLT58bm90IHlldHwgQgogIEQgLS0-fGdvb2QgZW5vdWdofCBFW1RyYWluZWQgTW9kZWxdCiAgRSAtLT4gRltVc2UgZm9yIG5ldyBwcmVkaWN0aW9uc10=)
 
 **Training** = the process where a model learns from data by adjusting its internal parameters (weights).
 
@@ -72,23 +72,27 @@ An **LLM** (Large Language Model) is a very large ML model trained on massive te
 
 # From ML to LLM: Classical ML
 
-![h:250 Classical ML](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRDFbVGFidWxhciBkYXRhXSAtLT4gVDFbVHJhaW4gY2xhc3NpZmllcl0KICBUMSAtLT4gUDFbUHJlZGljdCBsYWJlbHNdCiAgUDEgLS0-IE0xW1NhdmUgbWV0cmljc10=)
+![bg right:28%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRDFbVGFidWxhciBkYXRhXSAtLT4gVDFbVHJhaW4gY2xhc3NpZmllcl0KICBUMSAtLT4gUDFbUHJlZGljdCBsYWJlbHNdCiAgUDEgLS0-IE0xW1NhdmUgbWV0cmljc10=)
 
 Classical ML: train a model on structured data, predict labels.
+
+Tabular data → train classifier → predict labels → save metrics.
 
 ---
 
 # From ML to LLM: LLM-Augmented Pipeline
 
-![h:250 LLM pipeline](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRDJbVGV4dCAvIENTViBkYXRhXSAtLT4gQ1tDb21wcmVzcyArIHByb2ZpbGVdCiAgQyAtLT4gTFtMTE0gQVBJIGNhbGxdCiAgTCAtLT4gVltWYWxpZGF0ZSBvdXRwdXRdCiAgViAtLT4gUltSZXBvcnQgLyBpbnNpZ2h0c10=)
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRDJbVGV4dCAvIENTViBkYXRhXSAtLT4gQ1tDb21wcmVzcyArIHByb2ZpbGVdCiAgQyAtLT4gTFtMTE0gQVBJIGNhbGxdCiAgTCAtLT4gVltWYWxpZGF0ZSBvdXRwdXRdCiAgViAtLT4gUltSZXBvcnQgLyBpbnNpZ2h0c10=)
 
-LLM-augmented: compress data, call LLM API, validate output. **Different tools, same discipline.**
+LLM-augmented: compress data, call LLM API, validate output.
+
+**Different tools, same discipline.**
 
 ---
 
 # Shared Discipline: ML ↔ LLM
 
-![bg right:50%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgUzFbUmVwcm9kdWNpYmlsaXR5XSAtLT4gQltCb3RoIE1MIGFuZCBMTE1dCiAgUzJbQXJ0aWZhY3Qgc2F2aW5nXSAtLT4gQgogIFMzW1RyYWluL3ZhbCBzcGxpdF0gLS0-IEIKICBTNFtNZXRyaWNzIGNvbXBhcmlzb25dIC0tPiBC)
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgUzFbUmVwcm9kdWNpYmlsaXR5XSAtLT4gQltCb3RoIE1MIGFuZCBMTE1dCiAgUzJbQXJ0aWZhY3Qgc2F2aW5nXSAtLT4gQgogIFMzW1RyYWluL3ZhbCBzcGxpdF0gLS0-IEIKICBTNFtNZXRyaWNzIGNvbXBhcmlzb25dIC0tPiBC)
 
 Even if you **don't train the LLM yourself**, you still need ML discipline:
 
@@ -100,7 +104,15 @@ Even if you **don't train the LLM yourself**, you still need ML discipline:
 
 # The ML Training Loop
 
-![h:350 ML training loop](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMb2FkIGRhdGFdIC0tPiBCW1NwbGl0IHRyYWluL3ZhbF0KICBCIC0tPiBDW1RyYWluIG1vZGVsIG9uIHRyYWluXQogIEMgLS0-IERbUHJlZGljdCBvbiB2YWxdCiAgRCAtLT4gRVtDb21wdXRlIG1ldHJpY3NdCiAgRSAtLT4gRltTYXZlIGFydGlmYWN0c10KICBGIC0tPiBHW0NvbXBhcmUgcnVuc10KICBGIC0tPiBGMVtjb25maWcuanNvbl0KICBGIC0tPiBGMlttZXRyaWNzLmpzb25dCiAgRiAtLT4gRjNbbW9kZWwuam9ibGliXQogIEYgLS0-IEY0W3ZhbF9yZXBvcnQudHh0XQ==)
+![bg right:33%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMb2FkICsgc3BsaXQgZGF0YV0gLS0-IEJbVHJhaW4gbW9kZWxdCiAgQiAtLT4gQ1tFdmFsdWF0ZSBvbiB2YWxpZGF0aW9uXQogIEMgLS0-IERbU2F2ZSBhcnRpZmFjdHNdCiAgRCAtLT4gRVtDb21wYXJlIHJ1bnNd)
+
+Load → split → train → predict → compute metrics → save artifacts → compare runs.
+
+Artifacts saved at each run:
+- `config.json`
+- `metrics.json`
+- `model.joblib`
+- `val_report.txt`
 
 ---
 
@@ -120,7 +132,7 @@ Even for LLM work, this disciplined loop is the basis for evaluating prompt/mode
 
 # Overfitting: The Core Trap
 
-![bg right:50%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmluZyBiZWdpbnNdIC0tPiBCW0JvdGggdHJhaW4gYW5kIHZhbCBtZXRyaWNzIGltcHJvdmVdCiAgQiAtLT4gQ1tWYWwgbWV0cmljIHBlYWtzIC0gYmVzdCBnZW5lcmFsaXphdGlvbl0KICBDIC0tPiBEW1RyYWluIG1ldHJpYyBrZWVwcyBpbXByb3ZpbmddCiAgQyAtLT4gRVtWYWwgbWV0cmljIHN0YXJ0cyBkZWNsaW5pbmddCiAgRCAtLT4gRltHcm93aW5nIGdhcCA9IG92ZXJmaXR0aW5nIHNpZ25hbF0KICBFIC0tPiBGCiAgRiAtLT4gR1tNaXRpZ2F0aW9uOiBzdG9wIGVhcmx5IC8gcmVndWxhcml6ZSAvIHNpbXBsaWZ5XQ==)
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmluZyBiZWdpbnNdIC0tPiBCW0JvdGggbWV0cmljcyBpbXByb3ZlXQogIEIgLS0-IENbVmFsIG1ldHJpYyBwZWFrc10KICBDIC0tPiBEW1ZhbCBkZWNsaW5lcyB3aGlsZSB0cmFpbiBpbXByb3Zlc10KICBEIC0tPiBFW0dhcCA9IG92ZXJmaXR0aW5nIHNpZ25hbF0)
 
 **Overfitting** = the model memorizes training data instead of learning general patterns.
 

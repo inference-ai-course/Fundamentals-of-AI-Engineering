@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is a CLI?
 
-![h:200 CLI concept](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHR5cGVzIGNvbW1hbmRdIC0tPiBCW1BhcnNlciByZWFkcyBhcmd1bWVudHNdCiAgQiAtLT4gQ1tWYWxpZGF0ZSBpbnB1dHNdCiAgQyAtLT4gRFtSdW4gcGlwZWxpbmUgbG9naWNdCiAgRCAtLT4gRVtXcml0ZSBvdXRwdXRzXQogIEUgLS0-IEZbU2hvdyByZXN1bHRd)
+![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHR5cGVzIGNvbW1hbmRdIC0tPiBCW1BhcnNlciByZWFkcyBhcmd1bWVudHNdCiAgQiAtLT4gQ1tWYWxpZGF0ZSBpbnB1dHNdCiAgQyAtLT4gRFtSdW4gcGlwZWxpbmUgbG9naWNdCiAgRCAtLT4gRVtXcml0ZSBvdXRwdXRzXQogIEUgLS0-IEZbU2hvdyByZXN1bHRd)
 
 **CLI** (Command-Line Interface) = how users interact with your tool via terminal commands.
 
