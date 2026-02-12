@@ -11,7 +11,7 @@ style: |
   h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
   h2 { color: #16213e; }
   table { font-size: 20px; }
-  img { max-height: 420px; display: block; margin: 0 auto; }
+  img { max-height: 350px; display: block; margin: 0 auto; }
   section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
   section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
   section.lead h2 { color: #e8e8e8; font-weight: 400; }
@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is AI Engineering?
 
-![AI Engineering](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRFtEYXRhXSAtLT4gUFtQaXBlbGluZV0KICBNW01vZGVscyAvIExMTXNdIC0tPiBQCiAgSVtJbmZyYXN0cnVjdHVyZV0gLS0-IFAKICBQIC0tPiBPW1JlbGlhYmxlIEFJIFN5c3RlbV0=)
+![h:250 AI Engineering](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRFtEYXRhXSAtLT4gUFtQaXBlbGluZV0KICBNW01vZGVscyAvIExMTXNdIC0tPiBQCiAgSVtJbmZyYXN0cnVjdHVyZV0gLS0-IFAKICBQIC0tPiBPW1JlbGlhYmxlIEFJIFN5c3RlbV0=)
 
 AI Engineering = building **reliable systems** that use AI models (including LLMs).
 
@@ -47,9 +47,8 @@ It's not just about the model — it's about **data quality**, **reproducible pi
 
 # What This Course Builds
 
-![bg right:50%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRVtFbnZpcm9ubWVudCBzZXR1cF0gLS0-IFBbUGlwZWxpbmVdCiAgRFBbRGF0YSBwcm9maWxpbmddIC0tPiBQCiAgUltSZXByb2R1Y2liaWxpdHldIC0tPiBQCiAgUCAtLT4gT1tSZWxpYWJsZSBBSSBTeXN0ZW1d)
+![h:200 Course building blocks](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRVtFbnZpcm9ubWVudCBzZXR1cF0gLS0-IFBbUGlwZWxpbmVdCiAgRFBbRGF0YSBwcm9maWxpbmddIC0tPiBQCiAgUltSZXByb2R1Y2liaWxpdHldIC0tPiBQCiAgUCAtLT4gT1tSZWxpYWJsZSBBSSBTeXN0ZW1d)
 
-Every week adds an engineering building block:
 - **Week 1**: Environment + data profiling
 - **Weeks 2–5**: ML, LLM APIs, local inference
 - **Weeks 6–8**: Pipeline, testing, demo
@@ -77,7 +76,7 @@ LLMs are powerful, but **they don't fix bad engineering**:
 
 ### Without profiling (bad path)
 
-![Bad path](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQkRbRGlydHkgZGF0YV0gLS0-IEJNW01vZGVsIHRyYWluZWQgb24gbm9pc2VdCiAgQk0gLS0-IEJPW1dyb25nIHByZWRpY3Rpb25zXQogIEJPIC0tPiBIW0hhbGx1Y2luYXRpb25zXQ==)
+![h:220 Bad path](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQkRbRGlydHkgZGF0YV0gLS0-IEJNW01vZGVsIHRyYWluZWQgb24gbm9pc2VdCiAgQk0gLS0-IEJPW1dyb25nIHByZWRpY3Rpb25zXQogIEJPIC0tPiBIW0hhbGx1Y2luYXRpb25zXQ==)
 
 ---
 
@@ -85,15 +84,15 @@ LLMs are powerful, but **they don't fix bad engineering**:
 
 ### With profiling (good path)
 
-![Good path](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgR0RbUHJvZmlsZWQgKyBjbGVhbmVkIGRhdGFdIC0tPiBHTVtNb2RlbCBvbiBxdWFsaXR5IGRhdGFdCiAgR00gLS0-IEdPW1JlbGlhYmxlIG91dHB1dHNdCiAgR08gLS0-IFRbVHJ1c3R3b3J0aHkgcmVzdWx0c10=)
+![h:200 Good path](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgR0RbUHJvZmlsZWQgKyBjbGVhbmVkIGRhdGFdIC0tPiBHTVtNb2RlbCBvbiBxdWFsaXR5IGRhdGFdCiAgR00gLS0-IEdPW1JlbGlhYmxlIG91dHB1dHNdCiAgR08gLS0-IFRbVHJ1c3R3b3J0aHkgcmVzdWx0c10=)
 
-**Why it matters for AI/LLM**: When you send data to an LLM (Week 6), bad data → bad prompts → hallucinations. Profiling catches problems **early**, before they become expensive LLM failures.
+**For LLM work**: bad data → bad prompts → hallucinations. Profile **early** to avoid expensive failures.
 
 ---
 
 # Without Isolation: Version Conflicts
 
-![No isolation](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQTFbb3BlbmFpPT0wLjI4XSAtLT4gWFtWZXJzaW9uIGNvbmZsaWN0XQogIEEyW29wZW5haT09MS42XSAtLT4gWAogIEEzW3Rpa3Rva2VuIG1pc21hdGNoXSAtLT4gWAogIFggLS0-IEJbQ29kZSBicmVha3Nd)
+![h:280 No isolation](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQTFbb3BlbmFpPT0wLjI4XSAtLT4gWFtWZXJzaW9uIGNvbmZsaWN0XQogIEEyW29wZW5haT09MS42XSAtLT4gWAogIEEzW3Rpa3Rva2VuIG1pc21hdGNoXSAtLT4gWAogIFggLS0-IEJbQ29kZSBicmVha3Nd)
 
 LLM libraries change **fast** — `openai` had a breaking API change from v0.x to v1.x.
 
@@ -101,7 +100,7 @@ LLM libraries change **fast** — `openai` had a breaking API change from v0.x t
 
 # With Isolation: Each Project is Safe
 
-![With isolation](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgVjFbUHJvamVjdCBBIHZlbnZdIC0tPiBPMVtvcGVuYWk9PTAuMjhdCiAgVjJbUHJvamVjdCBCIHZlbnZdIC0tPiBPMltvcGVuYWk9PTEuNl0KICBPMSAtLT4gVzFbV29ya3NdCiAgTzIgLS0-IFcyW1dvcmtzXQ==)
+![h:250 With isolation](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgVjFbUHJvamVjdCBBIHZlbnZdIC0tPiBPMVtvcGVuYWk9PTAuMjhdCiAgVjJbUHJvamVjdCBCIHZlbnZdIC0tPiBPMltvcGVuYWk9PTEuNl0KICBPMSAtLT4gVzFbV29ya3NdCiAgTzIgLS0-IFcyW1dvcmtzXQ==)
 
 **Pinned versions + isolated venvs** = safety net. Each project has its own dependency versions.
 
@@ -109,11 +108,11 @@ LLM libraries change **fast** — `openai` had a breaking API change from v0.x t
 
 # Environment Setup: venv Approach
 
-![venv flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTeXN0ZW0gUHl0aG9uXSAtLT4gQltDcmVhdGUgdmVudl0KICBCIC0tPiBDW0FjdGl2YXRlXQogIEMgLS0-IERbSW5zdGFsbCBkZXBzXQogIEQgLS0-IEVbRnJlZXplIHJlcXVpcmVtZW50cy50eHRdCiAgRSAtLT4gRltSdW4gc2NyaXB0XQ==)
+![h:180 venv flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTeXN0ZW0gUHl0aG9uXSAtLT4gQltDcmVhdGUgdmVudl0KICBCIC0tPiBDW0FjdGl2YXRlXQogIEMgLS0-IERbSW5zdGFsbCBkZXBzXQogIEQgLS0-IEVbRnJlZXplIHJlcXVpcmVtZW50cy50eHRdCiAgRSAtLT4gRltSdW4gc2NyaXB0XQ==)
 
 **Alternative**: Conda follows the same pattern — create → activate → install → export → run.
 
-![conda flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtCYXNlIGNvbmRhXSAtLT4gQltDcmVhdGUgZW52XQogIEIgLS0-IENbQWN0aXZhdGVdCiAgQyAtLT4gRFtJbnN0YWxsIGRlcHNdCiAgRCAtLT4gRVtFeHBvcnQgZW52aXJvbm1lbnQueW1sXQogIEUgLS0-IEZbUnVuIHNjcmlwdF0=)
+![h:180 conda flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtCYXNlIGNvbmRhXSAtLT4gQltDcmVhdGUgZW52XQogIEIgLS0-IENbQWN0aXZhdGVdCiAgQyAtLT4gRFtJbnN0YWxsIGRlcHNdCiAgRCAtLT4gRVtFeHBvcnQgZW52aXJvbm1lbnQueW1sXQogIEUgLS0-IEZbUnVuIHNjcmlwdF0=)
 
 ---
 

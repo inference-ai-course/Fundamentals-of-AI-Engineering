@@ -11,7 +11,7 @@ style: |
   h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
   h2 { color: #16213e; }
   table { font-size: 20px; }
-  img { max-height: 420px; display: block; margin: 0 auto; }
+  img { max-height: 350px; display: block; margin: 0 auto; }
   section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
   section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
   section.lead h2 { color: #e8e8e8; font-weight: 400; }
@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What Can Go Wrong With an API Call?
 
-![API failure modes](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIEFwcCBzZW5kcyByZXF1ZXN0XSAtLT4gQntTZXJ2ZXIgcmVzcG9uZHM_fQogIEIgLS0-fHRpbWVvdXR8IENbTm8gcmVzcG9uc2UgaW4gdGltZV0KICBCIC0tPnw0Mjl8IERbVG9vIG1hbnkgcmVxdWVzdHNdCiAgQiAtLT58NTAwLzUwM3wgRVtTZXJ2ZXIgZXJyb3JdCiAgQiAtLT58MjAwIE9LfCBGW1N1Y2Nlc3Nd)
+![h:220 API failure modes](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIEFwcCBzZW5kcyByZXF1ZXN0XSAtLT4gQntTZXJ2ZXIgcmVzcG9uZHM_fQogIEIgLS0-fHRpbWVvdXR8IENbTm8gcmVzcG9uc2UgaW4gdGltZV0KICBCIC0tPnw0Mjl8IERbVG9vIG1hbnkgcmVxdWVzdHNdCiAgQiAtLT58NTAwLzUwM3wgRVtTZXJ2ZXIgZXJyb3JdCiAgQiAtLT58MjAwIE9LfCBGW1N1Y2Nlc3Nd)
 
 LLM APIs are **remote services** — they can timeout, overload, or fail at any time.
 
@@ -47,7 +47,7 @@ Your code must handle every failure path, not just the happy path.
 
 # Reliability Engineering: The Layers
 
-![Reliability layers](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUaW1lb3V0OiBkb250IGhhbmcgZm9yZXZlcl0gLS0-IEJbUmV0cnk6IHRyeSBhZ2FpbiBvbiBmYWlsdXJlXQogIEIgLS0-IENbQmFja29mZjogd2FpdCBsb25nZXIgZWFjaCByZXRyeV0KICBDIC0tPiBEW0NhY2hlOiByZXVzZSBwcmV2aW91cyByZXN1bHRzXQogIEQgLS0-IEVbTG9nZ2luZzogcmVjb3JkIHdoYXQgaGFwcGVuZWRd)
+![h:280 Reliability layers](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUaW1lb3V0OiBkb250IGhhbmcgZm9yZXZlcl0gLS0-IEJbUmV0cnk6IHRyeSBhZ2FpbiBvbiBmYWlsdXJlXQogIEIgLS0-IENbQmFja29mZjogd2FpdCBsb25nZXIgZWFjaCByZXRyeV0KICBDIC0tPiBEW0NhY2hlOiByZXVzZSBwcmV2aW91cyByZXN1bHRzXQogIEQgLS0-IEVbTG9nZ2luZzogcmVjb3JkIHdoYXQgaGFwcGVuZWRd)
 
 Each layer protects against a different class of failure. Together they make your LLM client **production-ready**.
 

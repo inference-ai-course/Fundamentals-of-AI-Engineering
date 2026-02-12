@@ -11,7 +11,7 @@ style: |
   h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
   h2 { color: #16213e; }
   table { font-size: 20px; }
-  img { max-height: 420px; display: block; margin: 0 auto; }
+  img { max-height: 350px; display: block; margin: 0 auto; }
   section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
   section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
   section.lead h2 { color: #e8e8e8; font-weight: 400; }
@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is a Data Pipeline?
 
-![Pipeline concept](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgbWF0ZXJpYWxzXSAtLT4gQltTdGFnZSAxOiBDbGVhbl0KICBCIC0tPiBDW1N0YWdlIDI6IFNoYXBlXQogIEMgLS0-IERbU3RhZ2UgMzogQXNzZW1ibGVdCiAgRCAtLT4gRVtTdGFnZSA0OiBRdWFsaXR5IGNoZWNrXQogIEUgLS0-IEZbRmluaXNoZWQgcHJvZHVjdF0=)
+![h:200 Pipeline concept](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgbWF0ZXJpYWxzXSAtLT4gQltTdGFnZSAxOiBDbGVhbl0KICBCIC0tPiBDW1N0YWdlIDI6IFNoYXBlXQogIEMgLS0-IERbU3RhZ2UgMzogQXNzZW1ibGVdCiAgRCAtLT4gRVtTdGFnZSA0OiBRdWFsaXR5IGNoZWNrXQogIEUgLS0-IEZbRmluaXNoZWQgcHJvZHVjdF0=)
 
 A **pipeline** = a sequence of stages, each with clear inputs and outputs.
 
@@ -58,7 +58,7 @@ You **cannot** send a full dataset to an LLM — it won't fit in the context win
 
 # End-to-End Capstone Pipeline
 
-![Capstone pipeline](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtDU1ZdIC0tPiBCW1Byb2ZpbGVdCiAgQiAtLT4gQ1twcm9maWxlLmpzb25dCiAgQiAtLT4gRFtDb21wcmVzcy9zYW1wbGVdCiAgRCAtLT4gRVtjb21wcmVzc2VkLmpzb25dCiAgRSAtLT4gRltMTE0gY2xpZW50XQogIEYgLS0-IEdbVmFsaWRhdGUgKyBmb3JtYXRdCiAgRyAtLT4gSFtyZXBvcnQuanNvbl0KICBHIC0tPiBJW3JlcG9ydC5tZF0=)
+![h:350 Capstone pipeline](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtDU1ZdIC0tPiBCW1Byb2ZpbGVdCiAgQiAtLT4gQ1twcm9maWxlLmpzb25dCiAgQiAtLT4gRFtDb21wcmVzcy9zYW1wbGVdCiAgRCAtLT4gRVtjb21wcmVzc2VkLmpzb25dCiAgRSAtLT4gRltMTE0gY2xpZW50XQogIEYgLS0-IEdbVmFsaWRhdGUgKyBmb3JtYXRdCiAgRyAtLT4gSFtyZXBvcnQuanNvbl0KICBHIC0tPiBJW3JlcG9ydC5tZF0=)
 
 ---
 
@@ -109,7 +109,7 @@ If too large: reduce sample size or remove verbose fields. Rule of thumb: ~4 cha
 
 # Chunking Long Text
 
-![Chunking](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMb25nIHRleHRdIC0tPiBCW1NwbGl0IGludG8gY2h1bmtzXQogIEIgLS0-IENbQ2h1bmsgMV0KICBCIC0tPiBEW0NodW5rIDJdCiAgQiAtLT4gRVtDaHVuayBOXQogIEMgLS0-IEZbUHJvY2VzcyBlYWNoXQogIEQgLS0-IEYKICBFIC0tPiBGCiAgRiAtLT4gR1tTeW50aGVzaXplIGZpbmFsIG91dHB1dF0=)
+![h:220 Chunking](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMb25nIHRleHRdIC0tPiBCW1NwbGl0IGludG8gY2h1bmtzXQogIEIgLS0-IENbQ2h1bmsgMV0KICBCIC0tPiBEW0NodW5rIDJdCiAgQiAtLT4gRVtDaHVuayBOXQogIEMgLS0-IEZbUHJvY2VzcyBlYWNoXQogIEQgLS0-IEYKICBFIC0tPiBGCiAgRiAtLT4gR1tTeW50aGVzaXplIGZpbmFsIG91dHB1dF0=)
 
 When text exceeds the context window: **split → process each chunk → synthesize**.
 

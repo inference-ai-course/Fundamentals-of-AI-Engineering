@@ -11,7 +11,7 @@ style: |
   h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
   h2 { color: #16213e; }
   table { font-size: 20px; }
-  img { max-height: 420px; display: block; margin: 0 auto; }
+  img { max-height: 350px; display: block; margin: 0 auto; }
   section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
   section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
   section.lead h2 { color: #e8e8e8; font-weight: 400; }
@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is a CLI?
 
-![CLI concept](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHR5cGVzIGNvbW1hbmRdIC0tPiBCW1BhcnNlciByZWFkcyBhcmd1bWVudHNdCiAgQiAtLT4gQ1tWYWxpZGF0ZSBpbnB1dHNdCiAgQyAtLT4gRFtSdW4gcGlwZWxpbmUgbG9naWNdCiAgRCAtLT4gRVtXcml0ZSBvdXRwdXRzXQogIEUgLS0-IEZbU2hvdyByZXN1bHRd)
+![h:200 CLI concept](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHR5cGVzIGNvbW1hbmRdIC0tPiBCW1BhcnNlciByZWFkcyBhcmd1bWVudHNdCiAgQiAtLT4gQ1tWYWxpZGF0ZSBpbnB1dHNdCiAgQyAtLT4gRFtSdW4gcGlwZWxpbmUgbG9naWNdCiAgRCAtLT4gRVtXcml0ZSBvdXRwdXRzXQogIEUgLS0-IEZbU2hvdyByZXN1bHRd)
 
 **CLI** (Command-Line Interface) = how users interact with your tool via terminal commands.
 
@@ -47,7 +47,7 @@ A good CLI makes **correct usage easy** and **incorrect usage obvious** — desc
 
 # The Testing Pyramid
 
-![Test pyramid](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVbml0IHRlc3RzOiBtYW55LCBmYXN0XSAtLT4gQltJbnRlZ3JhdGlvbiB0ZXN0czogZmV3ZXJdCiAgQiAtLT4gQ1tTbW9rZSB0ZXN0OiBvbmUgZW5kLXRvLWVuZF0=)
+![h:160 Test pyramid](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVbml0IHRlc3RzOiBtYW55LCBmYXN0XSAtLT4gQltJbnRlZ3JhdGlvbiB0ZXN0czogZmV3ZXJdCiAgQiAtLT4gQ1tTbW9rZSB0ZXN0OiBvbmUgZW5kLXRvLWVuZF0=)
 
 - **Unit tests** (many): test individual functions — fast, isolated
 - **Integration tests** (fewer): test components together
@@ -66,20 +66,24 @@ For LLM projects: **mock the LLM** in unit tests, only call real APIs in smoke t
 | Explicit inputs/outputs | No hidden assumptions |
 | Clear error on invalid input | Users fix mistakes fast |
 
-### Key flags for capstone
+---
 
-| Flag | Purpose |
-|------|---------|
-| `--input` | Input CSV (required) |
-| `--output_dir` | Output directory (default: `output`) |
-| `--model` | LLM model name |
-| `--dry-run` | Skip LLM call for testing |
+# Capstone CLI Flags
+
+| Flag | Purpose | Default |
+|------|---------|---------|
+| `--input` | Input CSV | (required) |
+| `--output_dir` | Output directory | `output` |
+| `--model` | LLM model name | `gpt-4o-mini` |
+| `--dry-run` | Skip LLM call for testing | off |
+
+A good CLI makes the **common case easy** and the **edge case possible**.
 
 ---
 
 # Config Management: Layers
 
-![Config layers](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtEZWZhdWx0cyBpbiBjb2RlXSAtLT4gQ1tGaW5hbCBjb25maWddCiAgQltFbnZpcm9ubWVudCB2YXJpYWJsZXNdIC0tPiBDCiAgRFtDTEkgYXJndW1lbnRzXSAtLT4gQwogIEMgLS0-IEVbUGlwZWxpbmUgcnVubmVyXQ==)
+![h:260 Config layers](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtEZWZhdWx0cyBpbiBjb2RlXSAtLT4gQ1tGaW5hbCBjb25maWddCiAgQltFbnZpcm9ubWVudCB2YXJpYWJsZXNdIC0tPiBDCiAgRFtDTEkgYXJndW1lbnRzXSAtLT4gQwogIEMgLS0-IEVbUGlwZWxpbmUgcnVubmVyXQ==)
 
 Configuration priority (highest wins): **CLI args > env vars > defaults**
 
@@ -104,7 +108,7 @@ Configuration priority (highest wins): **CLI args > env vars > defaults**
 
 # Error Handling: Teach the User
 
-![Error flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtFcnJvciBvY2N1cnNdIC0tPiBCe1doYXQgdHlwZT99CiAgQiAtLT58aW5wdXR8IENbQ2xlYXIgbWVzc2FnZSArIGZpeCBzdWdnZXN0aW9uXQogIEIgLS0-fExMTXwgRFtSZXRyeSBvciBmYWxsYmFja10KICBCIC0tPnxzeXN0ZW18IEVbTG9nIGRldGFpbHMgKyBmYWlsIGdyYWNlZnVsbHld)
+![h:260 Error flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtFcnJvciBvY2N1cnNdIC0tPiBCe1doYXQgdHlwZT99CiAgQiAtLT58aW5wdXR8IENbQ2xlYXIgbWVzc2FnZSArIGZpeCBzdWdnZXN0aW9uXQogIEIgLS0-fExMTXwgRFtSZXRyeSBvciBmYWxsYmFja10KICBCIC0tPnxzeXN0ZW18IEVbTG9nIGRldGFpbHMgKyBmYWlsIGdyYWNlZnVsbHld)
 
 A good error message contains: **what** went wrong, **where**, and **what to try**.
 

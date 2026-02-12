@@ -11,7 +11,7 @@ style: |
   h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
   h2 { color: #16213e; }
   table { font-size: 20px; }
-  img { max-height: 420px; display: block; margin: 0 auto; }
+  img { max-height: 350px; display: block; margin: 0 auto; }
   section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
   section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
   section.lead h2 { color: #e8e8e8; font-weight: 400; }
@@ -49,7 +49,7 @@ By the end of this week, you should be able to:
 
 # What is a Large Language Model (LLM)?
 
-![What is LLM](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmVkIG9uIGJpbGxpb25zIG9mIHRleHRdIC0tPiBNW0xhcmdlIExhbmd1YWdlIE1vZGVsXQogIE0gLS0-IEJbSW5wdXQ6IHRleHQgcHJvbXB0XQogIEIgLS0-IE0KICBNIC0tPiBDW091dHB1dDogZ2VuZXJhdGVkIHRleHRd)
+![h:160 What is LLM](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmVkIG9uIGJpbGxpb25zIG9mIHRleHRdIC0tPiBNW0xhcmdlIExhbmd1YWdlIE1vZGVsXQogIE0gLS0-IEJbSW5wdXQ6IHRleHQgcHJvbXB0XQogIEIgLS0-IE0KICBNIC0tPiBDW091dHB1dDogZ2VuZXJhdGVkIHRleHRd)
 
 An LLM is a **very large ML model** (billions of parameters) trained on massive text data.
 
@@ -62,13 +62,12 @@ An LLM is a **very large ML model** (billions of parameters) trained on massive 
 
 # What Happens When You Call an LLM API?
 
-![bg right:20%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtCdWlsZCBwcm9tcHRdIC0tPiBCW1NlbmQgSFRUUCByZXF1ZXN0XQogIEIgLS0-IENbTW9kZWwgdG9rZW5pemVzIGlucHV0XQogIEMgLS0-IERbTW9kZWwgZ2VuZXJhdGVzIHRva2Vuc10KICBEIC0tPiBFW1JldHVybiByZXNwb25zZSB0ZXh0XQogIEUgLS0-IEZbUGFyc2UgKyB2YWxpZGF0ZSBvdXRwdXRd)
+![h:200 LLM API call flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtCdWlsZCBwcm9tcHRdIC0tPiBCW1NlbmQgSFRUUCByZXF1ZXN0XQogIEIgLS0-IENbTW9kZWwgdG9rZW5pemVzIGlucHV0XQogIEMgLS0-IERbTW9kZWwgZ2VuZXJhdGVzIHRva2Vuc10KICBEIC0tPiBFW1JldHVybiByZXNwb25zZSB0ZXh0XQogIEUgLS0-IEZbUGFyc2UgKyB2YWxpZGF0ZSBvdXRwdXRd)
 
 1. You **build a prompt** (system + user instructions + data)
 2. Send it as an **HTTP request** to the provider
-3. The model **tokenizes** your input
-4. The model **generates** output tokens
-5. You **parse + validate** the response
+3. The model **tokenizes** your input → **generates** output tokens
+4. You **parse + validate** the response
 
 ---
 
@@ -139,7 +138,7 @@ A strong prompt is not "clever wording" — it's a **specification**.
 
 # Prompt Contract Flow
 
-![Prompt contract flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgdGV4dCBpbnB1dF0gLS0-IEJbUHJvbXB0IGNvbnRyYWN0XQogIEIgLS0-IENbTExNIGNhbGxdCiAgQyAtLT4gRFtSYXcgb3V0cHV0IHRleHRdCiAgRCAtLT4gRVtQYXJzZSBKU09OXQogIEUgLS0-IEZbVmFsaWRhdGUgc2NoZW1hXQogIEYgLS0-IEdbVHlwZWQgcmVzdWx0XQ==)
+![h:240 Prompt contract flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgdGV4dCBpbnB1dF0gLS0-IEJbUHJvbXB0IGNvbnRyYWN0XQogIEIgLS0-IENbTExNIGNhbGxdCiAgQyAtLT4gRFtSYXcgb3V0cHV0IHRleHRdCiAgRCAtLT4gRVtQYXJzZSBKU09OXQogIEUgLS0-IEZbVmFsaWRhdGUgc2NoZW1hXQogIEYgLS0-IEdbVHlwZWQgcmVzdWx0XQ==)
 
 Raw text → prompt contract → LLM call → parse JSON → validate schema → typed result.
 
@@ -161,7 +160,7 @@ Each step can fail independently — separating them helps debugging.
 
 # Retry / Repair Loop
 
-![Retry repair](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTZW5kIHByb21wdF0gLS0-IEJbR2V0IHJlc3BvbnNlXQogIEIgLS0-IEN7VmFsaWQgSlNPTj99CiAgQyAtLT58eWVzfCBEe1NjaGVtYSBPSz99CiAgRCAtLT58eWVzfCBFW1JldHVybiByZXN1bHRdCiAgQyAtLT58bm98IEZbUmVwYWlyIHByb21wdCArIHJldHJ5XQogIEQgLS0-fG5vfCBGCiAgRiAtLT4gQg==)
+![h:220 Retry repair](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTZW5kIHByb21wdF0gLS0-IEJbR2V0IHJlc3BvbnNlXQogIEIgLS0-IEN7VmFsaWQgSlNPTj99CiAgQyAtLT58eWVzfCBEe1NjaGVtYSBPSz99CiAgRCAtLT58eWVzfCBFW1JldHVybiByZXN1bHRdCiAgQyAtLT58bm98IEZbUmVwYWlyIHByb21wdCArIHJldHJ5XQogIEQgLS0-fG5vfCBGCiAgRiAtLT4gQg==)
 
 When the LLM returns invalid output:
 1. **Parse fails** → tell the model what went wrong, retry

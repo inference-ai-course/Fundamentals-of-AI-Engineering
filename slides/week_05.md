@@ -11,7 +11,7 @@ style: |
   h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
   h2 { color: #16213e; }
   table { font-size: 20px; }
-  img { max-height: 420px; display: block; margin: 0 auto; }
+  img { max-height: 350px; display: block; margin: 0 auto; }
   section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
   section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
   section.lead h2 { color: #e8e8e8; font-weight: 400; }
@@ -49,7 +49,7 @@ By the end of this week, you should be able to:
 
 ### Cloud (Hosted API)
 
-![Cloud](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIGFwcF0gLS0-IEJbSW50ZXJuZXRdCiAgQiAtLT4gQ1tDbG91ZCBwcm92aWRlcl0KICBDIC0tPiBEW0xhcmdlIEdQVSBjbHVzdGVyXQogIEQgLS0-IEVbUmVzcG9uc2VdCiAgRSAtLT4gQgogIEIgLS0-IEE=)
+![h:260 Cloud](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIGFwcF0gLS0-IEJbSW50ZXJuZXRdCiAgQiAtLT4gQ1tDbG91ZCBwcm92aWRlcl0KICBDIC0tPiBEW0xhcmdlIEdQVSBjbHVzdGVyXQogIEQgLS0-IEVbUmVzcG9uc2VdCiAgRSAtLT4gQgogIEIgLS0-IEE=)
 
 ---
 
@@ -166,13 +166,9 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 
 - Install Ollama and run one model successfully
 - Implement `benchmark_local_llm.py`:
-  - Define a small prompt set (5–20 items)
-  - Run each prompt on each model
-  - Record latency and store outputs
+  - Define a prompt set (5–20 items), run on each model, record latency + outputs
 - Write a short conclusion:
-  - Best model for quality
-  - Best model for speed
-  - "Best-fit scenarios" (when you would choose each)
+  - Best model for quality / speed / "best-fit scenarios"
 
 ---
 

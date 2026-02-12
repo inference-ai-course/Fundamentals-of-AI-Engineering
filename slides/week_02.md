@@ -11,7 +11,7 @@ style: |
   h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
   h2 { color: #16213e; }
   table { font-size: 20px; }
-  img { max-height: 420px; display: block; margin: 0 auto; }
+  img { max-height: 350px; display: block; margin: 0 auto; }
   section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
   section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
   section.lead h2 { color: #e8e8e8; font-weight: 400; }
@@ -39,7 +39,7 @@ By the end of this week, you should be able to:
 
 ### Traditional Programming
 
-![Traditional](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgUltIdW1hbiB3cml0ZXMgcnVsZXNdIC0tPiBQW1Byb2dyYW1dCiAgRFtEYXRhXSAtLT4gUAogIFAgLS0-IE9bT3V0cHV0XQ==)
+![h:250 Traditional](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgUltIdW1hbiB3cml0ZXMgcnVsZXNdIC0tPiBQW1Byb2dyYW1dCiAgRFtEYXRhXSAtLT4gUAogIFAgLS0-IE9bT3V0cHV0XQ==)
 
 Human writes rules → computer follows them.
 
@@ -49,7 +49,7 @@ Human writes rules → computer follows them.
 
 ### Machine Learning
 
-![ML](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRFtEYXRhICsgZXhwZWN0ZWQgb3V0cHV0XSAtLT4gTFtMZWFybmluZyBhbGdvcml0aG1dCiAgTCAtLT4gTVtNb2RlbF0KICBNIC0tPiBQW05ldyBwcmVkaWN0aW9uc10=)
+![h:180 ML](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRFtEYXRhICsgZXhwZWN0ZWQgb3V0cHV0XSAtLT4gTFtMZWFybmluZyBhbGdvcml0aG1dCiAgTCAtLT4gTVtNb2RlbF0KICBNIC0tPiBQW05ldyBwcmVkaWN0aW9uc10=)
 
 Computer **learns** rules from data + expected outputs. A **model** is the result — a program that was learned, not hand-written.
 
@@ -72,7 +72,7 @@ An **LLM** (Large Language Model) is a very large ML model trained on massive te
 
 # From ML to LLM: Classical ML
 
-![Classical ML](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRDFbVGFidWxhciBkYXRhXSAtLT4gVDFbVHJhaW4gY2xhc3NpZmllcl0KICBUMSAtLT4gUDFbUHJlZGljdCBsYWJlbHNdCiAgUDEgLS0-IE0xW1NhdmUgbWV0cmljc10=)
+![h:250 Classical ML](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRDFbVGFidWxhciBkYXRhXSAtLT4gVDFbVHJhaW4gY2xhc3NpZmllcl0KICBUMSAtLT4gUDFbUHJlZGljdCBsYWJlbHNdCiAgUDEgLS0-IE0xW1NhdmUgbWV0cmljc10=)
 
 Classical ML: train a model on structured data, predict labels.
 
@@ -80,7 +80,7 @@ Classical ML: train a model on structured data, predict labels.
 
 # From ML to LLM: LLM-Augmented Pipeline
 
-![LLM pipeline](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRDJbVGV4dCAvIENTViBkYXRhXSAtLT4gQ1tDb21wcmVzcyArIHByb2ZpbGVdCiAgQyAtLT4gTFtMTE0gQVBJIGNhbGxdCiAgTCAtLT4gVltWYWxpZGF0ZSBvdXRwdXRdCiAgViAtLT4gUltSZXBvcnQgLyBpbnNpZ2h0c10=)
+![h:250 LLM pipeline](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRDJbVGV4dCAvIENTViBkYXRhXSAtLT4gQ1tDb21wcmVzcyArIHByb2ZpbGVdCiAgQyAtLT4gTFtMTE0gQVBJIGNhbGxdCiAgTCAtLT4gVltWYWxpZGF0ZSBvdXRwdXRdCiAgViAtLT4gUltSZXBvcnQgLyBpbnNpZ2h0c10=)
 
 LLM-augmented: compress data, call LLM API, validate output. **Different tools, same discipline.**
 
@@ -100,7 +100,7 @@ Even if you **don't train the LLM yourself**, you still need ML discipline:
 
 # The ML Training Loop
 
-![ML training loop](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMb2FkIGRhdGFdIC0tPiBCW1NwbGl0IHRyYWluL3ZhbF0KICBCIC0tPiBDW1RyYWluIG1vZGVsIG9uIHRyYWluXQogIEMgLS0-IERbUHJlZGljdCBvbiB2YWxdCiAgRCAtLT4gRVtDb21wdXRlIG1ldHJpY3NdCiAgRSAtLT4gRltTYXZlIGFydGlmYWN0c10KICBGIC0tPiBHW0NvbXBhcmUgcnVuc10KICBGIC0tPiBGMVtjb25maWcuanNvbl0KICBGIC0tPiBGMlttZXRyaWNzLmpzb25dCiAgRiAtLT4gRjNbbW9kZWwuam9ibGliXQogIEYgLS0-IEY0W3ZhbF9yZXBvcnQudHh0XQ==)
+![h:350 ML training loop](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMb2FkIGRhdGFdIC0tPiBCW1NwbGl0IHRyYWluL3ZhbF0KICBCIC0tPiBDW1RyYWluIG1vZGVsIG9uIHRyYWluXQogIEMgLS0-IERbUHJlZGljdCBvbiB2YWxdCiAgRCAtLT4gRVtDb21wdXRlIG1ldHJpY3NdCiAgRSAtLT4gRltTYXZlIGFydGlmYWN0c10KICBGIC0tPiBHW0NvbXBhcmUgcnVuc10KICBGIC0tPiBGMVtjb25maWcuanNvbl0KICBGIC0tPiBGMlttZXRyaWNzLmpzb25dCiAgRiAtLT4gRjNbbW9kZWwuam9ibGliXQogIEYgLS0-IEY0W3ZhbF9yZXBvcnQudHh0XQ==)
 
 ---
 

@@ -11,7 +11,7 @@ style: |
   h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
   h2 { color: #16213e; }
   table { font-size: 20px; }
-  img { max-height: 420px; display: block; margin: 0 auto; }
+  img { max-height: 350px; display: block; margin: 0 auto; }
   section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
   section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
   section.lead h2 { color: #e8e8e8; font-weight: 400; }
@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is a Retrospective?
 
-![Retrospective cycle](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSZWZsZWN0IG9uIHByb2plY3RdIC0tPiBCW0lkZW50aWZ5IHRvcCBpc3N1ZXNdCiAgQiAtLT4gQ1tSb290IGNhdXNlIGFuYWx5c2lzXQogIEMgLS0-IERbSW1wbGVtZW50IGZpeGVzXQogIEQgLS0-IEVbVmVyaWZ5IHdpdGggbWV0cmljc10KICBFIC0tPiBGW0RvY3VtZW50IGxlc3NvbnNd)
+![h:200 Retrospective cycle](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSZWZsZWN0IG9uIHByb2plY3RdIC0tPiBCW0lkZW50aWZ5IHRvcCBpc3N1ZXNdCiAgQiAtLT4gQ1tSb290IGNhdXNlIGFuYWx5c2lzXQogIEMgLS0-IERbSW1wbGVtZW50IGZpeGVzXQogIEQgLS0-IEVbVmVyaWZ5IHdpdGggbWV0cmljc10KICBFIC0tPiBGW0RvY3VtZW50IGxlc3NvbnNd)
 
 A **retrospective** = a structured reflection on what happened, why, and what to do differently.
 
@@ -47,7 +47,7 @@ In engineering culture, "blameless postmortems" emphasize **learning** from fail
 
 # What is RAG? (Level 2 Preview)
 
-![RAG concept](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHF1ZXN0aW9uXSAtLT4gQltSZXRyaWV2ZSByZWxldmFudCBkb2NzXQogIEIgLS0-IENbQXVnbWVudCBwcm9tcHQgd2l0aCBkb2NzXQogIEMgLS0-IERbR2VuZXJhdGUgYW5zd2VyXQogIEQgLS0-IEVbQW5zd2VyIHdpdGggY2l0YXRpb25zXQ==)
+![h:200 RAG concept](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHF1ZXN0aW9uXSAtLT4gQltSZXRyaWV2ZSByZWxldmFudCBkb2NzXQogIEIgLS0-IENbQXVnbWVudCBwcm9tcHQgd2l0aCBkb2NzXQogIEMgLS0-IERbR2VuZXJhdGUgYW5zd2VyXQogIEQgLS0-IEVbQW5zd2VyIHdpdGggY2l0YXRpb25zXQ==)
 
 **RAG** (Retrieval-Augmented Generation) = instead of sending all data to the LLM, first **retrieve** only the relevant parts, then **augment** the prompt with them.
 
@@ -57,7 +57,7 @@ This is the core pattern of Level 2 — everything you learned in this course (p
 
 # Demo Flow
 
-![Demo flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtGcmVzaCBjbG9uZV0gLS0-IEJbRm9sbG93IFJFQURNRV0KICBCIC0tPiBDW1J1biBwaXBlbGluZV0KICBDIC0tPiBEW1Nob3cgYXJ0aWZhY3RzXQogIEQgLS0-IEVbU2hvdyBmYWlsdXJlIGNhc2VdCiAgRSAtLT4gRltTaG93IHRlc3RzIHBhc3Nd)
+![h:220 Demo flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtGcmVzaCBjbG9uZV0gLS0-IEJbRm9sbG93IFJFQURNRV0KICBCIC0tPiBDW1J1biBwaXBlbGluZV0KICBDIC0tPiBEW1Nob3cgYXJ0aWZhY3RzXQogIEQgLS0-IEVbU2hvdyBmYWlsdXJlIGNhc2VdCiAgRSAtLT4gRltTaG93IHRlc3RzIHBhc3Nd)
 
 A demo is successful when **another person can reproduce it**.
 
@@ -121,13 +121,17 @@ For each issue, document:
 | **Evidence** | `output/04_llm_raw.json` contains partial JSON |
 | **Impact** | Entire pipeline fails |
 
-### 5 Whys analysis
+---
+
+# Root Cause: 5 Whys Analysis
 
 1. Why crash? → JSON parse error
 2. Why parse error? → LLM returned text after JSON
 3. Why extra text? → Prompt wasn't explicit about format
 4. Why not explicit? → Assumed "return JSON" was enough
 5. Why assume? → Didn't test with diverse inputs
+
+**Lesson**: Each "why" reveals a deeper engineering gap — not a model gap.
 
 ---
 
@@ -174,9 +178,9 @@ For each issue, document:
 
 ---
 
-# Skills Bridge to Level 2
+# Skills You Already Have
 
-### You already have (from Foundational Course)
+From this Foundational Course:
 
 - Python functions, classes, error handling
 - API integration (requests, timeouts, retries)
@@ -184,7 +188,11 @@ For each issue, document:
 - File I/O and data pipelines
 - Testing with pytest
 
-### Review before Level 2
+All of these transfer directly to Level 2.
+
+---
+
+# Review Before Level 2
 
 - **Embeddings**: text → numeric vectors for similarity search
 - **Async Python**: `asyncio` for concurrent API calls
