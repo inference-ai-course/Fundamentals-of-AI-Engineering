@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is a CLI?
 
-![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHR5cGVzIGNvbW1hbmRdIC0tPiBCW1BhcnNlciByZWFkcyBhcmd1bWVudHNdCiAgQiAtLT4gQ1tWYWxpZGF0ZSBpbnB1dHNdCiAgQyAtLT4gRFtSdW4gcGlwZWxpbmUgbG9naWNdCiAgRCAtLT4gRVtXcml0ZSBvdXRwdXRzXQogIEUgLS0-IEZbU2hvdyByZXN1bHRd)
+![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHR5cGVzIGNvbW1hbmRdIC0tPiBCW1BhcnNlciByZWFkcyBhcmd1bWVudHNdCiAgQiAtLT4gQ1tWYWxpZGF0ZSBpbnB1dHNdCiAgQyAtLT4gRFtSdW4gcGlwZWxpbmUgbG9naWNdCiAgRCAtLT4gRVtXcml0ZSBvdXRwdXRzXQogIEUgLS0-IEZbU2hvdyByZXN1bHRd)
 
 **CLI** (Command-Line Interface) = how users interact with your tool via terminal commands.
 
@@ -47,7 +47,7 @@ A good CLI makes **correct usage easy** and **incorrect usage obvious** — desc
 
 # The Testing Pyramid
 
-![h:160 Test pyramid](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVbml0IHRlc3RzOiBtYW55LCBmYXN0XSAtLT4gQltJbnRlZ3JhdGlvbiB0ZXN0czogZmV3ZXJdCiAgQiAtLT4gQ1tTbW9rZSB0ZXN0OiBvbmUgZW5kLXRvLWVuZF0=)
+![h:220](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVbml0IHRlc3RzOiBtYW55LCBmYXN0XSAtLT4gQltJbnRlZ3JhdGlvbiB0ZXN0czogZmV3ZXJdCiAgQiAtLT4gQ1tTbW9rZSB0ZXN0OiBvbmUgZW5kLXRvLWVuZF0=)
 
 - **Unit tests** (many): test individual functions — fast, isolated
 - **Integration tests** (fewer): test components together
@@ -83,7 +83,7 @@ A good CLI makes the **common case easy** and the **edge case possible**.
 
 # Config Management: Layers
 
-![h:260 Config layers](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtEZWZhdWx0cyBpbiBjb2RlXSAtLT4gQ1tGaW5hbCBjb25maWddCiAgQltFbnZpcm9ubWVudCB2YXJpYWJsZXNdIC0tPiBDCiAgRFtDTEkgYXJndW1lbnRzXSAtLT4gQwogIEMgLS0-IEVbUGlwZWxpbmUgcnVubmVyXQ==)
+![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtEZWZhdWx0cyBpbiBjb2RlXSAtLT4gQ1tGaW5hbCBjb25maWddCiAgQltFbnZpcm9ubWVudCB2YXJpYWJsZXNdIC0tPiBDCiAgRFtDTEkgYXJndW1lbnRzXSAtLT4gQwogIEMgLS0-IEVbUGlwZWxpbmUgcnVubmVyXQ==)
 
 Configuration priority (highest wins): **CLI args > env vars > defaults**
 
@@ -108,7 +108,7 @@ Configuration priority (highest wins): **CLI args > env vars > defaults**
 
 # Error Handling: Teach the User
 
-![h:260 Error flow](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtFcnJvciBvY2N1cnNdIC0tPiBCe1doYXQgdHlwZT99CiAgQiAtLT58aW5wdXR8IENbQ2xlYXIgbWVzc2FnZSArIGZpeCBzdWdnZXN0aW9uXQogIEIgLS0-fExMTXwgRFtSZXRyeSBvciBmYWxsYmFja10KICBCIC0tPnxzeXN0ZW18IEVbTG9nIGRldGFpbHMgKyBmYWlsIGdyYWNlZnVsbHld)
+![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtFcnJvciBvY2N1cnNdIC0tPiBCe1doYXQgdHlwZT99CiAgQiAtLT58aW5wdXR8IENbQ2xlYXIgbWVzc2FnZSArIGZpeCBzdWdnZXN0aW9uXQogIEIgLS0-fExMTXwgRFtSZXRyeSBvciBmYWxsYmFja10KICBCIC0tPnxzeXN0ZW18IEVbTG9nIGRldGFpbHMgKyBmYWlsIGdyYWNlZnVsbHld)
 
 A good error message contains: **what** went wrong, **where**, and **what to try**.
 

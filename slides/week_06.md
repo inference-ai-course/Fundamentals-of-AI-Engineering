@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is a Data Pipeline?
 
-![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgbWF0ZXJpYWxzXSAtLT4gQltTdGFnZSAxOiBDbGVhbl0KICBCIC0tPiBDW1N0YWdlIDI6IFNoYXBlXQogIEMgLS0-IERbU3RhZ2UgMzogQXNzZW1ibGVdCiAgRCAtLT4gRVtTdGFnZSA0OiBRdWFsaXR5IGNoZWNrXQogIEUgLS0-IEZbRmluaXNoZWQgcHJvZHVjdF0=)
+![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgbWF0ZXJpYWxzXSAtLT4gQltTdGFnZSAxOiBDbGVhbl0KICBCIC0tPiBDW1N0YWdlIDI6IFNoYXBlXQogIEMgLS0-IERbU3RhZ2UgMzogQXNzZW1ibGVdCiAgRCAtLT4gRVtTdGFnZSA0OiBRdWFsaXR5IGNoZWNrXQogIEUgLS0-IEZbRmluaXNoZWQgcHJvZHVjdF0=)
 
 A **pipeline** = a sequence of stages, each with clear inputs and outputs.
 
@@ -49,7 +49,7 @@ If one stage fails, you know exactly where to look.
 
 # Why Compress Data for LLMs?
 
-![bg right:33%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMYXJnZSBkYXRhc2V0OiAxMDAwMCByb3dzXSAtLT4gQltTYW1wbGUgKyBzdW1tYXJpemVdCiAgQiAtLT4gQ1tDb21wcmVzc2VkOiA1MCByb3dzICsgc3RhdHNdCiAgQyAtLT4gRFtGaXRzIGluIGNvbnRleHQgd2luZG93XQogIEQgLS0-IEVbTExNIGNhbiBwcm9jZXNzIGl0XQ==)
+![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMYXJnZSBkYXRhc2V0OiAxMDAwMCByb3dzXSAtLT4gQltTYW1wbGUgKyBzdW1tYXJpemVdCiAgQiAtLT4gQ1tDb21wcmVzc2VkOiA1MCByb3dzICsgc3RhdHNdCiAgQyAtLT4gRFtGaXRzIGluIGNvbnRleHQgd2luZG93XQogIEQgLS0-IEVbTExNIGNhbiBwcm9jZXNzIGl0XQ==)
 
 You **cannot** send a full dataset to an LLM — it won't fit in the context window. Instead:
 - **Sample** representative rows
@@ -60,7 +60,7 @@ You **cannot** send a full dataset to an LLM — it won't fit in the context win
 
 # End-to-End Capstone Pipeline
 
-![bg right:33%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtDU1ZdIC0tPiBCW1Byb2ZpbGUgKyBDb21wcmVzc10KICBCIC0tPiBDW0xMTSBjbGllbnRdCiAgQyAtLT4gRFtWYWxpZGF0ZSArIEZvcm1hdF0KICBEIC0tPiBFW3JlcG9ydC5qc29uICsgcmVwb3J0Lm1kXQ)
+![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtDU1ZdIC0tPiBCW1Byb2ZpbGUgKyBDb21wcmVzc10KICBCIC0tPiBDW0xMTSBjbGllbnRdCiAgQyAtLT4gRFtWYWxpZGF0ZSArIEZvcm1hdF0KICBEIC0tPiBFW3JlcG9ydC5qc29uICsgcmVwb3J0Lm1kXQ)
 
 CSV → Profile → Compress → LLM → Validate → Report
 
@@ -115,7 +115,7 @@ If too large: reduce sample size or remove verbose fields. Rule of thumb: ~4 cha
 
 # Chunking Long Text
 
-![bg right:30%](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMb25nIHRleHRdIC0tPiBCW1NwbGl0IGludG8gY2h1bmtzXQogIEIgLS0-IENbUHJvY2VzcyBlYWNoIGNodW5rXQogIEMgLS0-IERbU3ludGhlc2l6ZSBmaW5hbCBvdXRwdXRd)
+![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMb25nIHRleHRdIC0tPiBCW1NwbGl0IGludG8gY2h1bmtzXQogIEIgLS0-IENbUHJvY2VzcyBlYWNoIGNodW5rXQogIEMgLS0-IERbU3ludGhlc2l6ZSBmaW5hbCBvdXRwdXRd)
 
 When text exceeds the context window: **split → process each chunk → synthesize**.
 
