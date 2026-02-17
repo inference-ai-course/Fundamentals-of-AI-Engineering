@@ -5,16 +5,7 @@ paginate: true
 header: "Fundamentals of AI Engineering"
 footer: "Week 1 — Environment Setup & Data Processing"
 style: |
-  section { font-size: 24px; }
-  pre { font-size: 18px; }
-  code { font-size: 18px; }
-  h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
-  h2 { color: #16213e; }
-  table { font-size: 20px; }
-  img { max-height: 350px; display: block; margin: 0 auto; }
-  section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
-  section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
-  section.lead h2 { color: #e8e8e8; font-weight: 400; }
+  @import 'theme.css';
 ---
 
 <!-- _class: lead -->
@@ -37,7 +28,7 @@ By the end of this week, you should be able to:
 
 # What is AI Engineering?
 
-![bg right:25% h:320](images/week01_bg_right_25_h_320_1.png)
+![bg right:50% h:320](images/week01_bg_right_25_h_320_1.png)
 
 AI Engineering = building **reliable systems** that use AI models (including LLMs).
 
@@ -76,7 +67,7 @@ LLMs are powerful, but **they don't fix bad engineering**:
 
 **Key checks**: row counts, column types, missing values (%), distributions, outliers, duplicates.
 
-![bg right:25% h:320](images/week01_bg_right_25_h_320_3.png)
+![bg right:40% h:320](images/week01_bg_right_25_h_320_3.png)
 
 ### Without profiling (bad path)
 
@@ -88,7 +79,7 @@ Each arrow is a point where profiling could have caught the problem **early**.
 
 # Data Quality → AI Quality
 
-![bg right:25% h:320](images/week_01_diagram_1.png)
+![bg right:40% h:320](images/week_01_diagram_1.png)
 
 ### With profiling (good path)
 
@@ -116,7 +107,7 @@ LLM libraries change **fast** — `openai` had a breaking API change from v0.x t
 
 # Environment Setup: venv
 
-![bg right:25% h:320](images/week01_bg_right_25_h_320_7.png)
+![bg right:40% h:320](images/week01_bg_right_25_h_320_7.png)
 
 System Python → create venv → activate → install deps → freeze `requirements.txt` → run script.
 
@@ -126,7 +117,7 @@ System Python → create venv → activate → install deps → freeze `requirem
 
 # Environment Setup: Conda
 
-![h:280 Anaconda Distribution](https://www.pngkey.com/png/detail/85-851355_anaconda-distribution-diagram-anaconda-python-libraries.png)
+![h:360 Anaconda Distribution](https://www.pngkey.com/png/detail/85-851355_anaconda-distribution-diagram-anaconda-python-libraries.png)
 
 Same pattern as venv — different tool, same discipline.
 
@@ -169,7 +160,7 @@ openai==1.6.1
 
 # Data Profiling Pipeline
 
-![bg right:25% h:320](images/week01_bg_right_25_h_320_8.png)
+![bg right:40% h:360](images/week01_bg_right_25_h_320_8.png)
 
 **Defensive programming**: validate early, fail fast.
 

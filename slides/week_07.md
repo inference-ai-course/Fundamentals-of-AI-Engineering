@@ -5,16 +5,7 @@ paginate: true
 header: "Fundamentals of AI Engineering"
 footer: "Week 7 — Capstone Engineering & Quality"
 style: |
-  section { font-size: 24px; }
-  pre { font-size: 18px; }
-  code { font-size: 18px; }
-  h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
-  h2 { color: #16213e; }
-  table { font-size: 20px; }
-  img { max-height: 350px; display: block; margin: 0 auto; }
-  section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
-  section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
-  section.lead h2 { color: #e8e8e8; font-weight: 400; }
+  @import 'theme.css';
 ---
 
 <!-- _class: lead -->

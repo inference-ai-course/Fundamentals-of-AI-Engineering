@@ -4,11 +4,20 @@
 @import 'default';
 
 section {
-  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 26px;
-  padding: 40px 50px;
-  background-color: #ffffff;
-  color: #1a1a2e;
+  font-size: 24px;
+  position: relative;
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  width: 96px;
+  height: 96px;
+  background: url('./images/logo.png') no-repeat center / contain;
+  opacity: 0.12;
+  pointer-events: none;
 }
 
 /* Title slides */
@@ -20,111 +29,47 @@ section.lead {
 
 section.lead h1 {
   color: #00d2ff;
+  border: none;
   font-size: 48px;
-  margin-bottom: 10px;
 }
 
 section.lead h2 {
   color: #e8e8e8;
-  font-size: 28px;
   font-weight: 400;
 }
 
 /* Headings */
 h1 {
   color: #0f3460;
-  font-size: 38px;
   border-bottom: 3px solid #00d2ff;
   padding-bottom: 8px;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 h2 {
   color: #16213e;
-  font-size: 30px;
-}
-
-h3 {
-  color: #1a1a2e;
-  font-size: 26px;
 }
 
 /* Code blocks */
 pre {
   font-size: 18px;
-  border-radius: 8px;
-  background-color: #1e1e2e;
-  padding: 16px;
 }
 
 code {
-  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
   font-size: 18px;
-}
-
-/* Inline code */
-p code, li code {
-  background-color: #e8f4f8;
-  color: #0f3460;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 22px;
 }
 
 /* Tables */
 table {
-  font-size: 22px;
-  width: 100%;
-}
-
-th {
-  background-color: #0f3460;
-  color: white;
-  padding: 8px 12px;
-}
-
-td {
-  padding: 6px 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-/* Lists */
-ul, ol {
-  margin-left: 10px;
-}
-
-li {
-  margin-bottom: 6px;
-  line-height: 1.5;
-}
-
-/* Blockquotes */
-blockquote {
-  border-left: 4px solid #00d2ff;
-  background-color: #f0f8ff;
-  padding: 10px 20px;
-  margin: 10px 0;
-  font-style: italic;
+  font-size: 20px;
+  margin: 0 auto;
 }
 
 /* Images */
 img {
-  max-height: 400px;
+  max-height: 350px;
   display: block;
   margin: 0 auto;
-}
-
-/* Header & Footer */
-header {
-  color: #888;
-  font-size: 14px;
-}
-
-footer {
-  color: #888;
-  font-size: 14px;
-}
-
-/* Strong emphasis */
-strong {
-  color: #0f3460;
 }

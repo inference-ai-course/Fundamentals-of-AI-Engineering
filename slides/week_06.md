@@ -5,16 +5,7 @@ paginate: true
 header: "Fundamentals of AI Engineering"
 footer: "Week 6 — Capstone Prototype (End-to-End Flow)"
 style: |
-  section { font-size: 24px; }
-  pre { font-size: 18px; }
-  code { font-size: 18px; }
-  h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
-  h2 { color: #16213e; }
-  table { font-size: 20px; }
-  img { max-height: 350px; display: block; margin: 0 auto; }
-  section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
-  section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
-  section.lead h2 { color: #e8e8e8; font-weight: 400; }
+  @import 'theme.css';
 ---
 
 <!-- _class: lead -->
@@ -49,7 +40,7 @@ If one stage fails, you know exactly where to look.
 
 # Why Compress Data for LLMs?
 
-![bg right:25% h:320](images/week06_bg_right_25_h_320_33.png)
+![bg right:40% h:320](images/week06_bg_right_25_h_320_33.png)
 
 You **cannot** send a full dataset to an LLM — it won't fit in the context window. Instead:
 - **Sample** representative rows
@@ -60,7 +51,7 @@ You **cannot** send a full dataset to an LLM — it won't fit in the context win
 
 # End-to-End Capstone Pipeline
 
-![bg right:25% h:320](images/week06_bg_right_25_h_320_34.png)
+![bg right:40% h:320](images/week06_bg_right_25_h_320_34.png)
 
 CSV → Profile → Compress → LLM → Validate → Report
 
@@ -118,7 +109,7 @@ If too large: reduce sample size or remove verbose fields. Rule of thumb: ~4 cha
 
 # Chunking Long Text
 
-![bg right:25% h:320](images/week06_bg_right_25_h_320_35.png)
+![bg right:40% h:320](images/week06_bg_right_25_h_320_35.png)
 
 When text exceeds the context window: **split → process each chunk → synthesize**.
 

@@ -5,16 +5,7 @@ paginate: true
 header: "Fundamentals of AI Engineering"
 footer: "Week 4 — LLM API Engineering (Reliability & Cost)"
 style: |
-  section { font-size: 24px; }
-  pre { font-size: 18px; }
-  code { font-size: 18px; }
-  h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
-  h2 { color: #16213e; }
-  table { font-size: 20px; }
-  img { max-height: 350px; display: block; margin: 0 auto; }
-  section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
-  section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
-  section.lead h2 { color: #e8e8e8; font-weight: 400; }
+  @import 'theme.css';
 ---
 
 <!-- _class: lead -->
@@ -37,7 +28,7 @@ By the end of this week, you should be able to:
 
 # What Can Go Wrong With an API Call?
 
-![h:280](images/week_04_diagram_1.png)
+![h:280](images/concepts/retry_pattern.png)
 
 LLM APIs are **remote services** — they can timeout, overload, or fail at any time.
 
@@ -77,7 +68,7 @@ Timeout → Retry → Backoff → Cache → Logging
 
 # Retries + Exponential Backoff
 
-![bg right:25% h:320](images/week04_bg_right_25_h_320_25.png)
+![bg right:40% h:320](images/week04_bg_right_25_h_320_25.png)
 
 - **Retry transient failures**: timeouts, 429, 503
 - **Don't retry permanent failures**: 401, 404
@@ -119,7 +110,7 @@ Timeout → Retry → Backoff → Cache → Logging
 
 # Graceful Degradation
 
-![bg right:25% h:320](images/week04_bg_right_25_h_320_26.png)
+![bg right:40% h:320](images/week04_bg_right_25_h_320_26.png)
 
 When rate-limited or failing, **degrade instead of crashing**:
 - GPT-4 fails → fall back to GPT-3.5
@@ -130,14 +121,27 @@ When rate-limited or failing, **degrade instead of crashing**:
 
 # Caching: Save Money and Time
 
-![bg right:25% h:320](images/week04_bg_right_25_h_320_27.png)
+![bg right:40% h:320](images/week04_bg_right_25_h_320_27.png)
 
 **Cache key must include** all parameters that affect output.
 
 **Common pitfalls**:
 - Forgetting system prompt in key
-- Caching when temperature > 0
+- Caching when temperature > 0 (non-deterministic outputs → stale cached results may not reflect model variability)
 - Caching errors
+
+---
+
+# Error Handling: Circuit Breaker Pattern
+
+![h:280](images/concepts/circuit_breaker.png)
+
+When failures persist, stop trying and fail fast:
+- **Closed** → requests flow normally
+- **Open** → requests fail immediately without calling the API
+- **Half-Open** → allow one test request to check if service recovered
+
+This prevents cascading failures and gives the service time to recover.
 
 ---
 

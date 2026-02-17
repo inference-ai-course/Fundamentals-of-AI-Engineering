@@ -5,16 +5,7 @@ paginate: true
 header: "Fundamentals of AI Engineering"
 footer: "Week 2 — ML Training Loop & Reproducible Baselines"
 style: |
-  section { font-size: 24px; }
-  pre { font-size: 18px; }
-  code { font-size: 18px; }
-  h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
-  h2 { color: #16213e; }
-  table { font-size: 20px; }
-  img { max-height: 350px; display: block; margin: 0 auto; }
-  section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
-  section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
-  section.lead h2 { color: #e8e8e8; font-weight: 400; }
+  @import 'theme.css';
 ---
 
 <!-- _class: lead -->
@@ -47,7 +38,7 @@ Human writes rules → computer follows them.
 
 # Machine Learning: The Key Difference
 
-![bg right:25% h:320](images/week02_bg_right_25_h_320_10.png)
+![bg right:40% h:320](images/week02_bg_right_25_h_320_10.png)
 
 ### Machine Learning
 
@@ -59,7 +50,7 @@ An **LLM** (Large Language Model) is a very large ML model trained on massive te
 
 # What is Training?
 
-![bg right:25% h:320](images/week02_bg_right_25_h_320_11.png)
+![bg right:40% h:420](images/week02_bg_right_25_h_320_11.png)
 
 **Training** = the process where a model learns from data by adjusting its internal parameters (weights).
 
@@ -72,7 +63,7 @@ An **LLM** (Large Language Model) is a very large ML model trained on massive te
 
 # From ML to LLM: Classical ML
 
-![bg right:25% h:320](images/week_02_diagram_2.png)
+![bg right:40% h:320](images/week_02_diagram_2.png)
 
 Classical ML: train a model on structured data, predict labels.
 
@@ -82,7 +73,7 @@ Tabular data → train classifier → predict labels → save metrics.
 
 # From ML to LLM: LLM-Augmented Pipeline
 
-![bg right:25% h:320](images/week02_bg_right_25_h_320_13.png)
+![bg right:40% h:320](images/week02_bg_right_25_h_320_13.png)
 
 LLM-augmented: compress data, call LLM API, validate output.
 
@@ -90,9 +81,8 @@ LLM-augmented: compress data, call LLM API, validate output.
 
 ---
 
-# Shared Discipline: ML ↔ LLM
+# Shared Discipline: ML ↔ LLM Training Loop
 
-![bg right:25% h:320](images/week02_bg_right_25_h_320_14.png)
 
 Even if you **don't train the LLM yourself**, you still need ML discipline:
 
@@ -104,7 +94,7 @@ Even if you **don't train the LLM yourself**, you still need ML discipline:
 
 # The ML Training Loop
 
-![bg right:25% h:320](images/week02_bg_right_25_h_320_15.png)
+![bg right:40% h:320](images/week02_bg_right_25_h_320_15.png)
 
 Load → split → train → predict → compute metrics → save artifacts → compare runs.
 
@@ -117,6 +107,8 @@ Artifacts saved at each run:
 ---
 
 # The Loop: Step by Step
+
+![bg right:35% h:280](images/concepts/train_test_split.png)
 
 | Step | What you do | Why it matters |
 |------|------------|---------------|
@@ -132,11 +124,11 @@ Even for LLM work, this disciplined loop is the basis for evaluating prompt/mode
 
 # Overfitting: The Core Trap
 
-![h:280](images/week02_h_280_16.png)
+![h:280](images/concepts/overfitting.png)
 
 **Overfitting** = the model memorizes training data instead of learning general patterns.
 
-- Training metrics keep improving, but validation metrics **decline**
+- Training metrics keep improving, but validation metrics **plateau or decline**
 - The gap between train and validation performance reveals overfitting
 - **Analogy**: a student who memorizes answers but can't solve new problems
 - **LLM parallel**: a prompt that works perfectly on your test case but fails on new inputs

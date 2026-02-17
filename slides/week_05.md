@@ -5,16 +5,7 @@ paginate: true
 header: "Fundamentals of AI Engineering"
 footer: "Week 5 — Local Inference (Ollama) & Model Comparison"
 style: |
-  section { font-size: 24px; }
-  pre { font-size: 18px; }
-  code { font-size: 18px; }
-  h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
-  h2 { color: #16213e; }
-  table { font-size: 20px; }
-  img { max-height: 350px; display: block; margin: 0 auto; }
-  section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
-  section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
-  section.lead h2 { color: #e8e8e8; font-weight: 400; }
+  @import 'theme.css';
 ---
 
 <!-- _class: lead -->
@@ -60,7 +51,7 @@ Your app → Internet → cloud provider → large GPU cluster → response back
 
 # Local Inference with Ollama
 
-![bg right:25% h:320](images/week05_bg_right_25_h_320_30.png)
+![bg right:40% h:320](images/week05_bg_right_25_h_320_30.png)
 
 Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud APIs, but everything runs on your hardware.
 
@@ -97,16 +88,16 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 - **Context window**: how much text fits per request
 - **Quantization**: fewer bits = less memory, slightly lower quality (impact varies by task)
 
-### Memory Requirements (rough)
+### Memory Requirements (rough — total runtime, including KV cache & activations)
 
-| Model Size | 4-bit | 8-bit | Full |
+| Model Size | 4-bit | 8-bit | Full (FP32) |
 |------------|-------|-------|------|
 | 1B params  | ~1 GB | ~2 GB | ~4 GB |
 | 3B params  | ~2 GB | ~4 GB | ~12 GB |
 | 7B params  | ~4 GB | ~8 GB | ~28 GB |
 | 13B params | ~8 GB | ~16 GB | ~52 GB |
 
-**Rule**: If it doesn't fit in memory, you can't run it.
+**Note**: These are total runtime estimates (weights + KV cache + activations). Weight-only memory is roughly half the 8-bit column. **Rule**: If it doesn't fit in memory, you can't run it.
 
 ---
 

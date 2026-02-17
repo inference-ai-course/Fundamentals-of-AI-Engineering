@@ -5,16 +5,7 @@ paginate: true
 header: "Fundamentals of AI Engineering"
 footer: "Week 3 — LLM Fundamentals & Prompt Engineering"
 style: |
-  section { font-size: 24px; }
-  pre { font-size: 18px; }
-  code { font-size: 18px; }
-  h1 { color: #0f3460; border-bottom: 3px solid #00d2ff; padding-bottom: 8px; }
-  h2 { color: #16213e; }
-  table { font-size: 20px; }
-  img { max-height: 350px; display: block; margin: 0 auto; }
-  section.lead { text-align: center; background: linear-gradient(135deg, #0f3460, #16213e); color: #e8e8e8; }
-  section.lead h1 { color: #00d2ff; border: none; font-size: 48px; }
-  section.lead h2 { color: #e8e8e8; font-weight: 400; }
+  @import 'theme.css';
 ---
 
 <!-- _class: lead -->
@@ -49,7 +40,7 @@ By the end of this week, you should be able to:
 
 # What is a Large Language Model (LLM)?
 
-![bg right:25% h:320](images/week_03_diagram_1.png)
+![bg right:40% h:320](images/week_03_diagram_1.png)
 
 An LLM is a **very large ML model** (billions of parameters) trained on massive text data.
 
@@ -62,7 +53,7 @@ An LLM is a **very large ML model** (billions of parameters) trained on massive 
 
 # What Happens When You Call an LLM API?
 
-![bg right:25% h:320](images/week_03_diagram_2.png)
+![bg right:40% h:320](images/week_03_diagram_2.png)
 
 1. You **build a prompt** (system + user instructions + data)
 2. Send it as an **HTTP request** to the provider
@@ -82,7 +73,7 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 | `machinelearning` | ~3-4 | No spaces = worse tokenization |
 | `你好世界` | ~4+ | Non-English = more tokens per word |
 
-**Rule of thumb**: ~4 characters per token for English. Non-English text can use **up to 7x more tokens** for the same meaning.
+**Rule of thumb**: ~4 characters per token for English. Non-English text can use **2–4× more tokens** for the same meaning (varies by language and tokenizer).
 
 **Why tokens matter**:
 - Token count drives **cost** ($X per 1K tokens)
@@ -93,17 +84,17 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 
 # Context Window: A Hard Budget
 
-![bg right:25% h:320](images/week03_bg_right_25_h_320_20.png)
+![bg right:40% h:320](images/week03_bg_right_25_h_320_20.png)
 
 Everything must fit inside the context window.
 
 | Model | Context window |
 |-------|---------------|
-| GPT-3.5 | 4k–16k tokens |
-| GPT-4 | 8k–128k tokens |
-| Claude | 100k–200k tokens |
+| GPT-3.5-turbo | 16k tokens |
+| GPT-4o / GPT-4 Turbo | 128k tokens |
+| Claude 3.x / 4.x | 200k tokens |
 
-**Note**: Context window sizes evolve rapidly. Always check current model documentation before deployment.
+**Note**: Context window sizes evolve rapidly — these reflect current defaults as of 2025. Always check current model documentation before deployment.
 
 ---
 
@@ -142,7 +133,7 @@ A strong prompt is not "clever wording" — it's a **specification**.
 
 # Prompt Contract Flow
 
-![bg right:25% h:320](images/week03_bg_right_25_h_320_21.png)
+![bg right:40% h:320](images/week03_bg_right_25_h_320_21.png)
 
 Raw text → prompt contract → LLM call → parse JSON → validate schema → typed result.
 
@@ -164,7 +155,7 @@ Each step can fail independently — separating them helps debugging.
 
 # Retry / Repair Loop
 
-![bg right:25% h:320](images/week03_bg_right_25_h_320_22.png)
+![bg right:40% h:320](images/week03_bg_right_25_h_320_22.png)
 
 When the LLM returns invalid output:
 1. **Parse fails** → tell the model what went wrong, retry
