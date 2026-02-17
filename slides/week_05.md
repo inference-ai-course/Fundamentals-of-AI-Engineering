@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is Inference?
 
-![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmluZyBQaGFzZV0gLS0-IEJbRmVlZCBkYXRhIHRvIG1vZGVsXQogIEIgLS0-IENbTW9kZWwgbGVhcm5zIHBhdHRlcm5zXQogIEMgLS0-IERbU2F2ZSB0cmFpbmVkIG1vZGVsXQogIEQgLS0-IEVbSW5mZXJlbmNlIFBoYXNlXQogIEUgLS0-IEZbTmV3IGlucHV0IGRhdGFdCiAgRiAtLT4gR1tNb2RlbCBwcmVkaWN0cyBvdXRwdXRd)
+![h:280](images/week05_h_280_28.png)
 
 - **Training**: learn from data (expensive, done once)
 - **Inference**: make predictions (fast, done many times)
@@ -47,7 +47,7 @@ By the end of this week, you should be able to:
 
 # Cloud vs Local Inference
 
-![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIGFwcF0gLS0-IEJbSW50ZXJuZXRdCiAgQiAtLT4gQ1tDbG91ZCBwcm92aWRlcl0KICBDIC0tPiBEW0xhcmdlIEdQVSBjbHVzdGVyXQogIEQgLS0-IEVbUmVzcG9uc2VdCiAgRSAtLT4gQgogIEIgLS0-IEE=)
+![h:280](images/week_05_diagram_1.png)
 
 ### Cloud (Hosted API)
 
@@ -60,7 +60,7 @@ Your app → Internet → cloud provider → large GPU cluster → response back
 
 # Local Inference with Ollama
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIGFwcF0gLS0-IEJbbG9jYWxob3N0OjExNDM0XQogIEIgLS0-IENbT2xsYW1hIHNlcnZlcl0KICBDIC0tPiBEW1lvdXIgQ1BVL0dQVSArIFJBTV0KICBEIC0tPiBFW1Jlc3BvbnNlXQogIEUgLS0-IEE=)
+![bg right:25% h:320](images/week05_bg_right_25_h_320_30.png)
 
 Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud APIs, but everything runs on your hardware.
 
@@ -95,7 +95,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 
 - **Size (7B, 13B)**: more parameters = better quality, slower, more memory
 - **Context window**: how much text fits per request
-- **Quantization**: fewer bits = less memory, slightly lower quality
+- **Quantization**: fewer bits = less memory, slightly lower quality (impact varies by task)
 
 ### Memory Requirements (rough)
 
@@ -125,7 +125,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 
 # Benchmarking: Consistent Comparison
 
-![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgTVtNb2RlbHMgbGlzdF0gLS0-IFJbUnVuIHByb21wdCBzZXRdCiAgUFtQcm9tcHQgc2V0XSAtLT4gUgogIFIgLS0-IExbUmVjb3JkIGxhdGVuY3ldCiAgUiAtLT4gUVtTYXZlIG91dHB1dHNdCiAgTCAtLT4gU1tzdW1tYXJ5Lmpzb25dCiAgUSAtLT4gUw==)
+![h:280](images/week_05_diagram_2.png)
 
 **Benchmark hygiene**:
 - Same prompt set for all models

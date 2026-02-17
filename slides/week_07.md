@@ -37,17 +37,21 @@ By the end of this week, you should be able to:
 
 # What is a CLI?
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHR5cGVzIGNvbW1hbmRdIC0tPiBCW1BhcnNlciByZWFkcyBhcmd1bWVudHNdCiAgQiAtLT4gQ1tWYWxpZGF0ZSBpbnB1dHNdCiAgQyAtLT4gRFtSdW4gcGlwZWxpbmUgbG9naWNdCiAgRCAtLT4gRVtXcml0ZSBvdXRwdXRzXQogIEUgLS0-IEZbU2hvdyByZXN1bHRd)
+![bg right:25% h:320](images/week07_bg_right_25_h_320_36.png)
 
 **CLI** (Command-Line Interface) = how users interact with your tool via terminal commands.
 
-A good CLI makes **correct usage easy** and **incorrect usage obvious** — descriptive `--help`, sensible defaults, clear errors.
+A good CLI makes **correct usage easy** and **incorrect usage obvious**:
+- Descriptive `--help` text
+- Sensible defaults  
+- Clear error messages
+- Exit code 0 on success, non-zero on failure (enables script chaining)
 
 ---
 
 # The Testing Pyramid
 
-![h:220](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVbml0IHRlc3RzOiBtYW55LCBmYXN0XSAtLT4gQltJbnRlZ3JhdGlvbiB0ZXN0czogZmV3ZXJdCiAgQiAtLT4gQ1tTbW9rZSB0ZXN0OiBvbmUgZW5kLXRvLWVuZF0=)
+![h:220](images/week_07_diagram_1.png)
 
 - **Unit tests** (many): test individual functions — fast, isolated
 - **Integration tests** (fewer): test components together
@@ -83,7 +87,7 @@ A good CLI makes the **common case easy** and the **edge case possible**.
 
 # Config Management: Layers
 
-![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtEZWZhdWx0cyBpbiBjb2RlXSAtLT4gQ1tGaW5hbCBjb25maWddCiAgQltFbnZpcm9ubWVudCB2YXJpYWJsZXNdIC0tPiBDCiAgRFtDTEkgYXJndW1lbnRzXSAtLT4gQwogIEMgLS0-IEVbUGlwZWxpbmUgcnVubmVyXQ==)
+![h:280](images/week07_h_280_38.png)
 
 Configuration priority (highest wins): **CLI args > env vars > defaults**
 
@@ -108,7 +112,7 @@ Configuration priority (highest wins): **CLI args > env vars > defaults**
 
 # Error Handling: Teach the User
 
-![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtFcnJvciBvY2N1cnNdIC0tPiBCe1doYXQgdHlwZT99CiAgQiAtLT58aW5wdXR8IENbQ2xlYXIgbWVzc2FnZSArIGZpeCBzdWdnZXN0aW9uXQogIEIgLS0-fExMTXwgRFtSZXRyeSBvciBmYWxsYmFja10KICBCIC0tPnxzeXN0ZW18IEVbTG9nIGRldGFpbHMgKyBmYWlsIGdyYWNlZnVsbHld)
+![h:280](images/week07_h_280_39.png)
 
 A good error message contains: **what** went wrong, **where**, and **what to try**.
 

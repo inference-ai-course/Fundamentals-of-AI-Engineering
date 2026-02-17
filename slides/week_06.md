@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is a Data Pipeline?
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgbWF0ZXJpYWxzXSAtLT4gQltTdGFnZSAxOiBDbGVhbl0KICBCIC0tPiBDW1N0YWdlIDI6IFNoYXBlXQogIEMgLS0-IERbU3RhZ2UgMzogQXNzZW1ibGVdCiAgRCAtLT4gRVtTdGFnZSA0OiBRdWFsaXR5IGNoZWNrXQogIEUgLS0-IEZbRmluaXNoZWQgcHJvZHVjdF0=)
+![bg right:25% h:320](images/week06_bg_right_25_h_320_32.png)
 
 A **pipeline** = a sequence of stages, each with clear inputs and outputs.
 
@@ -49,7 +49,7 @@ If one stage fails, you know exactly where to look.
 
 # Why Compress Data for LLMs?
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMYXJnZSBkYXRhc2V0OiAxMDAwMCByb3dzXSAtLT4gQltTYW1wbGUgKyBzdW1tYXJpemVdCiAgQiAtLT4gQ1tDb21wcmVzc2VkOiA1MCByb3dzICsgc3RhdHNdCiAgQyAtLT4gRFtGaXRzIGluIGNvbnRleHQgd2luZG93XQogIEQgLS0-IEVbTExNIGNhbiBwcm9jZXNzIGl0XQ==)
+![bg right:25% h:320](images/week06_bg_right_25_h_320_33.png)
 
 You **cannot** send a full dataset to an LLM — it won't fit in the context window. Instead:
 - **Sample** representative rows
@@ -60,7 +60,7 @@ You **cannot** send a full dataset to an LLM — it won't fit in the context win
 
 # End-to-End Capstone Pipeline
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtDU1ZdIC0tPiBCW1Byb2ZpbGUgKyBDb21wcmVzc10KICBCIC0tPiBDW0xMTSBjbGllbnRdCiAgQyAtLT4gRFtWYWxpZGF0ZSArIEZvcm1hdF0KICBEIC0tPiBFW3JlcG9ydC5qc29uICsgcmVwb3J0Lm1kXQ)
+![bg right:25% h:320](images/week06_bg_right_25_h_320_34.png)
 
 CSV → Profile → Compress → LLM → Validate → Report
 
@@ -100,22 +100,25 @@ If too large: reduce sample size or remove verbose fields. Rule of thumb: ~4 cha
 
 # Smart Sampling Strategies
 
-**Random sampling** may miss rare-but-important cases.
+**Random sampling** may miss rare-but-important cases. Choose strategy based on your analysis goal.
 
-| Strategy | When to use |
-|----------|-------------|
-| **Random sample** | General purpose, no specific requirements |
-| **Stratified sample** | Must represent all categories |
-| **Include extremes** | Outlier detection matters |
-| **Top-k categories** | Categorical distribution matters |
+| Strategy | When to use | Example |
+|----------|-------------|---------|
+| **Random sample** | General purpose, no specific requirements | Overall data overview |
+| **Stratified sample** | Must represent all categories | Balanced class representation |
+| **Include extremes** | Outlier detection matters | Min/max values for anomaly detection |
+| **Top-k categories** | Categorical distribution matters | Most frequent customer segments |
 
-**Design choices**: fixed `seed` for stability, `sort_keys=True` for deterministic JSON.
+**Design choices**: 
+- Fixed `seed` for reproducibility
+- `sort_keys=True` for deterministic JSON
+- Document sampling rationale in output
 
 ---
 
 # Chunking Long Text
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMb25nIHRleHRdIC0tPiBCW1NwbGl0IGludG8gY2h1bmtzXQogIEIgLS0-IENbUHJvY2VzcyBlYWNoIGNodW5rXQogIEMgLS0-IERbU3ludGhlc2l6ZSBmaW5hbCBvdXRwdXRd)
+![bg right:25% h:320](images/week06_bg_right_25_h_320_35.png)
 
 When text exceeds the context window: **split → process each chunk → synthesize**.
 

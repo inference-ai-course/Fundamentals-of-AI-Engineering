@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is AI Engineering?
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgRFtEYXRhXSAtLT4gUFtQaXBlbGluZV0KICBNW01vZGVscyAvIExMTXNdIC0tPiBQCiAgSVtJbmZyYXN0cnVjdHVyZV0gLS0-IFAKICBQIC0tPiBPW1JlbGlhYmxlIEFJIFN5c3RlbV0=)
+![bg right:25% h:320](images/week01_bg_right_25_h_320_1.png)
 
 AI Engineering = building **reliable systems** that use AI models (including LLMs).
 
@@ -47,7 +47,7 @@ It's not just about the model — it's about **data quality**, **reproducible pi
 
 # What This Course Builds
 
-![h:120](https://mermaid.ink/img/Zmxvd2NoYXJ0IExSCiAgVzFbV2VlayAxLTI6IEZvdW5kYXRpb25zXSAtLT4gVzJbV2VlayAzLTU6IExMTSBBUElzXQogIFcyIC0tPiBXM1tXZWVrIDYtODogQ2Fwc3RvbmVd)
+![h:120](images/week01_h_120_2.png)
 
 - **Week 1**: Environment + data profiling
 - **Weeks 2–5**: ML, LLM APIs, local inference
@@ -72,9 +72,11 @@ LLMs are powerful, but **they don't fix bad engineering**:
 
 # What is Data Profiling?
 
-**Data profiling** = understanding your data *before* using it: row counts, column types, missing values, distributions.
+**Data profiling** = understanding your data *before* using it.
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQkRbRGlydHkgZGF0YV0gLS0-IEJNW01vZGVsIHRyYWluZWQgb24gbm9pc2VdCiAgQk0gLS0-IEJPW1dyb25nIHByZWRpY3Rpb25zXQogIEJPIC0tPiBIW0hhbGx1Y2luYXRpb25zXQ==)
+**Key checks**: row counts, column types, missing values (%), distributions, outliers, duplicates.
+
+![bg right:25% h:320](images/week01_bg_right_25_h_320_3.png)
 
 ### Without profiling (bad path)
 
@@ -86,7 +88,7 @@ Each arrow is a point where profiling could have caught the problem **early**.
 
 # Data Quality → AI Quality
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgR0RbUHJvZmlsZWQgKyBjbGVhbmVkIGRhdGFdIC0tPiBHTVtNb2RlbCBvbiBxdWFsaXR5IGRhdGFdCiAgR00gLS0-IEdPW1JlbGlhYmxlIG91dHB1dHNdCiAgR08gLS0-IFRbVHJ1c3R3b3J0aHkgcmVzdWx0c10=)
+![bg right:25% h:320](images/week_01_diagram_1.png)
 
 ### With profiling (good path)
 
@@ -98,7 +100,7 @@ Profiled + cleaned data → model on quality data → reliable outputs → trust
 
 # Without Isolation: Version Conflicts
 
-![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQTFbb3BlbmFpPT0wLjI4XSAtLT4gWFtWZXJzaW9uIGNvbmZsaWN0XQogIEEyW29wZW5haT09MS42XSAtLT4gWAogIEEzW3Rpa3Rva2VuIG1pc21hdGNoXSAtLT4gWAogIFggLS0-IEJbQ29kZSBicmVha3Nd)
+![h:280](images/week_01_diagram_2.png)
 
 LLM libraries change **fast** — `openai` had a breaking API change from v0.x to v1.x.
 
@@ -106,7 +108,7 @@ LLM libraries change **fast** — `openai` had a breaking API change from v0.x t
 
 # With Isolation: Each Project is Safe
 
-![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgVjFbUHJvamVjdCBBIHZlbnZdIC0tPiBPMVtvcGVuYWk9PTAuMjhdCiAgVjJbUHJvamVjdCBCIHZlbnZdIC0tPiBPMltvcGVuYWk9PTEuNl0KICBPMSAtLT4gVzFbV29ya3NdCiAgTzIgLS0-IFcyW1dvcmtzXQ==)
+![h:280](images/week01_h_280_6.png)
 
 **Pinned versions + isolated venvs** = safety net. Each project has its own dependency versions.
 
@@ -114,7 +116,7 @@ LLM libraries change **fast** — `openai` had a breaking API change from v0.x t
 
 # Environment Setup: venv
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTeXN0ZW0gUHl0aG9uXSAtLT4gQltDcmVhdGUgdmVudl0KICBCIC0tPiBDW0FjdGl2YXRlXQogIEMgLS0-IERbSW5zdGFsbCBkZXBzXQogIEQgLS0-IEVbRnJlZXplIHJlcXVpcmVtZW50cy50eHRdCiAgRSAtLT4gRltSdW4gc2NyaXB0XQ==)
+![bg right:25% h:320](images/week01_bg_right_25_h_320_7.png)
 
 System Python → create venv → activate → install deps → freeze `requirements.txt` → run script.
 
@@ -167,7 +169,7 @@ openai==1.6.1
 
 # Data Profiling Pipeline
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtJbnB1dCBDU1ZdIC0tPiBCe1ZhbGlkYXRlfQogIEIgLS0-fG1pc3NpbmcvZW1wdHl8IENbRmFpbCB3aXRoIGNsZWFyIGVycm9yXQogIEIgLS0-fG9rfCBEW0NvbXB1dGUgc3RhdHNdCiAgRCAtLT4gRVtwcm9maWxlLmpzb24gKyBwcm9maWxlLm1kXQ)
+![bg right:25% h:320](images/week01_bg_right_25_h_320_8.png)
 
 **Defensive programming**: validate early, fail fast.
 

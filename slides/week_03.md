@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What is an API?
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIEFwcF0gLS0-IEJbSFRUUCBSZXF1ZXN0XQogIEIgLS0-IENbSW50ZXJuZXRdCiAgQyAtLT4gRFtQcm92aWRlciBTZXJ2ZXJdCiAgRCAtLT4gRVtQcm9jZXNzIHJlcXVlc3RdCiAgRSAtLT4gRltIVFRQIFJlc3BvbnNlXQogIEYgLS0-IEMKICBDIC0tPiBB)
+![bg right:25% h:320](images/week03_bg_right_25_h_320_17.png)
 
 **API** (Application Programming Interface) = a way for your code to talk to a remote service.
 
@@ -49,7 +49,7 @@ By the end of this week, you should be able to:
 
 # What is a Large Language Model (LLM)?
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUcmFpbmVkIG9uIGJpbGxpb25zIG9mIHRleHRdIC0tPiBNW0xhcmdlIExhbmd1YWdlIE1vZGVsXQogIE0gLS0-IEJbSW5wdXQ6IHRleHQgcHJvbXB0XQogIEIgLS0-IE0KICBNIC0tPiBDW091dHB1dDogZ2VuZXJhdGVkIHRleHRd)
+![bg right:25% h:320](images/week_03_diagram_1.png)
 
 An LLM is a **very large ML model** (billions of parameters) trained on massive text data.
 
@@ -62,7 +62,7 @@ An LLM is a **very large ML model** (billions of parameters) trained on massive 
 
 # What Happens When You Call an LLM API?
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtCdWlsZCBwcm9tcHRdIC0tPiBCW1NlbmQgSFRUUCByZXF1ZXN0XQogIEIgLS0-IENbTW9kZWwgdG9rZW5pemVzIGlucHV0XQogIEMgLS0-IERbTW9kZWwgZ2VuZXJhdGVzIHRva2Vuc10KICBEIC0tPiBFW1JldHVybiByZXNwb25zZSB0ZXh0XQogIEUgLS0-IEZbUGFyc2UgKyB2YWxpZGF0ZSBvdXRwdXRd)
+![bg right:25% h:320](images/week_03_diagram_2.png)
 
 1. You **build a prompt** (system + user instructions + data)
 2. Send it as an **HTTP request** to the provider
@@ -82,6 +82,8 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 | `machinelearning` | ~3-4 | No spaces = worse tokenization |
 | `你好世界` | ~4+ | Non-English = more tokens per word |
 
+**Rule of thumb**: ~4 characters per token for English. Non-English text can use **up to 7x more tokens** for the same meaning.
+
 **Why tokens matter**:
 - Token count drives **cost** ($X per 1K tokens)
 - Token count drives **latency** (more tokens = slower)
@@ -91,7 +93,7 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 
 # Context Window: A Hard Budget
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQ1tDb250ZXh0IFdpbmRvd10gLS0-IFNbU3lzdGVtIGluc3RydWN0aW9uc10KICBDIC0tPiBQW1Byb21wdCAvIHVzZXIgaW5wdXRdCiAgQyAtLT4gUltSZXRyaWV2ZWQgY29udGV4dF0KICBDIC0tPiBPW01vZGVsIG91dHB1dF0=)
+![bg right:25% h:320](images/week03_bg_right_25_h_320_20.png)
 
 Everything must fit inside the context window.
 
@@ -100,6 +102,8 @@ Everything must fit inside the context window.
 | GPT-3.5 | 4k–16k tokens |
 | GPT-4 | 8k–128k tokens |
 | Claude | 100k–200k tokens |
+
+**Note**: Context window sizes evolve rapidly. Always check current model documentation before deployment.
 
 ---
 
@@ -138,7 +142,7 @@ A strong prompt is not "clever wording" — it's a **specification**.
 
 # Prompt Contract Flow
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSYXcgdGV4dCBpbnB1dF0gLS0-IEJbUHJvbXB0IGNvbnRyYWN0XQogIEIgLS0-IENbTExNIGNhbGxdCiAgQyAtLT4gRFtSYXcgb3V0cHV0IHRleHRdCiAgRCAtLT4gRVtQYXJzZSBKU09OXQogIEUgLS0-IEZbVmFsaWRhdGUgc2NoZW1hXQogIEYgLS0-IEdbVHlwZWQgcmVzdWx0XQ==)
+![bg right:25% h:320](images/week03_bg_right_25_h_320_21.png)
 
 Raw text → prompt contract → LLM call → parse JSON → validate schema → typed result.
 
@@ -160,7 +164,7 @@ Each step can fail independently — separating them helps debugging.
 
 # Retry / Repair Loop
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtTZW5kIHByb21wdF0gLS0-IEJbR2V0IHJlc3BvbnNlXQogIEIgLS0-IEN7VmFsaWQgSlNPTiArIFNjaGVtYT99CiAgQyAtLT58eWVzfCBEW1JldHVybiByZXN1bHRdCiAgQyAtLT58bm98IEVbUmVwYWlyIHByb21wdCArIHJldHJ5XQogIEUgLS0-IEI=)
+![bg right:25% h:320](images/week03_bg_right_25_h_320_22.png)
 
 When the LLM returns invalid output:
 1. **Parse fails** → tell the model what went wrong, retry

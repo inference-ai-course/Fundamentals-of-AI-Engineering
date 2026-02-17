@@ -1,0 +1,7 @@
+flowchart TD
+  M[Models list] --> R[Run prompt set]
+  P[Prompt set] --> R
+  R --> L[Record latency]
+  R --> Q[Save outputs]
+  L --> S[summary.json]
+  Q --> S

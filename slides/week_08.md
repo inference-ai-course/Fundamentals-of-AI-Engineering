@@ -37,17 +37,20 @@ By the end of this week, you should be able to:
 
 # What is a Retrospective?
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSZWZsZWN0IG9uIHByb2plY3RdIC0tPiBCW0lkZW50aWZ5IHRvcCBpc3N1ZXNdCiAgQiAtLT4gQ1tSb290IGNhdXNlIGFuYWx5c2lzXQogIEMgLS0-IERbSW1wbGVtZW50IGZpeGVzXQogIEQgLS0-IEVbVmVyaWZ5IHdpdGggbWV0cmljc10KICBFIC0tPiBGW0RvY3VtZW50IGxlc3NvbnNd)
+![bg right:25% h:320](images/week08_bg_right_25_h_320_40.png)
 
 A **retrospective** = a structured reflection on what happened, why, and what to do differently.
 
-"Blameless postmortems" emphasize **learning** from failures — backed by **evidence** (logs, artifacts, metrics), not guesswork.
+**Key principles**:
+- "Blameless" — focus on systems, not individuals
+- Evidence-based — use logs, artifacts, metrics (not guesswork)
+- Actionable — each finding should lead to a concrete improvement
 
 ---
 
 # What is RAG? (Level 2 Preview)
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtVc2VyIHF1ZXN0aW9uXSAtLT4gQltSZXRyaWV2ZSByZWxldmFudCBkb2NzXQogIEIgLS0-IENbQXVnbWVudCBwcm9tcHQgd2l0aCBkb2NzXQogIEMgLS0-IERbR2VuZXJhdGUgYW5zd2VyXQogIEQgLS0-IEVbQW5zd2VyIHdpdGggY2l0YXRpb25zXQ==)
+![bg right:25% h:320](images/week_08_diagram_1.png)
 
 **RAG** (Retrieval-Augmented Generation) = instead of sending all data to the LLM, first **retrieve** only the relevant parts, then **augment** the prompt with them.
 
@@ -57,7 +60,7 @@ This is the core pattern of Level 2 — everything you learned in this course ap
 
 # Demo Flow
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtGcmVzaCBjbG9uZV0gLS0-IEJbRm9sbG93IFJFQURNRV0KICBCIC0tPiBDW1J1biBwaXBlbGluZV0KICBDIC0tPiBEW1Nob3cgYXJ0aWZhY3RzXQogIEQgLS0-IEVbU2hvdyBmYWlsdXJlIGNhc2VdCiAgRSAtLT4gRltTaG93IHRlc3RzIHBhc3Nd)
+![bg right:25% h:320](images/week08_bg_right_25_h_320_42.png)
 
 A demo is successful when **another person can reproduce it**.
 

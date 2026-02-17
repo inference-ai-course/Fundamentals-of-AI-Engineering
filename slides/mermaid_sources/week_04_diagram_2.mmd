@@ -1,0 +1,5 @@
+flowchart TD
+  A[Timeout: dont hang forever] --> B[Retry: try again on failure]
+  B --> C[Backoff: wait longer each retry]
+  C --> D[Cache: reuse previous results]
+  D --> E[Logging: record what happened]

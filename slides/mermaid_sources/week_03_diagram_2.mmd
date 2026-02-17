@@ -1,0 +1,6 @@
+flowchart TD
+  A[Build prompt] --> B[Send HTTP request]
+  B --> C[Model tokenizes input]
+  C --> D[Model generates tokens]
+  D --> E[Return response text]
+  E --> F[Parse + validate output]

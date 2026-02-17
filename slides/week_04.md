@@ -37,7 +37,7 @@ By the end of this week, you should be able to:
 
 # What Can Go Wrong With an API Call?
 
-![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtZb3VyIEFwcCBzZW5kcyByZXF1ZXN0XSAtLT4gQntTZXJ2ZXIgcmVzcG9uZHM_fQogIEIgLS0-fHRpbWVvdXR8IENbTm8gcmVzcG9uc2UgaW4gdGltZV0KICBCIC0tPnw0Mjl8IERbVG9vIG1hbnkgcmVxdWVzdHNdCiAgQiAtLT18NTAwLzUwM3wgRVtTZXJ2ZXIgZXJyb3JdCiAgQiAtLT18MjAwIE9LfCBGW1N1Y2Nlc3Nd)
+![h:280](images/week_04_diagram_1.png)
 
 LLM APIs are **remote services** — they can timeout, overload, or fail at any time.
 
@@ -47,7 +47,7 @@ Your code must handle every failure path, not just the happy path.
 
 # Reliability Engineering: The Layers
 
-![h:280](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtUaW1lb3V0OiBkb250IGhhbmcgZm9yZXZlcl0gLS0-IEJbUmV0cnk6IHRyeSBhZ2FpbiBvbiBmYWlsdXJlXQogIEIgLS0-IENbQmFja29mZjogd2FpdCBsb25nZXIgZWFjaCByZXRyeV0KICBDIC0tPiBEW0NhY2hlOiByZXVzZSBwcmV2aW91cyByZXN1bHRzXQogIEQgLS0-IEVbTG9nZ2luZzogcmVjb3JkIHdoYXQgaGFwcGVuZWRd)
+![h:280](images/week_04_diagram_2.png)
 
 Each layer protects against a different class of failure. Together they make your LLM client **production-ready**.
 
@@ -68,14 +68,16 @@ Timeout → Retry → Backoff → Cache → Logging
 | Embedding/classification | 3s | 10s | 13s |
 
 - **Connect timeout** (short): catches DNS/network issues quickly
-- **Read timeout** (longer): allows model processing time
+- **Read timeout** (longer): allows model processing time (varies by task complexity)
 - **Always make timeouts configurable** (env var or CLI flag)
+
+**Why separate timeouts?** Connection fails fast (network down), but reading waits for the model to generate output.
 
 ---
 
 # Retries + Exponential Backoff
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtSZXF1ZXN0IGZhaWxzXSAtLT4gQntSZXRyeWFibGU_fQogIEIgLS0-fDQyOS81MDMvdGltZW91dHwgQ1tCYWNrb2ZmOiAwLjVzLCAxcywgMnNdCiAgQyAtLT4gRFtSZXRyeSBvciBnaXZlIHVwXQogIEIgLS0-fDQwMS80MDR8IEVbRmFpbCBpbW1lZGlhdGVseV0=)
+![bg right:25% h:320](images/week04_bg_right_25_h_320_25.png)
 
 - **Retry transient failures**: timeouts, 429, 503
 - **Don't retry permanent failures**: 401, 404
@@ -117,7 +119,7 @@ Timeout → Retry → Backoff → Cache → Logging
 
 # Graceful Degradation
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtQcmltYXJ5IG1vZGVsIGZhaWxzXSAtLT4gQntGYWxsYmFjaz99CiAgQiAtLT58eWVzfCBDW1RyeSBzbWFsbGVyIG1vZGVsXQogIEIgLS0-fGNhY2hlfCBEW1NlcnZlIGNhY2hlZCByZXN1bHRdCiAgQiAtLT58cXVldWV8IEVbUXVldWUgZm9yIGxhdGVyXQogIEIgLS0-fG5vfCBGW1JldHVybiBjbGVhciBlcnJvcl0=)
+![bg right:25% h:320](images/week04_bg_right_25_h_320_26.png)
 
 When rate-limited or failing, **degrade instead of crashing**:
 - GPT-4 fails → fall back to GPT-3.5
@@ -128,7 +130,7 @@ When rate-limited or failing, **degrade instead of crashing**:
 
 # Caching: Save Money and Time
 
-![bg right:25% h:320](https://mermaid.ink/img/Zmxvd2NoYXJ0IFRECiAgQVtMTE0gUmVxdWVzdF0gLS0-IEtbTWFrZSBjYWNoZSBrZXldCiAgSyAtLT4gQ3tDYWNoZSBoaXQ_fQogIEMgLS0-fHllc3wgSFtSZXR1cm4gY2FjaGVkIHJlc3BvbnNlXQogIEMgLS0-fG5vfCBQW0NhbGwgcHJvdmlkZXJdCiAgUCAtLT4gU1tTdG9yZSByZXNwb25zZV0KICBTIC0tPiBPW1JldHVybiByZXNwb25zZV0=)
+![bg right:25% h:320](images/week04_bg_right_25_h_320_27.png)
 
 **Cache key must include** all parameters that affect output.
 

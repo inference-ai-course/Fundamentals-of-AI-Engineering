@@ -1,0 +1,5 @@
+flowchart TD
+  A1[openai==0.28] --> X[Version conflict]
+  A2[openai==1.6] --> X
+  A3[tiktoken mismatch] --> X
+  X --> B[Code breaks]
