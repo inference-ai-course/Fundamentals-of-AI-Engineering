@@ -82,9 +82,9 @@ Even if you later focus on LLMs, this disciplined loop is the basis for:
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on evaluation mindset and metrics:
+Foundations Course assumes Self-learn is complete. If you need a refresher on evaluation mindset and metrics:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Evaluation metrics (accuracy/precision/recall/F1)](../self_learn/Chapters/4/02_core_concepts.md)
 
 Why it matters here (Week 2):

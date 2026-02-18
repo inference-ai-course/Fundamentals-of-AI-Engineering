@@ -1,10 +1,10 @@
-# Foundamental Course — Week 3 Tutorials
+# Foundations Course — Week 3 Tutorials
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher:
+Foundations Course assumes Self-learn is complete. If you need a refresher:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
 
 ## Overview
@@ -19,7 +19,7 @@ These tutorials expand Week 3 into practical LLM engineering skills:
 ## Navigation
 
 - [01 — Tokens and context windows (practical intuition)](01_tokens_context.md)
-- [02 — Prompts as API contracts (design patterns)](02_prompt_contracts.md)
+- [02 — Structured Prompt Specification (design patterns)](02_prompt_contracts.md)
 - [03 — Structured outputs: JSON parsing + validation + retry/repair](03_structured_outputs_validation.md)
 
 ## Recommended order

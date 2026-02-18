@@ -19,9 +19,9 @@ We will write `benchmark_local_llm.py` that:
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on local inference + practical evaluation:
+Foundations Course assumes Self-learn is complete. If you need a refresher on local inference + practical evaluation:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 4: Hugging Face Platform and Local Inference](../self_learn/Chapters/4/Chapter4.md)
 
 Why it matters here (Week 5):
@@ -83,7 +83,7 @@ if __name__ == "__main__":
     main()
 ```
 
-Benchmark hygiene notes:
+Benchmarking best practices:
 
 - consider a warmup run per model (do not record it) to avoid counting model load time
 - keep prompts short enough that you are comparing models, not just comparing how long tokenization takes
@@ -326,7 +326,7 @@ if __name__ == "__main__":
 
 ## Interpreting results
 
-**Speed vs Quality tradeoff:**
+**Latency-Quality tradeoff:**
 - Smaller models (1B-3B): fast but may have lower quality
 - Larger models (7B-13B): slower but often better quality
 

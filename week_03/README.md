@@ -1,10 +1,10 @@
-# Foundamental Course — Week 3: LLM Fundamentals + Prompt Engineering
+# Foundations Course — Week 3: LLM Fundamentals + Prompt Engineering
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher:
+Foundations Course assumes Self-learn is complete. If you need a refresher:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
 
 ## What you should be able to do by the end of this week
@@ -38,7 +38,7 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (Self-learn refresher)
 
-Foundamental Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
+Foundations Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
 - Prompt engineering fundamentals and evaluation mindset:
   - ../self_learn/Chapters/3/02_prompt_engineering_evaluation.md

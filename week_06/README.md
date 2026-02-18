@@ -1,10 +1,10 @@
-# Foundamental Course — Week 6: Capstone Prototype (End-to-End Flow)
+# Foundations Course — Week 6: Capstone Prototype (End-to-End Flow)
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher:
+Foundations Course assumes Self-learn is complete. If you need a refresher:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
 
 ## What you should be able to do by the end of this week
@@ -43,7 +43,7 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (Self-learn refresher)
 
-Foundamental Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
+Foundations Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
 - Pipeline and artifact mindset (inputs/outputs/contracts):
   - ../self_learn/Chapters/3/Chapter3.md

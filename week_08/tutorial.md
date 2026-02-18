@@ -1,10 +1,10 @@
-# Foundamental Course — Week 8 Tutorials
+# Foundations Course — Week 8 Tutorials
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher:
+Foundations Course assumes Self-learn is complete. If you need a refresher:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn Schedule](../self_learn/Schedule.md)
 
 ## Overview
@@ -41,4 +41,4 @@ Why this order works:
     - What to include: one failure case, the evidence (logs/artifacts), and the fix.
 
 3. **Level 2 transition last**
-    - After you have a stable Foundamental Course project, you can understand what changes in Level 2 (eval sets, observability, trust boundaries).
+    - After you have a stable Foundations Course project, you can understand what changes in Level 2 (eval sets, observability, trust boundaries).

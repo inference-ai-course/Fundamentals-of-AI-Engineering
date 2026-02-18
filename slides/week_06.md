@@ -62,7 +62,7 @@ You **cannot** send a full dataset to an LLM — it won't fit in the context win
 
 ![bg right:40% h:320](images/week06_bg_right_25_h_320_34.png)
 
-CSV → Profile → Compress → LLM → Validate → Report
+CSV → Profile → Context Compression → LLM → Validate → Report
 
 Each stage saves an artifact; re-run from any checkpoint.
 
@@ -74,7 +74,7 @@ Each stage saves an artifact; re-run from any checkpoint.
 |-------|-------|--------|
 | 1. **Load** | `data/*.csv` | In-memory DataFrame |
 | 2. **Profile** | DataFrame | `output/profile.json` |
-| 3. **Compress** | DataFrame + profile | `output/compressed.json` |
+| 3. **Context Compression** | DataFrame + profile | `output/compressed.json` |
 | 4. **LLM** | Prompt + compressed input | `output/llm_raw.json` |
 | 5. **Report** | Validated LLM output | `output/report.json` + `report.md` |
 
@@ -128,13 +128,13 @@ If too large: reduce sample size or remove verbose fields. Rule of thumb: ~4 cha
 <!-- _class: part -->
 
 # Part 03
-## Chunking Long Text + Synthesis
+## Text Chunking + Synthesis
 
 `week_06/03_chunking_synthesis.md` · `03_chunking_synthesis.ipynb`
 
 ---
 
-# Chunking Long Text
+# Text Chunking
 
 ![bg right:40% h:320](images/concepts/chunking.png)
 
@@ -203,7 +203,7 @@ Your capstone should run with **one command**:
 # Workshop / Deliverables
 
 Implement the full flow:
-- CSV → profiling → sampling/compression → LLM call → `report.json` + `report.md`
+- CSV → profiling → sampling/context compression → LLM call → `report.json` + `report.md`
 - Ensure the entire pipeline runs with **one command**
 - Save intermediate artifacts at each stage
 

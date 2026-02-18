@@ -22,7 +22,7 @@ By the end of this week, you should be able to:
 
 - Explain why we split data into train/validation
 - Train a baseline model, evaluate it, and save artifacts
-- Compare two runs and write a short failure retrospective
+- Compare two runs and write a short failure analysis (post-mortem)
 
 ---
 
@@ -168,7 +168,7 @@ Reproducibility means:
 | **Control randomness** | `random_state=42` | Fixed seed for sampling |
 | **Parameterize runs** | `--seed`, `--max_iter` as flags | `--model`, `--temperature` as flags |
 | **Save artifacts** | `config.json` + `metrics.json` | Prompt + response + latency |
-| **Use run IDs** | `run_20260210_073204/` | Timestamped output folders |
+| **Use run IDs** | `run_20260210_073204/` | Timestamped output folders (audit trail) |
 
 ---
 
@@ -190,13 +190,13 @@ Every run should produce a traceable folder:
 <!-- _class: part -->
 
 # Part 03
-## Comparing Runs + Writing a Report
+## Experiment Comparison + Writing a Report
 
 `week_02/03_compare_runs_report.md` · `03_compare_runs_report.ipynb`
 
 ---
 
-# Comparing Runs
+# Experiment Comparison
 
 A useful experiment changes **one variable** at a time.
 
@@ -214,7 +214,7 @@ A useful experiment changes **one variable** at a time.
 
 ---
 
-# Writing a Report
+# Experiment Report
 
 A good report is short and structured:
 
@@ -224,7 +224,7 @@ A good report is short and structured:
 | **Change** | Exactly what you changed (one variable) |
 | **Result** | Metrics before/after |
 | **Interpretation** | Why you think it changed |
-| **Failure retrospective** | One run that didn't work + what you learned |
+| **Failure analysis** | One run that didn't work + what you learned |
 | **Next experiment** | One clear idea |
 
 **Two rules**: always include exact commands, always point to artifact folders.
@@ -250,7 +250,7 @@ A good report is short and structured:
 - Write `report.md`:
   - What you changed
   - What happened (metrics)
-  - One failed run + your next experiment idea
+  - One failure analysis + your next experiment idea
 
 ---
 

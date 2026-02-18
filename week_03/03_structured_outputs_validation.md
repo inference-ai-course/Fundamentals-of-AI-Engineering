@@ -28,9 +28,9 @@ The important engineering point: downstream code should never need to “guess�
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on structured outputs, schemas, and validation mindset:
+Foundations Course assumes Self-learn is complete. If you need a refresher on structured outputs, schemas, and validation mindset:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Structured outputs and schemas](../self_learn/Chapters/3/01_function_calling_structured_outputs.md)
 
 Why it matters here (Week 3):

@@ -94,7 +94,7 @@ A good CLI makes the **common case easy** and the **edge case possible**.
 
 ---
 
-# Config Management: Layers
+# Configuration Management
 
 ![h:280](images/concepts/cli_terminal.png)
 
@@ -146,7 +146,7 @@ A good error message contains: **what** went wrong, **where**, and **what to try
 | **Partial success** | Collect both successes and failures in batch |
 | **Checkpoint** | Save state before risky LLM call |
 
-**Dual reporting**: short user-facing error + detailed log for debugging.
+**Dual-layer error reporting**: short user-facing error + detailed log for debugging.
 
 ---
 
@@ -159,7 +159,7 @@ A good error message contains: **what** went wrong, **where**, and **what to try
 
 ---
 
-# Minimum 3 Test Cases
+# Required Test Cases
 
 | Test type | What to test | Example |
 |-----------|-------------|---------|
@@ -200,7 +200,7 @@ Run with: `pytest --cov=src --cov-report=html`
 - Finalize `run_capstone.py` CLI with `--help`, `--dry-run`
 - Add `.env` / `.env.example` for secrets
 - Implement error handling with clear messages
-- Write **3+ tests**: happy path, edge case, failure case
+- Write **3+ tests**: happy path, edge case, failure case (required test cases)
 - Run `pytest` and confirm all pass
 
 ---

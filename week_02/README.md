@@ -1,17 +1,17 @@
-# Foundamental Course — Week 2: The ML Training Loop + Reproducible Baselines
+# Foundations Course — Week 2: The ML Training Loop + Reproducible Baselines
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher:
+Foundations Course assumes Self-learn is complete. If you need a refresher:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 ## What you should be able to do by the end of this week
 
 - Explain why we split data into train/validation.
 - Train a baseline model, evaluate it, and save artifacts.
-- Compare two runs and write a short failure retrospective.
+- Compare two runs and write a short failure analysis (post-mortem).
 
 ### The ML training loop
 
@@ -41,7 +41,7 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (Self-learn refresher)
 
-Foundamental Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
+Foundations Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
 - Reproducible environments, dependencies, and basic Python project habits:
   - ../self_learn/Chapters/2/Chapter2.md

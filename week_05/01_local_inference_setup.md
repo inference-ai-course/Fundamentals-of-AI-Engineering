@@ -10,9 +10,9 @@
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on local inference and model/platform fundamentals:
+Foundations Course assumes Self-learn is complete. If you need a refresher on local inference and model/platform fundamentals:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 4: Hugging Face Platform and Local Inference](../self_learn/Chapters/4/Chapter4.md)
 
 Why it matters here (Week 5):
@@ -195,7 +195,7 @@ Practical rule of thumb: local inference is often bottlenecked by memory bandwid
 - **16GB RAM**: Can run 7B models comfortably
 - **32GB+ RAM**: Can run 13B+ models
 
-For Foundamental Course, focus on the practical effect:
+For Foundations Course, focus on the practical effect:
 
 - If it doesn't fit, you can't run it
 - Smaller models = faster iteration during development
@@ -214,7 +214,7 @@ For Foundamental Course, focus on the practical effect:
 - Requires: NVIDIA GPU with CUDA, or Apple Silicon with Metal
 - Good for: production, benchmarking, larger models
 
-**Recommendation for Foundamental Course:**
+**Recommendation for Foundations Course:**
 - Start CPU-only with small models (1B-3B)
 - Measure latency for your use case
 - Upgrade hardware only if needed

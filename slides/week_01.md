@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 1 — Environment Setup & Data Processing"
+footer: "Week 1 — Environment Setup & Data Quality"
 style: |
   @import 'theme.css';
 ---
@@ -12,7 +12,7 @@ style: |
 
 # Week 1
 
-## Environment Setup & Data Processing Basics
+## Environment Setup & Data Quality Basics
 
 ---
 
@@ -22,7 +22,7 @@ By the end of this week, you should be able to:
 
 - Create a clean Python environment and install dependencies reliably
 - Run a project from a README on a fresh machine (or fresh folder)
-- Build a small "data profiling" script that reads a CSV and produces reproducible outputs
+- Build a data quality profiling script that reads a CSV and produces reproducible outputs
 
 ---
 
@@ -61,9 +61,9 @@ LLMs are powerful, but **they don't fix bad engineering**:
 
 ---
 
-# What is Data Profiling?
+# What is Data Quality Profiling?
 
-**Data profiling** = understanding your data *before* using it.
+**Data profiling** = systematically assessing data quality *before* using it (structure, completeness, consistency).
 
 **Key checks**: row counts, column types, missing values (%), distributions, outliers, duplicates.
 
@@ -170,13 +170,13 @@ openai==1.6.1
 <!-- _class: part -->
 
 # Part 02
-## Data Profiling Script
+## Data Quality Profiling Script
 
 `week_01/02_data_profiling_script.md` · `02_data_profiling_script.ipynb`
 
 ---
 
-# Data Profiling Pipeline
+# Data Quality Profiling Pipeline
 
 ![bg right:40% h:360](images/week01_bg_right_25_h_320_8.png)
 
@@ -188,7 +188,7 @@ openai==1.6.1
 
 ---
 
-# Data Profiling for LLM Pipelines
+# Data Quality Profiling for LLM Pipelines
 
 In later weeks, you will **compress** data and send it to an LLM for analysis.
 
@@ -199,7 +199,7 @@ In later weeks, you will **compress** data and send it to an LLM for analysis.
 | Unexpected encoding | Garbled text in the prompt |
 | Empty dataset | Wasted API call + confusing output |
 
-**Rule**: Profile first, send to LLM second. The profiling habit you build this week is the foundation for every LLM pipeline later.
+**Rule**: Profile first, send to LLM second. The data quality profiling habit you build this week is the foundation for every LLM pipeline later.
 
 ---
 
@@ -212,7 +212,7 @@ In later weeks, you will **compress** data and send it to an LLM for analysis.
 | Deterministic outputs | `sort_keys=True` in JSON |
 | Stable environment | Pinned `requirements.txt` |
 | Controlled inputs | Explicit `--input` flag |
-| Traceable outputs | All artifacts in `output/` directory |
+| Traceable outputs | All artifacts in `output/` directory (audit trail) |
 
 **For LLM work**: When you later compare prompt strategies or model versions, reproducibility lets you **isolate what changed** — was it the data, the prompt, or the model?
 

@@ -13,15 +13,15 @@ In practice, reproducibility is a *package* of habits.
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on environments, dependency recording, and “what makes a run reproducible”:
+Foundations Course assumes Self-learn is complete. If you need a refresher on environments, dependency recording, and “what makes a run reproducible”:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 Why it matters here (Week 2):
 
 - You will compare runs; without saved config + artifacts, you can’t explain why metrics changed.
-- “Reproducible” in Foundamental Course mostly means **traceable**: same inputs/seed/command → you can recreate and debug the run.
+- “Reproducible” in Foundations Course mostly means **traceable**: same inputs/seed/command → you can recreate and debug the run.
 
 ---
 
@@ -89,13 +89,13 @@ Because it creates an audit trail:
 
 A run id is just a unique folder per run.
 
-A timestamp-based approach is good enough for Foundamental Course:
+A timestamp-based approach is good enough for Foundations Course:
 
 ```python
 run_id = time.strftime("run_%Y%m%d_%H%M%S")
 ```
 
-If you later run multiple experiments quickly, timestamps can collide. A simple fix is adding a random suffix (or using a UUID), but timestamps are fine for Foundamental Course.
+If you later run multiple experiments quickly, timestamps can collide. A simple fix is adding a random suffix (or using a UUID), but timestamps are fine for Foundations Course.
 
 ---
 

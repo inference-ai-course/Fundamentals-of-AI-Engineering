@@ -149,7 +149,7 @@ When rate-limited or failing, **degrade instead of crashing**:
 <!-- _class: part -->
 
 # Part 04
-## Caching and Observability (Logging)
+## Caching and Observability & Logging
 
 `week_04/04_caching_logging.md` · `04_caching_logging.ipynb`
 
@@ -181,7 +181,7 @@ This prevents cascading failures and gives the service time to recover.
 
 ---
 
-# Logging: Minimum Viable Request Log
+# Logging: Structured Request Logging
 
 | Field | Why |
 |-------|-----|

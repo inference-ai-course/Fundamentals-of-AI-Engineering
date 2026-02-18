@@ -1,4 +1,4 @@
-# Week 3 — Part 02: Prompts as API contracts
+# Week 3 — Part 02: Structured Prompt Specification
 
 ## Overview
 
@@ -10,9 +10,9 @@ If you treat the model like a service, your prompt is the API contract.
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on prompt engineering fundamentals, guardrails, and evaluation mindset:
+Foundations Course assumes Self-learn is complete. If you need a refresher on prompt engineering fundamentals, guardrails, and evaluation mindset:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Prompt engineering and evaluation](../self_learn/Chapters/3/02_prompt_engineering_evaluation.md)
 - [Self-learn — Structured outputs and schemas](../self_learn/Chapters/3/01_function_calling_structured_outputs.md)
 
@@ -159,7 +159,7 @@ Here is the JSON:
 
 ---
 
-### Failure 3: No refusal conditions → hallucinated values
+### Failure 3: No fallback conditions → hallucinated values
 
 **Input**: "The meeting was productive."
 

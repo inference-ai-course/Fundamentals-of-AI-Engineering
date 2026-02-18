@@ -14,9 +14,9 @@ That means:
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes you do a lot self-study. Refer to self-study materials for refresher on environments or Jupyter:
+Foundations Course assumes you do a lot self-study. Refer to self-study materials for refresher on environments or Jupyter:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 2: Conda environment management](../self_learn/Chapters/2/03_conda_environments.md)
 - [Self-learn — Chapter 1: Conda environments and packages](../self_learn/Chapters/1/04_conda_environment_management.md)
 - [Self-learn — Chapter 1: Jupyter](../self_learn/Chapters/1/05_jupyter_interactive_computing.md)

@@ -12,9 +12,9 @@ Idempotency ensures retries do not cause duplicate side effects.
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on reliability/operations and failure handling:
+Foundations Course assumes Self-learn is complete. If you need a refresher on reliability/operations and failure handling:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 5: Resource Monitoring and Containerization](../self_learn/Chapters/5/Chapter5.md)
 
 Why it matters here (Week 4):

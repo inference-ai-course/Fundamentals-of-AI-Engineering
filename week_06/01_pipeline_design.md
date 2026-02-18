@@ -19,9 +19,9 @@ This structure improves:
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on pipeline structure, artifacts, and basic AI engineering workflow:
+Foundations Course assumes Self-learn is complete. If you need a refresher on pipeline structure, artifacts, and basic AI engineering workflow:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
 
 Why it matters here (Week 6):
@@ -63,7 +63,7 @@ For each stage, aim to make the contract explicit.
 
 A useful rule of thumb: if a stage fails, you should still have the previous stage’s artifact saved so you can debug without re-running everything.
 
-For Foundamental Course, this can all be in one script, but you should treat these stages explicitly.
+For Foundations Course, this can all be in one script, but you should treat these stages explicitly.
 
 Artifact mindset (recommended):
 

@@ -10,15 +10,15 @@ Your goal is a single module you can reuse across projects that provides:
 - basic caching
 - logging
 
-This is a Foundamental Course skeleton (provider-agnostic). You can adapt it to OpenAI/Anthropic/etc.
+This is a Foundations Course skeleton (provider-agnostic). You can adapt it to OpenAI/Anthropic/etc.
 
 ---
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on reliability/operations and debugging practices:
+Foundations Course assumes Self-learn is complete. If you need a refresher on reliability/operations and debugging practices:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 5: Resource Monitoring and Containerization](../self_learn/Chapters/5/Chapter5.md)
 
 Why it matters here (Week 4):
@@ -110,7 +110,7 @@ class LLMClient:
                 if attempt < max_retries:
                     time.sleep(min(2 ** attempt, 4))
 
-In more robust clients, you often also add jitter to avoid “retry storms” (many clients retrying at the same time). For Foundamental Course, the simple backoff is enough.
+In more robust clients, you often also add jitter to avoid “retry storms” (many clients retrying at the same time). For Foundations Course, the simple backoff is enough.
 
         raise RuntimeError(f"LLM call failed after retries: {last_err}")
 ```

@@ -1,10 +1,10 @@
-# Foundamental Course — Week 5: Local Inference (Ollama) and Model Comparison
+# Foundations Course — Week 5: Local Inference (Ollama) and Model Comparison
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher:
+Foundations Course assumes Self-learn is complete. If you need a refresher:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 4: Hugging Face Platform and Local Inference](../self_learn/Chapters/4/Chapter4.md)
 
 ## What you should be able to do by the end of this week
@@ -45,7 +45,7 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (Self-learn refresher)
 
-Foundamental Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
+Foundations Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
 - Local inference fundamentals and model/platform concepts:
   - ../self_learn/Chapters/4/Chapter4.md

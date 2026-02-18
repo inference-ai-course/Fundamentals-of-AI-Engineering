@@ -147,7 +147,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 
 ![h:280](images/week_05_diagram_2.png)
 
-**Benchmark hygiene**:
+**Benchmarking best practices**:
 - Same prompt set for all models
 - Warmup run per model
 - Save all outputs to disk
@@ -163,7 +163,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 | llama3.2:1b | 0.8 | 1.2 | 1.5 |
 | llama3.1:8b | 3.2 | 4.5 | 5.1 |
 
-### Quality heuristics
+### Quality evaluation criteria
 
 | Task type | What to check |
 |-----------|--------------|
@@ -171,7 +171,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 | **Extraction** | Correct values? Hallucinated placeholders? |
 | **Summaries** | Within length limit? Key facts mentioned? |
 
-**Speed vs Quality tradeoff**: smaller = faster but lower quality.
+**Latency-Quality tradeoff**: smaller models = lower latency but lower output quality.
 
 ---
 

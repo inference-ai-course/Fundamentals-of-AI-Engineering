@@ -2,7 +2,7 @@
 
 ## Overview
 
-Foundamental Course is mostly:
+Foundations Course is mostly:
 
 - a single-project pipeline
 - mostly offline, script-based
@@ -19,9 +19,9 @@ Level 2 shifts toward **systems thinking**:
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on the overall roadmap and prerequisites:
+Foundations Course assumes Self-learn is complete. If you need a refresher on the overall roadmap and prerequisites:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn Schedule](../self_learn/Schedule.md)
 
 Why it matters here (Week 8):
@@ -33,25 +33,25 @@ Why it matters here (Week 8):
 ## Practical mindset shifts
 
 ### Shift 1: Script → Service
-**Foundamental Course**: Single-file scripts, run once and inspect output  
+**Foundations Course**: Single-file scripts, run once and inspect output  
 **Level 2**: FastAPI services, handle concurrent requests, expose APIs
 
 **What changes**: You'll deploy as a web service, not just a CLI tool
 
 ### Shift 2: Prompt → Retrieval
-**Foundamental Course**: Static prompts with compressed data  
+**Foundations Course**: Static prompts with compressed data  
 **Level 2**: Dynamic prompts assembled from retrieved documents
 
 **What changes**: You'll implement vector search, chunking, and reranking
 
 ### Shift 3: Manual inspection → Evaluation sets
-**Foundamental Course**: Read output, judge quality manually  
+**Foundations Course**: Read output, judge quality manually  
 **Level 2**: Automated metrics (precision@k, recall, F1) on labeled test sets
 
 **What changes**: You'll build eval harnesses and track metrics over time
 
 ### Shift 4: Single call → Multi-step workflows
-**Foundamental Course**: One LLM call per run  
+**Foundations Course**: One LLM call per run  
 **Level 2**: Chains (plan → retrieve → answer), loops (refine until valid)
 
 **What changes**: You'll orchestrate multiple LLM calls with control flow

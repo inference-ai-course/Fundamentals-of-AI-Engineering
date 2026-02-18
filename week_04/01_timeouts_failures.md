@@ -11,9 +11,9 @@ A timeout is the simplest reliability feature:
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on reliability/operations and debugging practices:
+Foundations Course assumes Self-learn is complete. If you need a refresher on reliability/operations and debugging practices:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 5: Resource Monitoring and Containerization](../self_learn/Chapters/5/Chapter5.md)
 
 Why it matters here (Week 4):
@@ -50,7 +50,7 @@ Useful failure taxonomy:
 - Use different timeouts for connect vs read if your client supports it.
 - Make the timeout configurable.
 
-Practical approach (Foundamental Course):
+Practical approach (Foundations Course):
 
 - start with a conservative timeout (e.g., 30s)
 - log timeouts distinctly from other failures

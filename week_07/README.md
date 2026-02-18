@@ -1,10 +1,10 @@
-# Foundamental Course — Week 7: Capstone Engineering & Quality
+# Foundations Course — Week 7: Capstone Engineering & Quality
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher:
+Foundations Course assumes Self-learn is complete. If you need a refresher:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 - [Self-learn — Chapter 5: Resource Monitoring and Containerization](../self_learn/Chapters/5/Chapter5.md)
 
@@ -39,7 +39,7 @@ Practice notebook: [practice.ipynb](practice.ipynb)
 
 ## Key Concepts (Self-learn refresher)
 
-Foundamental Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
+Foundations Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
 - Modules, exception handling patterns, and file I/O habits:
   - ../self_learn/Chapters/2/02_modules_exceptions.md

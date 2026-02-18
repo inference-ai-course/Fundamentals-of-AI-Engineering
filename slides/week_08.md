@@ -22,15 +22,15 @@ By the end of this week, you should be able to:
 
 - Demo your capstone with a "fresh clone + README" workflow
 - Write a structured retrospective with evidence (logs, artifacts, diffs)
-- Identify what shifts going from Foundational Course to Level 2
+- Identify what shifts going from Foundations Course to Level 2
 
 ---
 
-# What is a Retrospective?
+# What is a Retrospective (Post-Mortem)?
 
 ![bg right:40% h:320](images/week08_bg_right_25_h_320_40.png)
 
-A **retrospective** = a structured reflection on what happened, why, and what to do differently.
+A **retrospective** (or **post-mortem**) = a structured reflection on what happened, why, and what to do differently.
 
 **Key principles**:
 - "Blameless" — focus on systems, not individuals
@@ -103,7 +103,7 @@ Fresh clone → follow README → run pipeline → show artifacts → show failu
 <!-- _class: part -->
 
 # Part 02
-## Retrospective / Postmortem Template
+## Post-Mortem / Retrospective Template
 
 `week_08/02_retrospective_template.md` · `02_retrospective_template.ipynb`
 
@@ -177,9 +177,9 @@ For each issue, document:
 
 # Preparing for Level 2
 
-### Mindset shifts
+### Skill progression
 
-| Foundational Course | Level 2 |
+| Foundations Course | Level 2 |
 |-------------------|---------|
 | Single-file scripts | FastAPI services |
 | Static prompts | Dynamic prompts (RAG) |
@@ -203,7 +203,7 @@ For each issue, document:
 
 # Skills You Already Have
 
-From this Foundational Course:
+From this Foundations Course:
 
 - Python functions, classes, error handling
 - API integration (requests, timeouts, retries)

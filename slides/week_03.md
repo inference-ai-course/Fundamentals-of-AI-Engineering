@@ -128,32 +128,32 @@ If you send too much text:
 <!-- _class: part -->
 
 # Part 02
-## Prompts as API Contracts
+## Structured Prompt Specification
 
 `week_03/02_prompt_contracts.md` · `02_prompt_contracts.ipynb`
 
 ---
 
-# Prompts as API Contracts
+# Structured Prompt Specification
 
 A strong prompt is not "clever wording" — it's a **specification**.
 
 | Component | Purpose |
-|-----------|---------|
+|-----------|--------|
 | **Role** | What the model is doing |
 | **Task** | What to produce |
 | **Input format** | What you will provide |
 | **Output schema** | Exact JSON keys and types |
 | **Constraints** | No extra keys, no markdown, no commentary |
-| **Refusal conditions** | When to output an error / null |
+| **Fallback conditions** | When to output an error / null |
 
 ---
 
-# Prompt Contract Flow
+# Prompt Specification Flow
 
 ![bg right:40% h:320](images/week03_bg_right_25_h_320_21.png)
 
-Raw text → prompt contract → LLM call → parse JSON → validate schema → typed result.
+Raw text → prompt specification → LLM call → parse JSON → validate schema → typed result.
 
 Each step can fail independently — separating them helps debugging.
 
@@ -165,7 +165,7 @@ Each step can fail independently — separating them helps debugging.
 |---------|-------|-----|
 | Vague output format | No schema specified | Add exact JSON keys |
 | Almost-JSON (single quotes) | "Return JSON" too vague | Add "ONLY valid JSON, no markdown" |
-| Hallucinated values | No refusal conditions | Add "Use null if not found" |
+| Hallucinated values | No fallback conditions | Add "Use null if not found" |
 | Dropped constraints | Too many at once | Start simple, add incrementally |
 | Prose + JSON mixed | Conflicting instructions | Align system and user messages |
 
@@ -180,7 +180,7 @@ Each step can fail independently — separating them helps debugging.
 
 ---
 
-# Retry / Repair Loop
+# Retry with Self-Repair
 
 ![bg right:40% h:320](images/week03_bg_right_25_h_320_22.png)
 

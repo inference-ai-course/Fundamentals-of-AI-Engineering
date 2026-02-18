@@ -14,9 +14,9 @@ A good error message contains:
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on exceptions and debugging patterns:
+Foundations Course assumes Self-learn is complete. If you need a refresher on exceptions and debugging patterns:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Modules and exception handling](../self_learn/Chapters/2/02_modules_exceptions.md)
 
 Why it matters here (Week 7):

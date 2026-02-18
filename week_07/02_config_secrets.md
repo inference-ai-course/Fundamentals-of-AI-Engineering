@@ -10,9 +10,9 @@ Never hardcode or commit API keys.
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on environments and safe project habits:
+Foundations Course assumes Self-learn is complete. If you need a refresher on environments and safe project habits:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 Why it matters here (Week 7):

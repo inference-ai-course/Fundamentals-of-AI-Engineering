@@ -26,9 +26,9 @@ Even without a framework, you should understand the pattern.
 
 ## Pre-study (Self-learn)
 
-Foundamental Course assumes Self-learn is complete. If you need a refresher on context limits and workflow patterns:
+Foundations Course assumes Self-learn is complete. If you need a refresher on context limits and workflow patterns:
 
-- [Pre-study index (Foundamental Course → Self-learn)](../PRESTUDY.md)
+- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
 
 Why it matters here (Week 6):
@@ -51,7 +51,7 @@ def chunk_text(text: str, chunk_size: int = 2000) -> List[str]:
     return chunks
 ```
 
-Note: chunking by character count is a simple starter, but tokens are what matter for LLM limits. Character chunking can still work for Foundamental Course as long as you keep chunks comfortably small.
+Note: chunking by character count is a simple starter, but tokens are what matter for LLM limits. Character chunking can still work for Foundations Course as long as you keep chunks comfortably small.
 
 ---
 
