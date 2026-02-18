@@ -50,7 +50,7 @@ An **LLM** (Large Language Model) is a very large ML model trained on massive te
 
 # What is Training?
 
-![bg right:40% h:420](images/week02_bg_right_25_h_320_11.png)
+![bg right:40% h:520](images/week02_bg_right_25_h_320_11.png)
 
 **Training** = the process where a model learns from data by adjusting its internal parameters (weights).
 
@@ -89,6 +89,15 @@ Even if you **don't train the LLM yourself**, you still need ML discipline:
 - **Train/val splits** → test prompt effectiveness on held-out data
 - **Artifact saving** → save prompts, outputs, configs for every run
 - **Metrics comparison** → compare LLM outputs across prompt changes
+
+---
+
+<!-- _class: part -->
+
+# Part 01
+## The ML Training Loop
+
+`week_02/01_training_loop.md` · `01_training_loop.ipynb`
 
 ---
 
@@ -137,6 +146,15 @@ Even for LLM work, this disciplined loop is the basis for evaluating prompt/mode
 
 ---
 
+<!-- _class: part -->
+
+# Part 02
+## Reproducibility Package
+
+`week_02/02_reproducibility_package.md` · `02_reproducibility_package.ipynb`
+
+---
+
 # Reproducibility Package
 
 Reproducibility means:
@@ -166,6 +184,15 @@ Every run should produce a traceable folder:
 | `model.joblib` | "Can I reproduce predictions later?" |
 
 **For LLM work**: replace `model.joblib` with saved prompts and raw responses — same principle, different artifacts.
+
+---
+
+<!-- _class: part -->
+
+# Part 03
+## Comparing Runs + Writing a Report
+
+`week_02/03_compare_runs_report.md` · `03_compare_runs_report.ipynb`
 
 ---
 

@@ -28,7 +28,7 @@ By the end of this week, you should be able to:
 
 # What is a CLI?
 
-![bg right:25% h:320](images/week07_bg_right_25_h_320_36.png)
+![bg right:25% h:320](images/concepts/cli_terminal.png)
 
 **CLI** (Command-Line Interface) = how users interact with your tool via terminal commands.
 
@@ -42,13 +42,22 @@ A good CLI makes **correct usage easy** and **incorrect usage obvious**:
 
 # The Testing Pyramid
 
-![h:220](images/week_07_diagram_1.png)
+![h:220](images/concepts/testing_pyramid.png)
 
 - **Unit tests** (many): test individual functions — fast, isolated
 - **Integration tests** (fewer): test components together
 - **Smoke test** (one): end-to-end run — does it work at all?
 
 For LLM projects: **mock the LLM** in unit tests, only call real APIs in smoke tests.
+
+---
+
+<!-- _class: part -->
+
+# Part 01
+## CLI Design (argparse) + Good Defaults
+
+`week_07/01_cli_design.md` · `01_cli_design.ipynb`
 
 ---
 
@@ -76,9 +85,18 @@ A good CLI makes the **common case easy** and the **edge case possible**.
 
 ---
 
+<!-- _class: part -->
+
+# Part 02
+## Config Management + Secrets
+
+`week_07/02_config_secrets.md` · `02_config_secrets.ipynb`
+
+---
+
 # Config Management: Layers
 
-![h:280](images/week07_h_280_38.png)
+![h:280](images/concepts/cli_terminal.png)
 
 Configuration priority (highest wins): **CLI args > env vars > defaults**
 
@@ -101,9 +119,18 @@ Configuration priority (highest wins): **CLI args > env vars > defaults**
 
 ---
 
+<!-- _class: part -->
+
+# Part 03
+## Error Handling
+
+`week_07/03_error_handling.md` · `03_error_handling.ipynb`
+
+---
+
 # Error Handling: Teach the User
 
-![h:280](images/week07_h_280_39.png)
+![h:280](images/concepts/retry_pattern.png)
 
 A good error message contains: **what** went wrong, **where**, and **what to try**.
 
@@ -120,6 +147,15 @@ A good error message contains: **what** went wrong, **where**, and **what to try
 | **Checkpoint** | Save state before risky LLM call |
 
 **Dual reporting**: short user-facing error + detailed log for debugging.
+
+---
+
+<!-- _class: part -->
+
+# Part 04
+## Testing Strategy
+
+`week_07/04_testing_strategy.md` · `04_testing_strategy.ipynb`
 
 ---
 

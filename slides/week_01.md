@@ -67,7 +67,7 @@ LLMs are powerful, but **they don't fix bad engineering**:
 
 **Key checks**: row counts, column types, missing values (%), distributions, outliers, duplicates.
 
-![bg right:40% h:320](images/week01_bg_right_25_h_320_3.png)
+![bg right:40% h:320](images/concepts/data_profiling.png)
 
 ### Without profiling (bad path)
 
@@ -105,9 +105,18 @@ LLM libraries change **fast** — `openai` had a breaking API change from v0.x t
 
 ---
 
+<!-- _class: part -->
+
+# Part 01
+## Environment Setup + Dependency Management
+
+`week_01/01_environment_setup.md` · `01_environment_setup.ipynb`
+
+---
+
 # Environment Setup: venv
 
-![bg right:40% h:320](images/week01_bg_right_25_h_320_7.png)
+![bg right:40% h:520](images/week01_bg_right_25_h_320_7.png)
 
 System Python → create venv → activate → install deps → freeze `requirements.txt` → run script.
 
@@ -155,6 +164,15 @@ openai==1.6.1
 | Platform-specific deps | Fails on other OS | Document system deps separately |
 
 **Diagnosis**: Always check `which python` — should point to your `.venv/`, not `/usr/bin/python`.
+
+---
+
+<!-- _class: part -->
+
+# Part 02
+## Data Profiling Script
+
+`week_01/02_data_profiling_script.md` · `02_data_profiling_script.ipynb`
 
 ---
 

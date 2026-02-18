@@ -178,14 +178,16 @@ More concrete intuition:
 
 Practical rule of thumb: local inference is often bottlenecked by memory bandwidth and/or VRAM capacity, not just CPU speed.
 
-### Memory requirements (rough estimates)
+### Memory requirements (rough — total runtime, including KV cache & activations)
 
-| Model Size | 4-bit Quantized | 8-bit Quantized | Full Precision |
+| Model Size | 4-bit Quantized | 8-bit Quantized | Full Precision (FP32) |
 |------------|----------------|----------------|----------------|
 | 1B params  | ~1 GB          | ~2 GB          | ~4 GB          |
 | 3B params  | ~2 GB          | ~4 GB          | ~12 GB         |
 | 7B params  | ~4 GB          | ~8 GB          | ~28 GB         |
 | 13B params | ~8 GB          | ~16 GB         | ~52 GB         |
+
+**Note**: These are total runtime estimates (weights + KV cache + activations). Weight-only memory is roughly half the 8-bit column.
 
 **Practical recommendations:**
 

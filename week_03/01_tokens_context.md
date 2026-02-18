@@ -90,10 +90,12 @@ This helps you estimate costs and avoid context overflow.
 
 A context window is the maximum number of tokens the model can handle in a single request.
 
-Typical context windows (as of 2024):
-- GPT-3.5: 4k-16k tokens
-- GPT-4: 8k-128k tokens
-- Claude: 100k-200k tokens
+Typical context windows (current defaults as of 2025):
+- GPT-3.5-turbo: 16k tokens
+- GPT-4o / GPT-4 Turbo: 128k tokens
+- Claude 3.x / 4.x: 200k tokens
+
+**Note**: Context window sizes evolve rapidly. Always check current model documentation before deployment.
 
 The budget must include:
 

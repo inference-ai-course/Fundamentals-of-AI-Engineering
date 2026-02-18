@@ -38,6 +38,38 @@ section.lead h2 {
   font-weight: 400;
 }
 
+/* Part divider slides */
+section.part {
+  text-align: center;
+  background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+  color: #ffffff;
+}
+
+section.part h1 {
+  color: #00d2ff;
+  border: none;
+  font-size: 56px;
+}
+
+section.part h2 {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 32px;
+}
+
+section.part p {
+  color: #a8d8ff;
+  font-size: 18px;
+  margin-top: 24px;
+}
+
+section.part code {
+  background: rgba(0, 210, 255, 0.15);
+  color: #a8d8ff;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
 /* Headings */
 h1 {
   color: #0f3460;

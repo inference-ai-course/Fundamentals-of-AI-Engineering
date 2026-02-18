@@ -38,7 +38,7 @@ By the end of this week, you should be able to:
 
 # Cloud vs Local Inference
 
-![h:280](images/week_05_diagram_1.png)
+![h:280](images/concepts/cloud_vs_local.png)
 
 ### Cloud (Hosted API)
 
@@ -51,7 +51,7 @@ Your app → Internet → cloud provider → large GPU cluster → response back
 
 # Local Inference with Ollama
 
-![bg right:40% h:320](images/week05_bg_right_25_h_320_30.png)
+![bg right:40% h:320](images/concepts/cloud_vs_local.png)
 
 Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud APIs, but everything runs on your hardware.
 
@@ -69,6 +69,15 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 
 ---
 
+<!-- _class: part -->
+
+# Part 01
+## Local Inference Concepts + Setup
+
+`week_05/01_local_inference_setup.md` · `01_local_inference_setup.ipynb`
+
+---
+
 # Setup Checklist
 
 | Step | Command | Success looks like |
@@ -82,7 +91,18 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 
 ---
 
+<!-- _class: part -->
+
+# Part 02
+## Calling Ollama via HTTP
+
+`week_05/02_ollama_http_client.md` · `02_ollama_http_client.ipynb`
+
+---
+
 # Model Size, Context, and Quantization
+
+![bg right:30% h:280](images/concepts/quantization.png)
 
 - **Size (7B, 13B)**: more parameters = better quality, slower, more memory
 - **Context window**: how much text fits per request
@@ -111,6 +131,15 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 | OOM crash | Model exceeds RAM/VRAM | Use smaller model or quantization |
 
 **First request is always slow** (model loading) — subsequent requests are faster.
+
+---
+
+<!-- _class: part -->
+
+# Part 03
+## Benchmarking Script
+
+`week_05/03_benchmarking_script.md` · `03_benchmarking_script.ipynb`
 
 ---
 

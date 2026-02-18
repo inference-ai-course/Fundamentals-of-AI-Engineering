@@ -28,7 +28,7 @@ By the end of this week, you should be able to:
 
 # What is an API?
 
-![bg right:25% h:320](images/week03_bg_right_25_h_320_17.png)
+![bg right:25% h:320](images/concepts/api_request_response.png)
 
 **API** (Application Programming Interface) = a way for your code to talk to a remote service.
 
@@ -40,7 +40,7 @@ By the end of this week, you should be able to:
 
 # What is a Large Language Model (LLM)?
 
-![bg right:40% h:320](images/week_03_diagram_1.png)
+![bg right:40% h:320](images/concepts/llm_architecture.png)
 
 An LLM is a **very large ML model** (billions of parameters) trained on massive text data.
 
@@ -59,6 +59,15 @@ An LLM is a **very large ML model** (billions of parameters) trained on massive 
 2. Send it as an **HTTP request** to the provider
 3. The model **tokenizes** your input → **generates** output tokens
 4. You **parse + validate** the response
+
+---
+
+<!-- _class: part -->
+
+# Part 01
+## Tokens and Context Windows
+
+`week_03/01_tokens_context.md` · `01_tokens_context.ipynb`
 
 ---
 
@@ -84,7 +93,7 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 
 # Context Window: A Hard Budget
 
-![bg right:40% h:320](images/week03_bg_right_25_h_320_20.png)
+![bg right:35% h:280](images/concepts/context_window.png)
 
 Everything must fit inside the context window.
 
@@ -113,6 +122,15 @@ If you send too much text:
 - **Sampling**: only send top-k relevant docs
 - **Compression**: summarize long contexts (Week 6)
 - **Explicit limits**: "Return at most 10 items"
+
+---
+
+<!-- _class: part -->
+
+# Part 02
+## Prompts as API Contracts
+
+`week_03/02_prompt_contracts.md` · `02_prompt_contracts.ipynb`
 
 ---
 
@@ -150,6 +168,15 @@ Each step can fail independently — separating them helps debugging.
 | Hallucinated values | No refusal conditions | Add "Use null if not found" |
 | Dropped constraints | Too many at once | Start simple, add incrementally |
 | Prose + JSON mixed | Conflicting instructions | Align system and user messages |
+
+---
+
+<!-- _class: part -->
+
+# Part 03
+## Structured Outputs + Validation
+
+`week_03/03_structured_outputs_validation.md` · `03_structured_outputs_validation.ipynb`
 
 ---
 

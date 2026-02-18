@@ -28,7 +28,7 @@ By the end of this week, you should be able to:
 
 # What is a Data Pipeline?
 
-![bg right:25% h:320](images/week06_bg_right_25_h_320_32.png)
+![bg right:25% h:320](images/concepts/data_pipeline.png)
 
 A **pipeline** = a sequence of stages, each with clear inputs and outputs.
 
@@ -46,6 +46,15 @@ You **cannot** send a full dataset to an LLM — it won't fit in the context win
 - **Sample** representative rows
 - **Summarize** statistics
 - Keep under ~2000 tokens
+
+---
+
+<!-- _class: part -->
+
+# Part 01
+## From Scripts to Pipelines
+
+`week_06/01_pipeline_design.md` · `01_pipeline_design.ipynb`
 
 ---
 
@@ -70,6 +79,15 @@ Each stage saves an artifact; re-run from any checkpoint.
 | 5. **Report** | Validated LLM output | `output/report.json` + `report.md` |
 
 **Key rule**: If a stage fails, previous artifacts are still saved for debugging.
+
+---
+
+<!-- _class: part -->
+
+# Part 02
+## Sampling and Compression
+
+`week_06/02_sampling_compression.md` · `02_sampling_compression.ipynb`
 
 ---
 
@@ -107,13 +125,31 @@ If too large: reduce sample size or remove verbose fields. Rule of thumb: ~4 cha
 
 ---
 
+<!-- _class: part -->
+
+# Part 03
+## Chunking Long Text + Synthesis
+
+`week_06/03_chunking_synthesis.md` · `03_chunking_synthesis.ipynb`
+
+---
+
 # Chunking Long Text
 
-![bg right:40% h:320](images/week06_bg_right_25_h_320_35.png)
+![bg right:40% h:320](images/concepts/chunking.png)
 
 When text exceeds the context window: **split → process each chunk → synthesize**.
 
 **Overlap** between chunks prevents losing information at boundaries.
+
+---
+
+<!-- _class: part -->
+
+# Part 04
+## End-to-End Capstone Runner
+
+`week_06/04_capstone_runner.md` · `04_capstone_runner.ipynb`
 
 ---
 

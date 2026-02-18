@@ -172,12 +172,12 @@ def call_llm(prompt):
 
 ## Metrics summary
 
-| Metric | Before | After | Change |
+| Metric | Before | After | Change (relative) |
 |--------|--------|-------|--------|
-| Success rate | 70% | 98% | +40% |
+| Success rate | 70% | 98% | +28 pp (+40% relative) |
 | Avg latency | 45s | 42s | -7% |
 | JSON parse failures | 20% | 0% | -100% |
-| Test coverage | 45% | 78% | +73% |
+| Test coverage | 45% | 78% | +33 pp (+73% relative) |
 | Lines of code | 450 | 680 | +51% |
 
 ---

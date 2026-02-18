@@ -41,7 +41,7 @@ A **retrospective** = a structured reflection on what happened, why, and what to
 
 # What is RAG? (Level 2 Preview)
 
-![bg right:25% h:320](images/week_08_diagram_1.png)
+![bg right:25% h:320](images/concepts/rag_architecture.png)
 
 **RAG** (Retrieval-Augmented Generation) = instead of sending all data to the LLM, first **retrieve** only the relevant parts, then **augment** the prompt with them.
 
@@ -56,6 +56,15 @@ This is the core pattern of Level 2 — everything you learned in this course ap
 A demo is successful when **another person can reproduce it**.
 
 Fresh clone → follow README → run pipeline → show artifacts → show failure case → show tests pass.
+
+---
+
+<!-- _class: part -->
+
+# Part 01
+## Demo Readiness Checklist
+
+`week_08/01_demo_readiness.md` · `01_demo_readiness.ipynb`
 
 ---
 
@@ -88,6 +97,15 @@ Fresh clone → follow README → run pipeline → show artifacts → show failu
 | 5. **Tests** | `pytest -v` | 30 sec |
 
 **Key rule**: Run from scratch, never edit code during demo.
+
+---
+
+<!-- _class: part -->
+
+# Part 02
+## Retrospective / Postmortem Template
+
+`week_08/02_retrospective_template.md` · `02_retrospective_template.ipynb`
 
 ---
 
@@ -145,6 +163,15 @@ For each issue, document:
 - Validate LLM outputs before using them
 - Client-side rate limiting prevents 429s
 - Dry-run mode enables fast iteration
+
+---
+
+<!-- _class: part -->
+
+# Part 03
+## Preparing for Level 2
+
+`week_08/03_preparing_for_level2.md` · `03_preparing_for_level2.ipynb`
 
 ---
 

@@ -1,0 +1,19 @@
+{
+  "cols": 3,
+  "columns": [
+    "user_id",
+    "age",
+    "country"
+  ],
+  "dtypes": {
+    "age": "float64",
+    "country": "str",
+    "user_id": "int64"
+  },
+  "missing_by_column": {
+    "age": 1,
+    "country": 1,
+    "user_id": 0
+  },
+  "rows": 4
+}

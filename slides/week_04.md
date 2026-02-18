@@ -46,6 +46,15 @@ Timeout → Retry → Backoff → Cache → Logging
 
 ---
 
+<!-- _class: part -->
+
+# Part 01
+## Timeouts and Failure Modes
+
+`week_04/01_timeouts_failures.md` · `01_timeouts_failures.ipynb`
+
+---
+
 # Timeouts: Don't Hang Forever
 
 **Without a timeout**: your program can hang indefinitely.
@@ -66,9 +75,18 @@ Timeout → Retry → Backoff → Cache → Logging
 
 ---
 
+<!-- _class: part -->
+
+# Part 02
+## Retries, Backoff, and Idempotency
+
+`week_04/02_retries_backoff_idempotency.md` · `02_retries_backoff_idempotency.ipynb`
+
+---
+
 # Retries + Exponential Backoff
 
-![bg right:40% h:320](images/week04_bg_right_25_h_320_25.png)
+![bg right:40% h:320](images/concepts/exponential_backoff.png)
 
 - **Retry transient failures**: timeouts, 429, 503
 - **Don't retry permanent failures**: 401, 404
@@ -87,6 +105,15 @@ Timeout → Retry → Backoff → Cache → Logging
 | **Idempotency key** | Use where providers support them |
 
 **Why it matters**: If you add retries and the original request actually succeeded, you might get duplicate results. Request IDs help you trace and deduplicate.
+
+---
+
+<!-- _class: part -->
+
+# Part 03
+## Rate Limiting + Graceful Degradation
+
+`week_04/03_rate_limiting.md` · `03_rate_limiting.ipynb`
 
 ---
 
@@ -116,6 +143,15 @@ When rate-limited or failing, **degrade instead of crashing**:
 - GPT-4 fails → fall back to GPT-3.5
 - Non-critical → serve cached result
 - Batch workload → queue for later
+
+---
+
+<!-- _class: part -->
+
+# Part 04
+## Caching and Observability (Logging)
+
+`week_04/04_caching_logging.md` · `04_caching_logging.ipynb`
 
 ---
 
@@ -157,6 +193,15 @@ This prevents cascading failures and gives the service time to recover.
 | `prompt_len` | Estimate token usage |
 
 Good logs answer: "What happened, when, and how long did it take?" — essential for debugging production incidents.
+
+---
+
+<!-- _class: part -->
+
+# Part 05
+## A Reusable `llm_client.py` Skeleton
+
+`week_04/05_llm_client_skeleton.md` · `05_llm_client_skeleton.ipynb`
 
 ---
 
