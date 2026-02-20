@@ -265,7 +265,7 @@ def create_reproducibility_package(
         src = run_dir / filename
         if src.exists():
             dst = output_dir / filename
-            dst.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+        dst.write_bytes(src.read_bytes())
     
     # Generate requirements.txt
     requirements_path = output_dir / "requirements.txt"
