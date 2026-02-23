@@ -38,6 +38,19 @@ By the end of this week, you should be able to:
 
 ---
 
+# What is a Prompt?
+
+![bg right:45% h:320](https://mermaid.ink/img/Z3JhcGggVEQKICAgIHN1YmdyYXBoIFByb21wdCBbVGhlIElucHV0IFNwZWNpZmljYXRpb25dCiAgICAgICAgQVtTeXN0ZW0gUm9sZTogWW91IGFyZSBhIGhlbHBmdWwgYXNzaXN0YW50XQogICAgICAgIEIgLS0-IEMoVXNlcjogRXhwbGFpbiBhaS4pCiAgICBlbmQKICAgIEMgLS0-IERbTExNIFByb2Nlc3NpbmddCiAgICBEIC0tPiBFW091dHB1dDogQUkgaXMgLi4uXQo=)
+
+A **prompt** is the input text or instructions you send to an LLM.
+
+- **System Prompt**: Global rules, persona, and constraints (e.g. "You are a helpful Python expert. Always return JSON").
+- **User Prompt**: The specific question, task, or data to process.
+- **Context**: Any background information (documents, chat history) needed to fulfill the task.
+- It acts as an **API Contract** between your code and the AI model.
+
+---
+
 # What is a Large Language Model (LLM)?
 
 ![bg right:45% h:320](https://mermaid.ink/img/Z3JhcGggTFIKICAgIEFbTWFzc2l2ZSBUZXh0IERhdGFdIC0tPnxUcmFpbmluZ3wgQigoTGFyZ2UgTGFuZ3VhZ2UgTW9kZWwpKQogICAgQiAtLT4gQ3tDb3JlIENhcGFiaWxpdHl9CiAgICBDIC0tPnxJbnB1dDogIlRoZSBxdWljayBicm93bi4uLiJ8IERbUHJlZGljdCBuZXh0IHRva2VuOiAiZm94Il0KICAgIEMgLS0-fEJpbGxpb25zIG9mIHBhcmFtZXRlcnN8IEVbU3RhdGlzdGljYWwgdGV4dCBnZW5lcmF0aW9uXQo=)
