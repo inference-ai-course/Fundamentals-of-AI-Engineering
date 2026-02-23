@@ -28,7 +28,8 @@ By the end of this week, you should be able to:
 
 # What is a Retrospective (Post-Mortem)?
 
-![bg right:40% h:320](images/week08_bg_right_25_h_320_40.png)
+![bg right:40% h:320](images/concepts/pipeline.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Pipeline.svg)</div>
 
 A **retrospective** (or **post-mortem**) = a structured reflection on what happened, why, and what to do differently.
 
@@ -41,7 +42,8 @@ A **retrospective** (or **post-mortem**) = a structured reflection on what happe
 
 # What is RAG? (Level 2 Preview)
 
-![bg right:25% h:320](images/concepts/rag_architecture.png)
+![bg right:35% h:320](images/concepts/rag_architecture_new.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (RAG diagram.svg)</div>
 
 **RAG** (Retrieval-Augmented Generation) = instead of sending all data to the LLM, first **retrieve** only the relevant parts, then **augment** the prompt with them.
 
@@ -51,7 +53,8 @@ This is the core pattern of Level 2 — everything you learned in this course ap
 
 # Demo Flow
 
-![bg right:40% h:320](images/week08_bg_right_25_h_320_42.png)
+![bg right:40% h:320](images/concepts/api_diagram.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Web API diagram.svg)</div>
 
 A demo is successful when **another person can reproduce it**.
 

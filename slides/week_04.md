@@ -28,7 +28,8 @@ By the end of this week, you should be able to:
 
 # What Can Go Wrong With an API Call?
 
-![h:280](images/concepts/retry_pattern.png)
+![h:280](images/concepts/api_diagram.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Web API diagram.svg)</div>
 
 LLM APIs are **remote services** — they can timeout, overload, or fail at any time.
 
@@ -37,8 +38,6 @@ Your code must handle every failure path, not just the happy path.
 ---
 
 # Reliability Engineering: The Layers
-
-![h:280](images/week_04_diagram_2.png)
 
 Each layer protects against a different class of failure. Together they make your LLM client **production-ready**.
 
@@ -137,8 +136,6 @@ Timeout → Retry → Backoff → Cache → Logging
 
 # Graceful Degradation
 
-![bg right:40% h:320](images/week04_bg_right_25_h_320_26.png)
-
 When rate-limited or failing, **degrade instead of crashing**:
 - GPT-4 fails → fall back to GPT-3.5
 - Non-critical → serve cached result
@@ -157,8 +154,6 @@ When rate-limited or failing, **degrade instead of crashing**:
 
 # Caching: Save Money and Time
 
-![bg right:40% h:320](images/week04_bg_right_25_h_320_27.png)
-
 **Cache key must include** all parameters that affect output.
 
 **Common pitfalls**:
@@ -170,7 +165,8 @@ When rate-limited or failing, **degrade instead of crashing**:
 
 # Error Handling: Circuit Breaker Pattern
 
-![h:280](images/concepts/circuit_breaker.png)
+![h:280](images/concepts/api_diagram.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Web API diagram.svg)</div>
 
 When failures persist, stop trying and fail fast:
 - **Closed** → requests flow normally

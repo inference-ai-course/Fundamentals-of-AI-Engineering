@@ -28,7 +28,8 @@ By the end of this week, you should be able to:
 
 # What is a CLI?
 
-![bg right:25% h:320](images/concepts/cli_terminal.png)
+![bg right:35% h:320](images/concepts/terminal_screenshot.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Xfce4-terminal.png)</div>
 
 **CLI** (Command-Line Interface) = how users interact with your tool via terminal commands.
 
@@ -42,7 +43,8 @@ A good CLI makes **correct usage easy** and **incorrect usage obvious**:
 
 # The Testing Pyramid
 
-![h:220](images/concepts/testing_pyramid.png)
+![h:220](images/concepts/ai_ml_dl.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (AI-ML-DL.svg)</div>
 
 - **Unit tests** (many): test individual functions — fast, isolated
 - **Integration tests** (fewer): test components together
@@ -96,7 +98,8 @@ A good CLI makes the **common case easy** and the **edge case possible**.
 
 # Configuration Management
 
-![h:280](images/concepts/cli_terminal.png)
+![h:280](images/concepts/terminal_screenshot.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Xfce4-terminal.png)</div>
 
 Configuration priority (highest wins): **CLI args > env vars > defaults**
 
@@ -130,7 +133,8 @@ Configuration priority (highest wins): **CLI args > env vars > defaults**
 
 # Error Handling: Teach the User
 
-![h:280](images/concepts/retry_pattern.png)
+![h:280](images/concepts/api_diagram.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Web API diagram.svg)</div>
 
 A good error message contains: **what** went wrong, **where**, and **what to try**.
 

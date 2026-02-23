@@ -66,7 +66,8 @@ An LLM is a **very large ML model** (billions of parameters) trained on massive 
 
 # What Happens When You Call an LLM API?
 
-![bg right:40% h:380](images/week_03_diagram_2.png)
+![bg right:40% h:380](images/concepts/api_diagram.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Web API diagram.svg)</div>
 
 1. You **build a prompt** (system + user instructions + data)
 2. Send it as an **HTTP request** to the provider
@@ -105,8 +106,6 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 ---
 
 # Context Window: A Hard Budget
-
-![bg right:45% h:320](https://mermaid.ink/img/Z3JhcGggVEQKICAgIHN1YmdyYXBoIENvbnRleHQgV2luZG93IFtIYXJkIE1lbW9yeSBMaW1pdDogQ29udGV4dCBXaW5kb3ddCiAgICAgICAgQVtTeXN0ZW0gUHJvbXB0XSAtLT4gQltVc2VyIE1lc3NhZ2UgMV0KICAgICAgICBCIC0tPiBDW01vZGVsIFJlc3BvbnNlIDFdCiAgICAgICAgQyAtLT4gRFtVc2VyIE1lc3NhZ2UgMl0KICAgICAgICBEIC0tPiBFWy4uLiBTcGFjZSBmb3IgZ2VuZXJhdGlvbiAuLi5dCiAgICBlbmQKICAgIHN0eWxlIENvbnRleHQgV2luZG93IGZpbGw6I2Y5ZjlmOSxzdHJva2U6IzMzMyxzdHJva2Utd2lkdGg6NHB4Cg==)
 
 Everything must fit inside the context window.
 

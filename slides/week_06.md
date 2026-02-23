@@ -28,7 +28,8 @@ By the end of this week, you should be able to:
 
 # What is a Data Pipeline?
 
-![bg right:25% h:320](images/concepts/data_pipeline.png)
+![bg right:35% h:320](images/concepts/pipeline.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Pipeline.svg)</div>
 
 A **pipeline** = a sequence of stages, each with clear inputs and outputs.
 
@@ -40,7 +41,8 @@ If one stage fails, you know exactly where to look.
 
 # Why Compress Data for LLMs?
 
-![bg right:40% h:320](images/week06_bg_right_25_h_320_33.png)
+![bg right:40% h:320](images/concepts/cloud_computing.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Cloud computing.svg)</div>
 
 You **cannot** send a full dataset to an LLM — it won't fit in the context window. Instead:
 - **Sample** representative rows
@@ -60,7 +62,8 @@ You **cannot** send a full dataset to an LLM — it won't fit in the context win
 
 # End-to-End Capstone Pipeline
 
-![bg right:40% h:320](images/week06_bg_right_25_h_320_34.png)
+![bg right:40% h:320](images/concepts/pipeline.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Pipeline.svg)</div>
 
 CSV → Profile → Context Compression → LLM → Validate → Report
 
@@ -136,7 +139,8 @@ If too large: reduce sample size or remove verbose fields. Rule of thumb: ~4 cha
 
 # Text Chunking
 
-![bg right:40% h:320](images/concepts/chunking.png)
+![bg right:40% h:320](images/concepts/train_test_split_new.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Machine learning nutshell -- Split into train-test set.svg)</div>
 
 When text exceeds the context window: **split → process each chunk → synthesize**.
 

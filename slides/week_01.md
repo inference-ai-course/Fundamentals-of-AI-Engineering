@@ -28,7 +28,8 @@ By the end of this week, you should be able to:
 
 # What is AI Engineering?
 
-![bg right:50% h:320](images/week01_bg_right_25_h_320_1.png)
+![bg right:50% h:320](images/concepts/ai_ml_dl.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (AI-ML-DL.svg)</div>
 
 AI Engineering = building **reliable systems** that use AI models (including LLMs).
 
@@ -37,8 +38,6 @@ It's not just about the model — it's about **data quality**, **reproducible pi
 ---
 
 # What This Course Builds
-
-![h:120](images/week01_h_120_2.png)
 
 - **Week 1**: Environment + data profiling
 - **Weeks 2–5**: ML, LLM APIs, local inference
@@ -79,7 +78,8 @@ Each arrow is a point where profiling could have caught the problem **early**.
 
 # Data Quality → AI Quality
 
-![bg right:40% h:320](images/week_01_diagram_1.png)
+![bg right:40% h:320](images/concepts/machine_learning.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of machine learning.png)</div>
 
 ### With profiling (good path)
 
@@ -91,15 +91,14 @@ Profiled + cleaned data → model on quality data → reliable outputs → trust
 
 # Without Isolation: Version Conflicts
 
-![h:280](images/week_01_diagram_2.png)
+![h:280](images/concepts/traditional_programming.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of traditional computer applications.png)</div>
 
 LLM libraries change **fast** — `openai` had a breaking API change from v0.x to v1.x.
 
 ---
 
 # With Isolation: Each Project is Safe
-
-![h:280](images/week01_h_280_6.png)
 
 **Pinned versions + isolated venvs** = safety net. Each project has its own dependency versions.
 
@@ -115,8 +114,6 @@ LLM libraries change **fast** — `openai` had a breaking API change from v0.x t
 ---
 
 # Environment Setup: venv
-
-![bg right:40% h:520](images/week01_bg_right_25_h_320_7.png)
 
 System Python → create venv → activate → install deps → freeze `requirements.txt` → run script.
 
@@ -177,8 +174,6 @@ openai==1.6.1
 ---
 
 # Data Quality Profiling Pipeline
-
-![bg right:40% h:360](images/week01_bg_right_25_h_320_8.png)
 
 **Defensive programming**: validate early, fail fast.
 

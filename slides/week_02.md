@@ -30,7 +30,8 @@ By the end of this week, you should be able to:
 
 ### Traditional Programming
 
-![h:280](images/week_02_diagram_1.png)
+![h:280](images/concepts/traditional_programming.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of traditional computer applications.png)</div>
 
 Human writes rules → computer follows them.
 
@@ -38,7 +39,8 @@ Human writes rules → computer follows them.
 
 # Machine Learning: The Key Difference
 
-![bg right:40% h:320](images/week02_bg_right_25_h_320_10.png)
+![bg right:40% h:320](images/concepts/machine_learning.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of machine learning.png)</div>
 
 ### Machine Learning
 
@@ -50,7 +52,8 @@ An **LLM** (Large Language Model) is a very large ML model trained on massive te
 
 # What is Training?
 
-![bg right:40% h:520](images/week02_bg_right_25_h_320_11.png)
+![bg right:40% h:420](images/concepts/gradient_descent.gif)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Gradient descent.gif)</div>
 
 **Training** = the process where a model learns from data by adjusting its internal parameters (weights).
 
@@ -63,7 +66,8 @@ An **LLM** (Large Language Model) is a very large ML model trained on massive te
 
 # From ML to LLM: Classical ML
 
-![bg right:40% h:320](images/week_02_diagram_2.png)
+![bg right:40% h:320](images/concepts/train_test_split_new.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Machine learning nutshell -- Split into train-test set.svg)</div>
 
 Classical ML: train a model on structured data, predict labels.
 
@@ -73,7 +77,8 @@ Tabular data → train classifier → predict labels → save metrics.
 
 # From ML to LLM: LLM-Augmented Pipeline
 
-![bg right:40% h:320](images/week02_bg_right_25_h_320_13.png)
+![bg right:40% h:320](images/concepts/ai_ml_dl.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (AI-ML-DL.svg)</div>
 
 LLM-augmented: compress data, call LLM API, validate output.
 
@@ -103,7 +108,8 @@ Even if you **don't train the LLM yourself**, you still need ML discipline:
 
 # The ML Training Loop
 
-![bg right:40% h:320](images/week02_bg_right_25_h_320_15.png)
+![bg right:40% h:320](images/concepts/train_test_split_new.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Machine learning nutshell -- Split into train-test set.svg)</div>
 
 Load → split → train → predict → compute metrics → save artifacts → compare runs.
 

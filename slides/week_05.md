@@ -28,7 +28,8 @@ By the end of this week, you should be able to:
 
 # What is Inference?
 
-![h:280](images/week05_h_280_28.png)
+![h:280](images/concepts/machine_learning.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of machine learning.png)</div>
 
 - **Training**: learn from data (expensive, done once)
 - **Inference**: make predictions (fast, done many times)
@@ -38,7 +39,8 @@ By the end of this week, you should be able to:
 
 # Cloud vs Local Inference
 
-![h:280](images/concepts/cloud_vs_local.png)
+![h:280](images/concepts/cloud_computing.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Cloud computing.svg)</div>
 
 ### Cloud (Hosted API)
 
@@ -51,7 +53,8 @@ Your app → Internet → cloud provider → large GPU cluster → response back
 
 # Local Inference with Ollama
 
-![bg right:40% h:320](images/concepts/cloud_vs_local.png)
+![bg right:40% h:320](images/concepts/cloud_computing.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Cloud computing.svg)</div>
 
 Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud APIs, but everything runs on your hardware.
 
@@ -145,7 +148,8 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 
 # Benchmarking: Consistent Comparison
 
-![h:280](images/week_05_diagram_2.png)
+![h:280](images/concepts/train_test_split_new.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Machine learning nutshell -- Split into train-test set.svg)</div>
 
 **Benchmarking best practices**:
 - Same prompt set for all models
