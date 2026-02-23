@@ -28,7 +28,7 @@ By the end of this week, you should be able to:
 
 # What is an API?
 
-![bg right:25% h:320](images/concepts/api_request_response.png)
+![bg right:45% h:320](https://mermaid.ink/img/c2VxdWVuY2VEaWFncmFtCiAgICBwYXJ0aWNpcGFudCBBcHAgYXMgWW91ciBDb2RlIC8gQXBwCiAgICBwYXJ0aWNpcGFudCBBUEkgYXMgQVBJIFNlcnZlciAoZS5nLiwgT3BlbkFJKQogICAgcGFydGljaXBhbnQgTW9kZWwgYXMgTExNIEVuZ2luZQogICAgCiAgICBBcHAtPj5BUEk6IEhUVFAgUmVxdWVzdCAoUHJvbXB0LCBEYXRhKQogICAgQVBJLT4-TW9kZWw6IFJvdXRlIHJlcXVlc3QKICAgIE1vZGVsLS0-PkFQSTogR2VuZXJhdGUgb3V0cHV0IHRva2VucwogICAgQVBJLS0-PkFwcDogSFRUUCBSZXNwb25zZSAoSlNPTiAvIFRleHQpCg==)
 
 **API** (Application Programming Interface) = a way for your code to talk to a remote service.
 
@@ -40,7 +40,7 @@ By the end of this week, you should be able to:
 
 # What is a Large Language Model (LLM)?
 
-![bg right:40% h:320](images/concepts/llm_architecture.png)
+![bg right:45% h:320](https://mermaid.ink/img/Z3JhcGggTFIKICAgIEFbTWFzc2l2ZSBUZXh0IERhdGFdIC0tPnxUcmFpbmluZ3wgQigoTGFyZ2UgTGFuZ3VhZ2UgTW9kZWwpKQogICAgQiAtLT4gQ3tDb3JlIENhcGFiaWxpdHl9CiAgICBDIC0tPnxJbnB1dDogIlRoZSBxdWljayBicm93bi4uLiJ8IERbUHJlZGljdCBuZXh0IHRva2VuOiAiZm94Il0KICAgIEMgLS0-fEJpbGxpb25zIG9mIHBhcmFtZXRlcnN8IEVbU3RhdGlzdGljYWwgdGV4dCBnZW5lcmF0aW9uXQo=)
 
 An LLM is a **very large ML model** (billions of parameters) trained on massive text data.
 
@@ -93,7 +93,7 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 
 # Context Window: A Hard Budget
 
-![bg right:35% h:280](images/concepts/context_window.png)
+![bg right:45% h:320](https://mermaid.ink/img/Z3JhcGggVEQKICAgIHN1YmdyYXBoIENvbnRleHQgV2luZG93IFtIYXJkIE1lbW9yeSBMaW1pdDogQ29udGV4dCBXaW5kb3ddCiAgICAgICAgQVtTeXN0ZW0gUHJvbXB0XSAtLT4gQltVc2VyIE1lc3NhZ2UgMV0KICAgICAgICBCIC0tPiBDW01vZGVsIFJlc3BvbnNlIDFdCiAgICAgICAgQyAtLT4gRFtVc2VyIE1lc3NhZ2UgMl0KICAgICAgICBEIC0tPiBFWy4uLiBTcGFjZSBmb3IgZ2VuZXJhdGlvbiAuLi5dCiAgICBlbmQKICAgIHN0eWxlIENvbnRleHQgV2luZG93IGZpbGw6I2Y5ZjlmOSxzdHJva2U6IzMzMyxzdHJva2Utd2lkdGg6NHB4Cg==)
 
 Everything must fit inside the context window.
 
