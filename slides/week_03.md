@@ -77,12 +77,12 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 
 | Text | Approx. tokens | Why |
 |------|----------------|-----|
-| `Hello world` | ~2 | Common words = 1 token each |
-| `Hello, world!` | ~3 | Punctuation = extra tokens |
-| `machinelearning` | ~3-4 | No spaces = worse tokenization |
-| `你好世界` | ~4+ | Non-English = more tokens per word |
+| `Hello world` | 2 | Common words = 1 token each |
+| `Hello, world!` | 4 | Punctuation = extra tokens |
+| `smushwords` | 3 | No spaces = worse tokenization |
+| `你好世界` | 2–5 | Non-English = historically worse, but improving |
 
-**Rule of thumb**: ~4 characters per token for English. Non-English text can use **2–4× more tokens** for the same meaning (varies by language and tokenizer).
+**Rule of thumb**: ~4 characters per token for English. Non-English text traditionally uses **2–4× more tokens** for the same meaning (though newer models like GPT-4o have improved this significantly).
 
 **Why tokens matter**:
 - Token count drives **cost** ($X per 1K tokens)
@@ -99,9 +99,9 @@ Everything must fit inside the context window.
 
 | Model | Context window |
 |-------|---------------|
-| GPT-3.5-turbo | 16k tokens |
-| GPT-4o / GPT-4 Turbo | 128k tokens |
-| Claude 3.x / 4.x | 200k tokens |
+| GPT-4o mini | 128k tokens |
+| GPT-4o / GPT-4.5 | 128k tokens |
+| Claude 3.5 / 4.5 | 200k tokens (up to 1M in beta) |
 
 **Note**: Context window sizes evolve rapidly — these reflect current defaults as of 2025. Always check current model documentation before deployment.
 
