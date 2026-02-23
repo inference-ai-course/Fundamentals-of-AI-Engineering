@@ -53,7 +53,7 @@ A **prompt** is the input text or instructions you send to an LLM.
 
 # What is a Large Language Model (LLM)?
 
-![bg right:45% h:320](https://mermaid.ink/img/Z3JhcGggTFIKICAgIEFbTWFzc2l2ZSBUZXh0IERhdGFdIC0tPnxUcmFpbmluZ3wgQigoTGFyZ2UgTGFuZ3VhZ2UgTW9kZWwpKQogICAgQiAtLT4gQ3tDb3JlIENhcGFiaWxpdHl9CiAgICBDIC0tPnxJbnB1dDogIlRoZSBxdWljayBicm93bi4uLiJ8IERbUHJlZGljdCBuZXh0IHRva2VuOiAiZm94Il0KICAgIEMgLS0-fEJpbGxpb25zIG9mIHBhcmFtZXRlcnN8IEVbU3RhdGlzdGljYWwgdGV4dCBnZW5lcmF0aW9uXQo=)
+![bg right:40% h:450](images/concepts/transformer.png)
 
 An LLM is a **very large ML model** (billions of parameters) trained on massive text data.
 
@@ -66,7 +66,7 @@ An LLM is a **very large ML model** (billions of parameters) trained on massive 
 
 # What Happens When You Call an LLM API?
 
-![bg right:40% h:320](images/week_03_diagram_2.png)
+![bg right:40% h:380](images/week_03_diagram_2.png)
 
 1. You **build a prompt** (system + user instructions + data)
 2. Send it as an **HTTP request** to the provider
