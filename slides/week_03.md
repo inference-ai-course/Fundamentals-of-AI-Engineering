@@ -53,11 +53,12 @@ A **prompt** is the input text or instructions you send to an LLM.
 
 # What is a Large Language Model (LLM)?
 
-![bg right:40% h:450](images/concepts/transformer.png)
+![bg right:40% h:450](https://mermaid.ink/img/Z3JhcGggVEQKICAgIEEoW1Byb21wdCBUZXh0XSkgLS0+fFRva2VuaXplcnwgQltUb2tlbiBJRHNdCiAgICBCIC0tPnxFbWJlZGRpbmd8IENbVmVjdG9yIEVtYmVkZGluZ3NdCiAgICBDIC0tPnxBdHRlbnRpb24gJiBMYXllcnN8IERbVHJhbnNmb3JtZXIgQmxvY2tzXQogICAgRCAtLT58UHJvYmFiaWxpdHl8IEVbTmV4dCBUb2tlbiBJRF0KICAgIEUgLS0+fERldG9rZW5pemVyfCBGKFtHZW5lcmF0ZWQgV29yZF0pCiAgICBGIC0uLT58QXBwZW5kIHRvIElucHV0fCBBCiAgICAKICAgIHN0eWxlIEEgZmlsbDojZjlmLHN0cm9rZTojMzMzLHN0cm9rZS13aWR0aDoycHgKICAgIHN0eWxlIEYgZmlsbDojYmZiLHN0cm9rZTojMzMzLHN0cm9rZS13aWR0aDoycHgK)
 
 An LLM is a **very large ML model** (billions of parameters) trained on massive text data.
 
 - **Input**: text prompt (your question/instruction)
+- **Pipeline**: tokenizer → token IDs → embeddings → transformer layers → output tokens
 - **Output**: generated text (the model's response)
 - It **predicts the next token** based on all previous tokens
 - It does NOT "understand" — it generates statistically likely continuations
@@ -102,6 +103,18 @@ A **token** ≈ a word fragment. Not exactly a word, not exactly a character.
 - Token count drives **cost** ($X per 1K tokens)
 - Token count drives **latency** (more tokens = slower)
 - Context window = max tokens per request
+
+---
+
+# What is a Context Window?
+
+The **context window** is the maximum amount of text an LLM can process in a single request.
+
+- Measured in **tokens** (not characters or words)
+- Includes **both** your input prompt AND the model's output
+- Think of it as a **fixed-size container** — anything that doesn't fit gets cut off or rejected
+
+**Analogy**: Like a theater stage with fixed seats. Only so many actors (tokens) can fit. If you try to pack in too many, some get left outside.
 
 ---
 
