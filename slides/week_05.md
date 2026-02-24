@@ -106,6 +106,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 # Model Size, Context, and Quantization
 
 ![bg right:30% h:280](images/concepts/quantization.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Quantization error.png)</div>
 
 - **Size (7B, 13B)**: more parameters = better quality, slower, more memory
 - **Context window**: how much text fits per request

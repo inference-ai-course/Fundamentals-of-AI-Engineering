@@ -66,7 +66,8 @@ LLMs are powerful, but **they don't fix bad engineering**:
 
 **Key checks**: row counts, column types, missing values (%), distributions, outliers, duplicates.
 
-![bg right:40% h:320](images/concepts/data_profiling.png)
+![bg right:40% h:320](images/concepts/data_profiling.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Data Mining - The Noun Project.svg)</div>
 
 ### Without profiling (bad path)
 

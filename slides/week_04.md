@@ -85,7 +85,8 @@ Timeout → Retry → Backoff → Cache → Logging
 
 # Retries + Exponential Backoff
 
-![bg right:40% h:320](images/concepts/exponential_backoff.png)
+![bg right:40% h:320](images/concepts/exponential_backoff.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Exponential function parameter.svg)</div>
 
 - **Retry transient failures**: timeouts, 429, 503
 - **Don't retry permanent failures**: 401, 404
