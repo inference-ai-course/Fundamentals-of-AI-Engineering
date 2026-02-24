@@ -28,7 +28,7 @@ By the end of this week, you should be able to:
 
 # What is an API?
 
-![bg right:45% h:320](https://mermaid.ink/img/c2VxdWVuY2VEaWFncmFtCiAgICBwYXJ0aWNpcGFudCBBcHAgYXMgWW91ciBDb2RlIC8gQXBwCiAgICBwYXJ0aWNpcGFudCBBUEkgYXMgQVBJIFNlcnZlciAoZS5nLiwgT3BlbkFJKQogICAgcGFydGljaXBhbnQgTW9kZWwgYXMgTExNIEVuZ2luZQogICAgCiAgICBBcHAtPj5BUEk6IEhUVFAgUmVxdWVzdCAoUHJvbXB0LCBEYXRhKQogICAgQVBJLT4-TW9kZWw6IFJvdXRlIHJlcXVlc3QKICAgIE1vZGVsLS0-PkFQSTogR2VuZXJhdGUgb3V0cHV0IHRva2VucwogICAgQVBJLS0-PkFwcDogSFRUUCBSZXNwb25zZSAoSlNPTiAvIFRleHQpCg==)
+![bg right:45% h:320](images/concepts/api_sequence_diagram.png)
 
 **API** (Application Programming Interface) = a way for your code to talk to a remote service.
 
@@ -40,7 +40,7 @@ By the end of this week, you should be able to:
 
 # What is a Prompt?
 
-![bg right:45% h:320](https://mermaid.ink/img/Z3JhcGggVEQKICAgIHN1YmdyYXBoIFByb21wdCBbVGhlIElucHV0IFNwZWNpZmljYXRpb25dCiAgICAgICAgQVtTeXN0ZW0gUm9sZTogWW91IGFyZSBhIGhlbHBmdWwgYXNzaXN0YW50XQogICAgICAgIEIgLS0-IEMoVXNlcjogRXhwbGFpbiBhaS4pCiAgICBlbmQKICAgIEMgLS0-IERbTExNIFByb2Nlc3NpbmddCiAgICBEIC0tPiBFW091dHB1dDogQUkgaXMgLi4uXQo=)
+![bg right:45% h:320](images/concepts/prompt_structure.png)
 
 A **prompt** is the input text or instructions you send to an LLM.
 
@@ -53,7 +53,7 @@ A **prompt** is the input text or instructions you send to an LLM.
 
 # What is a Large Language Model (LLM)?
 
-![bg right:40% h:450](https://mermaid.ink/img/Z3JhcGggVEQKICAgIEEoW1Byb21wdCBUZXh0XSkgLS0+fFRva2VuaXplcnwgQltUb2tlbiBJRHNdCiAgICBCIC0tPnxFbWJlZGRpbmd8IENbVmVjdG9yIEVtYmVkZGluZ3NdCiAgICBDIC0tPnxBdHRlbnRpb24gJiBMYXllcnN8IERbVHJhbnNmb3JtZXIgQmxvY2tzXQogICAgRCAtLT58UHJvYmFiaWxpdHl8IEVbTmV4dCBUb2tlbiBJRF0KICAgIEUgLS0+fERldG9rZW5pemVyfCBGKFtHZW5lcmF0ZWQgV29yZF0pCiAgICBGIC0uLT58QXBwZW5kIHRvIElucHV0fCBBCiAgICAKICAgIHN0eWxlIEEgZmlsbDojZjlmLHN0cm9rZTojMzMzLHN0cm9rZS13aWR0aDoycHgKICAgIHN0eWxlIEYgZmlsbDojYmZiLHN0cm9rZTojMzMzLHN0cm9rZS13aWR0aDoycHgK)
+![bg right:40% h:450](images/concepts/llm_pipeline_mermaid.png)
 
 An LLM is a **very large ML model** (billions of parameters) trained on massive text data.
 

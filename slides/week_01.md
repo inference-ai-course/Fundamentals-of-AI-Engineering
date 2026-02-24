@@ -123,7 +123,7 @@ System Python → create venv → activate → install deps → freeze `requirem
 
 # Environment Setup: Conda
 
-![h:360 Anaconda Distribution](https://www.pngkey.com/png/detail/85-851355_anaconda-distribution-diagram-anaconda-python-libraries.png)
+![h:360 Anaconda Distribution](images/concepts/anaconda_distribution.png)
 
 Same pattern as venv — different tool, same discipline.
 
