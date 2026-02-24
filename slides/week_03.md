@@ -176,7 +176,7 @@ A strong prompt is not "clever wording" — it's a **specification**.
 
 # Prompt Specification Flow
 
-![bg right:40% h:320](images/week03_bg_right_25_h_320_21.png)
+![bg right:40% h:420](images/week03_bg_right_25_h_320_21.png)
 
 Raw text → prompt specification → LLM call → parse JSON → validate schema → typed result.
 
