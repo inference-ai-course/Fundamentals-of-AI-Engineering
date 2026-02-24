@@ -437,11 +437,16 @@ def test_real_llm_call():
 
 ---
 
-## Practice notebook
+## Exercise: Create a .gitignore snippet
 
-For hands-on testing exercises, see:
-- **[04_testing_strategy.ipynb](./04_testing_strategy.ipynb)** - Interactive test development
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
+Goal:
+
+- Implement `gitignore_snippet_todo()` to return a string.
+- Write it to `output/gitignore_snippet.txt`.
+
+Checkpoint:
+
+- The snippet contains at least: `.env`, `output/`, and `__pycache__/`.
 
 ---
 

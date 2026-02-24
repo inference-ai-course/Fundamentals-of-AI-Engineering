@@ -296,14 +296,6 @@ except json.JSONDecodeError:
 
 ---
 
-## Practice notebook
-
-For hands-on HTTP client exercises and benchmarking, see:
-- **[02_ollama_http_client.ipynb](./02_ollama_http_client.ipynb)** - Interactive client development
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
-
----
-
 ## References
 
 - Ollama API docs: https://github.com/ollama/ollama/blob/main/docs/api.md

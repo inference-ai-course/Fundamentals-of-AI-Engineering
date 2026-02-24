@@ -177,6 +177,19 @@ where $p$ is the probability an attempt fails and $R$ is the max retries.
 
 ---
 
+## Exercise: Persist raw failures
+
+Goal:
+
+- When parsing/validation fails, persist the raw output under `output/`.
+- Return the output path so you can reference it in a report/debugging.
+
+Checkpoint:
+
+- Running the exercise creates a file like `output/raw_failure.txt`.
+
+---
+
 ## References
 
 - JSON Schema: https://json-schema.org/

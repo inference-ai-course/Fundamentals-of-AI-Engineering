@@ -35,7 +35,7 @@ Tutorials:
 - [03_error_handling.md](03_error_handling.md)
 - [04_testing_strategy.md](04_testing_strategy.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
+Exercises are included at the end of each notebook.
 
 ## Key Concepts (Self-learn refresher)
 

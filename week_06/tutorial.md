@@ -29,7 +29,7 @@ This week you build the **capstone happy path** end-to-end:
 2. Read 02/03 to handle context constraints.
 3. Implement 04 to run everything with one command.
 
-Use [practice.ipynb](practice.ipynb) for extra work.
+Exercises are included at the end of each notebook.
 
 Why this order works:
 

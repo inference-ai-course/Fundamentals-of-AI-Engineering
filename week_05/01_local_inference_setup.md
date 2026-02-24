@@ -221,13 +221,6 @@ For Foundations Course, focus on the practical effect:
 
 ---
 
-## Practice notebook
-
-For hands-on exercises and health check implementations, see:
-- **[practice.ipynb](./practice.ipynb)** - Interactive Ollama setup verification
-
----
-
 ## References
 
 - Ollama: https://ollama.com/

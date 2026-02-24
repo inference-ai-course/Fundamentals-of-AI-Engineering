@@ -30,7 +30,7 @@ You will practice:
 2. Read 02 and run a single prompt end-to-end.
 3. Read 03 and build a benchmark harness.
 
-Use [practice.ipynb](practice.ipynb) for extra work.
+Exercises are included at the end of each notebook.
 
 Why this order works:
 

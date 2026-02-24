@@ -247,7 +247,6 @@ answer = call_llm(prompt)
 
 For Level 2 preparation exercises, see:
 - **[03_preparing_for_level2.ipynb](./03_preparing_for_level2.ipynb)** - RAG preview and skills assessment
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
 
 ---
 

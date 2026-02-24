@@ -41,7 +41,7 @@ Tutorials:
 - [02_ollama_http_client.md](02_ollama_http_client.md)
 - [03_benchmarking_script.md](03_benchmarking_script.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
+Exercises are included at the end of each notebook.
 
 ## Key Concepts (Self-learn refresher)
 

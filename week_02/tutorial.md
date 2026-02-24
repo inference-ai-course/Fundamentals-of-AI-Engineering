@@ -23,7 +23,7 @@ These tutorials expand Week 2 into a step-by-step, reproducible baseline ML work
 2. Read 02 and make your artifacts reproducible.
 3. Read 03 and practice controlled comparisons.
 
-Use [practice.ipynb](practice.ipynb) for extra hands-on work.
+Exercises are included at the end of each notebook.
 
 Why this order works:
 

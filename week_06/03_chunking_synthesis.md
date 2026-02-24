@@ -374,7 +374,6 @@ Can afford per-chunk API calls?
 
 For hands-on chunking and synthesis exercises, see:
 - **[03_chunking_synthesis.ipynb](./03_chunking_synthesis.ipynb)** - Interactive chunking strategies
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
 
 ---
 

@@ -311,7 +311,6 @@ output/
 
 For hands-on pipeline building exercises, see:
 - **[01_pipeline_design.ipynb](./01_pipeline_design.ipynb)** - Interactive pipeline implementation
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
 
 ---
 

@@ -295,7 +295,6 @@ if not api_key:
 
 For hands-on config and secrets exercises, see:
 - **[02_config_secrets.ipynb](./02_config_secrets.ipynb)** - Interactive configuration patterns
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
 
 ---
 

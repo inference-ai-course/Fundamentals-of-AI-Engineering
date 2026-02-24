@@ -34,7 +34,7 @@ Tutorials:
 - [02_prompt_contracts.md](02_prompt_contracts.md)
 - [03_structured_outputs_validation.md](03_structured_outputs_validation.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
+Exercises are included at the end of each notebook.
 
 ## Key Concepts (Self-learn refresher)
 

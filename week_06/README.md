@@ -39,7 +39,7 @@ Tutorials:
 - [03_chunking_synthesis.md](03_chunking_synthesis.md)
 - [04_capstone_runner.md](04_capstone_runner.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
+Exercises are included at the end of each notebook.
 
 ## Key Concepts (Self-learn refresher)
 

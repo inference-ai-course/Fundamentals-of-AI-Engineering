@@ -122,6 +122,23 @@ Optional (recommended) addition:
 
 ---
 
+## Exercise: Live experiment comparison
+
+Goal:
+
+- Run **two** experiments that differ by exactly one change (e.g., `max_iter`).
+- Write a short `output/compare_runs/report.md` explaining:
+  - what changed
+  - what happened (metrics)
+  - what you think caused it
+  - what you'd try next
+
+Checkpoint:
+
+- `output/compare_runs/report.md` exists and mentions both experiments.
+
+---
+
 ## References
 
 - Model evaluation: https://scikit-learn.org/stable/modules/model_evaluation.html

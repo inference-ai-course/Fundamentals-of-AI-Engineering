@@ -287,7 +287,6 @@ For each issue, ask "why" 5 times:
 
 For retrospective writing exercises, see:
 - **[02_retrospective_template.ipynb](./02_retrospective_template.ipynb)** - Interactive retrospective guide
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
 
 ---
 

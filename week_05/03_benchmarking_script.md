@@ -342,11 +342,16 @@ if __name__ == "__main__":
 
 ---
 
-## Practice notebook
+## Conclusions template
 
-For hands-on benchmarking exercises and statistical analysis, see:
-- **[03_benchmarking_script.ipynb](./03_benchmarking_script.ipynb)** - Interactive benchmarking
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
+Fill this in after you run at least 2 models:
+
+- Best for speed:
+- Best for quality:
+- Biggest failure modes:
+- When you would choose each model:
+
+Optional: paste 1–2 example outputs that demonstrate the differences.
 
 ---
 

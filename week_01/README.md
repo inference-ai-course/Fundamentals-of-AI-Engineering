@@ -44,7 +44,7 @@ Tutorials:
 - [01_environment_setup.md](01_environment_setup.md)
 - [02_data_profiling_script.md](02_data_profiling_script.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
+Exercises are included at the end of each notebook.
 
 ## Key Concepts (Self-learn refresher)
 

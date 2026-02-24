@@ -36,7 +36,7 @@ Tutorials:
 - [02_retrospective_template.md](02_retrospective_template.md)
 - [03_preparing_for_level2.md](03_preparing_for_level2.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
+Exercises are included at the end of each notebook.
 
 ## Key Concepts (Self-learn refresher)
 

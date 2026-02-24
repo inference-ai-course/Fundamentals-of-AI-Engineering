@@ -354,11 +354,16 @@ python run_capstone.py --help
 
 ---
 
-## Practice notebook
+## Exercise: Required-columns guard
 
-For hands-on runner implementation and CLI exercises, see:
-- **[04_capstone_runner.ipynb](./04_capstone_runner.ipynb)** - Interactive runner development
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
+Goal:
+
+- Implement `assert_required_columns_todo(df, required)`.
+- Save the check result under `output/required_columns.json`.
+
+Checkpoint:
+
+- Calling the function with a missing column raises a clear `ValueError`.
 
 ---
 

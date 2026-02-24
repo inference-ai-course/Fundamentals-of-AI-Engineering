@@ -303,11 +303,16 @@ pytest -v
 
 ---
 
-## Practice notebook
+## Exercise: Write demo notes
 
-For demo preparation exercises, see:
-- **[01_demo_readiness.ipynb](./01_demo_readiness.ipynb)** - Demo preparation guide
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
+Goal:
+
+- Implement `demo_notes_todo()`.
+- Save the result to `output/DEMO_NOTES.md`.
+
+Checkpoint:
+
+- The file includes a "Happy path" section and a "Failure case" section.
 
 ---
 

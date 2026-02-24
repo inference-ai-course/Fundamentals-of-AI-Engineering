@@ -233,56 +233,56 @@ You can also use a 2+1+2 format:
 *   **Lecture (3h)**: Python environment, dependency management, script structure, exceptions and logging intuition; Pandas read/write/clean
 *   **Workshop (2h)**: read CSV -> clean missing values -> basic stats -> export report (Markdown/JSON)
 *   **Deliverable**: a runnable `data_profile.py` + README
-*   Resources: [week_01/README.md](week_01/README.md) | [week_01/practice.ipynb](week_01/practice.ipynb)
+*   Resources: [week_01/README.md](week_01/README.md)
 
 ### Week 2: The ML Training Loop + Reproducible Baselines
 
 *   **Lecture (3h)**: train/validation split, overfitting/generalization, meaning of losses and metrics; random seeds and experiment logging
 *   **Workshop (2h)**: `scikit-learn` classification: split -> train -> metrics -> save model; compare 2 settings/models
 *   **Deliverable**: `train.py` (parameterized) + `report.md` (metric explanation + one failed experiment) + minimal `experiments/`
-*   Resources: [week_02/README.md](week_02/README.md) | [week_02/practice.ipynb](week_02/practice.ipynb)
+*   Resources: [week_02/README.md](week_02/README.md)
 
 ### Week 3: LLM Fundamentals + Prompt Engineering
 
 *   **Lecture (3h)**: tokenization, context window, Transformer intuition; hallucinations; prompts as API contracts
 *   **Workshop (2h)**: structured JSON output + validation + retries/repair; compare prompt variants
 *   **Deliverable**: `extract.py` (schema-driven) + at least 3 edge input tests
-*   Resources: [week_03/README.md](week_03/README.md) | [week_03/practice.ipynb](week_03/practice.ipynb)
+*   Resources: [week_03/README.md](week_03/README.md)
 
 ### Week 4: LLM API Engineering (Reliability & Cost)
 
 *   **Lecture (3h)**: timeouts, retries, rate limiting, idempotency, caching; minimum observability set
 *   **Workshop (2h)**: implement `llm_client.py` (timeouts/retries/simple cache/structured logs)
 *   **Deliverable**: reusable LLM client module + unit tests
-*   Resources: [week_04/README.md](week_04/README.md) | [week_04/practice.ipynb](week_04/practice.ipynb)
+*   Resources: [week_04/README.md](week_04/README.md)
 
 ### Week 5: Local Inference (Ollama) and Model Comparison
 
 *   **Lecture (3h)**: boundaries of local inference (speed/VRAM/capability/context); why local matters
 *   **Workshop (2h)**: install and call Ollama; compare 2-3 models on the same task for quality/latency
 *   **Deliverable**: `benchmark_local_llm.py` + written conclusions
-*   Resources: [week_05/README.md](week_05/README.md) | [week_05/practice.ipynb](week_05/practice.ipynb)
+*   Resources: [week_05/README.md](week_05/README.md)
 
 ### Week 6: Capstone Prototype (End-to-End Flow)
 
 *   **Lecture (3h)**: sampling, long-text splitting, input compression; from scripts to pipelines
 *   **Workshop (2h)**: implement CSV -> profiling -> LLM explanation -> report generation
 *   **Deliverable**: Capstone prototype (main flow runs end-to-end)
-*   Resources: [week_06/README.md](week_06/README.md) | [week_06/practice.ipynb](week_06/practice.ipynb)
+*   Resources: [week_06/README.md](week_06/README.md)
 
 ### Week 7: Capstone Engineering & Quality
 
 *   **Lecture (3h)**: CLI design, config management (env/config files), error codes and explainable failures
 *   **Workshop (2h)**: add tests, handle edge cases, stabilize outputs (JSON + Markdown)
 *   **Deliverable**: Capstone submission-ready version
-*   Resources: [week_07/README.md](week_07/README.md) | [week_07/practice.ipynb](week_07/practice.ipynb)
+*   Resources: [week_07/README.md](week_07/README.md)
 
 ### Week 8: Capstone Demo & Retrospective (Preparing for Level 2)
 
 *   **Lecture (3h)**: retrospective: what breaks most often; how to prepare for RAG/agents
 *   **Workshop (2h)**: project demo and code walkthrough; refactor once based on feedback
 *   **Deliverable**: final Capstone delivery + retrospective notes
-*   Resources: [week_08/README.md](week_08/README.md) | [week_08/practice.ipynb](week_08/practice.ipynb)
+*   Resources: [week_08/README.md](week_08/README.md)
 
 ## 10-Week Expansion Guidance
 

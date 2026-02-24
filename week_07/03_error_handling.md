@@ -354,7 +354,6 @@ def load_and_validate(path: Path) -> pd.DataFrame:
 
 For hands-on error handling exercises, see:
 - **[03_error_handling.ipynb](./03_error_handling.ipynb)** - Interactive error patterns
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
 
 ---
 

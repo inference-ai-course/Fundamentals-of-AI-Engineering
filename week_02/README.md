@@ -37,7 +37,7 @@ Tutorials:
 - [02_reproducibility_package.md](02_reproducibility_package.md)
 - [03_compare_runs_report.md](03_compare_runs_report.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
+Exercises are included at the end of each notebook.
 
 ## Key Concepts (Self-learn refresher)
 

@@ -306,7 +306,6 @@ print(f"Compressed to ~{estimate_tokens(asdict(compressed))} tokens")
 
 For hands-on compression exercises and token budgeting, see:
 - **[02_sampling_compression.ipynb](./02_sampling_compression.ipynb)** - Interactive compression techniques
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
 
 ---
 

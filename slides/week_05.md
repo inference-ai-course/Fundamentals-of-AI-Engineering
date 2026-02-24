@@ -39,7 +39,7 @@ By the end of this week, you should be able to:
 
 # Cloud vs Local Inference
 
-![h:280](images/concepts/cloud_computing.svg)
+![bg right:40% h:320](images/concepts/cloud_computing.svg)
 <div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Cloud computing.svg)</div>
 
 ### Cloud (Hosted API)

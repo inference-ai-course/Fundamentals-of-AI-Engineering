@@ -40,7 +40,7 @@ Tutorials:
 - [04_caching_logging.md](04_caching_logging.md)
 - [05_llm_client_skeleton.md](05_llm_client_skeleton.md)
 
-Practice notebook: [practice.ipynb](practice.ipynb)
+Exercises are included at the end of each notebook.
 
 ## Key Concepts (Self-learn refresher)
 

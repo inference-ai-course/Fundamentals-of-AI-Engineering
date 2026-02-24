@@ -166,7 +166,7 @@ When rate-limited or failing, **degrade instead of crashing**:
 
 # Error Handling: Circuit Breaker Pattern
 
-![h:280](images/concepts/api_diagram.svg)
+![bg right:30% h:280](images/concepts/api_diagram.svg)
 <div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Web API diagram.svg)</div>
 
 When failures persist, stop trying and fail fast:

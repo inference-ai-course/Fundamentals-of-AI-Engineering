@@ -308,7 +308,6 @@ validate_args(args)  # Fail fast with clear errors
 
 For hands-on CLI design exercises, see:
 - **[01_cli_design.ipynb](./01_cli_design.ipynb)** - Interactive CLI development
-- **[practice.ipynb](./practice.ipynb)** - Extended exercises
 
 ---
 

@@ -31,7 +31,7 @@ This week you engineer LLM API calls like a production system:
 1. Read 01–04 for the mental models.
 2. Implement 05 and use it as a base for your capstone.
 
-Use [practice.ipynb](practice.ipynb) for extra hands-on work.
+Exercises are included at the end of each notebook.
 
 Why this order works:
 

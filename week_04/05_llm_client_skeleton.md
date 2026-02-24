@@ -125,6 +125,19 @@ In more robust clients, you often also add jitter to avoid “retry storms” (m
 
 ---
 
+## Exercise: Persist raw failures
+
+Goal:
+
+- If the provider call fails (e.g. timeout), persist a short JSON record under `output/`.
+- Return the written path.
+
+Checkpoint:
+
+- Trigger a failure and confirm `output/raw_failure.json` exists.
+
+---
+
 ## References
 
 - Python logging: https://docs.python.org/3/library/logging.html

@@ -23,6 +23,16 @@ Why it matters here (Week 3):
 
 ---
 
+## What is a Prompt?
+
+A **prompt** is the input text or instructions you send to a Large Language Model (LLM). It acts as the API contract between your code and the AI.
+
+Typically, when using an LLM API (like OpenAI's), a prompt is broken down into structured roles:
+- **System**: High-level instructions, persona, and rules (e.g., "You are a helpful Python expert. Always return JSON").
+- **User**: The specific request, task, or data the user wants processed.
+
+---
+
 ## Contract template
 
 A useful contract includes:

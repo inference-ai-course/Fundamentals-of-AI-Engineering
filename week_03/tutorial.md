@@ -28,7 +28,7 @@ These tutorials expand Week 3 into practical LLM engineering skills:
 2. Read 02 and write prompts as specs.
 3. Read 03 and implement validation + repair.
 
-Use [practice.ipynb](practice.ipynb) for additional hands-on work.
+Exercises are included at the end of each notebook.
 
 Why this order works:
 
