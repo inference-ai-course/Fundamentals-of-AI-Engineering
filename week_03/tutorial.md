@@ -21,6 +21,7 @@ These tutorials expand Week 3 into practical LLM engineering skills:
 - [01 — Tokens and context windows (practical intuition)](01_tokens_context.md)
 - [02 — Structured Prompt Specification (design patterns)](02_prompt_contracts.md)
 - [03 — Structured outputs: JSON parsing + validation + retry/repair](03_structured_outputs_validation.md)
+- [04 — OpenAI Compatible API (multi-provider clients)](04_openai_compatible_api.md)
 
 ## Recommended order
 

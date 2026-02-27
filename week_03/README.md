@@ -33,6 +33,7 @@ Tutorials:
 - [01_tokens_context.md](01_tokens_context.md)
 - [02_prompt_contracts.md](02_prompt_contracts.md)
 - [03_structured_outputs_validation.md](03_structured_outputs_validation.md)
+- [04_openai_compatible_api.md](04_openai_compatible_api.md)
 
 Exercises are included at the end of each notebook.
 

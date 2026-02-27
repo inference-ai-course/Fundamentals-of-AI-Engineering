@@ -63,6 +63,19 @@ Explore different ways to interact with AI models, from cloud APIs to local infe
 - **High-Performance Serving**: PagedAttention with vLLM for production
 - **Architecture**: Load balancing, security, and monitoring strategies
 
+### Part 4: OpenAI Compatible API
+
+**[📄 Read Documentation](./04_openai_compatible_api.md)** | **[💻 Open Lab Notebook](./04_openai_compatible_api_lab.ipynb)**
+
+Learn to build portable, provider-agnostic AI applications using the OpenAI Compatible API standard. Switch between Ollama, LiteLLM, Vercel AI Gateway, and other providers with minimal code changes.
+
+**Key Concepts:**
+- **Provider Landscape**: Ollama (local), LiteLLM (proxy), Vercel AI Gateway
+- **Request/Response Format**: Standard chat completions interface
+- **Streaming Responses**: Real-time output with Server-Sent Events
+- **Error Handling**: Robust retry logic and fallback patterns
+- **Structured Outputs**: JSON mode and response formatting
+
 ## Prerequisites
 
 - Python 3.10+ installed
