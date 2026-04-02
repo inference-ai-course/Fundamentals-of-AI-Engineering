@@ -44,8 +44,8 @@ Fundamentals-of-AI-Engineering/
 │   ├── capstone.md            # ✅ 原capstone
 │   ├── assignments.md         # ✅ 原assignments
 │   └── PRESTUDY.md            # ✅ 原PRESTUDY
-├── week_01/                    # ⚠️  空目录 (需新建内容)
-├── week_02/                    # ⚠️  空目录 (需新建内容)
+├── week_01/                    # ✅ README.md created in English
+├── week_02/                    # ✅ README.md created in English
 ├── week_03/                    # ✅ 已迁移 (原Week 5 + 4)
 ├── week_04/                    # ✅ 已迁移 (原Week 1)
 ├── week_05/                    # ✅ 已迁移 (原Week 2)
@@ -225,6 +225,52 @@ Fundamentals-of-AI-Engineering/
 2. 再创建 Week 1-2 内容
 3. 然后整合 Week 3 和 Week 6
 4. 最后全局检查和测试
+
+---
+
+## Phase 9: Root Directory Files Rewritten in English (Completed)
+
+### Files Completed
+
+1. **README.md** - Rewritten in English with 6-week structure
+   - Updated course overview for new 6-week curriculum
+   - Added weekly module descriptions
+   - Updated navigation and links
+
+2. **SYLLABUS.md** - Created in English with detailed 6-week syllabus
+   - Week 1: Agent Tools Introduction (ChatGPT, Claude, Cursor, Kilo)
+   - Week 2: IDE + Agent Practice
+   - Week 3: Local Inference & API Engineering
+   - Week 4: Data Fundamentals for ML
+   - Week 5: Training & Reproducibility
+   - Week 6: Prompt Engineering & Capstone
+
+3. **assignments.md** - Updated in English with new 6-week assignment structure
+   - Weekly assignments aligned with new curriculum
+   - Updated submission requirements
+   - New grading criteria
+
+4. **PRESTUDY.md** - Updated in English with lowered prerequisites
+   - Simplified requirements for beginners
+   - Added setup instructions for AI tools
+   - Removed complex prerequisite topics
+
+5. **Week 1 README.md** - Created in English (Agent Tools Introduction)
+   - Course overview for Week 1
+   - Learning objectives
+   - Weekly schedule and resources
+
+6. **Week 2 README.md** - Created in English (IDE + Agent Practice)
+   - Course overview for Week 2
+   - Learning objectives
+   - Weekly schedule and resources
+
+### Updated Directory Structure Status
+
+```
+├── week_01/                    # ✅ README.md created in English
+├── week_02/                    # ✅ README.md created in English
+```
 
 ---
 
