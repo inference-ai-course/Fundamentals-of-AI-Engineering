@@ -1,0 +1,6 @@
+flowchart TD
+  A[Your App sends request] --> B{Server responds?}
+  B -->|timeout| C[No response in time]
+  B -->|429| D[Too many requests]
+  B -->|500/503| E[Server error]
+  B -->|200 OK| F[Success]

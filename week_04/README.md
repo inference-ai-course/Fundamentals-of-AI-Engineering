@@ -1,44 +1,48 @@
-# Foundations Course — Week 4: LLM API Engineering (Reliability & Cost)
+# Foundations Course — Week 1: Environment Setup & Data Processing Basics
 
 ## Pre-study (Self-learn)
 
 Foundations Course assumes Self-learn is complete. If you need a refresher:
 
 - [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
-- [Self-learn — Chapter 5: Resource Monitoring and Containerization](../self_learn/Chapters/5/Chapter5.md)
+- [Self-learn — Chapter 1: Tool Preparation](../self_learn/Chapters/1/Chapter1.md)
+- [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 ## What you should be able to do by the end of this week
 
-- Implement an `llm_client.py` that is safe to reuse across projects.
-- Explain why timeouts/retries/rate limits/caching exist.
-- Add logging that helps you debug failures quickly.
+- Create a clean Python environment and install dependencies reliably.
+- Run a project from a README on a fresh machine (or a fresh folder).
+- Build a small “data profiling” script that reads a CSV and produces reproducible outputs.
 
-### Reliable LLM call lifecycle
+### Environment setup flow
+
+Both approaches achieve isolation; choose based on your needs:
 
 ```mermaid
 flowchart TD
-  A[Build request] --> B[Call provider]
-  B -->|ok| C[Raw text]
-  B -->|timeout/429/5xx| R[Retry + backoff]
-  R --> B
-  C --> D{Parse}
-  D -->|fail| E[Repair prompt or fail]
-  D -->|ok| F{Validate schema}
-  F -->|fail| E
-  F -->|ok| G[Return structured result]
-  G --> H[Downstream logic]
-  E --> X[Return explainable error]
+  subgraph venv["Python venv approach"]
+    A1[System Python] --> B1[Create: python -m venv .venv]
+    B1 --> C1[Activate venv: source .venv/bin/activate]
+    C1 --> D1[Upgrade pip]
+    D1 --> E1[Install deps]
+    E1 --> F1[Freeze: requirements.txt]
+    F1 --> G1[Run script]
+  end
+
+  subgraph conda["Conda approach"]
+    A2[Base conda] --> B2[Create: conda create -n myenv]
+    B2 --> C2[Activate: conda activate myenv]
+    C2 --> D2[Install deps via pip or conda]
+    D2 --> E2[Export: conda env export > environment.yml]
+    E2 --> F2[Run script]
+  end
 ```
 
 Tutorials:
  
 - [tutorial.md](tutorial.md)
-- [01_timeouts_failures.md](01_timeouts_failures.md)
-- [02_retries_backoff_idempotency.md](02_retries_backoff_idempotency.md)
-- [03_rate_limiting.md](03_rate_limiting.md)
-- [04_caching_logging.md](04_caching_logging.md)
-- [05_llm_client_skeleton.md](05_llm_client_skeleton.md)
+- [01_environment_setup.md](01_environment_setup.md)
+- [02_data_profiling_script.md](02_data_profiling_script.md)
 
 Exercises are included at the end of each notebook.
 
@@ -46,65 +50,76 @@ Exercises are included at the end of each notebook.
 
 Foundations Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
 
-- Reliability mindset, prompt/tool contracts, and evaluation practices:
-  - ../self_learn/Chapters/3/Chapter3.md
-- Operational concerns (monitoring, reliability, production constraints):
-  - ../self_learn/Chapters/5/Chapter5.md
+- Environment management (conda/venv):
+  - ../self_learn/Chapters/2/03_conda_environments.md
+  - ../self_learn/Chapters/1/04_conda_environment_management.md
+- Jupyter basics:
+  - ../self_learn/Chapters/1/05_jupyter_interactive_computing.md
+- Modules, exception handling, and JSON/file I/O patterns:
+  - ../self_learn/Chapters/2/02_modules_exceptions.md
+
+## Common pitfalls
+
+- Running `pip install ...` outside your environment.
+- Not pinning dependencies (or not recording them anywhere).
+- Only sharing screenshots of errors instead of copy/paste logs.
+- Writing outputs to random locations (hard to reproduce).
 
 ## Workshop / Implementation Plan
 
-- Implement `llm_client.py` with:
-  - timeouts
-  - retries + backoff
-  - rate limit handling
-  - simple caching
-  - logs
-- Add tests or a manual failure checklist:
-  - forced timeout
-  - forced invalid JSON
+- Create environment and install dependencies.
+- Implement `data_profile.py`:
+  - input: `--input path/to.csv`
+  - output: write files to `output/`
+  - include clear errors for missing file / empty file / missing columns
 
-### Cache flow
+### Data profiling pipeline
 
 ```mermaid
-flowchart LR
-  A[LLMRequest] --> K[Make cache key]
-  K --> C{Cache hit?}
-  C -->|yes| H[Return cached response]
-  C -->|no| P[Provider call]
-  P --> S[Store response]
-  S --> O[Return response]
+flowchart TD
+  A[Input CSV] --> B[Load CSV]
+  B --> C{Validate}
+  C -->|missing file| E1[Fail: FileNotFoundError]
+  C -->|empty file| E2[Fail: ValueError]
+  C -->|ok| D[Compute stats]
+  D --> F[Write output/profile.json]
+  D --> G[Write output/profile.md]
+  F --> H[Done]
+  G --> H
 ```
 
 ## Why This Matters for Learning AI
 
-Building a cool AI demo is easy. Building an AI system that works reliably in production — under load, through failures, within budget — is the hard part. This week teaches the engineering skills that separate prototypes from products.
+Environment setup and data processing may seem like "boring plumbing," but they are the foundation that every AI project is built on. Here's why mastering these skills early is critical:
 
-### LLM APIs fail — your code must handle it
+### Reproducibility is non-negotiable in AI/ML
 
-Cloud-based LLM APIs (OpenAI, Anthropic, Google) are remote services that can fail in many ways: network timeouts, server errors (5xx), and rate limit rejections (HTTP 429). If your code doesn't handle these failures, your entire application crashes the moment something goes wrong. As [CodeAnt.ai](https://www.codeant.ai/blogs/llm-throughput-rate-limits) explains, *"Rate limits cause failures during peak usage, right when stability matters most... Mismatched limits force you to over-provision expensive resources or create bottlenecks."*
+AI models are only as trustworthy as their ability to be reproduced. If you can't recreate the same results from the same data and code, your work has no scientific or business value. According to [AIMultiple (2026)](https://research.aimultiple.com/reproducible-ai/), *"Reproducibility is crucial for both AI research and AI applications in the enterprise — scientific progress depends on the ability of independent researchers to scrutinize and reproduce the results of a study."*
 
-Implementing retries with exponential backoff is a standard pattern: instead of hammering a failing server, your code waits progressively longer between attempts, giving the service time to recover.
+Consistent environments — same Python version, same library versions, same OS — are the first line of defense. As [GeeksforGeeks](https://www.geeksforgeeks.org/machine-learning/reproducibility-in-machine-learning/) notes, *"Reproducibility depends on consistent environments... Tools like Docker or Conda help maintain this consistency."* This is exactly why Week 1 starts with `venv` and `conda`.
 
-### Rate limits shape your architecture
+### Data processing is the first step of every ML pipeline
 
-Every LLM provider enforces rate limits — caps on how many requests or tokens you can use per minute. According to [TrueFoundry](https://www.truefoundry.com/blog/rate-limiting-in-llm-gateway), *"As enterprises integrate LLMs into customer-facing tools, internal copilots, and API platforms, the need for controlled and reliable access becomes critical."* Understanding rate limits isn't optional — it determines how you design batch processing, queue systems, and user-facing features.
+Before any model can learn, data must be loaded, validated, and profiled. Garbage in, garbage out — if your data has missing values, wrong types, or encoding issues, no model can save you. The data profiling script you build this week teaches you to inspect data systematically, which is a habit you'll use in every AI project going forward.
 
-### Caching saves money and time
+### Dependency management prevents "works on my machine" disasters
 
-LLM API calls cost real money (often per token). If your application sends the same prompt repeatedly, you're paying for the same answer over and over. A simple cache — storing responses keyed by the request — can cut costs dramatically and speed up your application. This is a fundamental optimization pattern in all software engineering, but it's especially impactful with expensive AI APIs.
-
-### Logging is how you debug AI systems
-
-When an LLM returns garbage, you need to know: What prompt was sent? What response came back? How long did it take? What error code was returned? Good logging answers all of these questions instantly. Without it, debugging AI failures becomes guesswork.
+Pinning dependencies in `requirements.txt` or `environment.yml` ensures that your collaborators, your CI/CD pipeline, and your future self can all run the same code. In production AI systems, a single mismatched library version can cause silent numerical differences that corrupt model outputs. As [Neptune.ai](https://neptune.ai/blog/how-to-solve-reproducibility-in-ml) explains, *"ML reproducibility hinges on metadata — you can't recreate experiments if you don't record and store metadata"* about your environment and dependencies.
 
 ### References
 
-- [Why LLM Rate Limits and Throughput Matter More Than Benchmarks (CodeAnt.ai)](https://www.codeant.ai/blogs/llm-throughput-rate-limits)
-- [Rate Limiting in AI Gateway: The Ultimate Guide (TrueFoundry)](https://www.truefoundry.com/blog/rate-limiting-in-llm-gateway)
-- [Tackling Rate Limiting for LLM Apps (Portkey.ai)](https://portkey.ai/blog/tackling-rate-limiting-for-llm-apps/)
+- [Reproducible AI: Why it Matters & How to Improve it (AIMultiple, 2026)](https://research.aimultiple.com/reproducible-ai/)
+- [Reproducibility in Machine Learning (GeeksforGeeks)](https://www.geeksforgeeks.org/machine-learning/reproducibility-in-machine-learning/)
+- [How to Solve Reproducibility in ML (Neptune.ai)](https://neptune.ai/blog/how-to-solve-reproducibility-in-ml)
 
 ## Self-check questions
 
-- Can you show your client does not hang forever?
-- Can you simulate failures and show graceful handling?
-- Can you explain what information your logs provide during an incident?
+- Can you explain the difference between a virtual environment and the system Python?
+- Can you re-run your script and get the same output files from the same input?
+- If someone else runs your README steps, do they succeed without extra "secret" steps?
+
+
+
+- Can you explain the difference between a virtual environment and the system Python?
+- Can you re-run your script and get the same output files from the same input?
+- If someone else runs your README steps, do they succeed without extra "secret" steps?

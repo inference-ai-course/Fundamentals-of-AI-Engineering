@@ -1,44 +1,35 @@
-# Foundations Course — Week 4 Tutorials
+# Foundations Course — Week 1 Tutorials
 
 ## Pre-study (Self-learn)
 
 Foundations Course assumes Self-learn is complete. If you need a refresher:
 
 - [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
-- [Self-learn — Chapter 5: Resource Monitoring and Containerization](../self_learn/Chapters/5/Chapter5.md)
+- [Self-learn — Chapter 1: Tool Preparation](../self_learn/Chapters/1/Chapter1.md)
+- [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 ## Overview
 
-This week you engineer LLM API calls like a production system:
-
-- timeouts
-- retries + backoff
-- rate limit handling
-- caching (cost + latency)
-- logging (debuggability)
+These tutorials expand Week 1 into a step-by-step, chapter-style walkthrough.
 
 ## Navigation
 
-- [01 — Timeouts + failure modes](01_timeouts_failures.md)
-- [02 — Retries, backoff, and idempotency](02_retries_backoff_idempotency.md)
-- [03 — Rate limiting + graceful degradation](03_rate_limiting.md)
-- [04 — Caching + observability (logging)](04_caching_logging.md)
-- [05 — A reusable `llm_client.py` skeleton](05_llm_client_skeleton.md)
+- [01 — Environment setup + dependency management](01_environment_setup.md)
+- [02 — Data profiling script (CSV -> JSON/Markdown outputs)](02_data_profiling_script.md)
 
 ## Recommended order
 
-1. Read 01–04 for the mental models.
-2. Implement 05 and use it as a base for your capstone.
-
-Exercises are included at the end of each notebook.
+1. Read 01, set up your environment.
+2. Read 02, implement and run the profiling script.
 
 Why this order works:
 
-1. **Mental models first**
-    - Reliability features interact: retries without timeouts can hang forever; retries without backoff can cause storms.
-    - What to verify: you can explain what happens on timeout vs 429 vs 5xx, and what your client should do in each case.
+1. **Environment first**
+    - If your environment is unstable, every later step becomes “mystery debugging”.
+    - What to verify: you can run `python --version`, activate your venv, and run a small script twice with the same output.
 
-2. **Client skeleton second**
-    - The reusable client is where engineering habits live (timeouts, retries, logging, caching).
-    - What to verify: you can force a failure (bad key, forced timeout) and your client exits with a clear error and useful logs.
+2. **Profiling script second**
+    - This is your first “reproducible artifact” workflow: input file → deterministic outputs.
+    - What to verify: running the script creates `output/` files in the same place, with predictable names.
+    - Example: your script should fail clearly on missing input and succeed on a small sample CSV.
+    - Exercises (required-columns check, numeric summaries) are included at the end of the notebook.

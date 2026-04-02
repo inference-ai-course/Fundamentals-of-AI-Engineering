@@ -3,16 +3,16 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 4 — LLM API Engineering (Reliability & Cost)"
+footer: "Week 1 — Environment Setup & Data Quality"
 style: |
   @import 'theme.css';
 ---
 
 <!-- _class: lead -->
 
-# Week 4
+# Week 1
 
-## LLM API Engineering (Reliability & Cost)
+## Environment Setup & Data Quality Basics
 
 ---
 
@@ -20,232 +20,228 @@ style: |
 
 By the end of this week, you should be able to:
 
-- Implement an `llm_client.py` that is safe to reuse across projects
-- Explain why timeouts / retries / rate limits / caching exist
-- Add logging that helps you debug failures quickly
+- Create a clean Python environment and install dependencies reliably
+- Run a project from a README on a fresh machine (or fresh folder)
+- Build a data quality profiling script that reads a CSV and produces reproducible outputs
 
 ---
 
-# What Can Go Wrong With an API Call?
+# What is AI Engineering?
 
-![h:280](images/concepts/api_diagram.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Web API diagram.svg)</div>
+![bg right:50% h:320](images/concepts/ai_ml_dl.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (AI-ML-DL.svg)</div>
 
-LLM APIs are **remote services** — they can timeout, overload, or fail at any time.
+AI Engineering = building **reliable systems** that use AI models (including LLMs).
 
-Your code must handle every failure path, not just the happy path.
+It's not just about the model — it's about **data quality**, **reproducible pipelines**, and **stable infrastructure** around the model.
 
 ---
 
-# Reliability Engineering: The Layers
+# What This Course Builds
 
-Each layer protects against a different class of failure. Together they make your LLM client **production-ready**.
+- **Week 1**: Environment + data profiling
+- **Weeks 2–5**: ML, LLM APIs, local inference
+- **Weeks 6–8**: Pipeline, testing, demo
 
-Timeout → Retry → Backoff → Cache → Logging
+---
+
+# Why This Matters for LLM Projects
+
+LLMs are powerful, but **they don't fix bad engineering**:
+
+| Without engineering discipline | With engineering discipline |
+|-------------------------------|---------------------------|
+| "Works on my laptop" | Reproducible on any machine |
+| Feeding garbage data to LLM | Profiled, validated data → better prompts |
+| Can't explain what changed | Artifact trail for every run |
+| Random failures | Controlled, debuggable pipeline |
+
+> Every skill this week — environments, data profiling, reproducibility — directly applies when you build LLM-powered systems in later weeks.
+
+---
+
+# What is Data Quality Profiling?
+
+**Data profiling** = systematically assessing data quality *before* using it (structure, completeness, consistency).
+
+**Key checks**: row counts, column types, missing values (%), distributions, outliers, duplicates.
+
+![bg right:40% h:320](images/concepts/data_profiling.svg)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Data Mining - The Noun Project.svg)</div>
+
+### Without profiling (bad path)
+
+Dirty data → model trained on noise → wrong predictions → hallucinations.
+
+Each arrow is a point where profiling could have caught the problem **early**.
+
+---
+
+# Data Quality → AI Quality
+
+![bg right:40% h:320](images/concepts/machine_learning.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of machine learning.png)</div>
+
+### With profiling (good path)
+
+Profiled + cleaned data → model on quality data → reliable outputs → trustworthy results.
+
+**For LLM work**: bad data → bad prompts → hallucinations. Profile **early** to avoid expensive failures.
+
+---
+
+# Without Isolation: Version Conflicts
+
+![h:280](images/concepts/traditional_programming.png)
+<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of traditional computer applications.png)</div>
+
+LLM libraries change **fast** — `openai` had a breaking API change from v0.x to v1.x.
+
+---
+
+# With Isolation: Each Project is Safe
+
+**Pinned versions + isolated venvs** = safety net. Each project has its own dependency versions.
 
 ---
 
 <!-- _class: part -->
 
 # Part 01
-## Timeouts and Failure Modes
+## Environment Setup + Dependency Management
 
-`week_04/01_timeouts_failures.md` · `01_timeouts_failures.ipynb`
+`week_01/01_environment_setup.md` · `01_environment_setup.ipynb`
 
 ---
 
-# Timeouts: Don't Hang Forever
+# Environment Setup: venv
 
-**Without a timeout**: your program can hang indefinitely.
-**With a timeout**: unknown waiting becomes a controlled failure.
+System Python → create venv → activate → install deps → freeze `requirements.txt` → run script.
 
-| Use case | Connect | Read | Total |
-|----------|---------|------|-------|
-| Quick chat completion | 3s | 15s | 18s |
-| Standard completion | 5s | 30s | 35s |
-| Long-form generation | 5s | 90s | 95s |
-| Embedding/classification | 3s | 10s | 13s |
+**Key**: always activate before `pip install`, always freeze after installing.
 
-- **Connect timeout** (short): catches DNS/network issues quickly
-- **Read timeout** (longer): allows model processing time (varies by task complexity)
-- **Always make timeouts configurable** (env var or CLI flag)
+---
 
-**Why separate timeouts?** Connection fails fast (network down), but reading waits for the model to generate output.
+# Environment Setup: Conda
+
+![h:360 Anaconda Distribution](images/concepts/anaconda_distribution.png)
+
+Same pattern as venv — different tool, same discipline.
+
+Base conda → create env → activate → install deps → export `environment.yml` → run script.
+
+---
+
+# The "Fresh Machine" Test
+
+The gold standard: can someone recreate your project from scratch?
+
+| Step | What to do | Success looks like |
+|------|-----------|-------------------|
+| 1. Create venv | `python -m venv .venv` | New `.venv/` directory |
+| 2. Activate | `source .venv/bin/activate` | `which python` → `.venv/bin/python` |
+| 3. Install | `pip install -r requirements.txt` | No errors |
+| 4. Verify | `python -c "import pandas"` | No ImportError |
+
+**Pin versions** in `requirements.txt`:
+```txt
+pandas==2.2.3
+scikit-learn==1.5.2
+openai==1.6.1
+```
+
+---
+
+# Common Pitfalls
+
+| Pitfall | Symptom | Fix |
+|---------|---------|-----|
+| Installing outside env | "Works on my machine" | Always activate before `pip install` |
+| Forgetting to record deps | Can't recreate env | `pip freeze > requirements.txt` after install |
+| Version drift | "Worked last week" | Pin versions explicitly |
+| Platform-specific deps | Fails on other OS | Document system deps separately |
+
+**Diagnosis**: Always check `which python` — should point to your `.venv/`, not `/usr/bin/python`.
 
 ---
 
 <!-- _class: part -->
 
 # Part 02
-## Retries, Backoff, and Idempotency
+## Data Quality Profiling Script
 
-`week_04/02_retries_backoff_idempotency.md` · `02_retries_backoff_idempotency.ipynb`
-
----
-
-# Retries + Exponential Backoff
-
-![bg right:40% h:320](images/concepts/exponential_backoff.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Exponential function parameter.svg)</div>
-
-- **Retry transient failures**: timeouts, 429, 503
-- **Don't retry permanent failures**: 401, 404
-- **Exponential backoff**: 0.5s → 1s → 2s → 4s
+`week_01/02_data_profiling_script.md` · `02_data_profiling_script.ipynb`
 
 ---
 
-# Idempotency & Request Tracking
+# Data Quality Profiling Pipeline
 
-**Idempotent** = "doing it twice has the same effect as doing it once."
+**Defensive programming**: validate early, fail fast.
 
-| Concept | What to do |
-|---------|-----------|
-| **Request ID** | Generate a unique ID for every call |
-| **Log both sides** | Log request and response with same ID |
-| **Idempotency key** | Use where providers support them |
-
-**Why it matters**: If you add retries and the original request actually succeeded, you might get duplicate results. Request IDs help you trace and deduplicate.
+- If file is missing → clear `FileNotFoundError`
+- If file is empty → clear `ValueError`
+- If validation passes → compute stats and write reproducible outputs
 
 ---
 
-<!-- _class: part -->
+# Data Quality Profiling for LLM Pipelines
 
-# Part 03
-## Rate Limiting + Graceful Degradation
+In later weeks, you will **compress** data and send it to an LLM for analysis.
 
-`week_04/03_rate_limiting.md` · `03_rate_limiting.ipynb`
+| What profiling catches | What happens if you miss it |
+|----------------------|---------------------------|
+| Missing values (40% of a column) | LLM hallucinates values to fill gaps |
+| Wrong column types (dates as strings) | LLM misinterprets the data |
+| Unexpected encoding | Garbled text in the prompt |
+| Empty dataset | Wasted API call + confusing output |
 
----
-
-# Rate Limiting
-
-**HTTP 429** = "Too Many Requests"
-
-| Limit type | Example |
-|-----------|---------|
-| **RPM** (requests/min) | 60 |
-| **TPM** (tokens/min) | 90,000 |
-| **Concurrent** | 5 simultaneous |
-
-### Your behavior on 429
-
-1. Respect `Retry-After` header if present
-2. Otherwise: exponential backoff
-3. Consider **client-side throttling** to prevent hitting limits
+**Rule**: Profile first, send to LLM second. The data quality profiling habit you build this week is the foundation for every LLM pipeline later.
 
 ---
 
-# Graceful Degradation
+# Reproducibility: Why It Matters
 
-When rate-limited or failing, **degrade instead of crashing**:
-- GPT-4 fails → fall back to GPT-3.5
-- Non-critical → serve cached result
-- Batch workload → queue for later
+**Reproducibility** = run the same command twice → get **identical** outputs.
 
----
+| Concept | How we enforce it |
+|---------|------------------|
+| Deterministic outputs | `sort_keys=True` in JSON |
+| Stable environment | Pinned `requirements.txt` |
+| Controlled inputs | Explicit `--input` flag |
+| Traceable outputs | All artifacts in `output/` directory (audit trail) |
 
-<!-- _class: part -->
-
-# Part 04
-## Caching and Observability & Logging
-
-`week_04/04_caching_logging.md` · `04_caching_logging.ipynb`
-
----
-
-# Caching: Save Money and Time
-
-**Cache key must include** all parameters that affect output.
-
-**Common pitfalls**:
-- Forgetting system prompt in key
-- Caching when temperature > 0 (non-deterministic outputs → stale cached results may not reflect model variability)
-- Caching errors
-
----
-
-# Error Handling: Circuit Breaker Pattern
-
-![bg right:30% h:280](images/concepts/api_diagram.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Web API diagram.svg)</div>
-
-When failures persist, stop trying and fail fast:
-- **Closed** → requests flow normally
-- **Open** → requests fail immediately without calling the API
-- **Half-Open** → allow one test request to check if service recovered
-
-This prevents cascading failures and gives the service time to recover.
-
----
-
-# Logging: Structured Request Logging
-
-| Field | Why |
-|-------|-----|
-| `request_id` | Trace specific requests |
-| `model` | Which model was called |
-| `latency_s` | Performance monitoring |
-| `success/failure` | Error rate tracking |
-| `error_type` | Network vs parsing vs validation |
-| `prompt_len` | Estimate token usage |
-
-Good logs answer: "What happened, when, and how long did it take?" — essential for debugging production incidents.
-
----
-
-<!-- _class: part -->
-
-# Part 05
-## A Reusable `llm_client.py` Skeleton
-
-`week_04/05_llm_client_skeleton.md` · `05_llm_client_skeleton.ipynb`
-
----
-
-# The Reusable `llm_client.py`
-
-Your client should combine all reliability layers:
-
-| Layer | What it does |
-|-------|-------------|
-| **Timeout** | Don't hang forever |
-| **Cache check** | Return cached if available |
-| **Provider call** | Make actual API request |
-| **Retry + backoff** | Retry transient failures |
-| **Cache store** | Save successful responses |
-| **Logging** | Record request_id, latency, errors |
-
-This becomes your **reusable building block** for every LLM project.
+**For LLM work**: When you later compare prompt strategies or model versions, reproducibility lets you **isolate what changed** — was it the data, the prompt, or the model?
 
 ---
 
 # Workshop / Deliverables
 
-Implement `llm_client.py` with:
-- Timeouts (configurable)
-- Retries + exponential backoff
-- Rate limit handling (429 → backoff or degrade)
-- Simple caching (in-memory or file-based)
-- Structured logs (request_id, model, latency, error)
+Implement `data_profile.py`:
 
-Add tests or a manual failure checklist:
-- Forced timeout scenario
-- Forced invalid JSON scenario
+- **Input**: `--input path/to.csv`
+- **Output**: write files to `output/`
+- **Error handling**: clear errors for missing file / empty file / missing columns
+
+**Extensions** (recommended):
+- `--required_columns colA,colB` — fail if missing
+- Numeric summaries (min/max/mean)
+- Frequent values for categorical columns (top 5)
 
 ---
 
 # Self-Check Questions
 
-- Can you show your client does not hang forever?
-- Can you simulate failures and show graceful handling?
-- Can you explain what information your logs provide during an incident?
-- Does your cache key include all parameters that affect output?
+- Can you recreate your environment from scratch using only `requirements.txt`?
+- Can you explain **why** environments prevent dependency conflicts?
+- If you delete `.venv`, can you recreate it and run the project?
+- If the input file is missing, do you get a clear error?
+- Can you explain how data profiling helps LLM-based analysis later?
 
 ---
 
 # References
 
-- Requests timeouts: https://requests.readthedocs.io/en/latest/user/quickstart/#timeouts
-- HTTP 429: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
-- Tenacity: https://tenacity.readthedocs.io/
-- Python logging: https://docs.python.org/3/library/logging.html
+- Python `venv`: https://docs.python.org/3/library/venv.html
+- pip user guide: https://pip.pypa.io/en/stable/user_guide/
+- Conda environments: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+- Pandas getting started: https://pandas.pydata.org/docs/getting_started/index.html
