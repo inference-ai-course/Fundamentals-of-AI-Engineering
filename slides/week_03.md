@@ -3,14 +3,14 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 5 — Local Inference (Ollama) & Model Comparison"
+footer: "Week 3 — Local Inference (Ollama) & Model Comparison"
 style: |
   @import 'theme.css';
 ---
 
 <!-- _class: lead -->
 
-# Week 5
+# Week 3
 
 ## Local Inference (Ollama) & Model Comparison
 
@@ -78,7 +78,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 # Part 01
 ## Local Inference Concepts + Setup
 
-`week_05/01_local_inference_setup.md` · `01_local_inference_setup.ipynb`
+`week_03/01_local_inference_setup.md` · `01_local_inference_setup.ipynb`
 
 ---
 
@@ -102,7 +102,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 # Part 02
 ## Calling Ollama via HTTP
 
-`week_05/02_ollama_http_client.md` · `02_ollama_http_client.ipynb`
+`week_03/02_ollama_http_client.md` · `02_ollama_http_client.ipynb`
 
 ---
 
@@ -150,7 +150,7 @@ Your app talks to Ollama on `localhost:11434` — same HTTP pattern as cloud API
 # Part 03
 ## Benchmarking Script
 
-`week_05/03_benchmarking_script.md` · `03_benchmarking_script.ipynb`
+`week_03/03_benchmarking_script.md` · `03_benchmarking_script.ipynb`
 
 ---
 

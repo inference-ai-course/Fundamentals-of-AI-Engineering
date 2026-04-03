@@ -30,8 +30,8 @@ By the end of this week, you should be able to:
 
 # From Browser to IDE
 
-| Week 1 | Week 2 |
-|--------|--------|
+| Week 1-2 | Week 3-6 |
+|----------|--------|
 | Browser-based AI (ChatGPT) | IDE-based AI (Cursor) |
 | Manual file context | Automatic project context |
 | Separate windows | Integrated workspace |
@@ -94,6 +94,8 @@ By the end of this week, you should be able to:
 ---
 
 # The Core Pattern: Ask → Review → Apply → Verify
+
+![h:380](images/concepts/ai_workflow_cycle.svg)
 
 ```
 1. ASK:    Describe what you want
@@ -185,6 +187,8 @@ Specific:  "What does line 3 do?"
 ---
 
 # Modification Workflow
+
+![h:320](images/concepts/code_modification_workflow.svg)
 
 ```
 1. Understand: Read first (Part 03)

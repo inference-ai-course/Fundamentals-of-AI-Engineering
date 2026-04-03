@@ -3,14 +3,14 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 3 — LLM Fundamentals & Prompt Engineering"
+footer: "Week 6 — LLM Fundamentals & Prompt Engineering"
 style: |
   @import 'theme.css';
 ---
 
 <!-- _class: lead -->
 
-# Week 3
+# Week 6
 
 ## LLM Fundamentals + Prompt Engineering
 
@@ -82,7 +82,7 @@ An LLM is a **very large ML model** (billions of parameters) trained on massive 
 # Part 01
 ## Tokens and Context Windows
 
-`week_03/01_tokens_context.md` · `01_tokens_context.ipynb`
+`week_06/01_tokens_context.md` · `01_tokens_context.ipynb`
 
 ---
 
@@ -155,7 +155,7 @@ If you send too much text:
 # Part 02
 ## Structured Prompt Specification
 
-`week_03/02_prompt_contracts.md` · `02_prompt_contracts.ipynb`
+`week_06/02_prompt_contracts.md` · `02_prompt_contracts.ipynb`
 
 ---
 
@@ -201,7 +201,7 @@ Each step can fail independently — separating them helps debugging.
 # Part 03
 ## Structured Outputs + Validation
 
-`week_03/03_structured_outputs_validation.md` · `03_structured_outputs_validation.ipynb`
+`week_06/03_structured_outputs_validation.md` · `03_structured_outputs_validation.ipynb`
 
 ---
 

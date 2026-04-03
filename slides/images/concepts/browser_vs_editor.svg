@@ -1,0 +1,70 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="500" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="450" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#2c3e50">Browser-Based vs Editor-Based AI</text>
+
+  <!-- Left Side: Browser (ChatGPT) -->
+  <rect x="50" y="70" width="380" height="400" rx="10" fill="#e8f4f8" stroke="#3498db" stroke-width="3"/>
+  <text x="240" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2980b9">Browser (ChatGPT/Claude)</text>
+
+  <!-- Browser Icon -->
+  <rect x="100" y="130" width="280" height="60" rx="5" fill="#3498db"/>
+  <circle cx="130" cy="160" r="8" fill="#e74c3c"/>
+  <circle cx="155" cy="160" r="8" fill="#f1c40f"/>
+  <circle cx="180" cy="160" r="8" fill="#2ecc71"/>
+  <rect x="200" y="150" width="160" height="20" rx="3" fill="#ecf0f1"/>
+  <text x="280" y="164" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">chat.openai.com</text>
+
+  <!-- Setup -->
+  <rect x="80" y="210" width="320" height="55" rx="5" fill="#ecf0f1"/>
+  <text x="100" y="235" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">Setup:</text>
+  <text x="100" y="255" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Just login to website</text>
+
+  <!-- File Access -->
+  <rect x="80" y="275" width="320" height="55" rx="5" fill="#ecf0f1"/>
+  <text x="100" y="300" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">File Access:</text>
+  <text x="100" y="320" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">None - manual copy/paste only</text>
+
+  <!-- Context -->
+  <rect x="80" y="340" width="320" height="55" rx="5" fill="#ecf0f1"/>
+  <text x="100" y="365" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">Context:</text>
+  <text x="100" y="385" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">You provide manually</text>
+
+  <!-- Best For -->
+  <rect x="80" y="405" width="320" height="50" rx="5" fill="#d5f4e6"/>
+  <text x="100" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#27ae60">Best for:</text>
+  <text x="100" y="442" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Quick tasks, writing, Q&A</text>
+
+  <!-- Right Side: Editor (Cursor) -->
+  <rect x="470" y="70" width="380" height="400" rx="10" fill="#f0f8e8" stroke="#2ecc71" stroke-width="3"/>
+  <text x="660" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#27ae60">Editor (Cursor)</text>
+
+  <!-- Editor Icon -->
+  <rect x="520" y="130" width="280" height="60" rx="5" fill="#2c3e50"/>
+  <rect x="530" y="140" width="60" height="40" rx="3" fill="#34495e"/>
+  <text x="560" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ecf0f1">Files</text>
+  <rect x="600" y="145" width="190" height="30" rx="3" fill="#ecf0f1"/>
+  <text x="695" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Code editor + AI chat</text>
+
+  <!-- Setup -->
+  <rect x="500" y="210" width="320" height="55" rx="5" fill="#ecf0f1"/>
+  <text x="520" y="235" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">Setup:</text>
+  <text x="520" y="255" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Install application</text>
+
+  <!-- File Access -->
+  <rect x="500" y="275" width="320" height="55" rx="5" fill="#ecf0f1"/>
+  <text x="520" y="300" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">File Access:</text>
+  <text x="520" y="320" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Yes - reads project files automatically</text>
+
+  <!-- Context -->
+  <rect x="500" y="340" width="320" height="55" rx="5" fill="#ecf0f1"/>
+  <text x="520" y="365" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">Context:</text>
+  <text x="520" y="385" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Automatic from project structure</text>
+
+  <!-- Best For -->
+  <rect x="500" y="405" width="320" height="50" rx="5" fill="#d5f4e6"/>
+  <text x="520" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#27ae60">Best for:</text>
+  <text x="520" y="442" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Code tasks, projects, development</text>
+</svg>

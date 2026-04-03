@@ -3,14 +3,14 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 1 — Environment Setup & Data Quality"
+footer: "Week 4 — Environment Setup & Data Quality"
 style: |
   @import 'theme.css';
 ---
 
 <!-- _class: lead -->
 
-# Week 1
+# Week 4
 
 ## Environment Setup & Data Quality Basics
 
@@ -39,9 +39,9 @@ It's not just about the model — it's about **data quality**, **reproducible pi
 
 # What This Course Builds
 
-- **Week 1**: Environment + data profiling
-- **Weeks 2–5**: ML, LLM APIs, local inference
-- **Weeks 6–8**: Pipeline, testing, demo
+- **Week 4**: Environment + data profiling
+- **Weeks 5–6**: ML, LLM APIs, local inference
+- **Capstone**: Pipeline, testing, demo
 
 ---
 
@@ -110,7 +110,7 @@ LLM libraries change **fast** — `openai` had a breaking API change from v0.x t
 # Part 01
 ## Environment Setup + Dependency Management
 
-`week_01/01_environment_setup.md` · `01_environment_setup.ipynb`
+`week_04/01_environment_setup.md` · `01_environment_setup.ipynb`
 
 ---
 
@@ -170,7 +170,7 @@ openai==1.6.1
 # Part 02
 ## Data Quality Profiling Script
 
-`week_01/02_data_profiling_script.md` · `02_data_profiling_script.ipynb`
+`week_04/02_data_profiling_script.md` · `02_data_profiling_script.ipynb`
 
 ---
 

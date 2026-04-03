@@ -7,7 +7,7 @@
 | **Course Name** | AI Engineering Fundamentals |
 | **Version** | v2.0 (6-Week Program) |
 | **Duration** | 6 weeks |
-| **Weekly Hours** | 5 hours (3 hours lecture + 2 hours lab/workshop) |
+| **Weekly Hours** | 5 hours (1.5h lecture + 1.5h office hour + 2h homework) |
 | **Delivery Method** | In-person instruction + hands-on workshops |
 | **Target Students** | Non-technical backgrounds; no prior programming experience required |
 
@@ -67,7 +67,7 @@ Upon completing this course, students will be able to:
 - Master basic usage of Cursor, ChatGPT, Kilo, and similar tools
 - Develop intuition for AI capabilities and establish usage methodologies
 
-#### Session 1 (2h) - Agent Tools Overview and Demonstration
+#### Session 1 (1.5h) - Agent Tools Overview and Demonstration
 - What are AI Agents? (Concept explanation + analogies)
 - Introduction to mainstream Agent tools:
   - **Cursor:** Code editor + AI assistant
@@ -79,7 +79,7 @@ Upon completing this course, students will be able to:
   - "Explain what this code does"
   - "Organize this Excel data into a table"
 
-#### Session 2 (2h) - Hands-on Experience
+#### Session 2 (1.5h) - Hands-on Experience
 - Student registration and tool installation
 - Practice tasks:
   - Write an article using ChatGPT
@@ -87,16 +87,9 @@ Upon completing this course, students will be able to:
   - Complete a simple instruction using Kilo
 - Sharing session: Most successful AI collaboration experiences
 
-#### Session 3 (1h) - Discussion and Reflection
-- Advantages and limitations of Agent tools
-- When to use AI vs. doing it yourself
-- Sharing usage tips and prompt insights
-
 #### Deliverables
 - Complete 3 different types of Agent tool experience tasks
 - Write an "Agent Tools Usage Reflection" report (800-1000 words)
-
-#### Assessment: 10%
 
 #### Resources
 - [week_01/README.md](week_01/README.md)
@@ -114,7 +107,7 @@ Upon completing this course, students will be able to:
 - Understand the "AI-assisted programming" workflow
 - Gain initial exposure to Python code
 
-#### Session 1 (2h) - IDE + AI Environment Setup
+#### Session 1 (1.5h) - IDE + AI Environment Setup
 - Install VS Code or Cursor
 - Configure GitHub Copilot / Cursor AI
 - Learn basic IDE operations:
@@ -126,7 +119,7 @@ Upon completing this course, students will be able to:
   - Using AI to modify code
   - Using AI to generate code
 
-#### Session 2 (2h) - Code Reading and Modification Practice
+#### Session 2 (1.5h) - Code Reading and Modification Practice
 - Use provided Python project templates
 - Task 1: Have AI explain what each code segment does (at least 5 functions)
 - Task 2: Request modifications and have AI help you change the code (at least 3 modifications)
@@ -134,17 +127,10 @@ Upon completing this course, students will be able to:
   - "Add comments to this function"
 - Task 3: Run the code and observe results
 
-#### Session 3 (1h) - Problem-Solving Workshop
-- Common errors and how to debug with AI
-- What to do when AI gives incorrect answers
-- Student showcase: Code modifications completed with AI assistance
-
 #### Deliverables
 - Complete code explanation exercise (explain at least 5 functions)
 - Complete code modification tasks (at least 3 modifications)
 - Write an "AI-Assisted Programming Reflection" report (800-1000 words)
-
-#### Assessment: 10%
 
 #### Resources
 - [week_02/README.md](week_02/README.md)
@@ -163,31 +149,24 @@ Upon completing this course, students will be able to:
 - Master reliability engineering for LLM APIs
 - Implement robust LLM clients
 
-#### Session 1 (2h) - Environment Setup and Local Inference
+#### Session 1 (1.5h) - Environment Setup and Local Inference
 - Python environment installation (using Anaconda for simplicity)
 - Virtual environment concepts and creation
 - Install Ollama
 - Download and run local models (llama3.2:1b)
 - Interact with models via command line
 
-#### Session 2 (2h) - API Calls and Reliability Engineering
+#### Session 2 (1.5h) - API Calls and Reliability Engineering
 - Local inference vs. cloud API comparison
 - API failure modes: timeouts, rate limiting, errors
 - Implement timeout settings and retry strategies
 - Add caching and logging
 - Build a simple LLM client
 
-#### Session 3 (1h) - Integration Practice
-- Unified interface: Using the same calling method for local and cloud models
-- Model comparison experiments (local vs. cloud quality, speed)
-- Troubleshooting and optimization
-
 #### Deliverables
 - Successfully run Ollama local model
 - Implement a reliable LLM client (supporting local + cloud)
 - Complete model comparison experiment report (1000-1500 words)
-
-#### Assessment: 15%
 
 #### Resources
 - [week_03/README.md](week_03/README.md)
@@ -205,29 +184,22 @@ Upon completing this course, students will be able to:
 - Generate data profiling reports
 - Master CSV data loading, cleaning, and analysis
 
-#### Session 1 (2h) - The Relationship Between Data and AI
+#### Session 1 (1.5h) - The Relationship Between Data and AI
 - Why data quality determines AI effectiveness
 - Pandas basics: reading CSV, viewing data
 - Data types and basic statistics
 - Practice: Load a dataset and view basic information
 
-#### Session 2 (2h) - Data Cleaning and Exploration
+#### Session 2 (1.5h) - Data Cleaning and Exploration
 - Handling missing values
 - Identifying outliers
 - Data distribution analysis
 - Generate data profiles (JSON/Markdown output)
 
-#### Session 3 (1h) - Data Report Workshop
-- Students generate reports using their own datasets
-- Share data discoveries
-- Discussion: How data issues affect AI models
-
 #### Deliverables
 - Complete a data profiling report (JSON + Markdown format)
 - Clean a real-world dataset
 - Write a data quality analysis report (800-1200 words)
-
-#### Assessment: 10%
 
 #### Resources
 - [week_04/README.md](week_04/README.md)
@@ -245,29 +217,22 @@ Upon completing this course, students will be able to:
 - Train a basic classification model
 - Learn to compare results from different experiments
 
-#### Session 1 (2h) - ML Fundamentals
+#### Session 1 (1.5h) - ML Fundamentals
 - What is training? What is inference?
 - Train/Validation/Test splits
 - Overfitting and underfitting (intuitive explanations)
 - Basic evaluation metrics: accuracy, F1 score
 
-#### Session 2 (2h) - Train Your First Model
+#### Session 2 (1.5h) - Train Your First Model
 - Train classifiers using scikit-learn
 - Save models and experiment configurations
 - Evaluate model performance
 - Run multiple experiments and compare results
 
-#### Session 3 (1h) - Experiment Comparison Workshop
-- Change parameters and observe performance changes
-- Write experiment comparison reports
-- Discussion: Under what conditions do models perform better?
-
 #### Deliverables
 - Train at least 2 different models
 - Complete model comparison experiment report (1000-1500 words)
 - Explain experimental design decisions
-
-#### Assessment: 10%
 
 #### Resources
 - [week_05/README.md](week_05/README.md)
@@ -286,24 +251,18 @@ Upon completing this course, students will be able to:
 - Complete a simplified end-to-end project
 - Course review and future outlook
 
-#### Session 1 (2h) - LLM Basics and Prompt Engineering
+#### Session 1 (1.5h) - LLM Basics and Prompt Engineering
 - Tokenization introduction and context window limitations
 - Prompt design best practices
 - Structured prompts and JSON output
 - Introduction to validation and retry mechanisms
 
-#### Session 2 (2h) - End-to-End Project Practice
+#### Session 2 (1.5h) - End-to-End Project Practice
 - Project introduction: Data Analysis Assistant (simplified version)
 - Use provided project templates
 - Data sampling and compression (using Week 4 skills)
 - Build prompts to call LLM (using Week 3 skills)
 - Generate reports (JSON + Markdown)
-
-#### Session 3 (1h) - Project Presentation and Course Review
-- Student project demonstrations (3-5 minutes each)
-- Course highlights review
-- Learning path recommendations (Level 2 preview)
-- Closing ceremony
 
 #### Deliverables
 - Design 2-3 effective prompt templates
@@ -311,151 +270,9 @@ Upon completing this course, students will be able to:
 - Project presentation (3-5 minutes)
 - Project reflection report (500-800 words)
 
-#### Assessment: 25%
-
 #### Resources
 - [week_06/README.md](week_06/README.md)
 - [slides/week_06.md](slides/week_06.md)
-
----
-
-## Assessment Breakdown
-
-### Weekly Assessment Details
-
-#### Week 1: Agent Tools Experience Report (10%)
-
-**Evaluation Criteria:**
-- Complete 3 different types of AI tasks (30%)
-- Report content quality (50%):
-  - Tool selection rationale
-  - Usage process description
-  - Success/failure case analysis
-  - Reflections on AI capabilities
-- Report format and expression (20%)
-
-#### Week 2: AI-Assisted Programming Practice Report (10%)
-
-**Evaluation Criteria:**
-- Code explanation exercise completion (30%)
-- Code modification task completion (30%)
-- Report content quality (30%):
-  - Summary of AI-assisted programming methods
-  - Problems encountered and solutions
-  - Reflections on AI-assisted learning
-- Report format and expression (10%)
-
-#### Week 3: Local Inference & API Engineering (15%)
-
-**Evaluation Criteria:**
-- LLM client code quality (40%):
-  - Supports local (Ollama) and cloud calling
-  - Timeout and retry mechanisms implemented
-  - Clear code structure
-  - Includes basic comments
-- Model comparison experiment report (40%):
-  - Reasonable experimental design
-  - Adequate data analysis
-  - Evidence-based conclusions
-- Code executability (20%)
-
-#### Week 4: Data Profiling Report (10%)
-
-**Evaluation Criteria:**
-- Data processing completeness (40%):
-  - Correct data loading
-  - Reasonable missing value handling
-  - Accurate outlier identification
-- Report quality (40%):
-  - Clear data overview
-  - Accurate statistical analysis
-  - Valuable insights
-- Output format compliance (20%)
-
-#### Week 5: ML Experiment Comparison Report (10%)
-
-**Evaluation Criteria:**
-- Model training correctness (30%)
-- Experiment comparison analysis (40%):
-  - Compare at least 2 models or 2 parameter sets
-  - In-depth analysis
-  - Reasonable conclusions
-- Experiment reproducibility (20%):
-  - Complete configuration records
-  - Traceable results
-- Report format and expression (10%)
-
-#### Week 6: LLM Application Project (25%)
-
-**Evaluation Criteria:**
-- Project completion (40%):
-  - Complete end-to-end workflow
-  - Functions run normally
-  - Output results meet expectations
-- Prompt design quality (20%):
-  - Clear and effective prompts
-  - Well-structured output
-- Project presentation (20%):
-  - Clear expression
-  - Complete demonstration
-  - Ability to answer questions
-- Project reflection (20%):
-  - Summary of learning gains
-  - Identification of shortcomings
-  - Proposal of improvement directions
-
-#### Participation (20%)
-
-**Evaluation Criteria:**
-- Attendance rate (40%)
-- Class discussion participation (30%)
-- Peer evaluation quality (30%)
-
----
-
-### Level 1: This Course (6 Weeks)
-
-After completing this course, students will have:
-- AI Agent tool usage capabilities
-- AI-assisted programming learning abilities
-- Python programming fundamentals
-- Local inference and API calling capabilities
-- Data processing fundamentals
-- Machine learning basic concepts
-- LLM application development capabilities
-
-### Level 2: RAG and Agent Advanced (Recommended Follow-up Course)
-
-**Prerequisites:**
-- Completion of this course
-- Mastery of Python programming fundamentals
-- Familiarity with LLM API calls
-
-**Level 2 Content Preview:**
-
-#### Weeks 1-2: RAG Fundamentals
-- Vector databases (Pinecone/Chroma)
-- Embeddings and semantic search
-- Retrieval strategies and reranking
-- RAG system construction
-
-#### Weeks 3-4: Agent System Design
-- Tool use
-- Planning and reasoning
-- Multi-agent collaboration
-- Agent frameworks (LangChain/AutoGPT)
-
-#### Weeks 5-6: Production Deployment
-- FastAPI service development
-- Monitoring and logging
-- Performance optimization
-- Security considerations
-
-#### Weeks 7-8: Advanced Topics
-- Multimodal AI
-- Fine-tuning methods
-- Model optimization
-- Capstone project
 
 ---
 
@@ -507,9 +324,9 @@ After completing this course, students will have:
 
 ### Official Resources
 
-- **Course Repository:** [GitHub Repository]
-- **Issue Reporting:** [GitHub Issues]
-- **Discussion Forum:** [Course Forum Link]
+- **Course Repository:** https://github.com/inference-ai-course/Fundamentals-of-AI-Engineering.git
+- **Issue Reporting:** https://github.com/inference-ai-course/Fundamentals-of-AI-Engineering/issues
+- **Discussion Forum:** https://discord.gg/MkmUWv5v
 
 ### Learning Resources
 
@@ -560,7 +377,8 @@ After completing this course, students will have:
 
 - **Email:** [Course Email]
 - **WeChat Group:** [Course WeChat Group QR Code]
-- **GitHub:** [Course Repository Link]
+- **Discord:** https://discord.gg/MkmUWv5v
+- **GitHub:** https://github.com/inference-ai-course/Fundamentals-of-AI-Engineering.git
 
 ---
 

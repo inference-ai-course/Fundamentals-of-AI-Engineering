@@ -3,14 +3,14 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 2 — ML Training Loop & Reproducible Baselines"
+footer: "Week 5 — ML Training Loop & Reproducible Baselines"
 style: |
   @import 'theme.css';
 ---
 
 <!-- _class: lead -->
 
-# Week 2
+# Week 5
 
 ## The ML Training Loop + Reproducible Baselines
 
@@ -102,7 +102,7 @@ Even if you **don't train the LLM yourself**, you still need ML discipline:
 # Part 01
 ## The ML Training Loop
 
-`week_02/01_training_loop.md` · `01_training_loop.ipynb`
+`week_05/01_training_loop.md` · `01_training_loop.ipynb`
 
 ---
 
@@ -157,7 +157,7 @@ Even for LLM work, this disciplined loop is the basis for evaluating prompt/mode
 # Part 02
 ## Reproducibility Package
 
-`week_02/02_reproducibility_package.md` · `02_reproducibility_package.ipynb`
+`week_05/02_reproducibility_package.md` · `02_reproducibility_package.ipynb`
 
 ---
 
@@ -198,7 +198,7 @@ Every run should produce a traceable folder:
 # Part 03
 ## Experiment Comparison + Writing a Report
 
-`week_02/03_compare_runs_report.md` · `03_compare_runs_report.ipynb`
+`week_05/03_compare_runs_report.md` · `03_compare_runs_report.ipynb`
 
 ---
 

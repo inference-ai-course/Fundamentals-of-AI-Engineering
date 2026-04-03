@@ -1,0 +1,54 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">AI Agent Concept</text>
+
+  <!-- User -->
+  <circle cx="80" cy="200" r="35" fill="#3498db"/>
+  <text x="80" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">User</text>
+  <text x="80" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Natural Language</text>
+
+  <!-- Arrow 1: User Input -->
+  <path d="M 120 180 L 200 180" stroke="#7f8c8d" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="160" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#7f8c8d">Input</text>
+
+  <!-- AI Agent Box -->
+  <rect x="200" y="130" width="200" height="140" rx="10" fill="#2ecc71" opacity="0.9"/>
+  <text x="300" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">AI Agent</text>
+
+  <!-- AI Agent Internal Components -->
+  <rect x="220" y="175" width="70" height="35" rx="5" fill="#27ae60"/>
+  <text x="255" y="197" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Understanding</text>
+
+  <rect x="310" y="175" width="70" height="35" rx="5" fill="#27ae60"/>
+  <text x="345" y="197" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Processing</text>
+
+  <rect x="265" y="220" width="70" height="35" rx="5" fill="#27ae60"/>
+  <text x="300" y="242" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Generation</text>
+
+  <!-- Arrow 2: Response -->
+  <path d="M 400 200 L 480 200" stroke="#7f8c8d" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="440" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#7f8c8d">Response</text>
+
+  <!-- Output Box -->
+  <rect x="480" y="160" width="120" height="80" rx="8" fill="#e74c3c" opacity="0.9"/>
+  <text x="540" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Task</text>
+  <text x="540" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">Completed</text>
+
+  <!-- Key Characteristics Box -->
+  <rect x="620" y="140" width="160" height="120" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2"/>
+  <text x="700" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">Characteristics</text>
+  <text x="635" y="190" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">• Conversational</text>
+  <text x="635" y="210" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">• Task-oriented</text>
+  <text x="635" y="230" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">• Adaptive</text>
+  <text x="635" y="250" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">• Natural language</text>
+
+  <!-- Arrow Definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7f8c8d"/>
+    </marker>
+  </defs>
+</svg>

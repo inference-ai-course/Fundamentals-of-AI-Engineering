@@ -30,6 +30,8 @@ By the end of this week, you should be able to:
 
 # What is an AI Agent?
 
+![h:300](images/concepts/ai_agent_concept.svg)
+
 An AI agent is software that:
 - Understands natural language instructions
 - Helps you complete tasks through conversation
@@ -41,6 +43,8 @@ You don't learn commands — you describe what you want.
 ---
 
 # The AI Tool Landscape
+
+![h:320](images/concepts/tool_landscape.svg)
 
 | Category | Tools | Interface |
 |----------|-------|-----------|
@@ -60,6 +64,8 @@ You don't learn commands — you describe what you want.
 ---
 
 # Browser-Based vs Editor-Based
+
+![bg right:45% h:380](images/concepts/browser_vs_editor.svg)
 
 | | Browser (ChatGPT) | Editor (Cursor) |
 |---|------------------|-----------------|
