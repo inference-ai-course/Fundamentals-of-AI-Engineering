@@ -78,9 +78,38 @@ Why this order works:
 
 7. **Modification seventh**
     - Now you can make changes with understanding.
-    - What to verify: you can successfully modify at least 3 functions.
+    - What to verify: you can successfully complete 2-3 small modifications in copied files.
 
 8. **Debugging eighth**
     - Errors are inevitable — learn to handle them.
     - Start only after the normal-code checkpoint succeeds.
-    - What to verify: you can use AI to understand and fix one runtime error and one logic error.
+    - What to verify: you can use AI to understand, fix, and document at least one error.
+
+## Submission Structure
+
+Create your own Week 2 practice folder with this structure:
+
+```text
+week_02_submission/
+|-- README.md
+|-- report.md
+|-- prompts.md
+|-- debugging_record.md
+`-- modified_code/
+    |-- simple_math.py
+    |-- data_processing.py
+    `-- debugging_practice_fixed.py
+```
+
+Copy files from `code_templates/` into `modified_code/` before editing. Keep the original template files unchanged so you can compare your work against the starting point.
+
+Basic commands you should be able to run during the week:
+
+```bash
+python --version
+python -B -m py_compile modified_code/simple_math.py
+cd modified_code
+python -c "from simple_math import add_numbers; print(add_numbers(2, 3))"
+```
+
+For debugging practice, `code_templates/debugging_practice.py` is intentionally broken. Copy it to `modified_code/debugging_practice_fixed.py`, fix one issue at a time, and record the error message, prompt, fix, and verification.

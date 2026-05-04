@@ -274,7 +274,7 @@ llm_output = stage_llm(compressed)
 
 Use sequential prefixes for clarity:
 
-```
+```text
 output/
   01_loaded.parquet      # Stage 1 output
   02_profile.json        # Stage 2 output

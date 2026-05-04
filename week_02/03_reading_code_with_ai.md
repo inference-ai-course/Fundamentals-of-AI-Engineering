@@ -10,7 +10,7 @@ Learning to read code is the foundation of AI-assisted programming. You'll use A
 
 ### The learning sequence
 
-```
+```text
 Read → Understand → Modify → Create
 ```
 
@@ -30,7 +30,7 @@ You don't need to master programming first. AI helps you understand code now.
 
 ### The pattern for understanding
 
-```
+```text
 1. Identify: What file/function do you want to understand?
 2. Ask: Prompt AI to explain
 3. Review: Check if explanation makes sense
@@ -63,17 +63,17 @@ def add_numbers(a, b):
 
 **Prompts to use:**
 
-```
+```text
 "What does this function do?"
 ```
 → AI: "It takes two numbers (a and b) and returns their sum."
 
-```
+```text
 "Explain each part: 'def', 'return', 'a + b'"
 ```
 → AI explains each keyword/syntax element.
 
-```
+```text
 "Give an example of using this function"
 ```
 → AI: "add_numbers(3, 5) would return 8"
@@ -95,19 +95,19 @@ def calculate_average(numbers):
 
 **Prompts to use:**
 
-```
+```text
 "Explain what this function does step by step"
 ```
 
-```
+```text
 "Why is there an 'if count == 0' check?"
 ```
 
-```
+```text
 "What happens if I call this with an empty list?"
 ```
 
-```
+```text
 "Explain 'sum' and 'len' — what do they do?"
 ```
 
@@ -119,15 +119,15 @@ def calculate_average(numbers):
 
 **Prompts to use:**
 
-```
+```text
 "List all functions in this file and what each does"
 ```
 
-```
+```text
 "Which function is the most important?"
 ```
 
-```
+```text
 "How do these functions relate to each other?"
 ```
 
@@ -137,7 +137,7 @@ def calculate_average(numbers):
 
 ### Strategy 1: Start broad, then narrow
 
-```
+```text
 Broad: "What does this file do?"
 → AI gives overview
 
@@ -150,7 +150,7 @@ More narrow: "What does line 3 do?"
 
 ### Strategy 2: Ask about unfamiliar terms
 
-```
+```text
 "What does 'def' mean?"
 "What is a 'variable'?"
 "What does 'return' do?"
@@ -160,7 +160,7 @@ AI can teach you syntax as you encounter it.
 
 ### Strategy 3: Ask for examples
 
-```
+```text
 "Show me an example of calling this function"
 "What input would I give to get output X?"
 ```
@@ -169,7 +169,7 @@ Examples make abstract concepts concrete.
 
 ### Strategy 4: Ask about purpose
 
-```
+```text
 "Why is this written this way?"
 "What problem does this solve?"
 "When would I use this?"
@@ -228,7 +228,7 @@ Understanding purpose helps you remember.
 **Symptom**: AI uses terms you don't understand.
 
 **Fix**: Ask for simpler explanation:
-```
+```text
 "That's too technical. Explain it as if teaching 
 someone with no programming background."
 ```
@@ -256,7 +256,7 @@ someone with no programming background."
 
 After AI explains, write your own summary:
 
-```
+```text
 "Calculate_average: 
 1. Add all numbers together (sum)
 2. Count how many numbers (len)
@@ -268,7 +268,7 @@ After AI explains, write your own summary:
 
 Keep a list of terms to learn:
 
-```
+```text
 Terms I encountered:
 - def: defines a function
 - return: gives back a value
@@ -280,7 +280,7 @@ Terms I encountered:
 
 Predict output, then verify:
 
-```
+```text
 calculate_average([2, 4, 6])
 Prediction: (2+4+6) / 3 = 4
 Test: Run code, check result
@@ -297,6 +297,16 @@ By end of this section, complete:
   - What it does (overall)
   - Key syntax/keywords used
   - An example of using it
+- Save the final explanations in `report.md`
+- Save the prompts that helped you in `prompts.md`
+
+Suggested table for `report.md`:
+
+```markdown
+| File | Function/code block | My explanation | Example input/output | AI prompt used |
+|------|---------------------|----------------|----------------------|----------------|
+| code_templates/simple_math.py | add_numbers | | | |
+```
 
 ---
 

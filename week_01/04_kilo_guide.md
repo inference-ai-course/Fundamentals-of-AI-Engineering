@@ -2,9 +2,9 @@
 
 ## Overview
 
-**Kilo** is an open-source AI coding assistant that runs in your terminal. Unlike Cursor (GUI), Kilo is CLI-based — you interact through text commands.
+**Kilo** is an AI coding assistant that runs in your terminal. Unlike Cursor (GUI), Kilo is CLI-based — you interact through text commands.
 
-Kilo is already configured in your course environment.
+In Week 1, use Kilo mainly for read-only project exploration. File edits and commits are instructor demos or Week 2+ practice.
 
 ---
 
@@ -24,7 +24,7 @@ Kilo is already configured in your course environment.
 1. **Terminal workflow**: Many developers prefer CLI over GUI
 2. **Git integration**: Kilo understands your Git history
 3. **Automation**: Can be scripted and integrated into workflows
-4. **Local execution**: Works with your local files and tools
+4. **Local execution**: Can work with your local files and tools when configured
 
 ---
 
@@ -32,7 +32,7 @@ Kilo is already configured in your course environment.
 
 ### The interaction model
 
-```
+```text
 You → Type command in terminal → Kilo processes → Kilo responds/acts → You see result
 ```
 
@@ -41,8 +41,8 @@ You → Type command in terminal → Kilo processes → Kilo responds/acts → Y
 | Capability | Example |
 |------------|---------|
 | **Read files** | Understand project structure |
-| **Write files** | Generate and modify code |
-| **Git operations** | Create commits, understand diffs |
+| **Write files** | Generate and modify code after confirmation |
+| **Git operations** | Inspect status/history; commits should wait until you understand the change |
 | **Search** | Find patterns across project |
 | **Execute** | Run commands, scripts |
 
@@ -54,42 +54,46 @@ You → Type command in terminal → Kilo processes → Kilo responds/acts → Y
 
 Simply type your question in the terminal where Kilo is running:
 
-```
+```text
 What files are in this directory?
 ```
 
-```
-Explain what the file train.py does.
-```
-
-### Pattern 2: Request modifications
-
-```
-Add a comment to the first function in main.py explaining what it does.
+```text
+Explain what the file README.md contains.
 ```
 
-```
-Create a new file called utils.py with a helper function for data loading.
+### Pattern 2: Ask read-only file questions
+
+```text
+List the Week 1 tutorial files.
 ```
 
-### Pattern 3: Git operations
-
+```text
+Summarize week_01/tutorial.md in beginner-friendly language.
 ```
+
+### Pattern 3: Git status and history
+
+```text
+Show the current git status.
+```
+
+```text
 Show me the recent commit history.
 ```
 
-```
+```text
 What changed in the last commit?
 ```
 
 ### Pattern 4: Search and analyze
 
-```
-Find all files that import pandas.
+```text
+Find files that mention Cursor.
 ```
 
-```
-Search for the function definition of process_data.
+```text
+Search for the phrase "AI Tool Declaration".
 ```
 
 ---
@@ -105,7 +109,7 @@ Kilo can:
 - Analyze changes
 
 **Example:**
-```
+```text
 Explain what changed between the last two commits.
 ```
 
@@ -118,13 +122,14 @@ Like Cursor, Kilo reads your files. It understands:
 
 ### 3. Autonomous execution
 
-Kilo can perform actions:
+Kilo can perform actions after you understand and approve them:
 - Edit files directly
 - Run terminal commands
 - Create commits
 
-**Example:**
-```
+**Instructor demo or Week 2+ example:**
+
+```text
 Create a commit with message "Add utility functions" 
 for the changes in utils.py.
 ```
@@ -157,12 +162,12 @@ You can use multiple tools together:
 
 | Command Type | Example |
 |--------------|---------|
-| **Information** | "List all Python files" |
-| **Explanation** | "Explain the function train_model" |
-| **Creation** | "Create a README.md file" |
-| **Modification** | "Add type hints to utils.py" |
-| **Git** | "Show recent commits" |
-| **Search** | "Find where process_data is defined" |
+| **Information** | "List the files in week_01" |
+| **Explanation** | "Explain what README.md says about the course" |
+| **Creation** | "Create a README.md file" (Week 2+ or scratch work) |
+| **Modification** | "Add type hints to utils.py" (Week 2+ or scratch work) |
+| **Git** | "Show current git status" |
+| **Search** | "Find files that mention Cursor" |
 
 ---
 
@@ -172,31 +177,39 @@ You can use multiple tools together:
 
 In the terminal with Kilo:
 
-```
+```text
 What is the structure of this project?
 ```
 
-```
-List all Python files.
+```text
+List the files in week_01.
 ```
 
 ### Exercise 2: Understand a file (5 minutes)
 
-```
+```text
 Explain what the file README.md contains.
 ```
 
-```
+```text
 Summarize the key points in README.md.
 ```
 
 ### Exercise 3: Git exploration (5 minutes)
 
+```text
+Show me the current git status.
 ```
+
+```text
+Explain whether there are any changed files.
+```
+
+```text
 Show me the recent commit history.
 ```
 
-```
+```text
 What was changed in the most recent commit?
 ```
 
@@ -204,7 +217,7 @@ What was changed in the most recent commit?
 
 ## Tips for Using Kilo
 
-1. **Be specific**: "Explain lines 10-20 of train.py" vs "explain train.py"
+1. **Be specific**: "Explain the Week 1 section of README.md" vs "explain this"
 2. **Use natural language**: No special syntax needed
 3. **Provide context**: "In the ml_package folder, find..."
 4. **Iterate**: If response isn't right, ask for clarification
@@ -214,13 +227,13 @@ What was changed in the most recent commit?
 
 ## Kilo Configuration (Course Environment)
 
-Kilo is pre-configured in your course environment:
+The course repository may include Kilo-related files such as:
 
-- Configuration file: `.kilo/kilo.json`
-- Instructions: `.kilo/agent/*.md`
-- Commands: `.kilo/command/*.md`
+- `.kilo/package.json`
+- `.kilo/agent-manager.json`
+- `.kilo/plans/`
 
-You don't need to configure anything for this course.
+Your instructor will confirm the exact startup command or classroom setup. You do not need to modify Kilo configuration for Week 1.
 
 ---
 
@@ -231,13 +244,13 @@ You don't need to configure anything for this course.
 **Symptom**: Kilo doesn't know which file you mean.
 
 **Fix**: Specify the file:
-- "In the file `train.py`, explain the first function"
+- "In the file `README.md`, explain the Week 1 resources"
 
 ### Pitfall 2: Asking for actions without verification
 
 **Symptom**: Kilo modifies something you didn't expect.
 
-**Fix**: Always review changes before confirming.
+**Fix**: In Week 1, prefer read-only questions. If you do try edits, use a scratch file and always review changes before confirming.
 
 ### Pitfall 3: Mixing with regular terminal commands
 
@@ -251,7 +264,7 @@ You don't need to configure anything for this course.
 
 - Can you send a natural language command to Kilo?
 - Can you ask Kilo about a file's contents?
-- Can you ask Kilo about Git history?
+- Can you ask Kilo about Git status or history without making changes?
 - Do you understand when Kilo is better than Cursor/ChatGPT?
 
 ---

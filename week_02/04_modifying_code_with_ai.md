@@ -10,7 +10,7 @@ After understanding code, the next skill is modifying it. You'll learn to reques
 
 ### Pattern for modifications
 
-```
+```text
 1. Understand: Read the code first (use Part 03 skills)
 2. Specify: Describe exactly what change you want
 3. Review: Check AI's suggested change
@@ -35,7 +35,7 @@ After understanding code, the next skill is modifying it. You'll learn to reques
 ### Type 1: Adding comments
 
 **Prompt:**
-```
+```text
 Add comments explaining what this function does.
 ```
 
@@ -54,7 +54,7 @@ def calculate_average(numbers):
 ### Type 2: Adding error handling
 
 **Prompt:**
-```
+```text
 Add error handling for when numbers contains non-numeric values.
 ```
 
@@ -74,7 +74,7 @@ def calculate_average(numbers):
 ### Type 3: Changing behavior
 
 **Prompt:**
-```
+```text
 Change this to return None instead of 0 for empty lists.
 ```
 
@@ -91,7 +91,7 @@ def calculate_average(numbers):
 ### Type 4: Adding new functionality
 
 **Prompt:**
-```
+```text
 Add a function that finds the maximum value in a list.
 ```
 
@@ -117,8 +117,9 @@ def find_max(numbers):
 
 ### Example: Adding a comment
 
-1. Open `code_templates/simple_math.py`
-2. Select the `add_numbers` function
+1. Copy `code_templates/simple_math.py` to `modified_code/simple_math.py`
+2. Open `modified_code/simple_math.py`
+3. Select the `add_numbers` function
 3. Press Cmd+K
 4. Type: "Add a comment explaining what this function does"
 5. Review the highlighted change
@@ -155,7 +156,7 @@ def find_max(numbers):
 5. Copy/paste or ask AI to apply
 
 **Example:**
-```
+```text
 I want to add error handling to calculate_average.
 Can you show me the modified code?
 ```
@@ -166,9 +167,19 @@ AI generates the modified version. You review and apply.
 
 ## Practical Exercises
 
+Before starting, create your working copy:
+
+```bash
+mkdir -p modified_code
+cp code_templates/simple_math.py modified_code/simple_math.py
+cp code_templates/data_processing.py modified_code/data_processing.py
+```
+
+Edit only files inside `modified_code/`.
+
 ### Exercise 1: Add comments (10 minutes)
 
-1. Open `code_templates/simple_math.py`
+1. Open `modified_code/simple_math.py`
 2. Select the `add_numbers` function
 3. Press Cmd+K
 4. Type: "Add comments explaining each line"
@@ -177,7 +188,7 @@ AI generates the modified version. You review and apply.
 
 ### Exercise 2: Add error handling (15 minutes)
 
-1. Open `code_templates/data_processing.py`
+1. Open `modified_code/data_processing.py`
 2. Find `calculate_average`
 3. Ask AI (chat): "Add error handling for when numbers is not a list"
 4. Review AI's suggestion
@@ -186,16 +197,16 @@ AI generates the modified version. You review and apply.
 
 ### Exercise 3: Change behavior (10 minutes)
 
-1. Open `code_templates/simple_math.py`
-2. Find `multiply_numbers`
-3. Ask AI: "Change this to also handle division"
+1. Open `modified_code/simple_math.py`
+2. Find one simple function, such as `multiply_numbers`
+3. Ask AI: "Add a clear comment and one simple input check to this function. Keep the original behavior for normal numbers."
 4. Review the change
 5. Apply
-6. Test the new function
+6. Test the function with normal input
 
 ### Exercise 4: Add a new function (15 minutes)
 
-1. Open `code_templates/data_processing.py`
+1. Open `modified_code/data_processing.py`
 2. Ask AI: "Add a function called find_median that finds the middle value"
 3. Review the generated function
 4. Add it to the file
@@ -223,6 +234,25 @@ AI generates the modified version. You review and apply.
 | **Run** | Execute the code |
 | **Test cases** | Try different inputs |
 | **Edge cases** | Empty list, zero, negative, etc. |
+
+### Example verification commands
+
+From your Week 2 working folder:
+
+```bash
+python -B -m py_compile modified_code/simple_math.py
+python -B -m py_compile modified_code/data_processing.py
+```
+
+Then run one small function call:
+
+```bash
+cd modified_code
+python -c "from simple_math import add_numbers; print(add_numbers(2, 3))"
+python -c "from data_processing import calculate_average; print(calculate_average([2, 4, 6]))"
+```
+
+Record the command and observed output in `report.md`.
 
 ---
 
@@ -267,15 +297,16 @@ AI generates the modified version. You review and apply.
 
 By end of this section, complete:
 
-- At least 3 successful modifications:
+- 2-3 successful small modifications:
   1. Add comments to a function
   2. Add error handling
-  3. Change behavior or add new function
+  3. Optional: change behavior or add a small new function
 
 For each, document:
 - What you asked AI
 - What change was made
 - How you verified it works
+- Whether you accepted, edited, or rejected the AI suggestion
 
 ---
 
@@ -285,7 +316,7 @@ For each, document:
 - Can you specify modifications clearly?
 - Can you review changes before accepting?
 - Can you test modifications after applying?
-- Have you completed at least 3 modifications?
+- Have you completed 2-3 small modifications in copied files?
 
 ---
 

@@ -12,7 +12,7 @@ Having explored ChatGPT, Claude, Cursor, and Kilo, this tutorial helps you decid
 |------|-----------|-------------|---------------|-----------|
 | **ChatGPT** | Browser | No | Versatility, speed | Yes |
 | **Claude** | Browser | No | Long docs, reasoning | Yes |
-| **Cursor** | GUI Editor | Yes | Code understanding | Trial |
+| **Cursor** | GUI Editor | Yes | Code understanding and project navigation | Free/trial access varies |
 | **Kilo** | Terminal | Yes | Git, automation | Yes |
 
 ---
@@ -105,8 +105,8 @@ Having explored ChatGPT, Claude, Cursor, and Kilo, this tutorial helps you decid
 
 **Weaknesses:**
 - Requires installation
-- Free trial limits
-- GUI-only (no terminal)
+- Access limits may change
+- More setup than browser-based tools
 
 **Use when:**
 - Exploring project files visually
@@ -180,15 +180,15 @@ Having explored ChatGPT, Claude, Cursor, and Kilo, this tutorial helps you decid
 
 1. **Brainstorm** with ChatGPT: "How should I implement feature X?"
 2. **Plan** with Claude: "Review this plan, identify potential issues"
-3. **Implement** with Cursor: "Create the files and write the code"
-4. **Commit** with Kilo: "Create a commit for these changes"
+3. **Explore** with Cursor: "Explain which files would matter"
+4. **Implement later** with Cursor/Kilo after you understand the plan
 
 ### Workflow example: Debugging
 
 1. **Understand error** with ChatGPT: "What does this error mean?"
 2. **Locate problem** with Cursor: "Find where this error might occur"
-3. **Fix** with Cursor: "Modify this function to handle the error"
-4. **Test** with Kilo: "Run the test script"
+3. **Ask for options** with Cursor: "Suggest possible fixes"
+4. **Verify** with a command or instructor-provided test before accepting changes
 
 ---
 
@@ -250,14 +250,18 @@ Write these down. Keep them as your reference.
 
 By the end of Week 1, aim to finish:
 
-- 3 different AI task examples (using different tools)
-- Agent Tool Usage Reflection Report (800-1000 words)
+- `report.md`: Agent Tool Usage Reflection Report (800-1000 words)
+- `prompts.md`: Representative prompts and notes
+- `output/`: Screenshots, copied outputs, or interaction notes
+- `README.md`: Brief overview of your submission
+
+Your 3 task examples should include at least two AI tools and at least one file/project or command-line observation.
 
 ---
 
 ## References
 
-- ChatGPT: https://chat.openai.com
+- ChatGPT: https://chatgpt.com
 - Claude: https://claude.ai
 - Cursor: https://cursor.sh
 - Prompt Engineering Guide: https://www.promptingguide.ai

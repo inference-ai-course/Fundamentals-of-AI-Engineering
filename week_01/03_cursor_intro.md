@@ -41,7 +41,7 @@ In Cursor: "Explain this file" (Cursor reads it automatically)
 |------|--------|-------------------|
 | 1. Download | Go to cursor.sh, download for your OS | Installer downloaded |
 | 2. Install | Run installer | Cursor opens |
-| 3. Explore | Open any folder | Files visible in sidebar |
+| 3. Explore | Open this course folder | Files visible in sidebar |
 | 4. Chat | Press Cmd+L (Mac) or Ctrl+L (Windows) | AI chat panel opens |
 
 ### Installation
@@ -73,11 +73,11 @@ In Cursor: "Explain this file" (Cursor reads it automatically)
 
 ## Your First Cursor Tasks
 
-### Task 1: Open a folder
+### Task 1: Open the course folder
 
 1. Open Cursor
 2. File → Open Folder
-3. Choose any folder (your documents, a project, etc.)
+3. Choose the `Fundamentals-of-AI-Engineering` course folder
 4. Files appear in the sidebar
 
 ### Task 2: Ask about the folder
@@ -85,7 +85,7 @@ In Cursor: "Explain this file" (Cursor reads it automatically)
 Press Cmd+L (Mac) or Ctrl+L (Windows) to open AI chat.
 
 Try:
-```
+```text
 What files and folders are in this directory? 
 Can you summarize what this folder contains?
 ```
@@ -94,22 +94,26 @@ Cursor can see your file structure and will describe it.
 
 ### Task 3: Ask about a file
 
-1. Click on any file in the sidebar
+1. Click `README.md`, `SYLLABUS.md`, or `week_01/tutorial.md` in the sidebar
 2. In the AI chat:
-```
+```text
 Can you explain what this file does? 
 Summarize its contents.
 ```
 
 Cursor reads the file and explains it.
 
-### Task 4: Ask for modifications
+### Task 4: Run a read-only command
 
-```
-Add comments to this file explaining each section.
+Open the terminal in Cursor with Cmd+J (Mac) or Ctrl+J (Windows/Linux), then run:
+
+```bash
+pwd
+ls
+python --version
 ```
 
-Cursor can suggest modifications inline.
+Record what each command shows. These commands only display information.
 
 ---
 
@@ -123,7 +127,7 @@ Cursor indexes your project. It knows:
 - Relationships between files
 
 **Prompt example:**
-```
+```text
 What is the overall purpose of this project?
 Which files are most important?
 ```
@@ -133,26 +137,28 @@ Which files are most important?
 Even if you don't know programming, Cursor can explain code.
 
 **Prompt example:**
-```
+```text
 Walk me through this file step by step. 
 Explain what each section does in simple terms.
 ```
 
-### Feature 3: Code modification
+### Feature 3: Code modification (Week 2+ or scratch files)
 
 Request changes, Cursor generates them.
 
 **Prompt example:**
-```
+```text
 Add a function that prints "Hello World".
 Put it at the end of the file.
 ```
 
-### Feature 4: Inline editing (Cmd+K)
+Use this only in a scratch file during Week 1.
+
+### Feature 4: Inline editing (Cmd+K, Week 2+ or scratch files)
 
 Select code, press Cmd+K, describe your change:
 
-```
+```text
 Add error handling to this function.
 ```
 
@@ -164,25 +170,25 @@ Cursor edits directly in your file.
 
 ### Example 1: Understanding a README
 
-Open any README.md file:
+Open this course `README.md` file:
 
-```
+```text
 Summarize what this project does.
 What are the main features?
 ```
 
 ### Example 2: Understanding configuration
 
-Open a config file (JSON, YAML, etc.):
+Open `requirements.txt` or another simple project file:
 
-```
+```text
 Explain what each setting in this file controls.
 Which ones are most important?
 ```
 
 ### Example 3: Understanding structure
 
-```
+```text
 Draw a simple diagram showing how files in this 
 folder relate to each other.
 ```
@@ -212,8 +218,8 @@ folder relate to each other.
 **Symptom**: "What should I do?" gives vague answers.
 
 **Fix**: Be specific:
-- "Explain the function `process_data`"
-- "Add comments to lines 10-20"
+- "Explain the Week 1 section in `README.md`"
+- "Summarize `week_01/tutorial.md` in five bullets"
 
 ### Pitfall 4: Not reviewing changes
 
@@ -240,22 +246,25 @@ folder relate to each other.
 ### Exercise 1: Folder exploration (10 minutes)
 
 1. Open Cursor
-2. Open a folder with some files
+2. Open the `Fundamentals-of-AI-Engineering` course folder
 3. Ask AI: "What's in this folder?"
 4. Ask: "Which files would be most interesting to read?"
 
 ### Exercise 2: File explanation (10 minutes)
 
-1. Open any text file (README, notes, config)
+1. Open `README.md` or `week_01/tutorial.md`
 2. Ask AI: "Summarize this file"
 3. Ask: "What are the key points?"
 
-### Exercise 3: File modification (15 minutes)
+### Exercise 3: Optional scratch-file modification (15 minutes)
 
-1. Create a new file: `notes.md`
-2. Write: "My learning notes"
-3. Ask AI: "Add a section about what I learned today"
-4. Review the changes
+Only do this in a scratch file, not in the main course materials.
+
+1. Create a new folder named `week_01/scratch/`
+2. Create a new file: `week_01/scratch/notes.md`
+3. Write: "My learning notes"
+4. Ask AI: "Add a section about what I learned today"
+5. Review the changes before saving
 
 ---
 
@@ -269,13 +278,13 @@ folder relate to each other.
 
 ---
 
-## Free Trial and Limits
+## Access and Limits
 
-- **Free trial**: 14 days with full features
-- **After trial**: Limited AI queries per month
-- **Paid**: Unlimited AI queries
+- **Free or trial access**: Usually enough for Week 1 exploration
+- **Usage limits**: May change over time
+- **Paid access**: Often provides higher limits or newer features
 
-**For this course**: Free trial is sufficient.
+**For this course**: Use any available free, trial, or instructor-provided access.
 
 ---
 
@@ -285,7 +294,8 @@ folder relate to each other.
 - Can you open a folder and see files?
 - Can you open the AI chat (Cmd+L)?
 - Can you ask AI about a file's contents?
-- Can you request a file modification?
+- Can you run `pwd`, `ls`, or `python --version` in the terminal?
+- If you modified a file, did you use a scratch file and review the change?
 
 ---
 

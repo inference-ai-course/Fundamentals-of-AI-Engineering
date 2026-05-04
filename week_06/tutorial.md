@@ -1,4 +1,4 @@
-# Week 6 Tutorials: Intelligent Data Analysis Capstone
+# Week 6 Tutorials: AI-Assisted CSV Data Analyzer Capstone
 
 ## Pre-study (Optional Refresher)
 
@@ -13,12 +13,15 @@ Self-learn is optional. If you want extra background:
 Week 6 integrates prior work into one reproducible project:
 
 ```text
-CSV input -> data overview -> sampled/compressed summary -> LLM interpretation -> report.json + report.md
+CSV input -> data overview -> sampled/compressed summary -> real LLM interpretation -> report.json + report.md
 ```
+
+The default topic is a general CSV data analyzer. Recommended concrete themes are customer feedback/support tickets and product reviews.
 
 ## Main Navigation
 
 - [Simplified project](simplified_project.md)
+- [Capstone template](capstone_template/)
 - [Pipeline design](01_pipeline_design.md)
 - [Sampling and compression](02_sampling_compression.md)
 - [Capstone requirements](../capstone.md)
@@ -32,8 +35,10 @@ CSV input -> data overview -> sampled/compressed summary -> LLM interpretation -
 ## Recommended Order
 
 1. Review the required MVP in `capstone.md`.
-2. Build the CSV data overview stage.
-3. Add sampling/compression before the LLM call.
-4. Add structured LLM interpretation.
-5. Write `report.json` and `report.md`.
-6. Prepare a short demo and postmortem.
+2. Choose the general data analyzer path or one recommended theme.
+3. Inspect `capstone_template/` and identify the TODOs.
+4. Build the CSV data overview stage.
+5. Add sampling/compression before the LLM call.
+6. Add structured real LLM interpretation.
+7. Write `report.json` and `report.md`.
+8. Prepare a short demo, `prompts.md` or `ai_usage.md`, and `postmortem.md`.

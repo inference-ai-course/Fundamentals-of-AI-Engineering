@@ -35,7 +35,7 @@ Accessed through websites, no installation required.
 
 | Tool | Provider | Best For | Free Tier |
 |------|----------|----------|-----------|
-| **ChatGPT** | OpenAI | General tasks, writing, code explanation | Yes (GPT-3.5) |
+| **ChatGPT** | OpenAI | General tasks, writing, code explanation | Yes, when available |
 | **Claude** | Anthropic | Long documents, detailed reasoning | Yes |
 | **Gemini** | Google | Google integration, multimodal | Yes |
 
@@ -132,7 +132,7 @@ Types of context:
 
 ### The interaction flow
 
-```
+```text
 You → Send prompt → AI processes → AI generates → You receive → Iterate
 ```
 
@@ -185,7 +185,7 @@ Week 1 establishes the foundation for this new learning approach.
 | Explore code files | Cursor |
 | Modify code | Cursor or Kilo |
 | Debug an error | Cursor or ChatGPT |
-| Research current info | Perplexity (has web search) |
+| Research current info | Search-enabled AI or web search |
 
 ### Factors to consider
 
@@ -199,7 +199,7 @@ Week 1 establishes the foundation for this new learning approach.
    - Prefer terminal → Kilo
 
 3. **Do you need real-time info?**
-   - Yes → Perplexity (web search)
+   - Yes → Use a search-enabled tool or verify with reliable sources
    - No → Any tool
 
 ---
@@ -210,7 +210,7 @@ Week 1 establishes the foundation for this new learning approach.
 
 | Tool | URL | Action |
 |------|-----|--------|
-| ChatGPT | chat.openai.com | Sign up (free) |
+| ChatGPT | chatgpt.com | Sign up or log in |
 | Claude | claude.ai | Sign up (free) |
 
 ### Step 2: Install Cursor
@@ -223,12 +223,12 @@ Week 1 establishes the foundation for this new learning approach.
 
 Try these prompts in ChatGPT or Claude:
 
-```
+```text
 Hello! I'm exploring AI tools for the first time. 
 Can you explain what you can help me with?
 ```
 
-```
+```text
 I want to understand what an "AI agent" is. 
 Can you explain it using a simple analogy?
 ```
@@ -289,7 +289,7 @@ Can you explain it using a simple analogy?
 
 ## References
 
-- ChatGPT: https://chat.openai.com
+- ChatGPT: https://chatgpt.com
 - Claude: https://claude.ai
 - Cursor: https://cursor.sh
 - Prompt Engineering Guide: https://www.promptingguide.ai

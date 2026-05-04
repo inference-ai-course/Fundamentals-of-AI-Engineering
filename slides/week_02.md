@@ -28,14 +28,14 @@ By the end of this week, you should be able to:
 
 ---
 
-# From Browser to IDE
+# From Week 1 to Week 2+
 
-| Week 1-2 | Week 3-6 |
-|----------|--------|
-| Browser-based AI (ChatGPT) | IDE-based AI (Cursor) |
-| Manual file context | Automatic project context |
-| Separate windows | Integrated workspace |
-| Text-focused tasks | Code-focused tasks |
+| Week 1 | Week 2+ |
+|--------|---------|
+| Browser-based AI tools | IDE-based AI coding tools |
+| Manual file context | Project/file context in workspace |
+| Prompt experiments | Prompt + edit + verify workflow |
+| Reflection on AI output | Recorded code practice evidence |
 
 ---
 
@@ -52,10 +52,10 @@ By the end of this week, you should be able to:
 
 | Step | Action | Success |
 |------|--------|---------|
-| 1 | Download from cursor.sh | Installer ready |
+| 1 | Download Cursor or VS Code | Installer ready |
 | 2 | Run installer | Cursor opens |
-| 3 | Sign in (optional) | AI features active |
-| 4 | Open folder | Files visible |
+| 3 | Sign in if needed | AI features active |
+| 4 | Open course repo | Files visible |
 | 5 | Press Cmd+L | AI chat opens |
 
 ---
@@ -97,7 +97,7 @@ By the end of this week, you should be able to:
 
 ![h:380](images/concepts/ai_workflow_cycle.svg)
 
-```
+```text
 1. ASK:    Describe what you want
 2. REVIEW: Check AI's suggestion
 3. APPLY:  Use the suggestion (if appropriate)
@@ -121,7 +121,7 @@ By the end of this week, you should be able to:
 
 First prompts rarely give perfect results:
 
-```
+```text
 1st: "Explain this function"
 → Too technical
 
@@ -145,7 +145,7 @@ First prompts rarely give perfect results:
 
 # Reading Workflow
 
-```
+```text
 1. Identify: What file/function?
 2. Ask: Prompt AI to explain
 3. Review: Does explanation make sense?
@@ -169,7 +169,7 @@ First prompts rarely give perfect results:
 
 # Strategy: Start Broad, Then Narrow
 
-```
+```text
 Broad:     "What does this file do?"
 Narrow:    "Explain the first function"
 Specific:  "What does line 3 do?"
@@ -190,7 +190,7 @@ Specific:  "What does line 3 do?"
 
 ![h:320](images/concepts/code_modification_workflow.svg)
 
-```
+```text
 1. Understand: Read first (Part 03)
 2. Specify: Describe exactly what change
 3. Review: Check AI's suggestion
@@ -221,6 +221,21 @@ Specific:  "What does line 3 do?"
 
 ---
 
+# Copy Before Edit
+
+Keep `code_templates/` as the original reference.
+
+```bash
+cd week_02
+mkdir -p modified_code
+cp code_templates/simple_math.py modified_code/simple_math.py
+cp code_templates/data_processing.py modified_code/data_processing.py
+```
+
+All modifications go in `modified_code/`.
+
+---
+
 <!-- _class: part -->
 
 # Part 05
@@ -243,7 +258,7 @@ Specific:  "What does line 3 do?"
 
 # Debugging Workflow
 
-```
+```text
 1. Identify: Error message, when it occurs
 2. Ask AI: "Error: X. Code: Y. What's wrong?"
 3. Review: Does AI correctly identify cause?
@@ -255,7 +270,7 @@ Specific:  "What does line 3 do?"
 
 # What to Tell AI
 
-```
+```text
 I got this error: [exact error message]
 Here's the code: [paste relevant code]
 I was trying to: [describe your goal]
@@ -264,17 +279,54 @@ What's wrong and how do I fix it?
 
 ---
 
+# Debugging Practice File
+
+`debugging_practice.py` is intentionally broken.
+
+```bash
+cd week_02
+mkdir -p modified_code
+cp code_templates/debugging_practice.py modified_code/debugging_practice_fixed.py
+python -B -m py_compile modified_code/debugging_practice_fixed.py
+```
+
+Fix one issue at a time, then record the prompt, fix, and verification.
+
+---
+
+# Run and Verify
+
+Use small commands to check your work:
+
+```bash
+cd week_02
+python --version
+python -B -m py_compile modified_code/simple_math.py
+cd modified_code
+python -c "from simple_math import add_numbers; print(add_numbers(2, 3))"
+```
+
+---
+
 # Workshop / What to Complete
 
-- Set up Cursor or VS Code and open `week_02/code_templates/`
+- Set up Cursor or VS Code and open the course repo
 - Explain at least 5 functions or code blocks
-- Complete 2-3 small code modifications
-- Complete 1 debugging record:
-  - error
-  - AI prompt
-  - fix
-  - verification
+- Complete 2-3 small code modifications in `modified_code/`
+- Complete 1 debugging record with error, prompt, fix, verification
 - Write a short AI-assisted code practice reflection
+
+---
+
+# What to Submit
+
+| File/folder | Purpose |
+|-------------|---------|
+| `report.md` | Explanations, modifications, reflection |
+| `modified_code/` | Copied files with your changes |
+| `debugging_record.md` | One complete debugging record |
+| `prompts.md` | Prompt log and AI use notes |
+| `README.md` | How to verify your work |
 
 ---
 

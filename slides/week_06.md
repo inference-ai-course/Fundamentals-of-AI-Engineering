@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 6 — Intelligent Data Analysis Capstone"
+footer: "Week 6 — AI-Assisted CSV Data Analyzer"
 style: |
   @import 'theme.css';
 ---
@@ -12,19 +12,19 @@ style: |
 
 # Week 6
 
-## Intelligent Data Analysis Capstone
+## AI-Assisted CSV Data Analyzer
 
 ---
 
 # Capstone Goal
 
-Build a reproducible script that turns CSV data into an AI-assisted report.
+Build a reproducible project that turns CSV data into an AI-assisted report through a **real LLM call**.
 
 ```text
 CSV input
   -> data overview
   -> sampled/compressed summary
-  -> LLM interpretation
+  -> real LLM interpretation
   -> report.json + report.md
 ```
 
@@ -35,7 +35,7 @@ CSV input
 By the end of this week, you should be able to:
 
 - Reuse Week 3 data profiling
-- Reuse Week 4 structured prompts and reliability controls
+- Reuse Week 4 structured prompts, real LLM calls, and reliability controls
 - Apply Week 5 data/ML intuition to explain patterns
 - Produce stable JSON and readable Markdown
 - Demo a reproducible run
@@ -49,10 +49,39 @@ Your project must:
 - Accept a CSV path
 - Compute data overview statistics
 - Avoid sending the full dataset to the LLM
-- Generate structured insights and recommendations
+- Call a real LLM for structured insights and recommendations
 - Write `report.json`
 - Write `report.md`
 - Include README and a short postmortem
+
+---
+
+# Topic Choices
+
+Default:
+
+- General CSV data analyzer
+
+Recommended:
+
+- Customer feedback / support ticket analyzer
+- Product review insight reporter
+
+Keep the same CSV -> JSON + Markdown contract.
+
+---
+
+# Real LLM Requirement
+
+Final submission must include:
+
+- A real LLM call
+- Saved prompt
+- Saved raw or validated response
+- Timeout/retry or repair attempt
+- Clear failure message
+
+Mock responses are for debugging only.
 
 ---
 
@@ -89,13 +118,18 @@ The LLM interprets the summary, not the raw full CSV.
 
 # Structured LLM Interpretation
 
-Ask for a stable shape:
+Ask for stable report fields:
 
 ```json
 {
-  "insights": [],
+  "metadata": {},
+  "dataset_summary": {},
+  "data_quality": {},
+  "compression_summary": {},
+  "llm_interpretation": {},
   "recommendations": [],
-  "risk_notes": []
+  "risk_notes": [],
+  "errors_or_warnings": []
 }
 ```
 
@@ -103,23 +137,39 @@ Then validate the fields before building the final report.
 
 ---
 
-# Suggested Structure
+# Template Structure
 
 ```text
+capstone_template/
 analyze.py
 src/
   data_profile.py
-  sampling.py
-  llm_client.py
+  compression.py
+  llm_interpretation.py
   report_builder.py
-output/
 README.md
 requirements.txt
 postmortem.md
 prompts.md
 ```
 
-Keep it simple and runnable.
+The template has TODOs. It is not a full answer.
+
+---
+
+# Template Walkthrough
+
+Students complete:
+
+- `build_profile()`
+- `compress_profile()`
+- `build_prompt()`
+- `call_llm()`
+- `validate_llm_output()`
+- `build_json_report()`
+- `build_markdown_report()`
+
+AI Agent Coding Tools are allowed, but usage must be documented.
 
 ---
 
@@ -156,6 +206,7 @@ Show:
 - input CSV
 - command used
 - output files
+- evidence of real LLM call
 - one insight from the report
 - one issue you handled
 - what you would improve next

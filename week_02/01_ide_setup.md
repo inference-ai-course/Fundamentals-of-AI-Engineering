@@ -52,11 +52,11 @@ If terms like IDE, extension, command-line coding tool, or AI editor are unfamil
 **Step 3: Sign in (optional but recommended)**
 - Cursor may prompt you to sign in
 - This enables AI features
-- You can use the free trial period
+- Use the course-recommended account, license, or currently available plan
 
 **Step 4: Open a folder**
 - File → Open Folder
-- Choose the `week_02/code_templates` folder from this course
+- Choose the course repository folder, then navigate to `week_02/code_templates`
 - Files appear in the sidebar
 
 **Step 5: Open AI chat**
@@ -77,7 +77,7 @@ If you prefer VS Code:
 | 3 | Sign in to GitHub | Copilot activated |
 | 4 | Open folder | Files visible |
 
-**Note**: VS Code + Copilot has inline suggestions but lacks Cursor's chat features.
+**Note**: VS Code + Copilot features may differ from Cursor. Use the same Ask → Review → Apply → Verify workflow regardless of tool.
 
 ---
 
@@ -127,15 +127,15 @@ If you prefer VS Code:
 
 ### AI model selection
 
-Cursor lets you choose the AI model:
+Cursor or other AI coding tools may let you choose a model. The exact names change over time, so use the instructor-recommended option or a currently available high-quality model.
 
-| Model | Characteristics |
-|-------|-----------------|
-| **Claude Sonnet** | Balanced, good for most tasks |
-| **GPT-4** | Strong reasoning, versatile |
-| **Cursor-small** | Fast, good for simple tasks |
+| Option | When to use |
+|--------|-------------|
+| **Instructor-recommended model** | Best default for class exercises |
+| **High-quality reasoning model** | Explaining code, debugging, reviewing changes |
+| **Fast model** | Quick syntax questions or simple comments |
 
-**Recommendation**: Use Claude Sonnet or GPT-4 for learning.
+**Recommendation**: Use the instructor-recommended model first. If you are unsure, choose the most capable model available in your tool for learning exercises.
 
 ### AI settings (optional)
 
@@ -153,13 +153,27 @@ You can customize:
 ### Test your setup
 
 1. Open Cursor
-2. Open the `week_02/code_templates` folder
+2. Open the course repository folder
 3. Press Cmd+L to open AI chat
 4. Send this prompt:
-   ```
+   ```text
    What files are in this folder?
    ```
 5. You should receive a response listing the files
+
+### Test the terminal
+
+Open the integrated terminal with Cmd+J or Ctrl+J and run:
+
+```bash
+python --version
+```
+
+You should see a Python version number. If `python` is not recognized on your computer, try:
+
+```bash
+python3 --version
+```
 
 If this works, your setup is complete.
 
@@ -190,7 +204,7 @@ If this works, your setup is complete.
 
 **Fix**:
 - Check if you're signed in (required for AI)
-- Check your trial status (may have expired)
+- Check whether your account, course license, or selected model is available
 - Try simpler prompt to test connectivity
 
 ### Pitfall 4: Can't find shortcuts
@@ -209,9 +223,9 @@ If this works, your setup is complete.
 ### Exercise 1: Open and explore (5 minutes)
 
 1. Open Cursor
-2. Open the `week_02/code_templates` folder
+2. Open the course repository folder
 3. Browse the files in the sidebar
-4. Click on a file to view its contents
+4. Click `week_02/code_templates/simple_math.py` to view its contents
 
 ### Exercise 2: First AI chat (5 minutes)
 
@@ -222,11 +236,15 @@ If this works, your setup is complete.
 
 ### Exercise 3: Try inline editing (10 minutes)
 
-1. Open `code_templates/simple_math.py`
-2. Select a function
-3. Press Cmd+K
-4. Type: "Add a comment explaining what this function does"
-5. Review the change
+1. Create a `modified_code/` folder for practice work
+2. Copy `code_templates/simple_math.py` into `modified_code/simple_math.py`
+3. Open `modified_code/simple_math.py`
+4. Select a function
+5. Press Cmd+K
+6. Type: "Add a comment explaining what this function does"
+7. Review the change
+
+Keep `code_templates/simple_math.py` unchanged. It is the original reference copy.
 
 ---
 

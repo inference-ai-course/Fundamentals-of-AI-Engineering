@@ -2,13 +2,14 @@
 
 ## Overview
 
-Week 1 introduces you to AI Agent tools — software that helps you complete tasks using natural language. No programming experience required.
+Week 1 introduces you to AI Agent tools — software that helps you complete tasks using natural language. You do not need to write code independently, but you will run a few safe commands and inspect real project files.
 
 You will practice:
 
 - Understanding what AI agents are and how they work
 - Using ChatGPT and Claude for writing, analysis, and explanation
 - Exploring Cursor editor for code-related tasks
+- Running read-only terminal commands and recording what happened
 - Learning when to use each tool effectively
 
 ## Navigation
@@ -23,9 +24,24 @@ You will practice:
 
 1. Read 01 and understand the landscape of AI tools.
 2. Read 02, create accounts for ChatGPT and Claude, and complete basic tasks.
-3. Read 03, install Cursor, and explore file understanding features.
-4. Read 04 to understand Kilo (you'll use it more in Week 2).
-5. Read 05 and create your personal tool selection guide.
+3. Complete the terminal warm-up below from the course folder.
+4. Read 03, install Cursor, and explore file understanding features.
+5. Read 04 to understand Kilo through read-only project questions.
+6. Read 05 and create your personal tool selection guide.
+
+## Terminal warm-up
+
+Run these commands from the course folder. They are read-only: they show information but do not change files.
+
+```bash
+pwd
+ls
+python --version
+git status --short
+find week_01 -maxdepth 1 -type f
+```
+
+Record the command, the kind of output you saw, and one question you could ask an AI tool about that output.
 
 Why this order works:
 
@@ -37,14 +53,18 @@ Why this order works:
     - ChatGPT and Claude are easiest to start with (no installation).
     - What to verify: you can send a prompt and get a useful response.
 
-3. **Editor-based tools third**
+3. **Terminal warm-up third**
+    - You see the course folder, Python version, Git status, and Week 1 files.
+    - What to verify: you can copy a command, run it, and describe the output.
+
+4. **Editor-based tools fourth**
     - Cursor requires installation but offers deeper code understanding.
     - What to verify: you can open a folder and ask AI about its contents.
 
-4. **CLI tools fourth**
+5. **CLI tools fifth**
     - Kilo is more technical but powerful for automation.
-    - What to verify: you understand how Kilo differs from browser-based tools.
+    - What to verify: you can ask Kilo read-only questions about files or Git status.
 
-5. **Comparison last**
+6. **Comparison last**
     - Having used all tools, you can now make informed decisions.
     - What to verify: you have a personal "which tool for which task" guide.

@@ -20,7 +20,7 @@ This directory contains Python code templates for practicing AI-assisted program
 3. Document your understanding
 
 **Example prompts:**
-```
+```text
 "What does this function do?"
 "Explain each line of this function"
 "What is the purpose of [keyword]?"
@@ -28,13 +28,14 @@ This directory contains Python code templates for practicing AI-assisted program
 
 ### For Modification Practice (Part 04)
 
-1. Read and understand a function first
-2. Ask AI to make specific modifications
-3. Review and apply changes
-4. Test the modified code
+1. Copy the file you want to edit into `modified_code/`
+2. Read and understand a function first
+3. Ask AI to make specific modifications
+4. Review and apply changes only in the copied file
+5. Test the modified code
 
 **Example prompts:**
-```
+```text
 "Add error handling for empty input"
 "Add comments explaining each line"
 "Change the return value for edge cases"
@@ -42,13 +43,13 @@ This directory contains Python code templates for practicing AI-assisted program
 
 ### For Debugging Practice (Part 05)
 
-1. Open `debugging_practice.py`
-2. Try to run it (expect errors)
+1. Copy `debugging_practice.py` to `modified_code/debugging_practice_fixed.py`
+2. Try to run a syntax check on the copied file (expect errors)
 3. Ask AI to help identify and fix errors
-4. Document each fix
+4. Document at least one complete fix
 
 **Example prompts:**
-```
+```text
 "This gives error [error message]. What's wrong?"
 "How do I fix this?"
 "Why did that fix work?"
@@ -59,13 +60,26 @@ This directory contains Python code templates for practicing AI-assisted program
 After practicing with these templates, you should be able to:
 
 - Explain at least 5 functions using AI assistance
-- Modify at least 3 functions with AI help
-- Debug at least 2 errors with AI guidance
+- Complete 2-3 small modifications with AI help
+- Debug at least 1 error with AI guidance and verification
 
 ## Tips
 
 1. **Start simple**: Begin with `simple_math.py` before `data_processing.py`
 2. **Read first**: Always understand code before modifying
-3. **Save before changes**: Easy to undo if needed
+3. **Copy before changes**: Keep original templates unchanged
 4. **Test frequently**: Run code after each modification
 5. **Take notes**: Document what you learn
+
+## Useful Commands
+
+Run these from the Week 2 folder after creating `modified_code/`:
+
+```bash
+python --version
+python -B -m py_compile modified_code/simple_math.py
+python -B -m py_compile modified_code/data_processing.py
+python -B -m py_compile modified_code/debugging_practice_fixed.py
+```
+
+The original `debugging_practice.py` intentionally does not pass syntax checking at first. Fix the copied file one issue at a time.

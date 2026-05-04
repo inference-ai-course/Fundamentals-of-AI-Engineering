@@ -22,8 +22,8 @@ ChatGPT is OpenAI's conversational AI. It's designed for general-purpose tasks:
 
 | Step | Action | Success looks like |
 |------|--------|-------------------|
-| 1. Create account | Go to chat.openai.com, click "Sign Up" | Account verified |
-| 2. Choose plan | Free tier (GPT-3.5) is sufficient for this course | Can send messages |
+| 1. Create account | Go to chatgpt.com, click "Sign Up" or log in | Account verified |
+| 2. Choose access level | Free access is sufficient when available | Can send messages |
 | 3. First message | Type a prompt and hit Enter | Receive a response |
 
 ### Interface basics
@@ -39,16 +39,16 @@ ChatGPT is OpenAI's conversational AI. It's designed for general-purpose tasks:
 
 Try these:
 
-```
+```text
 Hello! I'm new to AI tools. What can you help me with?
 ```
 
-```
+```text
 Explain what a "context window" means in AI, 
 using an analogy for a non-technical person.
 ```
 
-```
+```text
 Write a short email (under 150 words) thanking 
 a colleague for their help on a project.
 ```
@@ -89,13 +89,13 @@ Claude is Anthropic's AI assistant, known for:
 ### Pattern 1: The Explainer
 
 **Template:**
-```
+```text
 Explain [topic] in simple terms, as if teaching 
 someone new to this subject. Use analogies.
 ```
 
 **Example:**
-```
+```text
 Explain what an "API" is in simple terms, 
 as if teaching someone with no tech background.
 Use analogies.
@@ -104,13 +104,13 @@ Use analogies.
 ### Pattern 2: The Writer
 
 **Template:**
-```
+```text
 Write a [type] about [topic] that is [length] 
 for [audience]. The tone should be [tone].
 ```
 
 **Example:**
-```
+```text
 Write a professional email to my manager 
 requesting approval for a training workshop. 
 Keep it under 200 words. Tone: respectful but confident.
@@ -119,7 +119,7 @@ Keep it under 200 words. Tone: respectful but confident.
 ### Pattern 3: The Analyzer
 
 **Template:**
-```
+```text
 Analyze this [content] and provide [analysis type]:
 [insert content]
 
@@ -127,7 +127,7 @@ Focus on: [what matters]
 ```
 
 **Example:**
-```
+```text
 Analyze this email draft and provide feedback on clarity:
 
 "Hey boss, I need Friday off for a wedding. Thanks."
@@ -138,13 +138,13 @@ Focus on: professionalism and clarity.
 ### Pattern 4: The Helper
 
 **Template:**
-```
+```text
 I'm trying to [goal]. Here's my situation: [context].
 Can you help me [specific request]?
 ```
 
 **Example:**
-```
+```text
 I'm trying to write a resume for a data analyst role.
 My situation: 3 years in marketing, completed data course.
 Can you help me draft a summary section?
@@ -168,7 +168,7 @@ Can you help me draft a summary section?
 
 Try this: send the same prompt to both tools:
 
-```
+```text
 I'm preparing for a data analyst job interview. 
 Give me 5 common interview questions and tips 
 for answering each.
@@ -188,7 +188,7 @@ Compare:
 **Symptom**: Complex request in one message gives poor results.
 
 **Fix**: Break into steps:
-```
+```text
 Step 1: "Outline a resume for a data analyst position."
 Step 2: "Now help me write the summary section based on this outline."
 Step 3: "Review the summary and suggest improvements."
@@ -230,7 +230,7 @@ Step 3: "Review the summary and suggest improvements."
 
 Send to both ChatGPT and Claude:
 
-```
+```text
 Explain "machine learning" using an analogy 
 for someone with no technical background.
 ```
@@ -241,7 +241,7 @@ Compare responses. Which was clearer?
 
 Send to both:
 
-```
+```text
 Write a LinkedIn post (under 200 words) 
 announcing completion of an AI fundamentals course. 
 Express excitement about applying skills.
@@ -253,7 +253,7 @@ Which version sounds more natural?
 
 Write a short paragraph about a work challenge. Then:
 
-```
+```text
 Analyze this paragraph and give feedback on clarity:
 [your paragraph]
 
@@ -274,16 +274,16 @@ Which feedback was more actionable?
 
 ---
 
-## Free vs Paid Tiers
+## Free vs Paid Access
 
-| Feature | Free | Paid ($20/month) |
+| Feature | Free or basic access | Paid access |
 |---------|------|------------------|
-| Model quality | Good (GPT-3.5/Claude Sonnet) | Better (GPT-4/Claude Opus) |
-| File uploads | Limited/No | Yes |
-| Image input | No | Yes |
-| Usage limits | Daily message cap | Higher limits |
+| Model quality | Good enough for this course | Often higher limits or newer models |
+| File uploads | May be limited | Often higher limits |
+| Image input | May be limited | Often higher limits |
+| Usage limits | Usually capped | Usually higher |
 
-**For this course**: Free tier is sufficient.
+**For this course**: Free access is sufficient when available. Model names, limits, and plan features may change.
 
 ---
 
@@ -299,7 +299,7 @@ Which feedback was more actionable?
 
 ## References
 
-- ChatGPT: https://chat.openai.com
+- ChatGPT: https://chatgpt.com
 - ChatGPT Help: https://help.openai.com
 - Claude: https://claude.ai
 - Claude Help: https://support.anthropic.com

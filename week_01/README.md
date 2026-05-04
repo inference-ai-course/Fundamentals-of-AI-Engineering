@@ -1,6 +1,6 @@
 # Week 1: Agent Tools Introduction
 
-Welcome to Week 1 of the AI Engineering course! This week, you'll discover how to work alongside AI agents to accomplish tasks using natural language - no programming experience required.
+Welcome to Week 1 of the AI Engineering course! This week, you'll discover how to work alongside AI agents to accomplish tasks using natural language. You are not expected to write code independently yet, but you will still try a few safe commands and project-navigation steps so the tools feel real.
 
 ---
 
@@ -19,6 +19,7 @@ By the end of Week 1, you will be able to:
 - Choose the right AI tool for different types of tasks
 - Write effective prompts to get quality results from AI agents
 - Complete basic tasks using natural language with AI assistance
+- Run a few read-only terminal commands and record what you observe
 - Understand the importance of human oversight when working with AI
 
 ---
@@ -56,7 +57,16 @@ Learn how to communicate effectively with AI agents:
 - Iterating and refining your requests
 - Breaking complex tasks into smaller steps
 
-### 4. AI Capabilities and Limitations
+### 4. Safe Command-Line and Project Exploration
+
+You will also practice a small amount of tool usage around real files:
+
+- Opening this course folder in Cursor
+- Asking AI to explain `README.md` or `week_01/tutorial.md`
+- Running read-only commands such as `pwd`, `ls`, and `python --version`
+- Saving what you asked, what happened, and what you verified
+
+### 5. AI Capabilities and Limitations
 
 Understanding what AI can and cannot do:
 
@@ -86,6 +96,7 @@ Understanding what AI can and cannot do:
 - What are AI agents? (Concepts and examples)
 - Hands-on: Your first conversation with ChatGPT or Claude
 - Activity: Ask an AI to explain a complex topic you find interesting
+- Mini practice: save the prompt you used and one thing you checked
 
 **Takeaway:** You'll complete your first AI-assisted task and understand the basics of how these tools work.
 
@@ -97,10 +108,11 @@ Understanding what AI can and cannot do:
 - Deep dive into Cursor, ChatGPT, Claude, Copilot, and Kilo
 - Comparing tools: When to use which
 - Hands-on: Same task, different tools - comparing outputs
+- Safe terminal warm-up: run read-only commands and observe output
 - Prompt engineering basics
 - Activity: Complete a multi-step task using AI assistance
 
-**Takeaway:** You'll know which tool to reach for depending on your task and how to write better prompts.
+**Takeaway:** You'll know which tool to reach for depending on your task and how to write better prompts, and you will have seen how AI tools connect to local files and commands.
 
 ---
 
@@ -111,6 +123,7 @@ Understanding what AI can and cannot do:
 - Reviewing and verifying AI outputs
 - Ethical considerations and responsible use
 - Building an AI toolkit for your needs
+- Cursor/Kilo read-only project tour
 - Activity: Create a personal "AI cheat sheet" for your work/studies
 - Week 1 wrap-up and preview of Week 2
 
@@ -120,15 +133,39 @@ Understanding what AI can and cannot do:
 
 ## What to Complete
 
-1. **AI Tool Comparison Report**
-   - Choose two AI tools we covered
-   - Complete the same 3 tasks with each
-   - Write a brief comparison of the results (300-500 words)
+Complete an **AI Tool Comparison Report** that shows you tried the tools, saved evidence, and reflected on what you personally verified:
 
-2. **Personal AI Use Case**
-   - Identify one area of your work or studies where AI could help
-   - Document your first attempt at using AI for this task
-   - Reflect on what worked and what didn't
+- Choose two AI tools we covered
+- Complete the same 3 tasks with each
+- Write a brief comparison of the results (300-500 words)
+
+Complete **3 meaningful tasks**, for example:
+
+1. Ask ChatGPT or Claude to explain a concept in beginner-friendly language.
+2. Ask ChatGPT or Claude to summarize, rewrite, or improve a short piece of text.
+3. Ask Cursor or Kilo to explain this course folder, `README.md`, or one Week 1 tutorial file.
+
+Recommended submission structure:
+
+| File or Folder | Description |
+|----------------|-------------|
+| `report.md` | 800-1000 word reflection on what you tried, what worked, what failed, and what you learned |
+| `prompts.md` | Representative prompts, follow-up prompts, and short notes about the results |
+| `output/` | Screenshots, copied outputs, or interaction notes |
+| `README.md` | Brief overview of what you submitted and how to read it |
+
+Include an AI tool declaration:
+
+```markdown
+## AI Tool Declaration
+
+- Tools used:
+- Key prompts:
+- AI-assisted sections:
+- What I personally verified or changed:
+```
+
+No code submission is required for Week 1, but you should include at least one note from a read-only command or project-folder exploration.
 
 ### Group Activity
 
@@ -144,13 +181,34 @@ Understanding what AI can and cannot do:
 ### Before Session 1
 
 1. **Create free accounts** (choose at least 2):
-   - [ChatGPT](https://chat.openai.com) - Free tier available
-   - [Claude](https://claude.ai) - Free tier available
-   - [Cursor](https://cursor.sh) - Free trial available
+   - [ChatGPT](https://chatgpt.com) - Free access is sufficient when available
+   - [Claude](https://claude.ai) - Free access is sufficient when available
+   - [Cursor](https://cursor.sh) - Trial or free access is sufficient when available
 
-2. **Optional reading** (15 minutes):
+2. **Open this course folder** in Cursor if you have installed it.
+
+3. **Optional reading** (15 minutes):
    - "What is an AI Agent?" - We'll cover this in class
    - Browse [AI Tools Directory](https://theresanaiforthat.com) to see the landscape
+
+### Terminal Warm-Up
+
+These commands are safe and read-only. Run them in a terminal from the course folder if possible:
+
+```bash
+pwd
+ls
+python --version
+git status --short
+find week_01 -maxdepth 1 -type f
+```
+
+Record:
+
+- Which command you ran
+- What kind of output you saw
+- One thing you understood
+- One thing you want to ask an AI tool to explain
 
 ### Recommended Resources
 
@@ -160,7 +218,7 @@ Understanding what AI can and cannot do:
 
 ### Tools Used This Week
 
-All tools offer free tiers or trials. No paid subscription required for coursework.
+Paid subscriptions are not required for coursework. Tool names, model names, and usage limits may change, so use any available general-purpose chat model or instructor-provided setup.
 
 ---
 
@@ -207,8 +265,8 @@ We're here to support your learning journey!
 
 ---
 
-**Ready to start?** Head to Session 1 materials and let's begin exploring the world of AI agent tools!
+**Ready to start?** Head to `tutorial.md` and begin exploring the world of AI agent tools.
 
 ---
 
-*Last updated: April 2026*
+*Last updated: May 2026*

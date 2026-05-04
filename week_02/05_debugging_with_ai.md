@@ -10,7 +10,7 @@ Errors are inevitable when working with code. This section teaches you to use AI
 
 ### The debugging process
 
-```
+```text
 Error occurs → Understand error → Find cause → Fix → Verify
 ```
 
@@ -36,12 +36,12 @@ def add_numbers(a, b)
 ```
 
 **Error message:**
-```
+```text
 SyntaxError: expected ':'
 ```
 
 **How AI helps:**
-```
+```text
 This code has a syntax error. What's wrong?
 [paste code]
 ```
@@ -61,12 +61,12 @@ calculate_average([])  # Empty list
 ```
 
 **Error message:**
-```
+```text
 ZeroDivisionError: division by zero
 ```
 
 **How AI helps:**
-```
+```text
 This gives "ZeroDivisionError: division by zero". 
 What's wrong and how do I fix it?
 ```
@@ -86,12 +86,12 @@ add_numbers("hello", 5)  # String + number
 ```
 
 **Error message:**
-```
+```text
 TypeError: can only concatenate str (not "int") to str
 ```
 
 **How AI helps:**
-```
+```text
 This gives TypeError. What's wrong?
 ```
 
@@ -110,7 +110,7 @@ def calculate_average(numbers):
 **No error message, but wrong output.**
 
 **How AI helps:**
-```
+```text
 This function should calculate average, but returns wrong values.
 Can you check if the logic is correct?
 ```
@@ -128,7 +128,7 @@ Can you check if the logic is correct?
 ### Step 2: Ask AI
 
 **Prompt template:**
-```
+```text
 I got this error: [error message]
 Here's the code: [paste code]
 What's wrong and how do I fix it?
@@ -165,18 +165,18 @@ def greet(name)
 ```
 
 **Error:**
-```
+```text
 SyntaxError: expected ':'
 ```
 
 **Ask AI:**
-```
+```text
 This code gives "SyntaxError: expected ':'".
 What's wrong?
 ```
 
 **AI response:**
-```
+```text
 The function definition is missing a colon.
 It should be: def greet(name):
 ```
@@ -195,19 +195,19 @@ for i in range(10):
 ```
 
 **Error:**
-```
+```text
 IndexError: list index out of range
 ```
 
 **Ask AI:**
-```
+```text
 This gives IndexError. 
 The list has 5 items but I'm looping to 10.
 What's wrong?
 ```
 
 **AI response:**
-```
+```text
 You're trying to access indices 0-9, but the list 
 only has indices 0-4. Either:
 1. Loop to 5: range(5)
@@ -229,14 +229,14 @@ def is_even(number):
 **Behavior:** Returns True for odd numbers, False for even.
 
 **Ask AI:**
-```
+```text
 This function should return True for even numbers.
 But it returns True for odd numbers.
 What's wrong?
 ```
 
 **AI response:**
-```
+```text
 The logic is inverted. number % 2 == 1 checks for odd.
 For even, use: number % 2 == 0
 ```
@@ -247,21 +247,43 @@ For even, use: number % 2 == 0
 
 ## Hands-on Exercises
 
+`code_templates/debugging_practice.py` is intentionally broken. Running the original file should fail, starting with a syntax error. That is the point of the exercise.
+
+Work on a copied file:
+
+```bash
+mkdir -p modified_code
+cp code_templates/debugging_practice.py modified_code/debugging_practice_fixed.py
+```
+
+Use this command after each fix:
+
+```bash
+python -B -m py_compile modified_code/debugging_practice_fixed.py
+```
+
+When syntax errors are fixed, you can run small function calls to check behavior:
+
+```bash
+cd modified_code
+python -c "from debugging_practice_fixed import greet; greet('AI Engineer')"
+```
+
 ### Exercise 1: Fix syntax errors (10 minutes)
 
-1. Open `code_templates/debugging_practice.py`
-2. Run the code (see errors)
+1. Open `modified_code/debugging_practice_fixed.py`
+2. Run the syntax check command above and read the first error
 3. For each error, ask AI:
-   ```
+   ```text
    What's wrong with this code?
    [paste problematic section]
    ```
 4. Apply fixes
-5. Run and verify
+5. Run the syntax check again and verify the error is gone
 
 ### Exercise 2: Fix runtime errors (15 minutes)
 
-1. Open `code_templates/debugging_practice.py`
+1. Open `modified_code/debugging_practice_fixed.py`
 2. Find functions that cause runtime errors
 3. Ask AI to explain each error
 4. Apply suggested fixes
@@ -269,10 +291,10 @@ For even, use: number % 2 == 0
 
 ### Exercise 3: Find logic errors (15 minutes)
 
-1. Open `code_templates/debugging_practice.py`
+1. Open `modified_code/debugging_practice_fixed.py`
 2. Find functions that run but give wrong results
 3. Ask AI:
-   ```
+   ```text
    This function should do X, but it does Y.
    Can you check the logic?
    ```
@@ -316,7 +338,7 @@ If AI can't solve:
 **Symptom:** Fix works, but you don't know why.
 
 **Fix:** Ask AI:
-```
+```text
 Why did that fix work? 
 Explain what caused the error.
 ```
@@ -345,14 +367,14 @@ Error messages often tell you the problem:
 ### Tip 2: Isolate the problem
 
 If code is complex, find the specific line:
-```
+```text
 The error occurs at line X.
 Here's that line: [paste line]
 ```
 
 ### Tip 3: Provide context
 
-```
+```text
 I'm trying to calculate the average of numbers.
 When I pass an empty list, I get ZeroDivisionError.
 Here's the code: [paste]
@@ -371,15 +393,19 @@ After fixing, test incrementally:
 
 Complete at least 1 debugging record:
 
-1. Fix a syntax or runtime error
-2. Find and fix a logic error
+1. Choose one syntax, runtime, or logic error from `debugging_practice_fixed.py`
+2. Use AI to understand the cause
+3. Apply a fix in the copied file
+4. Verify with a command or function call
 
-For each, document:
+For the record, document:
 - Error message (if any)
 - What you asked AI
 - AI's explanation
 - The fix you applied
 - How you verified
+
+Optional extension: fix additional runtime or logic errors and add them to the same file.
 
 ---
 

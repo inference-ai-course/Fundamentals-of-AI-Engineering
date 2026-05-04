@@ -1,186 +1,168 @@
-# Week 6 — Simplified Data Analysis Project
+# Week 6 — Capstone Template Completion Guide
 
-## Overview
+This guide explains how to complete the capstone template without turning it into a copy-paste solution. The project remains an **AI-Assisted CSV Data Analyzer**:
 
-This is a simplified end-to-end project that integrates knowledge from Weeks 1-5. You'll build a complete data analysis pipeline that:
-
-1. Loads and profiles data (Week 4 skills)
-2. Compresses data for LLM consumption (Week 6 skills)
-3. Calls LLM with structured prompts (Week 3 + Week 6 skills)
-4. Generates reports (Week 4 skills)
-
-## Project Requirements
-
-### Functional Requirements
-
-- Accept a CSV file as input
-- Generate a data profile (rows, columns, missing values, basic stats)
-- Compress the data to fit within LLM context window
-- Call LLM to analyze the data
-- Produce structured output (JSON) and human-readable report (Markdown)
-
-### Technical Requirements
-
-- Use the LLM client built in Week 3 (with timeout, retry, caching)
-- Implement pipeline stages with clear inputs/outputs
-- Save intermediate artifacts at each stage
-- Handle errors gracefully
-- Validate LLM outputs against a schema
-
-## Suggested Pipeline Stages
-
-### Stage 1: Load
-- **Input**: CSV file path
-- **Output**: DataFrame + `output/01_loaded.parquet`
-- **Validation**: Check file exists, not empty
-
-### Stage 2: Profile
-- **Input**: DataFrame
-- **Output**: Profile dict + `output/02_profile.json`
-- **Contents**: Row count, column count, dtypes, missing values, numeric summaries
-
-### Stage 3: Compress
-- **Input**: DataFrame + Profile
-- **Output**: Compressed representation + `output/03_compressed.json`
-- **Strategy**: Sample rows + summary statistics + categorical frequencies
-- **Constraint**: Must fit within ~2000 tokens
-
-### Stage 4: LLM Analysis
-- **Input**: Compressed data + prompt template
-- **Output**: Raw LLM response + `output/04_llm_raw.json`
-- **Processing**: Parse JSON, validate schema, retry if invalid
-
-### Stage 5: Report
-- **Input**: Validated LLM output + Profile
-- **Output**: Final reports `output/report.json` and `output/report.md`
-
-## Prompt Template
-
+```text
+CSV input -> data profiling -> compressed summary -> real LLM interpretation -> report.json + report.md
 ```
-You are a data analysis assistant.
 
-Task:
-Analyze the provided dataset and identify:
-1. Key patterns or trends
-2. Potential data quality issues
-3. Actionable insights
+The provided template gives structure, function signatures, TODOs, and expected outputs. You must fill in the implementation.
 
-Input Data:
-{{compressed_data}}
+## What the Template Is
 
-Output Format:
-Return ONLY valid JSON with exactly these keys:
+The template is a scaffold:
+
+- It shows the files a small project should have.
+- It names the main functions and their input/output contracts.
+- It leaves key logic as TODOs.
+- It gives prompts you can use with an AI Agent Coding Tool.
+
+The template is **not** a finished project and should not run end-to-end until you complete it.
+
+## What You Must Complete
+
+### Stage 1: Data Profiling
+
+File: `capstone_template/src/data_profile.py`
+
+Complete:
+
+- CSV loading or dataframe handling.
+- Row and column counts.
+- Column names and data types.
+- Missing value counts.
+- Duplicate row count.
+- Basic numeric summaries.
+- Basic categorical summaries.
+- Simple anomaly hints.
+
+AI Agent prompt idea:
+
+```text
+Help me complete build_profile() for a beginner capstone.
+First explain the expected input/output contract, then suggest code.
+Do not remove the required top-level keys.
+```
+
+### Stage 2: Compression
+
+File: `capstone_template/src/compression.py`
+
+Complete:
+
+- A compact summary for the LLM.
+- Deterministic sample rows.
+- Selected numeric and categorical summaries.
+- Token-budget estimate or note.
+
+Do not send the full CSV to the LLM.
+
+AI Agent prompt idea:
+
+```text
+Help me implement compress_profile(profile, df).
+The output should be compact enough for an LLM and should not include the full dataset.
+Use a fixed random seed for sampling.
+```
+
+### Stage 3: Real LLM Interpretation
+
+File: `capstone_template/src/llm_interpretation.py`
+
+Complete:
+
+- Structured prompt assembly.
+- Real LLM API call.
+- Timeout/retry or repair attempt.
+- Raw response saving.
+- Basic output validation.
+
+Mock responses may help local debugging, but the final submission must include a successful real LLM run.
+
+AI Agent prompt idea:
+
+```text
+Help me add a real LLM call to call_llm().
+Keep the response JSON-shaped, save the raw response, and add clear error handling.
+Ask me what provider/API style I am using before writing provider-specific code.
+```
+
+### Stage 4: Report Building
+
+File: `capstone_template/src/report_builder.py`
+
+Complete:
+
+- `output/report.json` with stable top-level keys.
+- `output/report.md` with a readable summary.
+- Recommendations and risk notes from the LLM result.
+- Errors or warnings surfaced clearly.
+
+AI Agent prompt idea:
+
+```text
+Help me complete build_json_report() and build_markdown_report().
+Keep the JSON top-level schema stable and make the Markdown readable for a nontechnical reviewer.
+```
+
+## Topic Adaptation
+
+Default: use any CSV and build a general data analyzer.
+
+Recommended option 1: **Customer Feedback / Support Ticket Analyzer**
+
+- Prioritize text columns such as `message`, `comment`, `ticket_text`, or `feedback`.
+- Ask the LLM for themes, urgent issues, customer risks, and recommended actions.
+
+Recommended option 2: **Product Review Insight Reporter**
+
+- Prioritize text columns such as `review_text`, `title`, `pros`, or `cons`.
+- Ask the LLM for positive themes, negative themes, feature requests, and product risks.
+
+These are theme adaptations, not separate assignments. Keep the same report contract.
+
+## Target Output Schema
+
+Your final `report.json` should preserve these top-level fields:
+
+```json
 {
-  "summary": "string - one paragraph overview",
-  "patterns": ["string - list of 3-5 patterns observed"],
-  "quality_issues": ["string - list of data quality issues"],
-  "insights": ["string - list of actionable insights"],
-  "confidence": "number 0-1 - confidence in analysis"
+  "metadata": {},
+  "dataset_summary": {},
+  "data_quality": {},
+  "compression_summary": {},
+  "llm_interpretation": {},
+  "recommendations": [],
+  "risk_notes": [],
+  "errors_or_warnings": []
 }
-
-Constraints:
-- No markdown
-- No additional keys
-- Use empty arrays [] if no issues/insights found
-- Confidence must be between 0 and 1
 ```
 
-## Output Schema (Pydantic)
+## Target Command
 
-```python
-from typing import List
-from pydantic import BaseModel
+After completing the TODOs, your project should support a command like:
 
-class DataAnalysisReport(BaseModel):
-    summary: str
-    patterns: List[str]
-    quality_issues: List[str]
-    insights: List[str]
-    confidence: float
+```bash
+python analyze.py --input ../data/sample_sales.csv --out output
 ```
 
-## Project Structure
+This is the target command, not a guarantee that the untouched template already works.
 
-```
-project/
-├── README.md              # Setup and usage instructions
-├── requirements.txt       # pandas, pydantic, requests, etc.
-├── config.py             # Configuration (model name, timeouts, etc.)
-├── main.py               # Entry point
-├── pipeline.py           # Pipeline orchestration
-├── stages/
-│   ├── __init__.py
-│   ├── load.py          # Stage 1
-│   ├── profile.py       # Stage 2
-│   ├── compress.py      # Stage 3
-│   ├── llm_analysis.py  # Stage 4
-│   └── report.py        # Stage 5
-├── llm_client.py        # From Week 3
-└── prompts.py           # Prompt templates
-```
+## Minimum Validation Checklist
 
-## Acceptance Criteria
-
-- [ ] Can process a CSV file end-to-end
-- [ ] All 5 stages produce artifacts in `output/`
-- [ ] LLM output is validated against schema
-- [ ] Reports are generated (JSON + Markdown)
-- [ ] Pipeline can resume from any stage (reads previous artifacts)
-- [ ] Handles errors gracefully (missing file, invalid CSV, LLM failure)
-- [ ] Includes at least 3 retry attempts for LLM calls
-- [ ] Uses caching to avoid redundant LLM calls
-
-## Evaluation Criteria (25% of total grade)
-
-### Project Completion (40%)
-- Complete end-to-end workflow
-- Functions run normally
-- Output results meet expectations
-
-### Prompt Design Quality (20%)
-- Clear and effective prompts
-- Well-structured output schema
-- Proper constraints and validation
-
-### Project Presentation (20%)
-- Clear expression
-- Complete demonstration
-- Ability to answer questions
-
-### Project Reflection (20%)
-- Summary of learning gains
-- Identification of shortcomings
-- Proposal of improvement directions
-
-## Sample Datasets
-
-For testing, use these sample datasets:
-
-1. **Small Dataset** (50 rows, 5 columns)
-   - For quick iteration and testing
-
-2. **Medium Dataset** (1000 rows, 10 columns)
-   - Tests compression and sampling logic
-
-3. **Dataset with Issues**
-   - Missing values, outliers, inconsistent types
-   - Tests error handling and quality detection
-
-## Tips for Success
-
-1. **Start Simple**: Get basic pipeline working first, then add features
-2. **Test Incrementally**: Verify each stage before moving to next
-3. **Save Everything**: Intermediate artifacts are your debugging lifeline
-4. **Handle Errors**: Think about what can go wrong at each stage
-5. **Document**: Write clear README so others can run your project
+- [ ] The project accepts a CSV path.
+- [ ] The project does not send the full CSV to the LLM.
+- [ ] The final run calls a real LLM.
+- [ ] The prompt and raw/validated LLM response are saved.
+- [ ] `output/report.json` exists and preserves the required top-level keys.
+- [ ] `output/report.md` exists and is readable.
+- [ ] README includes setup, API key/provider notes, and one-command run instructions.
+- [ ] `prompts.md` or `ai_usage.md` explains AI Agent Coding Tool use.
+- [ ] `postmortem.md` documents one real issue and fix.
 
 ## References
 
-- Week 3: Data profiling techniques
-- Week 4: LLM client with retry/caching, tokens/context, prompt contracts, and structured outputs
-- Week 6: Pipeline design and sampling/compression
-
----
-
-**Estimated Time**: 4-6 hours
-**Due**: End of Week 6
+- Week 3: Data profiling.
+- Week 4: Structured prompts, real LLM calls, timeout/retry, and validation.
+- Week 5: Data/ML interpretation intuition.
+- Week 6: Pipeline design and sampling/compression.

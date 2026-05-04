@@ -106,6 +106,28 @@ All exercises use provided templates found in the `code_templates/` directory. S
 3. **Debugging Challenge**: Identify and fix bugs in provided code samples using AI assistance
 4. **IDE Proficiency Exercise**: Complete a series of IDE tasks incorporating AI features
 
+### Safe Practice Rule
+
+Do not edit the original files in `code_templates/`. Copy the files you want to modify into a `modified_code/` folder first, then make all changes in the copied files.
+
+Recommended setup from the `week_02/` folder:
+
+```bash
+mkdir -p modified_code
+cp code_templates/simple_math.py modified_code/simple_math.py
+cp code_templates/data_processing.py modified_code/data_processing.py
+cp code_templates/debugging_practice.py modified_code/debugging_practice_fixed.py
+```
+
+Quick verification commands:
+
+```bash
+python --version
+python -B -m py_compile modified_code/simple_math.py
+cd modified_code
+python -c "from simple_math import add_numbers; print(add_numbers(2, 3))"
+```
+
 Complete exercise instructions are available in this week's tutorial files:
 
 - [01_ide_setup.md](01_ide_setup.md)
@@ -118,23 +140,17 @@ Complete exercise instructions are available in this week's tutorial files:
 
 Students must submit the following by the end of Week 2:
 
-### 1. Code Explanation Exercise
+| Deliverable | What it should contain |
+|-------------|------------------------|
+| `report.md` | Explanations for at least 5 functions or code blocks, plus a short reflection |
+| `modified_code/` | Copies of template files with 2-3 small AI-assisted modifications |
+| `debugging_record.md` | One complete debugging record: error, AI prompt, fix, verification |
+| `prompts.md` | Prompts used for explanation, modification, and debugging |
+| `README.md` | How to open the work, what was modified, and how to verify it |
 
-A detailed explanation document covering:
-- Analysis of the provided template codebase
-- AI-assisted breakdown of key functions and components
-- Architecture and design pattern identification
-- Personal observations and learning notes
+Use the blank templates in [`submission_template/`](submission_template/) if you want a starting structure.
 
-### 2. Code Modification Report
-
-A report documenting:
-- Description of modifications made to the template code
-- AI suggestions used and how they were implemented
-- Challenges encountered and how they were resolved
-- Before/after comparison of code quality and functionality
-
-Submit all deliverables via the course learning management system.
+Your submission must also include an AI use declaration: which tool you used, what suggestions you accepted or rejected, and how you personally verified the result.
 
 ## Resources and Tips
 
@@ -160,7 +176,7 @@ Submit all deliverables via the course learning management system.
 - Blindly accepting AI suggestions without understanding them
 - Over-relying on AI for simple tasks you should learn to do manually
 - Neglecting to test AI-generated code thoroughly
-- Forgetting to commit code before making AI-assisted changes
+- Forgetting to save your copied files before making AI-assisted changes
 
 ---
 

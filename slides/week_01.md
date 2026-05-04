@@ -23,6 +23,7 @@ By the end of this week, you should be able to:
 - Explain what AI agent tools are and how they work at a high level
 - Use ChatGPT and Claude for basic tasks (writing, explaining, analyzing)
 - Install and explore Cursor editor for code understanding
+- Run safe read-only commands and record what you observe
 - Understand when to use different tools for different tasks
 - Write effective prompts to get quality results
 
@@ -114,12 +115,12 @@ Types of context:
 
 | Step | Action | Success |
 |------|--------|---------|
-| 1 | Go to chat.openai.com | Open website |
+| 1 | Go to chatgpt.com | Open website |
 | 2 | Click "Sign Up" | Create account |
 | 3 | Verify email/phone | Account active |
 | 4 | Send a prompt | Receive response |
 
-Free tier (GPT-3.5) is sufficient for this course.
+Free access is sufficient when available. Model names and limits may change.
 
 ---
 
@@ -148,17 +149,17 @@ Free tier (GPT-3.5) is sufficient for this course.
 # Effective Prompt Patterns
 
 **Pattern 1: Explainer**
-```
+```text
 Explain [topic] in simple terms, using analogies.
 ```
 
 **Pattern 2: Writer**
-```
+```text
 Write a [type] about [topic], [length], for [audience], [tone].
 ```
 
 **Pattern 3: Analyzer**
-```
+```text
 Analyze this [content] and provide [feedback type]:
 [content]
 ```
@@ -208,6 +209,22 @@ Analyze this [content] and provide [feedback type]:
 
 ---
 
+# Live Demo: Terminal Warm-Up
+
+Run these from the course folder:
+
+```bash
+pwd
+ls
+python --version
+git status --short
+find week_01 -maxdepth 1 -type f
+```
+
+Record: command, output type, one question.
+
+---
+
 <!-- _class: part -->
 
 # Part 04
@@ -232,12 +249,30 @@ Kilo is an AI coding assistant for the **terminal**.
 
 # Kilo Capabilities
 
-| Capability | Example Command |
-|------------|-----------------|
-| Read files | "Explain what train.py does" |
-| Write files | "Add comments to main.py" |
-| Git operations | "Show recent commits" |
-| Search | "Find where process_data is defined" |
+| Capability | Week 1 Example |
+|------------|----------------|
+| Read files | "Explain README.md" |
+| Project tour | "List Week 1 tutorial files" |
+| Git status | "Show current git status" |
+| Search | "Find files that mention Cursor" |
+
+Week 1 focus: **read-only exploration**.
+
+---
+
+# Live Demo: Project Tour
+
+In Cursor or Kilo, ask:
+
+```text
+Summarize README.md in beginner-friendly language.
+```
+
+```text
+What files are in week_01, and what is each for?
+```
+
+Save the prompt and one thing you verified.
 
 ---
 
@@ -279,8 +314,9 @@ Kilo is an AI coding assistant for the **terminal**.
   - Explain a concept
   - Summarize or rewrite content
   - Explore a simple file or project folder
-- Save representative prompts and outputs
-- Write "Agent Tool Usage Reflection" report (800-1000 words)
+- Include one command-line or project-file observation
+- Submit `report.md`, `prompts.md`, `output/`, and `README.md`
+- Write an 800-1000 word reflection
 
 ---
 
@@ -296,7 +332,7 @@ Kilo is an AI coding assistant for the **terminal**.
 
 # References
 
-- ChatGPT: https://chat.openai.com
+- ChatGPT: https://chatgpt.com
 - Claude: https://claude.ai
 - Cursor: https://cursor.sh
 - Prompt Engineering Guide: https://www.promptingguide.ai

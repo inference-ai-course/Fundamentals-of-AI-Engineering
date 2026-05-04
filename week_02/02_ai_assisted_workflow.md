@@ -10,7 +10,7 @@ Before diving into specific skills, understand the overall workflow of AI-assist
 
 ### Ask → Review → Apply → Verify
 
-```
+```text
 1. ASK:    Describe what you want to AI
 2. REVIEW: Check AI's suggestion/response
 3. APPLY:  Use the suggestion (if appropriate)
@@ -44,7 +44,7 @@ You never blindly accept AI output. Each step is essential:
 | **Goal** | "So I can understand what it returns" |
 
 **Combined:**
-```
+```text
 Explain this function step by step in simple terms.
 I'm new to Python. Focus on what it returns and why.
 ```
@@ -62,7 +62,7 @@ I'm new to Python. Focus on what it returns and why.
 
 **If review fails: Iterate**
 
-```
+```text
 That explanation was too technical. 
 Can you explain it with an analogy?
 ```
@@ -91,7 +91,7 @@ Can you explain it with an analogy?
 
 **If verification fails: Debug**
 
-```
+```text
 The code change didn't work. 
 Here's the error: [error message]
 What should I do?
@@ -105,7 +105,7 @@ What should I do?
 
 First prompts rarely give perfect results. Iteration improves output:
 
-```
+```text
 1st attempt: "Explain this function"
 → Result: Too technical
 
@@ -168,7 +168,7 @@ First prompts rarely give perfect results. Iteration improves output:
 
 ### Example 1: Understanding a function
 
-```
+```text
 [ASK] "Explain what this function does:
 def calculate_average(numbers):
     return sum(numbers) / len(numbers)"
@@ -185,7 +185,7 @@ divides by how many numbers there are."
 
 ### Example 2: Modifying code
 
-```
+```text
 [ASK] "Add error handling to this function 
 for when the list is empty."
 
@@ -206,7 +206,7 @@ calculate_average([1, 2, 3]) → returns 2 (correct!)
 
 ### Example 3: Debugging
 
-```
+```text
 [ASK] "This code gives an error: 'division by zero'. 
 Here's the code: [paste code]. What's wrong?"
 
@@ -221,9 +221,9 @@ Here's the code: [paste code]. What's wrong?"
 
 ## Tips for Efficient Workflow
 
-### Tip 1: Save before asking for modifications
+### Tip 1: Work on copied files
 
-AI might make unexpected changes. Save your current state first.
+AI might make unexpected changes. Copy files from `code_templates/` into `modified_code/` before editing, then save your current state before asking for modifications.
 
 ### Tip 2: Use specific prompts
 
@@ -244,6 +244,20 @@ Don't just accept — try to understand. Ask follow-up questions.
 ### Tip 5: Test frequently
 
 Don't wait until the end to test. Test after each change.
+
+### Tip 6: Record evidence
+
+Each time you use AI for a meaningful step, record:
+
+```text
+Task:
+Prompt:
+AI suggestion:
+Accepted or rejected:
+Verification command/output:
+```
+
+These notes become your `prompts.md`, `report.md`, and `debugging_record.md`.
 
 ---
 

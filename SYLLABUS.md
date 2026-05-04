@@ -187,19 +187,19 @@ Upon completing this course, students will be able to:
 - [week_05/README.md](week_05/README.md)
 - [slides/week_05.md](slides/week_05.md)
 
-### Week 6: Capstone - Intelligent Data Analysis Script
+### Week 6: Capstone - AI-Assisted CSV Data Analyzer
 
 **Theme:** CSV In, AI-Assisted Report Out
 
 #### Learning Objectives
 
-- Combine data profiling, sampling/compression, and LLM interpretation.
+- Combine data profiling, sampling/compression, and real LLM interpretation.
 - Produce stable JSON and Markdown reports.
 - Explain design decisions and demo a reproducible run.
 
 #### Sessions
 
-- Capstone MVP walkthrough: CSV -> profile -> sampled summary -> LLM interpretation -> report.
+- Capstone MVP walkthrough: CSV -> profile -> sampled summary -> real LLM interpretation -> report.
 - Implementation workshop using provided templates and prior-week components.
 - Demo, reflection, and next learning path.
 
@@ -207,6 +207,7 @@ Upon completing this course, students will be able to:
 
 - A reproducible script or small project that accepts a CSV input.
 - `report.json` and `report.md` outputs.
+- Evidence of a real LLM call, including saved prompt and raw/validated response.
 - Short demo or walkthrough.
 - `postmortem.md` or reflection documenting one issue and fix.
 
