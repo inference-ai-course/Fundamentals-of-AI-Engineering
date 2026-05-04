@@ -100,12 +100,13 @@ input.csv
 
 # Workshop
 
-Use the Week 3 main path:
+Use the Week 3 tutorials:
 
-- `week_04/01_environment_setup.md`
-- `week_04/02_data_profiling_script.md`
-
-These files are reused from the previous course order and are now the required Week 3 content.
+- Environment setup
+- Dependency management
+- CSV loading with pandas
+- Data profiling script
+- JSON and Markdown outputs
 
 ---
 

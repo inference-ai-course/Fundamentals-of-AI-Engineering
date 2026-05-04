@@ -230,7 +230,7 @@ A good report is short and structured:
 | **Change** | Exactly what you changed (one variable) |
 | **Result** | Metrics before/after |
 | **Interpretation** | Why you think it changed |
-| **Reflection** | What changed, what you learned |
+| **Reflection** | What you learned from the comparison |
 | **Next experiment** | One clear idea |
 
 **Two rules**: always include exact commands, always point to artifact folders.
@@ -256,6 +256,7 @@ A good report is short and structured:
 - Write `report.md`:
   - What you changed
   - What happened (metrics)
+  - What you learned
   - One next experiment idea
 
 Advanced work such as cross-validation, statistical significance testing, or complex visualizations is optional.

@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 2 — IDE + Agent Practice"
+footer: "Week 2 — IDE + AI-Assisted Code Practice"
 style: |
   @import 'theme.css';
 ---
@@ -12,7 +12,7 @@ style: |
 
 # Week 2
 
-## IDE + Agent Practice
+## IDE + AI-Assisted Code Practice
 
 ---
 
@@ -266,11 +266,15 @@ What's wrong and how do I fix it?
 
 # Workshop / Deliverables
 
-- Set up Cursor and open code_templates folder
-- Complete 5 function explanations (Part 03)
-- Complete 3 code modifications (Part 04)
-- Complete 2 debugging fixes (Part 05)
-- Write "AI-Assisted Programming Reflection" (800-1000 words)
+- Set up Cursor or VS Code and open `week_02/code_templates/`
+- Explain at least 5 functions or code blocks
+- Complete 2-3 small code modifications
+- Complete 1 debugging record:
+  - error
+  - AI prompt
+  - fix
+  - verification
+- Write a short AI-assisted code practice reflection
 
 ---
 
@@ -279,8 +283,8 @@ What's wrong and how do I fix it?
 - Is Cursor installed and can you open AI chat?
 - Can you explain the Ask → Review → Apply → Verify pattern?
 - Can you explain 5 functions from templates?
-- Can you modify code using Cmd+K?
-- Can you debug errors with AI help?
+- Can you make a small code change and verify it?
+- Can you document one debugging process?
 
 ---
 

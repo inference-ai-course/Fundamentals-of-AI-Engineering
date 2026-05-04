@@ -125,13 +125,13 @@ Keep it simple and runnable.
 
 # Deliverables
 
-- Source code or notebook/script
-- `output/report.json`
-- `output/report.md`
+- Script or notebook that runs the MVP
+- `output/report.json` as the machine-readable result
+- `output/report.md` as the human-readable result
 - README with one-command run instructions
 - Sample input or dataset link
-- `postmortem.md`
-- AI usage and prompt documentation
+- Short `postmortem.md`: one issue and how you handled it
+- Prompt and AI usage notes
 
 ---
 

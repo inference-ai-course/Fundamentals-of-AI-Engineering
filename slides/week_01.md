@@ -274,13 +274,13 @@ Kilo is an AI coding assistant for the **terminal**.
 
 # Workshop / Deliverables
 
-- Create accounts for ChatGPT and Claude
-- Install Cursor
-- Complete 3 tasks with different tools:
-  - Writing task (ChatGPT/Claude)
-  - Code understanding task (Cursor)
-  - Exploration task (Kilo)
-- Write "Agent Tool Usage Reflection" report (800-1000 words)
+- Try at least 2 AI tools
+- Complete 3 meaningful tasks:
+  - Explain a concept
+  - Summarize or rewrite content
+  - Explore a simple file or project folder
+- Save representative prompts and outputs
+- Write a short tool usage reflection
 
 ---
 
@@ -288,8 +288,8 @@ Kilo is an AI coding assistant for the **terminal**.
 
 - Can you explain "what is an AI agent"?
 - Can you list 4 tools and when to use each?
-- Have you created accounts for ChatGPT and Claude?
-- Have you installed Cursor and opened a folder?
+- Have you tried at least 2 tools?
+- Did you save prompts or screenshots/notes?
 - Can you write a specific, contextual prompt?
 
 ---

@@ -112,16 +112,16 @@ This is not production engineering yet; it is disciplined beginner practice.
 
 ---
 
-# Main Tutorials
+# Main Topics
 
-- `week_06/01_tokens_context.md`
-- `week_06/02_prompt_contracts.md`
-- `week_06/03_structured_outputs_validation.md`
-- `week_03/04_timeouts_failures.md`
-- `week_03/05_retries_backoff.md`
-- `week_03/08_llm_client_skeleton.md`
+- Tokens and context windows
+- Prompt contracts
+- Structured outputs and validation
+- Timeouts and failure modes
+- Bounded retries or repair attempts
+- Simple logging and saved raw responses
 
-Optional: Ollama/local-vs-cloud benchmarking.
+Optional: Ollama or local-vs-cloud benchmarking.
 
 ---
 
