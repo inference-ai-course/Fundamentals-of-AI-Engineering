@@ -51,18 +51,15 @@ def main() -> None:
 
     try:
         # Train the model
-        print("🎯 Starting training pipeline...")
+        print("Starting training pipeline...")
         result = trainer.train(cfg, args.artifacts_dir)
-        
-        # Get the run directory from the most recent run
-        import time
-        run_id = time.strftime("run_%Y%m%d_%H%M%S")
-        artifacts_path = Path(args.artifacts_dir) / run_id
-        
+
+        artifacts_path = result.artifacts_dir
+
         # Capture dependencies for reproducibility
         requirements_path = artifacts_path / "requirements.txt"
         reproducibility.capture_dependencies(requirements_path)
-        
+
         # Create run metadata
         env_info = reproducibility.validate_environment([
             "pandas", "scikit-learn", "joblib", "numpy"
@@ -74,14 +71,14 @@ def main() -> None:
         reproducibility.save_run_metadata(metadata, artifacts_path / "run_metadata.json")
 
         # Output results
-        print("\n✅ Training completed successfully!")
-        print(f"📁 Artifacts saved to: {artifacts_path}")
-        print("\n📊 Results:")
+        print("\nTraining completed successfully!")
+        print(f"Artifacts saved to: {artifacts_path}")
+        print("\nResults:")
         print(json.dumps(result.metrics, indent=2))
-        print(f"⏱️  Training time: {result.train_seconds:.2f} seconds")
-        
+        print(f"Training time: {result.train_seconds:.2f} seconds")
+
     except Exception as e:
-        print(f"\n❌ Error: {e}")
+        print(f"\nError: {e}")
         raise
 
 

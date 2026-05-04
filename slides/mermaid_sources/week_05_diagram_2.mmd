@@ -1,7 +1,5 @@
 flowchart TD
-  M[Models list] --> R[Run prompt set]
-  P[Prompt set] --> R
-  R --> L[Record latency]
-  R --> Q[Save outputs]
-  L --> S[summary.json]
-  Q --> S
+  A[Run A: baseline] --> C[Compare Metrics]
+  B[Run B: variant] --> C
+  C --> D[Write Report]
+  D --> E[report.md]

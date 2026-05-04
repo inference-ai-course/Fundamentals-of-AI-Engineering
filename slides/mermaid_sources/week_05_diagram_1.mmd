@@ -1,7 +1,6 @@
 flowchart TD
-  A[Your app] --> B[Internet]
-  B --> C[Cloud provider]
-  C --> D[Large GPU cluster]
-  D --> E[Response]
-  E --> B
-  B --> A
+  A[Load CSV] --> B[Train/Val Split]
+  B --> C[Preprocess]
+  C --> D[Train Model]
+  D --> E[Evaluate]
+  E --> F[Save Artifacts]

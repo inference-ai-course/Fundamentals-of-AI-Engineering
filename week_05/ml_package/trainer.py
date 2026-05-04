@@ -48,6 +48,7 @@ class TrainResult:
     train_seconds: float
     n_train: int
     n_val: int
+    artifacts_dir: Path = None
 
 
 def create_sample_dataset(output_path: str, dataset_type: str = "iris") -> None:
@@ -265,5 +266,6 @@ def train(cfg: TrainConfig, artifacts_dir: str = "artifacts") -> TrainResult:
         config=cfg,
         train_seconds=train_seconds,
         n_train=len(X_train),
-        n_val=len(X_val)
+        n_val=len(X_val),
+        artifacts_dir=out_dir,
     )
