@@ -78,8 +78,8 @@ Your profiler should report:
 - Column names and inferred types
 - Missing value counts
 - Duplicate row count
-- Basic numeric statistics
-- Basic categorical counts
+- Basic numeric statistics (min, max, mean)
+- Top categorical values (top 5 per column)
 
 ---
 
@@ -95,6 +95,22 @@ input.csv
 
 `profile.json` is for code.
 `profile.md` is for humans.
+
+---
+
+# Profiling Pipeline
+
+```text
+   CSV file
+      |
+  Load & Validate
+      |
+  Compute Profile
+   /        \
+profile.json  profile.md
+```
+
+Each step should fail fast with a clear error if something is wrong.
 
 ---
 

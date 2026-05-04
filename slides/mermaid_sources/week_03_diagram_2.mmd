@@ -1,6 +1,6 @@
 flowchart TD
-  A[Build prompt] --> B[Send HTTP request]
-  B --> C[Model tokenizes input]
-  C --> D[Model generates tokens]
-  D --> E[Return response text]
-  E --> F[Parse + validate output]
+  A[Create venv] --> B[Install dependencies]
+  B --> C[Record requirements.txt]
+  C --> D[Run profiler script]
+  D --> E[Verify outputs]
+  E --> F[Fresh machine test]

@@ -21,7 +21,7 @@ You will build `data_profile.py` that:
 ---
 
 
-💻 **配套练习**: [02_data_profiling_script.ipynb](./02_data_profiling_script.ipynb) - 交互式代码实践
+**Lab notebook**: [02_data_profiling_script.ipynb](./02_data_profiling_script.ipynb) - Interactive coding practice
 
 ## Pre-study (Self-learn)
 
@@ -75,6 +75,9 @@ class Profile:
     columns: List[str]
     dtypes: Dict[str, str]
     missing_by_column: Dict[str, int]
+    duplicate_rows: int
+    numeric_summary: Dict[str, Dict[str, float]]
+    categorical_top_values: Dict[str, Dict[str, int]]
 
 
 def load_csv(path: Path) -> pd.DataFrame:
@@ -90,12 +93,30 @@ def make_profile(df: pd.DataFrame) -> Profile:
     missing = df.isna().sum().to_dict()
     dtypes = {col: str(dtype) for col, dtype in df.dtypes.to_dict().items()}
 
+    numeric_cols = df.select_dtypes(include="number")
+    numeric_summary = {}
+    for col in numeric_cols.columns:
+        numeric_summary[col] = {
+            "min": float(numeric_cols[col].min()),
+            "max": float(numeric_cols[col].max()),
+            "mean": round(float(numeric_cols[col].mean()), 2),
+        }
+
+    categorical_cols = df.select_dtypes(include="object")
+    categorical_top = {}
+    for col in categorical_cols.columns:
+        top5 = df[col].value_counts().head(5).to_dict()
+        categorical_top[col] = {str(k): int(v) for k, v in top5.items()}
+
     return Profile(
         rows=int(df.shape[0]),
         cols=int(df.shape[1]),
         columns=list(df.columns),
         dtypes=dtypes,
         missing_by_column={k: int(v) for k, v in missing.items()},
+        duplicate_rows=int(df.duplicated().sum()),
+        numeric_summary=numeric_summary,
+        categorical_top_values=categorical_top,
     )
 
 
@@ -105,6 +126,7 @@ def profile_to_markdown(p: Profile) -> str:
     lines.append("")
     lines.append(f"- Rows: {p.rows}")
     lines.append(f"- Columns: {p.cols}")
+    lines.append(f"- Duplicate rows: {p.duplicate_rows}")
     lines.append("")
     lines.append("## Columns")
     lines.append("")
@@ -113,6 +135,28 @@ def profile_to_markdown(p: Profile) -> str:
     for col in p.columns:
         lines.append(f"| {col} | {p.dtypes.get(col, '')} | {p.missing_by_column.get(col, 0)} |")
     lines.append("")
+
+    if p.numeric_summary:
+        lines.append("## Numeric Summary")
+        lines.append("")
+        lines.append("| column | min | max | mean |")
+        lines.append("|---|---:|---:|---:|")
+        for col, stats in p.numeric_summary.items():
+            lines.append(f"| {col} | {stats['min']} | {stats['max']} | {stats['mean']} |")
+        lines.append("")
+
+    if p.categorical_top_values:
+        lines.append("## Top Categorical Values")
+        lines.append("")
+        for col, values in p.categorical_top_values.items():
+            lines.append(f"### {col}")
+            lines.append("")
+            lines.append("| value | count |")
+            lines.append("|---|---:|")
+            for val, count in values.items():
+                lines.append(f"| {val} | {count} |")
+            lines.append("")
+
     return "\n".join(lines)
 
 
@@ -171,7 +215,7 @@ If you later add timestamps, random samples, or “top N” operations, be caref
 
 ---
 
-## Extensions (recommended)
+## Extensions (optional)
 
 ### 1) Required columns
 
@@ -183,24 +227,13 @@ Then fail with a clear message if any are missing.
 
 Why this matters: you are turning vague assumptions into explicit *preconditions*. If the preconditions do not hold, everything downstream is unreliable.
 
-### 2) Numeric summaries
+### 2) Outlier detection
 
-For numeric columns compute:
+For numeric columns, flag values beyond 3 standard deviations from the mean. This is a simple heuristic for spotting data entry errors or sensor faults.
 
-- min/max/mean
+### 3) Encoding and delimiter handling
 
-Interpretation (light intuition):
-
-- mean estimates the “typical” value: $\mu = \frac{1}{n}\sum_{i=1}^n x_i$
-- min/max catch obvious outliers or wrong units
-
-### 3) Frequent values
-
-For categorical columns compute:
-
-- top 5 values
-
-Practical implication: frequent-value tables often reveal data quality bugs (e.g., “N/A”, “unknown”, “-”, whitespace-only strings).
+Add `--encoding` and `--delimiter` flags. Practical implication: real-world CSV files often use `;` as delimiter or `latin-1` encoding, and the script should handle both.
 
 ---
 

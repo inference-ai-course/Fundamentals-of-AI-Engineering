@@ -13,7 +13,7 @@ That means:
 ---
 
 
-💻 **配套练习**: [01_environment_setup.ipynb](./01_environment_setup.ipynb) - 交互式代码实践
+**Lab notebook**: [01_environment_setup.ipynb](./01_environment_setup.ipynb) - Interactive coding practice
 
 ## Pre-study (Self-learn)
 

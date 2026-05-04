@@ -44,8 +44,8 @@ Optional/advanced local inference reference:
    - input: `--input path/to/data.csv`
    - output directory: `output/`
    - output files: `profile.json` and `profile.md`
-5. Run the script on a provided CSV or your own small dataset.
-6. Write a short data quality note.
+5. Run the script on the provided sample CSV (`data/sample.csv`) or your own small dataset.
+6. Write a short data quality report (see Report Template below).
 
 ## Deliverables
 
@@ -55,6 +55,43 @@ Optional/advanced local inference reference:
 - A short report with at least 3 findings.
 - A README with setup and run commands.
 - Manual test checklist or automated tests.
+
+## Report Template
+
+Your `report.md` should follow this structure:
+
+```markdown
+# Data Quality Report
+
+## Dataset
+
+- Source: (filename or URL)
+- Rows: (from profile)
+- Columns: (from profile)
+
+## Findings
+
+### Finding 1: (title)
+
+(What you observed, why it matters, and what action you would take.)
+
+### Finding 2: (title)
+
+(What you observed, why it matters, and what action you would take.)
+
+### Finding 3: (title)
+
+(What you observed, why it matters, and what action you would take.)
+
+## Summary
+
+(One paragraph: overall data quality assessment and recommended next steps.)
+```
+
+Examples of good findings:
+- "Column `salary` has 2 missing values (10% of rows). These should be imputed or excluded before training."
+- "Row 1 and row 11 are exact duplicates. This could inflate model accuracy if not removed."
+- "Column `city` has 5 distinct values. The top value 'New York' accounts for 30% of records, suggesting geographic imbalance."
 
 ## Common Pitfalls
 
