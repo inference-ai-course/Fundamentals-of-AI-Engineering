@@ -14,10 +14,10 @@ Week 3 focuses on reproducible environments and CSV data profiling. You will cre
 
 ## Main Navigation
 
-These tutorials are reused from the previous course order and are now the required Week 3 path:
+Use these tutorials as the required Week 3 path:
 
-- [Environment setup + dependency management](../week_04/01_environment_setup.md)
-- [Data profiling script (CSV -> JSON/Markdown outputs)](../week_04/02_data_profiling_script.md)
+- [Environment setup + dependency management](01_environment_setup.md)
+- [Data profiling script (CSV -> JSON/Markdown outputs)](02_data_profiling_script.md)
 
 ## Recommended Order
 

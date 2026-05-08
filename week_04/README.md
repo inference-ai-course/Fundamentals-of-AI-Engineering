@@ -24,21 +24,23 @@ By the end of this week, you should be able to:
 
 Main Week 4 learning path:
 
-- [../week_06/01_tokens_context.md](../week_06/01_tokens_context.md)
-- [../week_06/02_prompt_contracts.md](../week_06/02_prompt_contracts.md)
-- [../week_06/03_structured_outputs_validation.md](../week_06/03_structured_outputs_validation.md)
-- [../week_03/04_timeouts_failures.md](../week_03/04_timeouts_failures.md)
-- [../week_03/05_retries_backoff.md](../week_03/05_retries_backoff.md)
-- [../week_03/06_rate_limiting.md](../week_03/06_rate_limiting.md)
-- [../week_03/07_caching_logging.md](../week_03/07_caching_logging.md)
-- [../week_03/08_llm_client_skeleton.md](../week_03/08_llm_client_skeleton.md)
+- [01_tokens_context.md](01_tokens_context.md)
+- [02_prompt_contracts.md](02_prompt_contracts.md)
+- [03_structured_outputs_validation.md](03_structured_outputs_validation.md)
+- [04_timeouts_failures.md](04_timeouts_failures.md)
+- [05_retries_backoff.md](05_retries_backoff.md)
+- [06_rate_limiting.md](06_rate_limiting.md)
+- [07_caching_logging.md](07_caching_logging.md)
+- [08_llm_client_skeleton.md](08_llm_client_skeleton.md)
 
 Optional/advanced:
 
-- [../week_03/01_local_inference_setup.md](../week_03/01_local_inference_setup.md)
-- [../week_03/02_ollama_http_client.md](../week_03/02_ollama_http_client.md)
-- [../week_03/03_benchmarking_script.md](../week_03/03_benchmarking_script.md)
-- [../week_06/04_openai_compatible_api.md](../week_06/04_openai_compatible_api.md)
+- [01_local_inference_setup.md](01_local_inference_setup.md)
+- [02_ollama_http_client.md](02_ollama_http_client.md)
+- [03_benchmarking_script.md](03_benchmarking_script.md)
+- [04_openai_compatible_api.md](04_openai_compatible_api.md)
+
+The older environment and data profiling files that remain in this folder are legacy references. For the required data processing workflow, use the Week 3 materials.
 
 ## Workshop Plan
 

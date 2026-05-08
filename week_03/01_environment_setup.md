@@ -1,6 +1,4 @@
-# Legacy Reference: Environment setup + dependency management
-
-This file is kept in Week 4 only as a legacy reference. The required environment setup lesson now belongs to Week 3.
+# Week 3 — Part 01: Environment setup + dependency management
 
 ## Overview
 

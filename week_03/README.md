@@ -20,20 +20,34 @@ By the end of this week, you should be able to:
 - Generate reproducible `profile.json` and `profile.md` outputs.
 - Explain at least 3 data quality findings in plain language.
 
+## Python Minimum Checklist
+
+You do not need to become fluent in Python before starting Week 3. You should be able to recognize and ask AI to explain these basics while working through the exercises:
+
+- Variables: store simple values such as file paths, counts, and strings.
+- Functions: understand `def load_csv(...):` as a reusable step with inputs and outputs.
+- Lists and dictionaries: read simple structures like `["name", "age"]` and `{"rows": 100}`.
+- File paths: understand relative paths such as `data/sample.csv` and output paths such as `output/profile.json`.
+- Command-line arguments: recognize flags such as `--input data.csv --output_dir output`.
+- Error messages: copy the full traceback or terminal output when asking for help.
+- Imports: understand that `import pandas as pd` loads a library used by the script.
+
+If any item is unfamiliar, use the linked self-learn chapter as a reference only when needed; it is not a separate prerequisite.
+
 ## Tutorials
 
 Main Week 3 learning path:
 
-- [../week_04/01_environment_setup.md](../week_04/01_environment_setup.md)
-- [../week_04/02_data_profiling_script.md](../week_04/02_data_profiling_script.md)
-
-These files currently live in `week_04/` because they were part of the previous course order. They are now the required Week 3 content. The old local inference materials in this folder are retained as optional reference and are no longer required for Week 3.
+- [01_environment_setup.md](01_environment_setup.md)
+- [02_data_profiling_script.md](02_data_profiling_script.md)
 
 Optional/advanced local inference reference:
 
 - [01_local_inference_setup.md](01_local_inference_setup.md)
 - [02_ollama_http_client.md](02_ollama_http_client.md)
 - [03_benchmarking_script.md](03_benchmarking_script.md)
+
+Other LLM reliability files that remain in this folder are legacy references. For the required LLM workflow, use the Week 4 materials.
 
 ## Workshop Plan
 

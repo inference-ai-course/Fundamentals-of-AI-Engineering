@@ -21,24 +21,24 @@ Week 4 focuses on structured LLM workflows:
 
 LLM fundamentals:
 
-- [Tokens and context windows](../week_06/01_tokens_context.md)
-- [Prompt contracts](../week_06/02_prompt_contracts.md)
-- [Structured outputs and validation](../week_06/03_structured_outputs_validation.md)
+- [Tokens and context windows](01_tokens_context.md)
+- [Prompt contracts](02_prompt_contracts.md)
+- [Structured outputs and validation](03_structured_outputs_validation.md)
 
 API reliability:
 
-- [Timeouts and failures](../week_03/04_timeouts_failures.md)
-- [Retries and backoff](../week_03/05_retries_backoff.md)
-- [Rate limiting](../week_03/06_rate_limiting.md)
-- [Caching and logging](../week_03/07_caching_logging.md)
-- [LLM client skeleton](../week_03/08_llm_client_skeleton.md)
+- [Timeouts and failures](04_timeouts_failures.md)
+- [Retries and backoff](05_retries_backoff.md)
+- [Rate limiting](06_rate_limiting.md)
+- [Caching and logging](07_caching_logging.md)
+- [LLM client skeleton](08_llm_client_skeleton.md)
 
 ## Optional/Advanced Reference
 
-- [Local inference setup](../week_03/01_local_inference_setup.md)
-- [Ollama HTTP client](../week_03/02_ollama_http_client.md)
-- [Benchmarking script](../week_03/03_benchmarking_script.md)
-- [OpenAI compatible API](../week_06/04_openai_compatible_api.md)
+- [Local inference setup](01_local_inference_setup.md)
+- [Ollama HTTP client](02_ollama_http_client.md)
+- [Benchmarking script](03_benchmarking_script.md)
+- [OpenAI compatible API](04_openai_compatible_api.md)
 
 ## Recommended Order
 

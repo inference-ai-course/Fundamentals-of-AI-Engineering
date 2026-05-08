@@ -59,6 +59,15 @@ Week 3 is when we start coding through a guided data profiling workflow. Here's 
 - [ ] Set up a comfortable workspace with your computer
 - [ ] (Optional) Ask an AI assistant to explain basic Python syntax
 
+**Python minimum checklist for Week 3:**
+- Variables: store simple values such as file paths, counts, and strings.
+- Functions: recognize `def load_csv(...):` as a reusable step with inputs and outputs.
+- Lists and dictionaries: read simple structures like `["name", "age"]` and `{"rows": 100}`.
+- File paths: understand examples such as `data/sample.csv` and `output/profile.json`.
+- Command-line arguments: recognize flags such as `--input data.csv --output_dir output`.
+- Error messages: copy the full terminal output when asking for help.
+- Imports: understand that `import pandas as pd` loads a library used by the script.
+
 **Remember:** You don't need to be a Python expert. We'll teach as we go, and AI will help fill in the gaps.
 
 ---

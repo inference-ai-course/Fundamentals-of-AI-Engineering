@@ -1,6 +1,4 @@
-# Legacy Reference: Data profiling script (CSV -> JSON/Markdown)
-
-This file is kept in Week 4 only as a legacy reference. The required data profiling lesson now belongs to Week 3.
+# Week 3 — Part 02: Data profiling script (CSV -> JSON/Markdown)
 
 ## Overview
 
