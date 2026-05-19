@@ -1,37 +1,29 @@
 # Week 3 Tutorials: Data Processing + Reproducible Outputs
 
-## Pre-study (Optional Refresher)
-
-Self-learn is optional. If you want extra background:
-
-- [Pre-study guide](../PRESTUDY.md)
-- [Week 2 Python environment setup](../week_02/06_python_environment_setup.md)
-- [Self-learn - Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
-
 ## Overview
 
-Week 3 focuses on CSV data profiling. You will activate the environment prepared in Week 2, load data with pandas, and produce stable JSON/Markdown outputs.
+Week 3 focuses on CSV data profiling. You will activate the environment prepared in Week 2, verify that Jupyter is using the right Python kernel, load data with pandas, and produce stable JSON and Markdown outputs.
+
+The required background is introduced inside the Week 3 materials. External documentation appears only as optional reference links.
 
 ## Main Navigation
 
-Use these tutorials as the required Week 3 path:
+Use these tutorials in order:
 
+- [Environment preflight](01_environment_setup.md)
 - [Data profiling script (CSV -> JSON/Markdown outputs)](02_data_profiling_script.md)
-
-Optional reference:
-
-- [Environment setup + dependency management](01_environment_setup.md) - now taught in Week 2
 
 ## Recommended Order
 
 1. Activate the Week 2 environment.
-2. Verify `pandas` imports successfully.
-3. Run a small pandas example.
-4. Build or adapt the data profiling script.
-5. Confirm `output/profile.json` and `output/profile.md` are created.
-6. Confirm the profile includes duplicates, numeric summaries, and categorical top values.
-7. Write at least 3 data quality findings.
+2. Verify `python`, `pip`, and the notebook kernel.
+3. Confirm `pandas` imports successfully.
+4. Run a small pandas example.
+5. Build or adapt the data profiling script.
+6. Confirm `output/profile.json` and `output/profile.md` are created.
+7. Confirm the profile includes duplicates, numeric summaries, and categorical top values.
+8. Write at least 3 data quality findings.
 
 ## Optional/Advanced Reference
 
-For local inference and LLM reliability topics, see the optional files in [Week 4](../week_04/tutorial.md).
+For local inference and LLM reliability topics, see [Week 4](../week_04/tutorial.md).

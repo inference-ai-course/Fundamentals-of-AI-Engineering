@@ -1,203 +1,80 @@
-# Optional Reference — Python Environment Setup + Dependency Management
-
-> This content has moved into the required Week 2 path: [Week 2 — Part 06: Python Environment Setup](../week_02/06_python_environment_setup.md).
->
-> Week 3 now begins with a short preflight check and then focuses on CSV data profiling. Keep this file as optional reference for students who need a deeper environment refresher.
+# Week 3 - Part 01: Environment Preflight
 
 ## Overview
 
-Your first engineering win is making your project runnable **from a clean state**.
+This short notebook checks that your Week 3 work is running in the intended Python environment. Environment setup itself is taught in [Week 2 Python Environment Setup](../week_02/06_python_environment_setup.md). Here, the focus is verification.
 
-That means:
+A Python environment is an isolated place where Python and installed packages live. Isolation matters because different projects often need different package versions. If you install packages into the wrong environment, your notebook may work today but fail when a teammate tries to reproduce it.
 
-- You can create an isolated environment.
-- You can install dependencies consistently.
-- You can run your script with one command.
+## Learning Objectives
 
----
+By the end of this preflight, you should be able to:
 
+- Identify which Python interpreter is active.
+- Check which `pip` is connected to that interpreter.
+- Explain why Jupyter kernels must match the project environment.
+- Verify that pandas is installed before starting the data profiling lesson.
+- Record enough dependency information to make the setup reproducible.
 
-💻 **配套练习**: [01_environment_setup.ipynb](./01_environment_setup.ipynb) - 交互式代码实践
+## Exercise 1: Verify Python and pip
 
-## Pre-study (Self-learn)
-
-Self-learn is optional. Use self-study materials as a refresher on environments or Jupyter:
-
-- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 2: Conda environment management](../self_learn/Chapters/2/03_conda_environments.md)
-- [Self-learn — Chapter 1: Conda environments and packages](../self_learn/Chapters/1/04_conda_environment_management.md)
-- [Self-learn — Chapter 1: Jupyter](../self_learn/Chapters/1/05_jupyter_interactive_computing.md)
-
----
-
-## Checklist (repo-specific)
-
-1. Create or activate your project environment (venv/conda).
-2. Verify you are using the intended Python:
-   - `python --version`
-   - `which python` (Linux/macOS)
-3. Install the packages needed for Week 3 (at minimum `pandas`).
-4. Record dependencies for reproducibility:
-   - `pip freeze > requirements.txt`
-
----
-
-## Why environments matter (concrete example)
-
-Without isolated environments, you get version conflicts:
-
-**Scenario**: 
-- Project A needs `pandas==1.5.0`
-- Project B needs `pandas==2.0.0`
-- Both install to system Python
-
-**Result**: whichever installs last "wins", breaking the other project.
-
-**With environments**:
-- Project A has `.venv_a/` with `pandas==1.5.0`
-- Project B has `.venv_b/` with `pandas==2.0.0`
-- Both work independently
-
-This is why production systems use containers (Docker) or virtual environments.
-
----
-
-## "Fresh machine" test (the real standard)
-
-To prove your project is reproducible, recreate your environment from scratch using only your recorded dependency file.
-
-Example (venv):
+Run these commands in a terminal or notebook cell:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python -c "import pandas as pd; print(pd.__version__)"
-```
-
-If this works, your environment setup is repeatable.
-
-### Alternative: conda approach
-
-```bash
-conda create -n myproject python=3.11 -y
-conda activate myproject
-pip install -r requirements.txt
-```
-
-Why some teams prefer conda:
-- Can manage non-Python dependencies (e.g., system libraries)
-- Better handling of scientific/numerical packages
-- Cross-platform consistency
-
----
-
-## Common pitfalls and troubleshooting
-
-### Pitfall 1: Installing packages outside the environment
-
-**Symptom**: "It works on my machine" but fails elsewhere.
-
-**Diagnosis**:
-```bash
+python --version
 which python
-# Should show: /path/to/your/.venv/bin/python
-# NOT: /usr/bin/python or /usr/local/bin/python
+python -m pip --version
 ```
 
-**Fix**: Always activate your environment before `pip install`.
+On Windows, use `where python` instead of `which python`.
 
----
+The key idea is simple: `python` and `pip` must point to the same project environment. Prefer `python -m pip ...` because it runs pip through the active Python interpreter.
 
-### Pitfall 2: Forgetting to record dependencies
+## Exercise 2: Verify the Jupyter kernel
 
-**Symptom**: You can't recreate the environment because you installed packages ad-hoc.
+Inside a notebook, run:
 
-**Fix**: Record immediately after installing:
-```bash
-pip install pandas scikit-learn
-pip freeze > requirements.txt
+```python
+import sys
+print(sys.executable)
 ```
 
-Better: use a "known good" requirements file and only add intentionally.
+The path should match the environment you activated. If it does not, select the correct kernel in Jupyter or VS Code before continuing.
 
----
+A Jupyter kernel is a separate Python process that executes notebook cells. The notebook UI can be open in one place while code runs in a different Python environment. That is why kernel verification is part of the lesson.
 
-### Pitfall 3: Version drift
+## Exercise 3: Check required packages
 
-**Symptom**: "It worked last week" but now fails.
+Week 3 requires pandas:
 
-**Cause**: `pip install pandas` without pinning fetches the newest version, which may have breaking changes.
-
-**Fix**: Pin versions in `requirements.txt`:
-```txt
-pandas==2.2.3
-scikit-learn==1.5.2
+```python
+import pandas as pd
+print(pd.__version__)
 ```
 
-Not:
-```txt
-pandas
-scikit-learn
-```
+If this import fails, activate the Week 2 environment and install dependencies before continuing.
 
----
+## Exercise 4: Record dependencies
 
-### Pitfall 4: Platform-specific dependencies
-
-**Symptom**: `requirements.txt` works on Linux but fails on Windows (or vice versa).
-
-**Cause**: Some packages compile differently per OS.
-
-**Mitigation**:
-- Use `requirements.txt` for pip-installable packages only
-- Document system dependencies separately (e.g., in README)
-- Consider Docker if cross-platform consistency is critical
-
----
-
-## Verification checklist
-
-Run these commands in sequence to verify your setup:
+A reproducible project should tell another person how to rebuild the environment:
 
 ```bash
-# 1. Deactivate any active environment
-deactivate  # or `conda deactivate`
-
-# 2. Delete your environment
-rm -rf .venv
-
-# 3. Recreate from scratch
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-
-# 4. Install dependencies
-pip install --upgrade pip
-pip install -r requirements.txt
-
-# 5. Verify imports work
-python -c "import pandas; import numpy; print('OK')"
-
-# 6. Run your script
-python your_script.py
+python -m pip freeze > requirements.txt
 ```
 
-If all steps succeed, your environment is reproducible.
-
----
+`requirements.txt` records installed package versions. It is not perfect for every production workflow, but it is enough for this course milestone.
 
 ## Self-check
 
-- Can you recreate your environment from scratch using only `requirements.txt`?
-- Can you explain *why* environments prevent dependency conflicts?
-- If you delete `.venv`, can you recreate it and still run the project with the same commands?
-- What happens if you run `pip install` outside your environment?
-
----
+- Can you show which Python executable is running notebook cells?
+- Can you explain why `python -m pip` is safer than plain `pip`?
+- Can you import pandas before starting the profiling notebook?
+- Can another person recreate the package setup from your dependency file?
 
 ## References
 
+- Week 2 Python Environment Setup: ../week_02/06_python_environment_setup.md
 - Python `venv`: https://docs.python.org/3/library/venv.html
-- Python packaging: https://packaging.python.org/
+- Python packaging guide: https://packaging.python.org/
 - pip user guide: https://pip.pypa.io/en/stable/user_guide/
-- Conda environments: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+- Conda environment management: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html

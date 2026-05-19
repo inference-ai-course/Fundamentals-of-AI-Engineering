@@ -1,68 +1,77 @@
-# Week 3 — Part 02: Data profiling script (CSV -> JSON/Markdown)
+# Week 3 - Part 02: Data Profiling Script (CSV -> JSON/Markdown)
 
 ## Overview
 
-In AI/ML/LLM projects, most pain starts with data issues:
+In AI, ML, and LLM projects, many failures start with data issues:
 
 - wrong column names
 - unexpected types
 - empty files
 - missing values
+- duplicate rows
 
-A **data profiling script** makes these issues visible early.
+A data profiling script makes these issues visible before downstream code depends on the data.
 
-You will build `data_profile.py` that:
+You will build a small script that:
 
-- reads a CSV
+- reads a CSV file
 - validates basic assumptions
-- computes the required data quality stats
-- writes reproducible outputs to `output/`
+- computes required data quality statistics
+- writes reproducible outputs to `output/profile.json` and `output/profile.md`
 
----
+## Learning Objectives
 
+By the end of this lesson, you should be able to:
 
-💻 **配套练习**: [02_data_profiling_script.ipynb](./02_data_profiling_script.ipynb) - 交互式代码实践
+- Treat a CSV file path as untrusted input.
+- Use imports, functions, and a dataclass to organize a small script.
+- Raise clear errors for missing or empty files.
+- Convert pandas and NumPy values into JSON-safe Python values.
+- Produce stable output files that can be compared across runs.
 
-## Pre-study (Self-learn)
-
-Self-learn is optional. If you want a refresher on modules, file I/O, exceptions, or JSON:
-
-- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Modules and exception handling](../self_learn/Chapters/2/02_modules_exceptions.md)
-
----
-
-## Output contract (what your script guarantees)
+## Output Contract
 
 Given the same input CSV, the script should always produce:
 
-- `output/profile.json` (machine-readable)
-- `output/profile.md` (human-readable)
+- `output/profile.json`: machine-readable profile data
+- `output/profile.md`: human-readable summary
 
-And it should fail with **clear errors** for:
+The profile must include:
 
-- missing file
-- empty file
-- missing required columns (optional extension)
+- row and column counts
+- column names
+- dtypes
+- missing values by column
+- duplicate row count
+- numeric min, max, and mean
+- top categorical values
 
-This is a small example of **defensive programming**:
+The script should fail early with clear errors for:
 
-- validate early (fail fast)
-- error messages should teach the user what to fix
-- outputs should be deterministic so that diffs are meaningful
+- missing input file
+- empty input file
+- missing required columns, if you implement the optional extension
 
----
+## Script Mental Model
+
+A Python script is easier to reason about when each function has one job:
+
+- `load_csv(path)`: validate the boundary and load the CSV.
+- `make_profile(df)`: compute data quality facts.
+- `profile_to_markdown(profile)`: turn the facts into a readable report.
+- `main()`: parse command-line arguments and connect the steps.
+
+This structure makes the code easier to test and easier to debug with AI assistance.
 
 ## Implementation: `data_profile.py`
 
-Create `data_profile.py`:
+Create `data_profile.py` with this implementation:
 
 ```python
 import argparse
 import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
-
 from typing import Dict, List, Optional
 
 import pandas as pd
@@ -85,7 +94,6 @@ def load_csv(path: Path) -> pd.DataFrame:
         raise FileNotFoundError(f"Input file not found: {path}")
     if path.stat().st_size == 0:
         raise ValueError(f"Input file is empty: {path}")
-
     return pd.read_csv(path)
 
 
@@ -106,8 +114,8 @@ def make_profile(df: pd.DataFrame) -> Profile:
     )
     categorical_top_values = {
         col: {
-            str(k): int(v)
-            for k, v in df[col].fillna("<MISSING>").value_counts().head(5).items()
+            str(value): int(count)
+            for value, count in df[col].fillna("<MISSING>").value_counts().head(5).items()
         }
         for col in df.select_dtypes(exclude="number").columns
     }
@@ -117,7 +125,7 @@ def make_profile(df: pd.DataFrame) -> Profile:
         cols=int(df.shape[1]),
         columns=list(df.columns),
         dtypes=dtypes,
-        missing_by_column={k: int(v) for k, v in missing.items()},
+        missing_by_column={col: int(count) for col, count in missing.items()},
         duplicate_rows=int(df.duplicated().sum()),
         numeric_summary={
             col: {stat: clean_number(value) for stat, value in stats.items()}
@@ -127,44 +135,58 @@ def make_profile(df: pd.DataFrame) -> Profile:
     )
 
 
-def profile_to_markdown(p: Profile) -> str:
+def profile_to_markdown(profile: Profile) -> str:
     lines = []
     lines.append("# Data Profile")
     lines.append("")
-    lines.append(f"- Rows: {p.rows}")
-    lines.append(f"- Columns: {p.cols}")
-    lines.append(f"- Duplicate rows: {p.duplicate_rows}")
+    lines.append(f"- Rows: {profile.rows}")
+    lines.append(f"- Columns: {profile.cols}")
+    lines.append(f"- Duplicate rows: {profile.duplicate_rows}")
     lines.append("")
     lines.append("## Columns")
     lines.append("")
     lines.append("| column | dtype | missing |")
     lines.append("|---|---|---:|")
-    for col in p.columns:
-        lines.append(f"| {col} | {p.dtypes.get(col, '')} | {p.missing_by_column.get(col, 0)} |")
+    for col in profile.columns:
+        dtype = profile.dtypes.get(col, "")
+        missing = profile.missing_by_column.get(col, 0)
+        lines.append(f"| {col} | {dtype} | {missing} |")
     lines.append("")
-    if p.numeric_summary:
+
+    if profile.numeric_summary:
         lines.append("## Numeric Summary")
         lines.append("")
         lines.append("| column | min | max | mean |")
         lines.append("|---|---:|---:|---:|")
-        for col, stats in p.numeric_summary.items():
-            lines.append(f"| {col} | {stats.get('min', '')} | {stats.get('max', '')} | {stats.get('mean', '')} |")
+        for col, stats in profile.numeric_summary.items():
+            lines.append(
+                f"| {col} | {stats.get('min', '')} | {stats.get('max', '')} | {stats.get('mean', '')} |"
+            )
         lines.append("")
-    if p.categorical_top_values:
+
+    if profile.categorical_top_values:
         lines.append("## Top Categorical Values")
         lines.append("")
-        for col, values in p.categorical_top_values.items():
+        for col, values in profile.categorical_top_values.items():
             lines.append(f"### {col}")
             for value, count in values.items():
                 lines.append(f"- {value}: {count}")
             lines.append("")
+
     return "\n".join(lines)
+
+
+def require_columns(df: pd.DataFrame, required: List[str]) -> None:
+    missing = [col for col in required if col not in df.columns]
+    if missing:
+        raise ValueError(f"Missing required columns: {missing}")
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Profile a CSV and write reproducible outputs")
     parser.add_argument("--input", required=True, help="Path to input CSV")
     parser.add_argument("--output_dir", default="output", help="Directory to write outputs")
+    parser.add_argument("--required_columns", default="", help="Optional comma-separated required columns")
     args = parser.parse_args()
 
     input_path = Path(args.input)
@@ -172,10 +194,15 @@ def main() -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     df = load_csv(input_path)
-    p = make_profile(df)
+    if args.required_columns:
+        required = [col.strip() for col in args.required_columns.split(",") if col.strip()]
+        require_columns(df, required)
 
-    (output_dir / "profile.json").write_text(json.dumps(asdict(p), indent=2, sort_keys=True))
-    (output_dir / "profile.md").write_text(profile_to_markdown(p))
+    profile = make_profile(df)
+    json_text = json.dumps(asdict(profile), indent=2, sort_keys=True)
+
+    (output_dir / "profile.json").write_text(json_text, encoding="utf-8")
+    (output_dir / "profile.md").write_text(profile_to_markdown(profile), encoding="utf-8")
 
     print(f"Wrote: {(output_dir / 'profile.json').as_posix()}")
     print(f"Wrote: {(output_dir / 'profile.md').as_posix()}")
@@ -185,14 +212,7 @@ if __name__ == "__main__":
     main()
 ```
 
-Two details above matter for reproducibility:
-
-- `sort_keys=True` makes JSON output stable (so two runs can be byte-for-byte identical)
-- writing to a single `output_dir` makes the project easier to test and share
-
----
-
-## How to run
+## How to Run
 
 ```bash
 python data_profile.py --input your_data.csv --output_dir output
@@ -203,18 +223,13 @@ Then open:
 - `output/profile.md`
 - `output/profile.json`
 
----
-
-## Reproducibility checks
+## Reproducibility Checks
 
 Run twice with the same input and confirm:
 
-- JSON keys are sorted (we used `sort_keys=True`)
-- outputs are identical across runs
-
-If you later add timestamps, random samples, or “top N” operations, be careful: those can break determinism unless you explicitly control ordering and randomness.
-
----
+- JSON keys are sorted because the script uses `sort_keys=True`.
+- Outputs are written to the same output directory.
+- Results do not include timestamps or random samples.
 
 ## Required Data Quality Note
 
@@ -224,52 +239,21 @@ Examples:
 
 - Missing values: which column has the most missing data?
 - Duplicates: are duplicate rows present?
-- Numeric ranges: do min/max values look reasonable?
+- Numeric ranges: do min and max values look reasonable?
 - Frequent values: are there suspicious categories such as `unknown`, `N/A`, or blank values?
 
 Keep each finding short and evidence-based. Point to the exact field in `profile.json` or section in `profile.md` that supports the finding.
 
----
+## Common Pitfalls
 
-## Extensions (optional)
-
-### 1) Required columns
-
-Add a flag like:
-
-- `--required_columns colA,colB`
-
-Then fail with a clear message if any are missing.
-
-Why this matters: you are turning vague assumptions into explicit *preconditions*. If the preconditions do not hold, everything downstream is unreliable.
-
-## Common pitfalls
-
-- **CSV delimiter mismatch**
-  - Symptom: one giant column.
-  - Fix: try `pd.read_csv(path, sep=';')`.
-
-- **Encoding issues**
-  - Fix: try `encoding='utf-8'` or `encoding='latin-1'`.
-
-- **Outputs go to random locations**
-  - Fix: always write to a single folder like `output/`.
-
-- **Non-deterministic column ordering or summaries**
-  - Symptom: diffs look noisy even when the data didn’t change.
-  - Fix: sort column names where appropriate, and be consistent about ordering in markdown tables.
-
----
-
-## Self-check
-
-- If the input file is missing, do you get a clear error?
-- If the file is empty, do you fail early?
-- If you send this folder to a teammate, can they run it?
-
----
+- CSV delimiter mismatch: one giant column usually means the file may use a delimiter such as `;`.
+- Encoding issues: try an explicit encoding only after you see the error.
+- Outputs go to unclear locations: always write to one directory such as `output/`.
+- Non-deterministic output: avoid timestamps and uncontrolled random samples in required artifacts.
 
 ## References
 
 - Pandas getting started: https://pandas.pydata.org/docs/getting_started/index.html
 - Pandas I/O: https://pandas.pydata.org/docs/user_guide/io.html
+- Python `json`: https://docs.python.org/3/library/json.html
+- Python `argparse`: https://docs.python.org/3/library/argparse.html
