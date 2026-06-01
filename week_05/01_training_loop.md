@@ -80,6 +80,47 @@ Even if you later focus on LLMs, this disciplined loop is the basis for:
 
 ---
 
+## Concept: logistic regression as a learned curve
+
+Logistic regression is a baseline classifier. It does not memorize a table of answers. It learns a small set of parameters that turn feature values into a probability.
+
+```mermaid
+flowchart LR
+    A[One data point] --> B[Features: x]
+    B --> C[Linear score: w*x + b]
+    C --> D[Sigmoid curve]
+    D --> E[Probability of class 1]
+    E --> F{p >= 0.5?}
+    F -->|Yes| G[Predict class 1]
+    F -->|No| H[Predict class 0]
+```
+
+In a one-feature example, the sigmoid curve starts before learning with a random or unhelpful position. After training, the weight `w` and bias `b` change, so the curve moves toward the data:
+
+- points from class 0 should fall mostly below the 0.5 decision threshold
+- points from class 1 should fall mostly above the 0.5 decision threshold
+- points near the threshold are uncertain cases
+
+The notebook version of this lesson uses `matplotlib` to draw the data points, the before-training curve, and the after-training curve. That visual is the main intuition for machine learning: the model improves because data changes the rule.
+
+## Concept: LLM training follows the same discipline
+
+```mermaid
+flowchart LR
+    A[Collect text and instruction data] --> B[Clean and tokenize]
+    B --> C[Pretrain model]
+    C --> D[Fine-tune on examples]
+    D --> E[Evaluate outputs]
+    E --> F[Preference tuning / alignment]
+    F --> G[Deploy for inference]
+    G --> H[Monitor failures and collect feedback]
+    H --> B
+```
+
+LLM training uses much larger datasets and models, but the engineering loop is still familiar: data preparation, training, evaluation, saved evidence, comparison, and iteration.
+
+---
+
 
 **Lab notebook**: [01_training_loop.ipynb](./01_training_loop.ipynb) - Interactive coding practice
 

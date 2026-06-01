@@ -44,7 +44,6 @@ Capstone-required:
 - [capstone_template/](capstone_template/)
 - [01_pipeline_design.md](01_pipeline_design.md)
 - [02_sampling_compression.md](02_sampling_compression.md)
-- [../slides/week_06.md](../slides/week_06.md)
 
 Theme examples:
 

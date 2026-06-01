@@ -36,7 +36,6 @@ Tutorials:
 - [01_training_loop.md](01_training_loop.md)
 - [02_reproducibility_package.md](02_reproducibility_package.md)
 - [03_compare_runs_report.md](03_compare_runs_report.md)
-- [Slides](../slides/week_05.md)
 
 Exercises are included at the end of each notebook.
 
@@ -61,6 +60,45 @@ flowchart TD
   E --> F
   F --> G[Mitigation: stop early / regularize / simplify]
 ```
+
+### Logistic regression intuition
+
+Logistic regression is a simple baseline classifier that learns a curve for turning input features into a probability.
+
+```mermaid
+flowchart LR
+  A[Data point: feature values] --> B[Weighted sum: w*x + b]
+  B --> C[Sigmoid curve]
+  C --> D[Probability between 0 and 1]
+  D --> E{Above threshold?}
+  E -->|Yes| F[Predict class 1]
+  E -->|No| G[Predict class 0]
+```
+
+Before training, the curve may sit in the wrong place and classify many points badly. During training, the model changes its weight and bias so the curve moves toward the observed data. In the Week 5 notebook, `matplotlib` is used to draw:
+
+- labeled data points from two classes
+- the logistic curve before learning
+- the learned curve after fitting `LogisticRegression`
+- the decision threshold that turns probability into a class label
+
+That picture is the core machine-learning idea: the program does not receive the final rule directly; it adjusts a rule from examples.
+
+### LLM training as the same loop at larger scale
+
+```mermaid
+flowchart LR
+  A[Raw text and instruction data] --> B[Clean and tokenize]
+  B --> C[Pretraining]
+  C --> D[Supervised fine-tuning]
+  D --> E[Evaluation]
+  E --> F[Preference tuning / alignment]
+  F --> G[Deployment and inference]
+  G --> H[Monitoring and feedback]
+  H --> B
+```
+
+LLM training is larger and more expensive than the Week 5 baseline, but the discipline is the same: prepare data, train, evaluate, save evidence, compare runs, and iterate.
 
 ## Common pitfalls
 

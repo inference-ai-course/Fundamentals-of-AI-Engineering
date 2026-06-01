@@ -61,7 +61,6 @@ Upon completing this course, students will be able to:
 #### Resources
 
 - [week_01/README.md](week_01/README.md)
-- [slides/week_01.md](slides/week_01.md)
 
 ### Week 2: AI-Assisted Python Setup + Code Practice
 
@@ -99,7 +98,6 @@ Upon completing this course, students will be able to:
 #### Resources
 
 - [week_02/README.md](week_02/README.md)
-- [slides/week_02.md](slides/week_02.md)
 
 ### Week 3: Data Processing + Reproducible Outputs
 
@@ -127,7 +125,6 @@ Upon completing this course, students will be able to:
 #### Resources
 
 - [week_03/README.md](week_03/README.md)
-- [slides/week_03.md](slides/week_03.md)
 
 ### Week 4: LLM Fundamentals + API Reliability
 
@@ -158,7 +155,6 @@ Upon completing this course, students will be able to:
 #### Resources
 
 - [week_04/README.md](week_04/README.md)
-- [slides/week_04.md](slides/week_04.md)
 
 ### Week 5: ML Training Loop
 
@@ -185,7 +181,6 @@ Upon completing this course, students will be able to:
 #### Resources
 
 - [week_05/README.md](week_05/README.md)
-- [slides/week_05.md](slides/week_05.md)
 
 ### Week 6: Capstone - AI-Assisted CSV Data Analyzer
 
@@ -214,7 +209,6 @@ Upon completing this course, students will be able to:
 #### Resources
 
 - [week_06/README.md](week_06/README.md)
-- [slides/week_06.md](slides/week_06.md)
 - [capstone.md](capstone.md)
 
 ## Study Tips
