@@ -1,44 +1,49 @@
-# Foundations Course — Week 4 Tutorials
+# Week 4 Tutorials: LLM Fundamentals + API Reliability
 
-## Pre-study (Self-learn)
+## Pre-study (Optional Refresher)
 
-Foundations Course assumes Self-learn is complete. If you need a refresher:
+Self-learn is optional. If you want extra background:
 
-- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
-- [Self-learn — Chapter 5: Resource Monitoring and Containerization](../self_learn/Chapters/5/Chapter5.md)
+- [Pre-study guide](../PRESTUDY.md)
+- [Self-learn - Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
+- [Self-learn - Chapter 4: Hugging Face Platform and Local Inference](../self_learn/Chapters/4/Chapter4.md)
 
 ## Overview
 
-This week you engineer LLM API calls like a production system:
+Week 4 focuses on structured LLM workflows:
 
-- timeouts
-- retries + backoff
-- rate limit handling
-- caching (cost + latency)
-- logging (debuggability)
+- tokens and context windows
+- prompts as contracts
+- JSON parsing and validation
+- timeout, retry, logging, and clear failure handling
 
-## Navigation
+## Main Navigation
 
-- [01 — Timeouts + failure modes](01_timeouts_failures.md)
-- [02 — Retries, backoff, and idempotency](02_retries_backoff_idempotency.md)
-- [03 — Rate limiting + graceful degradation](03_rate_limiting.md)
-- [04 — Caching + observability (logging)](04_caching_logging.md)
-- [05 — A reusable `llm_client.py` skeleton](05_llm_client_skeleton.md)
+LLM fundamentals:
 
-## Recommended order
+- [Tokens and context windows](01_tokens_context.md)
+- [Prompt contracts](02_prompt_contracts.md)
+- [Structured outputs and validation](03_structured_outputs_validation.md)
 
-1. Read 01–04 for the mental models.
-2. Implement 05 and use it as a base for your capstone.
+API reliability:
 
-Exercises are included at the end of each notebook.
+- [Timeouts and failures](04_timeouts_failures.md)
+- [Retries and backoff](05_retries_backoff.md)
+- [Rate limiting](06_rate_limiting.md)
+- [Caching and logging](07_caching_logging.md)
+- [LLM client skeleton](08_llm_client_skeleton.md)
 
-Why this order works:
+## Optional/Advanced Reference
 
-1. **Mental models first**
-    - Reliability features interact: retries without timeouts can hang forever; retries without backoff can cause storms.
-    - What to verify: you can explain what happens on timeout vs 429 vs 5xx, and what your client should do in each case.
+- [Local inference setup](optional_local_inference/01_local_inference_setup.md)
+- [Ollama HTTP client](optional_local_inference/02_ollama_http_client.md)
+- [Benchmarking script](optional_local_inference/03_benchmarking_script.md)
+- [OpenAI compatible API](09_openai_compatible_api.md)
 
-2. **Client skeleton second**
-    - The reusable client is where engineering habits live (timeouts, retries, logging, caching).
-    - What to verify: you can force a failure (bad key, forced timeout) and your client exits with a clear error and useful logs.
+## Recommended Order
+
+1. Learn the token/context mental model.
+2. Write a prompt contract with explicit JSON fields.
+3. Parse and validate outputs.
+4. Add timeout, bounded retry/repair, and saved raw responses.
+5. Document one failure mode and how you handled it.

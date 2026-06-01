@@ -1,308 +1,174 @@
-# Foundational Course (Foundation) Overview & 8-Week Plan
+# Fundamentals of AI Engineering - 6-Week Beginner Program
 
-## Positioning
+## Course Overview
 
-**Foundational Course** is designed for learners who need to build GenAI/LLM engineering fundamentals from 0 to 1. The emphasis is on **concept intuition + Python hands-on practice + reproducible small project delivery**.
+The **Fundamentals of AI Engineering** course is designed for AI beginners, including learners with non-technical backgrounds. It follows a progressive model:
 
-## Target Learners
+**Agent Tools Introduction -> AI-Assisted Python Setup and Code Practice -> Technical Practice -> Capstone Delivery**
 
-*   Complete beginners (non-technical background) who want to transition into AI/data/application development
-*   Developers with a technical background but without a systematic AI foundation (want to fill in ML/LLM fundamentals and engineering habits)
+The course emphasizes practical confidence, conceptual intuition, AI-assisted learning, and reproducible project delivery. Students first learn how to collaborate with AI tools, then gradually use those tools to understand code, process data, call LLMs, run basic ML experiments, and complete a small end-to-end AI project.
+
+## Target Students
+
+- **Complete Beginners**: Learners with no programming experience who want to enter AI, data analytics, or AI-assisted development.
+- **Tool Users**: Professionals already using AI tools who want stronger technical foundations.
+- **Technical Learners**: Developers or analysts who want a beginner-friendly path through core AI engineering habits.
 
 ## Prerequisites
 
-*   Can do basic CLI operations (install dependencies, run scripts, read logs)
-*   Has basic programming concepts (variables, conditionals, loops, functions). If not, complete Python crash course before starting (Including data structures & Algorithm questions on Leetcode, some OOP concepts and practice).
+### Week 1: No Programming Required
 
-## Self-learn Navigation (Pre-study)
+- Ability to use a browser and create online accounts.
+- Ability to install and open desktop software.
+- Basic computer operation skills.
 
-Foundational Course assumes Self-learn is complete. Use these as the canonical fundamentals reference:
+### Week 2: Guided Python With AI Assistance
 
-*   [Self-learn schedule](self_learn/Schedule.md)
-*   Chapters:
-    *   [Chapter 1: Tool Preparation](self_learn/Chapters/1/Chapter1.md)
-    *   [Chapter 2: Python and Environment Management](self_learn/Chapters/2/Chapter2.md)
-    *   [Chapter 3: AI Engineering Fundamentals](self_learn/Chapters/3/Chapter3.md)
-    *   [Chapter 4: Hugging Face Platform and Local Inference](self_learn/Chapters/4/Chapter4.md)
-    *   [Chapter 5: Resource Monitoring and Containerization](self_learn/Chapters/5/Chapter5.md)
+- No prior Python experience is required.
+- Students will run guided Python commands, create a virtual environment, and debug small examples with AI support.
+- The focus is fluency with AI learning workflows, not independent programming from scratch.
 
-## For Learners Without an Engineering Background
+### Weeks 3-6: Introductory Technical Practice With AI Assistance
 
-If you have never used Git, testing frameworks, or production-style logging, Foundational Course is still designed to be approachable:
+- Basic terminal operations will be introduced in class.
+- Python concepts are taught through guided examples and AI-assisted practice.
+- Self-learn materials are optional refreshers, not required prerequisites.
 
-*   Git is helpful but not required at the beginning (a zipped project folder is an acceptable submission format).
-*   Automated tests are introduced gradually; early on, a clear manual test checklist is acceptable.
-*   The course emphasizes "runnable code + reproducible outputs" over advanced engineering patterns.
+## Learn AI With AI
 
-## Onboarding Checklist (Week 0)
+The core philosophy is **"Learn AI with AI"**:
 
-Before Week 1, learners should be able to complete these steps end-to-end:
+1. **Week 1**: Learn to use AI tools such as ChatGPT, Claude, Cursor, Kilo, and GitHub Copilot Chat for general tasks.
+2. **Week 2**: Use those AI tools to learn Python, set up an environment, run code, and debug errors.
+3. **Weeks 3-6**: Use AI tools to process data, build LLM workflows, run simple experiments, and deliver a capstone.
 
-*   Install Python 3.10+ and confirm `python --version`
-*   Create and activate a virtual environment (venv/conda are both fine)
-*   Install dependencies from `requirements.txt` (or `pyproject.toml`) and run a script successfully
-*   Use Git for clone/commit/pull (or have a clear alternative for submitting code)
-*   Set environment variables for secrets via `.env` (do not hardcode API keys)
-*   (Optional) Install Ollama and run one local model once
+AI is a learning accelerator, not a replacement for understanding. Students are expected to explain their work, document how AI helped, and verify outputs before trusting them.
 
-If any of the above steps fail, the learner should be able to provide:
+## Course Navigation
 
-*   The exact command they ran
-*   The full error output
-*   Their OS/Python version
+- [Pre-Study Guide](PRESTUDY.md) - Optional preparation before the course.
+- [Course Syllabus](SYLLABUS.md) - Detailed 6-week schedule.
+- [Capstone Project](capstone.md) - Final AI-assisted CSV data analyzer.
 
-## How to Ask for Help (Required)
+### Optional Self-Study References
 
-When you ask for help (from instructors, classmates, or online), follow this procedure:
+Use these only when you want extra background or review:
 
-1. Reproduce the issue at least once (do not guess).
-2. Copy/paste the exact command you ran and the full output.
-3. Identify what you expected vs what happened.
-4. Do a quick search first (official docs / error message / GitHub issues).
-5. Make a minimal reproduction if possible (smallest script/input that still fails).
-6. Share what you already tried (so others do not repeat your steps).
+- [Self-Study Schedule](self_learn/Schedule.md)
+- [Chapter 1: Tool Preparation](self_learn/Chapters/1/Chapter1.md)
+- [Chapter 2: Python and Environment Management](self_learn/Chapters/2/Chapter2.md)
+- [Chapter 3: AI Engineering Basics](self_learn/Chapters/3/Chapter3.md)
+- [Chapter 4: Hugging Face Platform and Local Inference](self_learn/Chapters/4/Chapter4.md)
+- [Chapter 5: Resource Monitoring and Containerization](self_learn/Chapters/5/Chapter5.md)
 
-Why this procedure works:
+The [old_v1/](old_v1/) directory contains the previous 8-week course and is kept as an archive/reference for deeper self-study.
 
-- It turns debugging from "opinions" into evidence.
-- It minimizes back-and-forth questions (others can run the same command and see the same failure).
-- It helps you learn faster because you practice isolating variables.
+## Course Duration
 
-A strong help request example (copy/paste style):
+- **Total Duration**: 6 weeks
+- **Weekly Hours**: 5 hours recommended
+- **Suggested Rhythm**:
+  - Session 1: Core concepts and examples
+  - Session 2: Hands-on guided practice
+  - Session 3: Q&A, review, and project support
 
-```text
-Goal: Run Week 2 baseline training script and save artifacts.
-Context: foundational_course/week_02 Part 01, running train.py.
+## 6-Week Teaching Plan
 
-Command:
-  python train.py --input data.csv --label_col label --seed 42
-
-Expected:
-  Script prints metrics and creates artifacts/run_.../metrics.json
-
-Actual:
-  ValueError: label_col not found: label
-
-Environment:
-  OS: Ubuntu 22.04
-  Python: 3.11.6
-  requirements.txt: pandas==2.2.3, scikit-learn==1.5.2
-
-What I tried:
-  - Opened data.csv and saw the column is named `target`, not `label`.
-  - Re-ran with --label_col target and it worked.
-  - Remaining question: should we standardize on `label` or allow configurable label columns?
-```
-
-Notice how this request includes a reproducible command, the full error, and the smallest relevant detail (the column name). That's what makes it easy to help.
-
-Required items in every help request:
-
-*   Goal: what you are trying to do
-*   Context: which assignment / which step
-*   Exact command(s) + full output (not screenshots only)
-*   Your environment: OS, Python version, dependency file (`requirements.txt` or `pyproject.toml`)
-*   Relevant code snippet(s) (the smallest piece that shows the issue)
-*   What you tried + what changed
-
-## Essential Engineering Tools (Beginner Primer)
-
-You do not need to master these on Day 1, but you should recognize what they are and why they matter:
-
-*   **IDE (VS Code)**: where you edit code, run/debug, and manage projects.
-*   **Git**: version control (save checkpoints, collaborate, roll back changes).
-*   **SSH**: secure remote access to servers (common for deployment and remote GPUs).
-*   **Linux commands**: basic terminal skills to run scripts, inspect files, and read logs.
-*   **Docker**: packages an app + dependencies so it runs consistently on different machines.
-
-## How to Search and Read Technical Docs
-
-Practical habits that prevent getting stuck:
-
-*   Prefer official docs for installation and quickstarts; use GitHub issues for specific error messages.
-*   Search with concrete keywords:
-    *   library name + error message (or a key phrase from the traceback)
-    *   library name + "quickstart" / "examples" / "API reference"
-    *   "python" + task + "minimal example"
-*   Learn the structure of typical docs pages:
-    *   Installation / Requirements
-    *   Quickstart / Tutorial
-    *   Examples
-    *   API Reference
-    *   FAQ / Troubleshooting
-*   Using AI is encouraged, but include the source link and ask targeted questions (e.g., "Explain this traceback" or "What is the minimal change needed?").
-
-## Debug / Test / Deploy (Basic Workflow)
-
-You will practice this loop repeatedly in Foundational Course:
-
-*   **Debug**: read the full error, isolate the failing line, simplify inputs, add prints/logs, and confirm the fix by re-running.
-*   **Test**: define 3+ test cases (normal + edge + failure), and run them after every change (manual checklist is acceptable early).
-*   **Deploy**: make the project runnable from a clean environment using README steps, configure secrets via `.env`, and verify a basic health run (script completes or API endpoint responds).
-
-## Key Terms (Quick Glossary)
-
-*   **CLI**: Command-line interface (a terminal where you run commands).
-*   **Virtual environment (venv/conda)**: An isolated Python environment so dependencies do not conflict.
-*   **Dependency management**: Installing and pinning packages so a project runs consistently.
-*   **`.env`**: A file for environment variables (commonly used for secrets like API keys).
-*   **`requirements.txt` / `pyproject.toml`**: files that declare project dependencies.
-*   **README**: the first file people read; should explain setup, how to run, and expected outputs.
-*   **pytest**: a Python testing framework used to run automated tests.
-*   **Train/validation split**: splitting data into training vs evaluation portions to avoid fooling yourself.
-*   **Overfitting**: when a model memorizes training data but performs poorly on new data.
-*   **LLM**: Large language model.
-*   **Tokenization**: converting text into tokens that a model can process.
-*   **Context window**: the maximum number of tokens a model can consider at once.
-*   **Transformer**: the neural network architecture behind most modern LLMs.
-*   **Hosted API**: A cloud model endpoint you call over HTTP (usually needs an API key).
-*   **Timeout / retry**: Reliability controls for network calls (stop waiting after a limit; try again on failure).
-*   **Structured output / JSON schema**: A fixed output format that code can reliably parse.
-*   **Local inference (Ollama)**: Running a model locally on your machine instead of via a hosted API.
-
-## Duration & Weekly Hours
-
-*   **8 weeks** (can be expanded to 10 weeks or extended to 12 weeks)
-*   **5 class hours per week** (recommended: 3 hours lecture/discussion + 2 hours lab/workshop)
-
-## Pillar Coverage
-
-*   **AI Concepts (Basics)**: train/validation/overfitting, loss functions and metrics, Transformers/tokens/context window
-*   **AI Engineering (Basics)**: Python data stack, traditional ML mini-experiments, production-minded LLM API usage, local inference (Ollama)
-*   **Meta-Learning (Intro)**: read the "usage" section of official docs; create minimal reproductions and do basic debugging
-*   **System Design (Intro)**: modularize scripts (config/data/model/report/logging) and use clear interfaces
+| Week | Theme | Main Outcome |
+|------|-------|------------------|
+| Week 1 | Agent Tools Introduction | AI tool experience report, representative prompts, and reflection |
+| Week 2 | AI-Assisted Python Setup + Code Practice | AI Python prompt log, environment check, code run evidence, modifications, and debugging record |
+| Week 3 | Data Processing + Reproducible Outputs | CSV data profiling script with `profile.json` and `profile.md` |
+| Week 4 | LLM Fundamentals + API Reliability | `profile.json` -> structured insights demo with validation and reliability notes |
+| Week 5 | ML Training Loop | Two lightweight baseline runs and a short comparison report |
+| Week 6 | Capstone: AI-Assisted CSV Data Analyzer | CSV -> real LLM call -> `report.json` + `report.md` + short demo |
 
 ## Learning Outcomes
 
-After completing Foundational Course, you should be able to:
+By the end of the course, students will be able to:
 
-1. Explain key fundamentals of traditional ML and LLMs, and choose a reasonable baseline approach for a task
-    - What this means: you can explain train/validation/overfitting and tokens/context in plain language.
-    - What to demonstrate: given a task, you can justify a baseline (simple model or simple prompt + validation).
-2. Complete a reproducible ML mini-experiment in Python (data split, training, evaluation, saving artifacts)
-    - What this means: you can rerun the same command and get consistent artifacts (config + metrics + model file).
-    - What to demonstrate: you can point to the exact run folder that produced the reported metric.
-3. Reliably call at least one hosted LLM API with basic production practices (timeouts, retries, logging, rate limiting, simple caching)
-    - What this means: your code fails fast on timeouts/429s and produces actionable logs instead of hanging.
-    - What to demonstrate: a forced failure case (invalid key / timeout) with a clear error and request/run identifier.
-4. Run local inference (Ollama) and compare model output quality and performance differences
-    - What this means: you can run a local model end-to-end and measure latency distribution (not just one run).
-    - What to demonstrate: a small benchmark comparison across 2 models or 2 quantizations.
-5. Deliver a runnable Capstone project with a README, environment setup, and reproducible run steps
-    - What this means: a teammate can follow your README on a fresh machine and reproduce outputs without "magic steps".
-    - What to demonstrate: one-command run that produces `report.json` + `report.md` in a predictable location.
+1. **Use AI agent tools effectively**
+   - Select appropriate tools for writing, research, code explanation, and debugging.
+   - Document useful prompts and reflect on tool strengths and limits.
 
-## Recommended Tech Stack (Foundational Course)
+2. **Read, modify, and debug code with AI assistance**
+   - Explain simple Python functions.
+   - Make small changes safely.
+   - Use error messages and AI feedback to debug.
 
-*   Python 3.10+ (recommended 3.11)
-*   Core libraries: `numpy`, `pandas`, `scikit-learn`, `matplotlib`/`seaborn`
-*   Engineering: `pytest`, `python-dotenv` (or equivalent), structured logging (any reasonable implementation)
-*   LLM: hosted API (OpenAI/Anthropic/equivalent) + local inference via Ollama
+3. **Process data reproducibly**
+   - Create and verify a clean Python environment before data work.
+   - Load and inspect CSV data with pandas.
+   - Generate stable JSON and Markdown profiling reports.
 
-## Assessment (Suggested)
+4. **Build basic LLM workflows**
+   - Explain tokens, context windows, and structured prompts.
+   - Request JSON-like outputs and validate them.
+   - Add beginner-friendly timeout, retry, and logging practices.
+   - Convert a data profile into structured AI-style insights without requiring API access.
 
-*   Homework: 40%
-*   Labs/Workshops: 20%
-*   Capstone: 40%
+5. **Understand the ML training loop**
+   - Train a basic baseline model.
+   - Save metrics and compare two runs.
+   - Explain results without relying on advanced math.
 
-## Exit Criteria
+6. **Deliver a small end-to-end AI project**
+   - Build a reproducible AI-assisted CSV data analyzer.
+   - Combine data profiling, compression, real LLM interpretation, and report generation.
+   - Demonstrate the project and explain key decisions.
 
-*   Independently complete a small Python project with configuration, logging, and error handling
-*   Explain train/validation/overfitting and common metrics, and provide at least one experiment comparison
-*   Reliably call at least one hosted LLM API and one local inference option
+## Technology Stack
 
----
+### Week 1: Tool Usage Phase
 
-# 8-Week Teaching Plan
+- **AI Chat Tools**: ChatGPT / Claude
 
-## Weekly Teaching Rhythm (Recommended)
+### Week 2: AI-Assisted Python Setup and Code Practice
 
-*   **3 class hours lecture/discussion**: concepts + examples + common pitfalls
-*   **2 class hours lab/workshop**: get the code running in class + reserve time for debugging
+- **AI Chat Tools**: ChatGPT / Claude
+- **AI Editor**: Cursor or VS Code with AI assistant
+- **AI Programming Assistants**: Kilo, GitHub Copilot Chat, or equivalents
+- **Python Tools**: virtual environments, `pip`, optional Jupyter notebooks
 
-You can also use a 2+1+2 format:
+### Weeks 3-6: Technical Practice Phase
 
-*   Session 1 (2 hours): core concepts and examples
-*   Session 2 (1 hour): short quiz/recap/code walkthrough
-*   Session 3 (2 hours): lab/workshop
+- **Language**: Python 3.10+ (3.11 recommended)
+- **Core Libraries**: `pandas`, `numpy`, `scikit-learn`
+- **Engineering Tools**: virtual environments, `requirements.txt`, basic logging, optional `pytest`
+- **LLM Options**: Week 4 required work uses an offline/mock path; hosted API or local inference is optional
 
-## Weekly Curriculum
+## Weekly Resources
 
-### Week 1: Environment Setup & Data Processing Basics
+- [Week 1](week_01/README.md): Agent tools introduction
+- [Week 2](week_02/README.md): AI-assisted Python setup, running code, and debugging
+- [Week 3](week_03/README.md): Data processing and reproducible outputs
+- [Week 4](week_04/README.md): LLM fundamentals and API reliability
+- [Week 5](week_05/README.md): ML training loop
+- [Week 6](week_06/README.md): Capstone project
 
-*   **Lecture (3h)**: Python environment, dependency management, script structure, exceptions and logging intuition; Pandas read/write/clean
-*   **Workshop (2h)**: read CSV -> clean missing values -> basic stats -> export report (Markdown/JSON)
-*   **Deliverable**: a runnable `data_profile.py` + README
-*   Resources: [week_01/README.md](week_01/README.md)
+## Learning Path After This Course
 
-### Week 2: The ML Training Loop + Reproducible Baselines
+After finishing this beginner program, students can continue with:
 
-*   **Lecture (3h)**: train/validation split, overfitting/generalization, meaning of losses and metrics; random seeds and experiment logging
-*   **Workshop (2h)**: `scikit-learn` classification: split -> train -> metrics -> save model; compare 2 settings/models
-*   **Deliverable**: `train.py` (parameterized) + `report.md` (metric explanation + one failed experiment) + minimal `experiments/`
-*   Resources: [week_02/README.md](week_02/README.md)
+- RAG fundamentals and vector databases
+- Agent systems and tool use
+- Production deployment with FastAPI or Docker
+- Advanced local inference and model evaluation
 
-### Week 3: LLM Fundamentals + Prompt Engineering
+## How to Ask for Help
 
-*   **Lecture (3h)**: tokenization, context window, Transformer intuition; hallucinations; prompts as API contracts
-*   **Workshop (2h)**: structured JSON output + validation + retries/repair; compare prompt variants
-*   **Deliverable**: `extract.py` (schema-driven) + at least 3 edge input tests
-*   Resources: [week_03/README.md](week_03/README.md)
+When asking instructors, classmates, or AI tools for help, include:
 
-### Week 4: LLM API Engineering (Reliability & Cost)
+1. Goal: what you are trying to do.
+2. Context: which week and which step.
+3. Exact command and full output.
+4. Environment: OS, Python version, dependency file.
+5. What you already tried.
 
-*   **Lecture (3h)**: timeouts, retries, rate limiting, idempotency, caching; minimum observability set
-*   **Workshop (2h)**: implement `llm_client.py` (timeouts/retries/simple cache/structured logs)
-*   **Deliverable**: reusable LLM client module + unit tests
-*   Resources: [week_04/README.md](week_04/README.md)
-
-### Week 5: Local Inference (Ollama) and Model Comparison
-
-*   **Lecture (3h)**: boundaries of local inference (speed/VRAM/capability/context); why local matters
-*   **Workshop (2h)**: install and call Ollama; compare 2-3 models on the same task for quality/latency
-*   **Deliverable**: `benchmark_local_llm.py` + written conclusions
-*   Resources: [week_05/README.md](week_05/README.md)
-
-### Week 6: Capstone Prototype (End-to-End Flow)
-
-*   **Lecture (3h)**: sampling, long-text splitting, input compression; from scripts to pipelines
-*   **Workshop (2h)**: implement CSV -> profiling -> LLM explanation -> report generation
-*   **Deliverable**: Capstone prototype (main flow runs end-to-end)
-*   Resources: [week_06/README.md](week_06/README.md)
-
-### Week 7: Capstone Engineering & Quality
-
-*   **Lecture (3h)**: CLI design, config management (env/config files), error codes and explainable failures
-*   **Workshop (2h)**: add tests, handle edge cases, stabilize outputs (JSON + Markdown)
-*   **Deliverable**: Capstone submission-ready version
-*   Resources: [week_07/README.md](week_07/README.md)
-
-### Week 8: Capstone Demo & Retrospective (Preparing for Level 2)
-
-*   **Lecture (3h)**: retrospective: what breaks most often; how to prepare for RAG/agents
-*   **Workshop (2h)**: project demo and code walkthrough; refactor once based on feedback
-*   **Deliverable**: final Capstone delivery + retrospective notes
-*   Resources: [week_08/README.md](week_08/README.md)
-
-## 10-Week Expansion Guidance
-
-If you expand back to 10 weeks, add depth without changing the core arc:
-
-*   Split Week 2 into "training loop" and "comparative experiments"
-*   Split Week 3 into "LLM fundamentals" and "structured prompting + validation"
-
-## 12-Week Expansion Guidance
-
-If you extend to 12 weeks, strengthen engineering fundamentals and evaluation awareness:
-
-*   Add 1 week: **Software engineering basics** (structured logging, configuration, testing, Makefile/task runners)
-*   Add 1 week: **LLM output evaluation** (error taxonomies, small human-labeled set, simple consistency checks)
-*   Add 1 Capstone week: implement a **feedback loop** (user feedback -> prompt/pipeline iteration)
+This course values evidence-based debugging: reproduce the issue, capture the details, and then ask for help.
 
 ---
 
-## Document Navigation
-
-*   Pre-study reference: see [PRESTUDY.md](PRESTUDY.md)
-*   Assignments: see [assignments.md](assignments.md)
-*   Capstone: see [capstone.md](capstone.md)
+**Course Version**: v2.2 (6-Week Beginner Program)
+**Last Updated**: 2026-05-11
+**Major Changes**: Week 2 now includes AI-assisted Python learning and environment setup; Week 3 now focuses on data processing; Week 4 now covers LLM fundamentals and simplified API reliability; Week 6 is unified around the intelligent data analysis capstone.

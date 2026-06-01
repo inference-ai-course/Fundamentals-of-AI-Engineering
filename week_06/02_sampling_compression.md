@@ -13,9 +13,12 @@ Instead you send a compressed representation:
 
 ---
 
+
+**Lab notebook**: [02_sampling_compression.ipynb](./02_sampling_compression.ipynb) - Interactive coding practice
+
 ## Pre-study (Self-learn)
 
-Foundations Course assumes Self-learn is complete. If you need a refresher on context limits and AI engineering workflow:
+Self-learn is optional. If you want a refresher on context limits and AI engineering workflow:
 
 - [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)

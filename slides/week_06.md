@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 6 — Capstone Prototype (End-to-End Flow)"
+footer: "Week 6 — AI-Assisted CSV Data Analyzer"
 style: |
   @import 'theme.css';
 ---
@@ -12,7 +12,21 @@ style: |
 
 # Week 6
 
-## Capstone Prototype (End-to-End Flow)
+## AI-Assisted CSV Data Analyzer
+
+---
+
+# Capstone Goal
+
+Build a reproducible project that turns CSV data into an AI-assisted report through a **real LLM call**.
+
+```text
+CSV input
+  -> data overview
+  -> sampled/compressed summary
+  -> real LLM interpretation
+  -> report.json + report.md
+```
 
 ---
 
@@ -20,213 +34,179 @@ style: |
 
 By the end of this week, you should be able to:
 
-- Implement the Capstone "happy path" end-to-end
-- Keep prompts within limits by sampling/compressing inputs
-- Produce stable artifacts: `report.json` and `report.md`
+- Reuse Week 3 data profiling
+- Reuse Week 4 structured prompts, real LLM calls, and reliability controls
+- Apply Week 5 data/ML intuition to explain patterns
+- Produce stable JSON and readable Markdown
+- Demo a reproducible run
 
 ---
 
-# What is a Data Pipeline?
+# MVP Scope
 
-![bg right:35% h:320](images/concepts/pipeline.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Pipeline.svg)</div>
+Your project must:
 
-A **pipeline** = a sequence of stages, each with clear inputs and outputs.
-
-Like a factory assembly line: raw materials → clean → shape → assemble → quality check → finished product.
-
-If one stage fails, you know exactly where to look.
-
----
-
-# Why Compress Data for LLMs?
-
-![bg right:40% h:320](images/concepts/cloud_computing.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Cloud computing.svg)</div>
-
-You **cannot** send a full dataset to an LLM — it won't fit in the context window. Instead:
-- **Sample** representative rows
-- **Summarize** statistics
-- Keep under ~2000 tokens
+- Accept a CSV path
+- Compute data overview statistics
+- Avoid sending the full dataset to the LLM
+- Call a real LLM for structured insights and recommendations
+- Write `report.json`
+- Write `report.md`
+- Include README and a short postmortem
 
 ---
 
-<!-- _class: part -->
+# Topic Choices
 
-# Part 01
-## From Scripts to Pipelines
+Default:
 
-`week_06/01_pipeline_design.md` · `01_pipeline_design.ipynb`
+- General CSV data analyzer
 
----
+Recommended:
 
-# End-to-End Capstone Pipeline
+- Customer feedback / support ticket analyzer
+- Product review insight reporter
 
-![bg right:40% h:320](images/concepts/pipeline.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Pipeline.svg)</div>
-
-CSV → Profile → Context Compression → LLM → Validate → Report
-
-Each stage saves an artifact; re-run from any checkpoint.
+Keep the same CSV -> JSON + Markdown contract.
 
 ---
 
-# Capstone Stages
+# Real LLM Requirement
 
-| Stage | Input | Output |
-|-------|-------|--------|
-| 1. **Load** | `data/*.csv` | In-memory DataFrame |
-| 2. **Profile** | DataFrame | `output/profile.json` |
-| 3. **Context Compression** | DataFrame + profile | `output/compressed.json` |
-| 4. **LLM** | Prompt + compressed input | `output/llm_raw.json` |
-| 5. **Report** | Validated LLM output | `output/report.json` + `report.md` |
+Final submission must include:
 
-**Key rule**: If a stage fails, previous artifacts are still saved for debugging.
+- A real LLM call
+- Saved prompt
+- Saved raw or validated response
+- Timeout/retry or repair attempt
+- Clear failure message
 
----
-
-<!-- _class: part -->
-
-# Part 02
-## Sampling and Compression
-
-`week_06/02_sampling_compression.md` · `02_sampling_compression.ipynb`
+Mock responses are for debugging only.
 
 ---
 
-# Token Budget Estimation
+# Data Overview
 
-Keep compressed representation under ~2000 tokens:
+Include:
 
-| Component | Tokens |
-|-----------|--------|
-| System prompt | ~100–200 |
-| Task instructions | ~50–100 |
-| Compressed data | <2,000 |
-| Output budget | ~500–1,000 |
-| **Total** | Well under model limit |
+- column types
+- missing values
+- duplicate rows
+- numeric summaries
+- categorical summaries
+- simple anomaly hints
 
-If too large: reduce sample size or remove verbose fields. Rule of thumb: ~4 characters per token.
-
----
-
-# Smart Sampling Strategies
-
-**Random sampling** may miss rare-but-important cases. Choose strategy based on your analysis goal.
-
-| Strategy | When to use | Example |
-|----------|-------------|---------|
-| **Random sample** | General purpose, no specific requirements | Overall data overview |
-| **Stratified sample** | Must represent all categories | Balanced class representation |
-| **Include extremes** | Outlier detection matters | Min/max values for anomaly detection |
-| **Top-k categories** | Categorical distribution matters | Most frequent customer segments |
-
-**Design choices**: 
-- Fixed `seed` for reproducibility
-- `sort_keys=True` for deterministic JSON
-- Document sampling rationale in output
+This is traditional analysis before LLM interpretation.
 
 ---
 
-<!-- _class: part -->
+# Sampling and Compression
 
-# Part 03
-## Text Chunking + Synthesis
+Do not paste the whole dataset into the model.
 
-`week_06/03_chunking_synthesis.md` · `03_chunking_synthesis.ipynb`
+Send a compact summary:
 
----
+- schema
+- row/column counts
+- selected statistics
+- representative samples
+- anomaly hints
 
-# Text Chunking
-
-![h:320](images/concepts/train_test_split_new.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons</div>
-
-When text exceeds the context window: **split → process each chunk → synthesize**.
-
-**Overlap** between chunks prevents losing information at boundaries.
+The LLM interprets the summary, not the raw full CSV.
 
 ---
 
-<!-- _class: part -->
+# Structured LLM Interpretation
 
-# Part 04
-## End-to-End Capstone Runner
+Ask for stable report fields:
 
-`week_06/04_capstone_runner.md` · `04_capstone_runner.ipynb`
+```json
+{
+  "metadata": {},
+  "dataset_summary": {},
+  "data_quality": {},
+  "compression_summary": {},
+  "llm_interpretation": {},
+  "recommendations": [],
+  "risk_notes": [],
+  "errors_or_warnings": []
+}
+```
 
----
-
-# One-Command Runner
-
-Your capstone should run with **one command**:
-
-`python run_capstone.py --input data.csv`
-
-| Flag | Purpose | Default |
-|------|---------|---------|
-| `--input` | Input CSV (required) | — |
-| `--output_dir` | Output directory | `output` |
-| `--model` | LLM model name | `gpt-4o-mini` |
-| `--sample_size` | Rows to sample | 5 |
-| `--seed` | Random seed | 42 |
-| `--dry-run` | Skip LLM call | off |
-
-**Dry-run mode**: test the entire pipeline without calling the LLM.
+Then validate the fields before building the final report.
 
 ---
 
-# Artifact Naming Convention
+# Template Structure
 
-| File | Stage | Purpose |
-|------|-------|---------|
-| `01_loaded.parquet` | 1 | Loaded data |
-| `02_profile.json` | 2 | Data profile |
-| `03_compressed.json` | 3 | Compressed input for LLM |
-| `04_llm_raw.json` | 4 | Raw LLM response |
-| `05_report.json` | 5 | Final structured report |
-| `05_report.md` | 5 | Human-readable report |
+```text
+capstone_template/
+analyze.py
+src/
+  data_profile.py
+  compression.py
+  llm_interpretation.py
+  report_builder.py
+README.md
+requirements.txt
+postmortem.md
+prompts.md
+```
 
-**Why numbered prefixes**: clear execution order, easy to see "how far did the pipeline get?"
-
----
-
-# Debugging with Artifacts
-
-| Scenario | What to do |
-|----------|-----------|
-| LLM call fails | Inspect `03_compressed.json`, re-run only stage 4 |
-| Profile looks wrong | Check `02_profile.json` against expectations |
-| Want to modify compression | Load from `01_loaded.parquet`, skip stage 1 |
-| Prompt needs tuning | Read `04_llm_prompt.txt`, adjust, re-call |
-
-**Cost control**: Don't re-call expensive LLM on every debug iteration — use saved artifacts.
+The template has TODOs. It is not a full answer.
 
 ---
 
-# Workshop / Deliverables
+# Template Walkthrough
 
-Implement the full flow:
-- CSV → profiling → sampling/context compression → LLM call → `report.json` + `report.md`
-- Ensure the entire pipeline runs with **one command**
-- Save intermediate artifacts at each stage
+Students complete:
 
-**Required outputs**: `report.json` (structured) + `report.md` (human-readable)
+- `build_profile()`
+- `compress_profile()`
+- `build_prompt()`
+- `call_llm()`
+- `validate_llm_output()`
+- `build_json_report()`
+- `build_markdown_report()`
 
----
-
-# Self-Check Questions
-
-- Can you identify which stage fails when something breaks?
-- Can you re-run and get stable `report.json` fields?
-- Do you save intermediate outputs to help debugging?
-- Can a teammate run your pipeline without asking questions?
+AI Agent Coding Tools are allowed, but usage must be documented.
 
 ---
 
-# References
+# What to Complete
 
-- Twelve-Factor methodology: https://12factor.net/
-- Neptune.ai ML Pipelines: https://neptune.ai/blog/building-end-to-end-ml-pipeline
-- Valohai ML Pipeline: https://valohai.com/machine-learning-pipeline/
-- tiktoken: https://github.com/openai/tiktoken
+- Script or notebook that runs the MVP
+- `output/report.json` as the machine-readable result
+- `output/report.md` as the human-readable result
+- README with one-command run instructions
+- Sample input or dataset link
+- Short `postmortem.md`: one issue and how you handled it
+- Prompt and AI usage notes
+
+---
+
+# Stretch Goals
+
+Optional only:
+
+- charts in the Markdown report
+- Excel input
+- hosted API + Ollama backend switch
+- input-hash caching
+- report style flags
+
+Do the MVP first.
+
+---
+
+# Demo Checklist
+
+Show:
+
+- input CSV
+- command used
+- output files
+- evidence of real LLM call
+- one insight from the report
+- one issue you handled
+- what you would improve next

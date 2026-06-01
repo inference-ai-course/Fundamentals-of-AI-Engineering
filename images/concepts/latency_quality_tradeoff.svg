@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+  <!-- Background -->
+  <rect width="800" height="550" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2c3e50">Latency vs Quality Tradeoff in Model Selection</text>
+  
+  <!-- Chart Area -->
+  <rect x="100" y="60" width="600" height="400" fill="white" stroke="#ddd" stroke-width="1"/>
+  
+  <!-- Grid -->
+  <line x1="100" y1="160" x2="700" y2="160" stroke="#ecf0f1" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="100" y1="260" x2="700" y2="260" stroke="#ecf0f1" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="100" y1="360" x2="700" y2="360" stroke="#ecf0f1" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="200" y1="60" x2="200" y2="460" stroke="#ecf0f1" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="300" y1="60" x2="300" y2="460" stroke="#ecf0f1" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="400" y1="60" x2="400" y2="460" stroke="#ecf0f1" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="500" y1="60" x2="500" y2="460" stroke="#ecf0f1" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="600" y1="60" x2="600" y2="460" stroke="#ecf0f1" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Axes -->
+  <line x1="100" y1="460" x2="700" y2="460" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="100" y1="60" x2="100" y2="460" stroke="#2c3e50" stroke-width="2"/>
+  
+  <!-- X-axis label -->
+  <text x="400" y="510" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#2c3e50">Response Latency (seconds)</text>
+  <text x="150" y="480" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f8c8d">0.5s</text>
+  <text x="250" y="480" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f8c8d">1s</text>
+  <text x="350" y="480" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f8c8d">2s</text>
+  <text x="450" y="480" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f8c8d">3s</text>
+  <text x="550" y="480" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f8c8d">5s</text>
+  <text x="650" y="480" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f8c8d">10s+</text>
+  
+  <!-- Y-axis label -->
+  <text x="40" y="260" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#2c3e50" transform="rotate(-90, 40, 260)">Output Quality Score</text>
+  <text x="85" y="460" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#7f8c8d">Low</text>
+  <text x="85" y="360" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#7f8c8d">Medium</text>
+  <text x="85" y="260" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#7f8c8d">Good</text>
+  <text x="85" y="160" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#7f8c8d">High</text>
+  <text x="85" y="80" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#7f8c8d">Excellent</text>
+  
+  <!-- Trend line (inverse relationship) -->
+  <path d="M 140 420 Q 300 250 650 100" stroke="#95a5a6" stroke-width="2" fill="none" stroke-dasharray="10,5"/>
+  <text x="580" y="130" font-family="Arial, sans-serif" font-size="10" fill="#95a5a6">Quality ceiling</text>
+  
+  <!-- Data Points -->
+  
+  <!-- llama3.2:1b (fast, lower quality) -->
+  <circle cx="160" cy="380" r="15" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="160" y="385" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">1B</text>
+  <text x="160" y="410" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">llama3.2:1b</text>
+  <text x="160" y="422" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~0.8s</text>
+  
+  <!-- llama3.2:3b -->
+  <circle cx="200" cy="320" r="15" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="200" y="325" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">3B</text>
+  <text x="200" y="350" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">llama3.2:3b</text>
+  <text x="200" y="362" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~1.2s</text>
+  
+  <!-- Mistral 7B -->
+  <circle cx="280" cy="250" r="18" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+  <text x="280" y="255" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">7B</text>
+  <text x="280" y="280" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">mistral:7b</text>
+  <text x="280" y="292" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~2s</text>
+  
+  <!-- llama3.1:8b -->
+  <circle cx="340" cy="220" r="18" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="340" y="225" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">8B</text>
+  <text x="340" y="250" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">llama3.1:8b</text>
+  <text x="340" y="262" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~3s</text>
+  
+  <!-- Claude Haiku -->
+  <circle cx="420" cy="160" r="20" fill="#e67e22" stroke="#d35400" stroke-width="2"/>
+  <text x="420" y="165" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">☁️</text>
+  <text x="420" y="190" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">Claude Haiku</text>
+  <text x="420" y="202" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~1s (API)</text>
+  
+  <!-- llama3.1:70b (local) -->
+  <circle cx="520" cy="140" r="22" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="520" y="145" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">70B</text>
+  <text x="520" y="172" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">llama3.1:70b</text>
+  <text x="520" y="184" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~8s</text>
+  
+  <!-- GPT-4o-mini -->
+  <circle cx="380" cy="130" r="18" fill="#10a37f" stroke="#0d8a6b" stroke-width="2"/>
+  <text x="380" y="135" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">☁️</text>
+  <text x="380" y="160" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">GPT-4o-mini</text>
+  <text x="380" y="172" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~1.5s</text>
+  
+  <!-- Claude Sonnet -->
+  <circle cx="480" cy="100" r="20" fill="#e67e22" stroke="#d35400" stroke-width="2"/>
+  <text x="480" y="105" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">☁️</text>
+  <text x="480" y="130" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">Claude Sonnet</text>
+  <text x="480" y="142" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~2s (API)</text>
+  
+  <!-- GPT-4 -->
+  <circle cx="580" cy="85" r="22" fill="#10a37f" stroke="#0d8a6b" stroke-width="2"/>
+  <text x="580" y="90" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">☁️</text>
+  <text x="580" y="115" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">GPT-4</text>
+  <text x="580" y="127" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~5s (API)</text>
+  
+  <!-- Claude Opus -->
+  <circle cx="650" cy="70" r="22" fill="#e67e22" stroke="#d35400" stroke-width="2"/>
+  <text x="650" y="75" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">☁️</text>
+  <text x="650" y="100" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">Claude Opus</text>
+  <text x="650" y="112" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#7f8c8d">~8s (API)</text>
+  
+  <!-- Legend -->
+  <rect x="100" y="520" width="600" height="25" rx="5" fill="white" stroke="#ddd" stroke-width="1"/>
+  <circle cx="140" cy="532" r="8" fill="#3498db"/>
+  <text x="155" y="536" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">Local (Ollama)</text>
+  <circle cx="280" cy="532" r="8" fill="#10a37f"/>
+  <text x="295" y="536" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">OpenAI API</text>
+  <circle cx="400" cy="532" r="8" fill="#e67e22"/>
+  <text x="415" y="536" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">Anthropic API</text>
+  <circle cx="520" cy="532" r="8" fill="#9b59b6"/>
+  <text x="535" y="536" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">Other Local</text>
+  
+  <!-- Key insight -->
+  <rect x="550" y="200" width="140" height="80" rx="5" fill="#fff3cd" stroke="#ffc107" stroke-width="1"/>
+  <text x="620" y="220" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#856404">Key Insight:</text>
+  <text x="620" y="238" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#856404">Smaller models =</text>
+  <text x="620" y="252" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#856404">faster but lower</text>
+  <text x="620" y="266" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="#856404">quality output</text>
+</svg>

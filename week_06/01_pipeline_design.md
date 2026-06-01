@@ -17,21 +17,24 @@ This structure improves:
 
 ---
 
+
+**Lab notebook**: [01_pipeline_design.ipynb](./01_pipeline_design.ipynb) - Interactive coding practice
+
 ## Pre-study (Self-learn)
 
-Foundations Course assumes Self-learn is complete. If you need a refresher on pipeline structure, artifacts, and basic AI engineering workflow:
+Self-learn is optional. If you want a refresher on pipeline structure, artifacts, and basic AI engineering workflow:
 
 - [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
 - [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
 
 Why it matters here (Week 6):
 
-- The capstone becomes debuggable when you can isolate stages and inspect intermediate artifacts.
+- The project becomes debuggable when you can isolate stages and inspect intermediate artifacts.
 - Explicit stage contracts make it easier to re-run only what changed (faster iteration).
 
 ---
 
-## Suggested capstone stages
+## Suggested project stages
 
 For each stage, aim to make the contract explicit.
 
@@ -83,7 +86,7 @@ import json
 import pandas as pd
 
 
-class CapstoneRunner:
+class ProjectRunner:
     """
     Pipeline coordinator with stage isolation.
     """
@@ -201,7 +204,7 @@ class CapstoneRunner:
         }
         
         # JSON report
-        json_path = self.output_dir / "05_report.json"
+        json_path = self.output_dir / "report.json"
         json_path.write_text(json.dumps(report, indent=2))
         
         # Markdown report
@@ -216,7 +219,7 @@ class CapstoneRunner:
             llm_output.get("analysis", ""),
         ]
         
-        md_path = self.output_dir / "05_report.md"
+        md_path = self.output_dir / "report.md"
         md_path.write_text("\n".join(md_lines))
         
         print(f"  → Saved: {json_path}")
@@ -225,7 +228,7 @@ class CapstoneRunner:
 
 # Usage
 if __name__ == "__main__":
-    runner = CapstoneRunner(output_dir=Path("output"))
+    runner = ProjectRunner(output_dir=Path("output"))
     runner.run_all(input_csv=Path("data.csv"))
 ```
 
@@ -271,15 +274,15 @@ llm_output = stage_llm(compressed)
 
 Use sequential prefixes for clarity:
 
-```
+```text
 output/
   01_loaded.parquet      # Stage 1 output
   02_profile.json        # Stage 2 output
   03_compressed.json     # Stage 3 output
   04_llm_prompt.txt      # Stage 4 input
   04_llm_raw.json        # Stage 4 output
-  05_report.json         # Stage 5 output (final)
-  05_report.md           # Stage 5 output (final)
+  report.json         # Stage 5 output (final)
+  report.md           # Stage 5 output (final)
 ```
 
 **Why numbered prefixes help:**

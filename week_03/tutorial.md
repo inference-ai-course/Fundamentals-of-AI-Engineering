@@ -1,46 +1,36 @@
-# Foundations Course — Week 3 Tutorials
+# Week 3 Tutorials: Environment + Data Processing
 
-## Pre-study (Self-learn)
+## Pre-study (Optional Refresher)
 
-Foundations Course assumes Self-learn is complete. If you need a refresher:
+Self-learn is optional. If you want extra background:
 
-- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
+- [Pre-study guide](../PRESTUDY.md)
+- [Self-learn - Chapter 1: Tool Preparation](../self_learn/Chapters/1/Chapter1.md)
+- [Self-learn - Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 ## Overview
 
-These tutorials expand Week 3 into practical LLM engineering skills:
+Week 3 focuses on reproducible environments and CSV data profiling. You will create a clean Python environment, load data with pandas, and produce stable JSON/Markdown outputs.
 
-- tokens + context windows (why long inputs fail)
-- prompts as contracts
-- strict JSON outputs
-- validation + retry/repair patterns
+## Main Navigation
 
-## Navigation
+Required Week 3 path:
 
-- [01 — Tokens and context windows (practical intuition)](01_tokens_context.md)
-- [02 — Structured Prompt Specification (design patterns)](02_prompt_contracts.md)
-- [03 — Structured outputs: JSON parsing + validation + retry/repair](03_structured_outputs_validation.md)
-- [04 — OpenAI Compatible API (multi-provider clients)](04_openai_compatible_api.md)
+- [Environment setup + dependency management](01_environment_setup.md)
+- [Data profiling script (CSV -> JSON/Markdown outputs)](02_data_profiling_script.md)
 
-## Recommended order
+## Recommended Order
 
-1. Read 01 for the mental model (this prevents many “why did the model ignore me?” issues).
-2. Read 02 and write prompts as specs.
-3. Read 03 and implement validation + repair.
+1. Set up and verify your Python environment.
+2. Install dependencies.
+3. Run a small pandas example.
+4. Build or adapt the data profiling script.
+5. Confirm `output/profile.json` and `output/profile.md` are created.
 
-Exercises are included at the end of each notebook.
+## Optional/Advanced Reference
 
-Why this order works:
+Local inference is retained for deeper study and is no longer required for Week 3:
 
-1. **Tokens/context first**
-    - Many failures look like “the model is dumb”, but are actually context overflow or truncation.
-    - What to verify: you can estimate whether your input will fit (prompt + context + output).
-
-2. **Prompt contracts second**
-    - Treat the prompt like an API spec: define inputs, outputs, and constraints.
-    - What to verify: your prompt includes explicit output requirements (e.g., exact JSON keys, allowed values).
-
-3. **Validation + repair third**
-    - LLMs are probabilistic; you need a deterministic wrapper (parse/validate/retry) for reliability.
-    - What to verify: invalid JSON triggers a retry/repair path with a hard retry limit.
+- [Local inference setup](../week_04/optional_local_inference/01_local_inference_setup.md)
+- [Ollama HTTP client](../week_04/optional_local_inference/02_ollama_http_client.md)
+- [Benchmarking script](../week_04/optional_local_inference/03_benchmarking_script.md)

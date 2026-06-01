@@ -1,0 +1,91 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="agentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="userGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1abc9c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a085;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- User icon -->
+  <g transform="translate(80, 150)">
+    <circle cx="50" cy="35" r="35" fill="url(#userGrad)" filter="url(#shadow)"/>
+    <circle cx="50" cy="25" r="15" fill="white" opacity="0.9"/>
+    <ellipse cx="50" cy="55" rx="22" ry="15" fill="white" opacity="0.9"/>
+    <text x="50" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#2c3e50" font-weight="500">User</text>
+  </g>
+  
+  <!-- Arrow to Agent -->
+  <g transform="translate(190, 175)">
+    <path d="M 0 15 L 60 15" stroke="#3498db" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
+      </marker>
+    </defs>
+    <text x="30" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#7f8c8d">Natural Language</text>
+    <text x="30" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#95a5a6" font-style="italic">"Describe what you want"</text>
+  </g>
+  
+  <!-- AI Agent box -->
+  <g transform="translate(280, 100)">
+    <rect x="0" y="0" width="240" height="200" rx="15" fill="url(#agentGrad)" filter="url(#shadow)"/>
+    
+    <!-- Brain icon -->
+    <g transform="translate(95, 30)">
+      <ellipse cx="25" cy="20" rx="25" ry="20" fill="white" opacity="0.2"/>
+      <path d="M 15 10 Q 10 20 15 30 Q 25 35 35 30 Q 40 20 35 10 Q 25 5 15 10" stroke="white" stroke-width="2" fill="none"/>
+      <path d="M 20 15 L 30 25 M 30 15 L 20 25" stroke="white" stroke-width="1.5" opacity="0.8"/>
+    </g>
+    
+    <text x="120" y="80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="white" font-weight="600">AI Agent</text>
+    
+    <!-- Features -->
+    <g transform="translate(25, 100)">
+      <circle cx="8" cy="8" r="4" fill="#e74c3c"/>
+      <text x="20" y="12" font-family="system-ui, sans-serif" font-size="13" fill="white">Understands instructions</text>
+    </g>
+    <g transform="translate(25, 130)">
+      <circle cx="8" cy="8" r="4" fill="#f39c12"/>
+      <text x="20" y="12" font-family="system-ui, sans-serif" font-size="13" fill="white">Processes through conversation</text>
+    </g>
+    <g transform="translate(25, 160)">
+      <circle cx="8" cy="8" r="4" fill="#2ecc71"/>
+      <text x="20" y="12" font-family="system-ui, sans-serif" font-size="13" fill="white">Generates responses</text>
+    </g>
+  </g>
+  
+  <!-- Arrow from Agent -->
+  <g transform="translate(550, 175)">
+    <path d="M 0 15 L 60 15" stroke="#1abc9c" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+    <defs>
+      <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#1abc9c"/>
+      </marker>
+    </defs>
+    <text x="30" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#7f8c8d">Response</text>
+    <text x="30" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#95a5a6" font-style="italic">Completes your task</text>
+  </g>
+  
+  <!-- Output icon -->
+  <g transform="translate(640, 130)">
+    <rect x="0" y="0" width="80" height="90" rx="8" fill="#ecf0f1" filter="url(#shadow)" stroke="#bdc3c7" stroke-width="1"/>
+    <rect x="10" y="10" width="60" height="8" rx="2" fill="#3498db" opacity="0.7"/>
+    <rect x="10" y="25" width="45" height="6" rx="2" fill="#95a5a6"/>
+    <rect x="10" y="38" width="55" height="6" rx="2" fill="#95a5a6"/>
+    <rect x="10" y="51" width="40" height="6" rx="2" fill="#95a5a6"/>
+    <rect x="10" y="64" width="50" height="6" rx="2" fill="#95a5a6"/>
+    <text x="40" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#2c3e50" font-weight="500">Result</text>
+  </g>
+  
+  <!-- Bottom note -->
+  <text x="400" y="370" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#7f8c8d" font-style="italic">
+    Key difference: You describe what you want, not how to do it
+  </text>
+</svg>

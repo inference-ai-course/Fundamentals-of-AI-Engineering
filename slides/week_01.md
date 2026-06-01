@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 1 — Environment Setup & Data Quality"
+footer: "Week 1 — Agent Tools Introduction"
 style: |
   @import 'theme.css';
 ---
@@ -12,7 +12,7 @@ style: |
 
 # Week 1
 
-## Environment Setup & Data Quality Basics
+## Agent Tools Introduction
 
 ---
 
@@ -20,228 +20,319 @@ style: |
 
 By the end of this week, you should be able to:
 
-- Create a clean Python environment and install dependencies reliably
-- Run a project from a README on a fresh machine (or fresh folder)
-- Build a data quality profiling script that reads a CSV and produces reproducible outputs
+- Explain what AI agent tools are and how they work at a high level
+- Use ChatGPT and Claude for basic tasks (writing, explaining, analyzing)
+- Install and explore Cursor editor for code understanding
+- Run safe read-only commands and record what you observe
+- Understand when to use different tools for different tasks
+- Write effective prompts to get quality results
 
 ---
 
-# What is AI Engineering?
+# What is an AI Agent?
 
-![bg right:50% h:320](images/concepts/ai_ml_dl.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (AI-ML-DL.svg)</div>
+![h:300](images/concepts/ai_agent_concept.svg)
 
-AI Engineering = building **reliable systems** that use AI models (including LLMs).
+An AI agent is software that:
+- Understands natural language instructions
+- Helps you complete tasks through conversation
+- Generates responses based on your input
 
-It's not just about the model — it's about **data quality**, **reproducible pipelines**, and **stable infrastructure** around the model.
-
----
-
-# What This Course Builds
-
-- **Week 1**: Environment + data profiling
-- **Weeks 2–5**: ML, LLM APIs, local inference
-- **Weeks 6–8**: Pipeline, testing, demo
+**Key difference from traditional software:**
+You don't learn commands — you describe what you want.
 
 ---
 
-# Why This Matters for LLM Projects
+# The AI Tool Landscape
 
-LLMs are powerful, but **they don't fix bad engineering**:
+![h:320](images/concepts/tool_landscape.svg)
 
-| Without engineering discipline | With engineering discipline |
-|-------------------------------|---------------------------|
-| "Works on my laptop" | Reproducible on any machine |
-| Feeding garbage data to LLM | Profiled, validated data → better prompts |
-| Can't explain what changed | Artifact trail for every run |
-| Random failures | Controlled, debuggable pipeline |
-
-> Every skill this week — environments, data profiling, reproducibility — directly applies when you build LLM-powered systems in later weeks.
-
----
-
-# What is Data Quality Profiling?
-
-**Data profiling** = systematically assessing data quality *before* using it (structure, completeness, consistency).
-
-**Key checks**: row counts, column types, missing values (%), distributions, outliers, duplicates.
-
-![bg right:40% h:320](images/concepts/data_profiling.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Data Mining - The Noun Project.svg)</div>
-
-### Without profiling (bad path)
-
-Dirty data → model trained on noise → wrong predictions → hallucinations.
-
-Each arrow is a point where profiling could have caught the problem **early**.
-
----
-
-# Data Quality → AI Quality
-
-![bg right:40% h:320](images/concepts/machine_learning.png)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of machine learning.png)</div>
-
-### With profiling (good path)
-
-Profiled + cleaned data → model on quality data → reliable outputs → trustworthy results.
-
-**For LLM work**: bad data → bad prompts → hallucinations. Profile **early** to avoid expensive failures.
-
----
-
-# Without Isolation: Version Conflicts
-
-![h:280](images/concepts/traditional_programming.png)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of traditional computer applications.png)</div>
-
-LLM libraries change **fast** — `openai` had a breaking API change from v0.x to v1.x.
-
----
-
-# With Isolation: Each Project is Safe
-
-**Pinned versions + isolated venvs** = safety net. Each project has its own dependency versions.
+| Category | Tools | Interface |
+|----------|-------|-----------|
+| **Conversational AI** | ChatGPT, Claude, Gemini | Browser |
+| **AI Code Editors** | Cursor, VS Code + Copilot | GUI Application |
+| **CLI Assistants** | Kilo, Aider | Terminal |
 
 ---
 
 <!-- _class: part -->
 
 # Part 01
-## Environment Setup + Dependency Management
+## Agent Tools Overview
 
-`week_01/01_environment_setup.md` · `01_environment_setup.ipynb`
-
----
-
-# Environment Setup: venv
-
-System Python → create venv → activate → install deps → freeze `requirements.txt` → run script.
-
-**Key**: always activate before `pip install`, always freeze after installing.
+`week_01/01_agent_tools_overview.md`
 
 ---
 
-# Environment Setup: Conda
+# Browser-Based vs Editor-Based
 
-![h:360 Anaconda Distribution](images/concepts/anaconda_distribution.png)
+![bg right:45% h:380](images/concepts/browser_vs_editor.svg)
 
-Same pattern as venv — different tool, same discipline.
-
-Base conda → create env → activate → install deps → export `environment.yml` → run script.
-
----
-
-# The "Fresh Machine" Test
-
-The gold standard: can someone recreate your project from scratch?
-
-| Step | What to do | Success looks like |
-|------|-----------|-------------------|
-| 1. Create venv | `python -m venv .venv` | New `.venv/` directory |
-| 2. Activate | `source .venv/bin/activate` | `which python` → `.venv/bin/python` |
-| 3. Install | `pip install -r requirements.txt` | No errors |
-| 4. Verify | `python -c "import pandas"` | No ImportError |
-
-**Pin versions** in `requirements.txt`:
-```txt
-pandas==2.2.3
-scikit-learn==1.5.2
-openai==1.6.1
-```
+| | Browser (ChatGPT) | Editor (Cursor) |
+|---|------------------|-----------------|
+| **Setup** | Just login | Install application |
+| **File access** | No | Yes (reads your files) |
+| **Context** | You provide manually | Automatic from project |
+| **Best for** | Quick tasks, writing | Code tasks, projects |
 
 ---
 
-# Common Pitfalls
+# Core Concepts: Prompts
 
-| Pitfall | Symptom | Fix |
-|---------|---------|-----|
-| Installing outside env | "Works on my machine" | Always activate before `pip install` |
-| Forgetting to record deps | Can't recreate env | `pip freeze > requirements.txt` after install |
-| Version drift | "Worked last week" | Pin versions explicitly |
-| Platform-specific deps | Fails on other OS | Document system deps separately |
+A **prompt** is your instruction to the AI.
 
-**Diagnosis**: Always check `which python` — should point to your `.venv/`, not `/usr/bin/python`.
+| Poor Prompt | Good Prompt |
+|-------------|-------------|
+| "Write an email" | "Write a professional email (under 200 words) to my manager requesting a training workshop. Tone: respectful but confident." |
+
+**More specific = Better results**
+
+---
+
+# Core Concepts: Context
+
+**Context** helps AI understand your situation.
+
+Types of context:
+- **Personal**: "I'm new to programming"
+- **Task**: "This is for a client presentation"
+- **File**: AI editors read your actual files
+
+**More context = Better results**
 
 ---
 
 <!-- _class: part -->
 
 # Part 02
-## Data Quality Profiling Script
+## ChatGPT and Claude Basics
 
-`week_01/02_data_profiling_script.md` · `02_data_profiling_script.ipynb`
-
----
-
-# Data Quality Profiling Pipeline
-
-**Defensive programming**: validate early, fail fast.
-
-- If file is missing → clear `FileNotFoundError`
-- If file is empty → clear `ValueError`
-- If validation passes → compute stats and write reproducible outputs
+`week_01/02_chatgpt_claude_basics.md`
 
 ---
 
-# Data Quality Profiling for LLM Pipelines
+# ChatGPT Setup
 
-In later weeks, you will **compress** data and send it to an LLM for analysis.
+| Step | Action | Success |
+|------|--------|---------|
+| 1 | Go to chatgpt.com | Open website |
+| 2 | Click "Sign Up" | Create account |
+| 3 | Verify email/phone | Account active |
+| 4 | Send a prompt | Receive response |
 
-| What profiling catches | What happens if you miss it |
-|----------------------|---------------------------|
-| Missing values (40% of a column) | LLM hallucinates values to fill gaps |
-| Wrong column types (dates as strings) | LLM misinterprets the data |
-| Unexpected encoding | Garbled text in the prompt |
-| Empty dataset | Wasted API call + confusing output |
-
-**Rule**: Profile first, send to LLM second. The data quality profiling habit you build this week is the foundation for every LLM pipeline later.
+Free access is sufficient when available. Model names and limits may change.
 
 ---
 
-# Reproducibility: Why It Matters
+# Claude Setup
 
-**Reproducibility** = run the same command twice → get **identical** outputs.
-
-| Concept | How we enforce it |
-|---------|------------------|
-| Deterministic outputs | `sort_keys=True` in JSON |
-| Stable environment | Pinned `requirements.txt` |
-| Controlled inputs | Explicit `--input` flag |
-| Traceable outputs | All artifacts in `output/` directory (audit trail) |
-
-**For LLM work**: When you later compare prompt strategies or model versions, reproducibility lets you **isolate what changed** — was it the data, the prompt, or the model?
+| Step | Action | Success |
+|------|--------|---------|
+| 1 | Go to claude.ai | Open website |
+| 2 | Click "Sign Up" | Create account |
+| 3 | Verify email | Account active |
+| 4 | Send a prompt | Receive response |
 
 ---
 
-# Workshop / Deliverables
+# ChatGPT vs Claude
 
-Implement `data_profile.py`:
+| Aspect | ChatGPT | Claude |
+|--------|---------|--------|
+| Speed | Faster | Slightly slower |
+| Length | Short-medium | Excellent for long docs |
+| Style | Direct, concise | Detailed, thorough |
+| Best for | Quick tasks, coding | Analysis, reasoning |
 
-- **Input**: `--input path/to.csv`
-- **Output**: write files to `output/`
-- **Error handling**: clear errors for missing file / empty file / missing columns
+---
 
-**Extensions** (recommended):
-- `--required_columns colA,colB` — fail if missing
-- Numeric summaries (min/max/mean)
-- Frequent values for categorical columns (top 5)
+# Effective Prompt Patterns
+
+**Pattern 1: Explainer**
+```text
+Explain [topic] in simple terms, using analogies.
+```
+
+**Pattern 2: Writer**
+```text
+Write a [type] about [topic], [length], for [audience], [tone].
+```
+
+**Pattern 3: Analyzer**
+```text
+Analyze this [content] and provide [feedback type]:
+[content]
+```
+
+---
+
+<!-- _class: part -->
+
+# Part 03
+## Cursor Editor Introduction
+
+`week_01/03_cursor_intro.md`
+
+---
+
+# Why Cursor?
+
+**Cursor reads your files.** This means:
+- AI knows your project structure
+- AI sees file contents automatically
+- Context is built-in, not manual
+
+**In ChatGPT:** You paste code
+**In Cursor:** AI reads the file directly
+
+---
+
+# Cursor Setup
+
+| Step | Action | Success |
+|------|--------|---------|
+| 1 | Download from cursor.sh | Installer downloaded |
+| 2 | Run installer | Cursor opens |
+| 3 | Open a folder | Files in sidebar |
+| 4 | Press Cmd+L (Mac) / Ctrl+L (Win) | AI chat opens |
+
+---
+
+# Cursor Interface
+
+| Element | Shortcut | Purpose |
+|---------|----------|---------|
+| AI Chat | Cmd+L | Conversation about project |
+| Inline Edit | Cmd+K | Edit at cursor position |
+| File Explorer | Cmd+B | Navigate files |
+| Terminal | Cmd+J | Run commands |
+
+---
+
+# Live Demo: Terminal Warm-Up
+
+Run these from the course folder:
+
+```bash
+pwd
+ls
+python --version
+git status --short
+find week_01 -maxdepth 1 -type f
+```
+
+Record: command, output type, one question.
+
+---
+
+<!-- _class: part -->
+
+# Part 04
+## Kilo Guide
+
+`week_01/04_kilo_guide.md`
+
+---
+
+# What is Kilo?
+
+Kilo is an AI coding assistant for the **terminal**.
+
+| Aspect | Cursor | Kilo |
+|--------|--------|------|
+| Interface | GUI | Terminal (CLI) |
+| Git awareness | Partial | Strong |
+| Automation | Manual | Scriptable |
+| Preference | Visual workflow | Terminal workflow |
+
+---
+
+# Kilo Capabilities
+
+| Capability | Week 1 Example |
+|------------|----------------|
+| Read files | "Explain README.md" |
+| Project tour | "List Week 1 tutorial files" |
+| Git status | "Show current git status" |
+| Search | "Find files that mention Cursor" |
+
+Week 1 focus: **read-only exploration**.
+
+---
+
+# Live Demo: Project Tour
+
+In Cursor or Kilo, ask:
+
+```text
+Summarize README.md in beginner-friendly language.
+```
+
+```text
+What files are in week_01, and what is each for?
+```
+
+Save the prompt and one thing you verified.
+
+---
+
+<!-- _class: part -->
+
+# Part 05
+## AI Tools Comparison
+
+`week_01/05_ai_tools_comparison.md`
+
+---
+
+# Which Tool When?
+
+| Task | Best Tool |
+|------|-----------|
+| Quick questions | ChatGPT/Claude |
+| Write text | ChatGPT/Claude |
+| Understand code | Cursor |
+| Modify code | Cursor/Kilo |
+| Git operations | Kilo |
+| Long document analysis | Claude |
+
+---
+
+# Decision Framework
+
+**Ask yourself:**
+1. Where is my content? (Head → Browser; Files → Editor/CLI)
+2. What's my preference? (Browser → ChatGPT; GUI → Cursor; CLI → Kilo)
+3. What's the task type? (Writing → ChatGPT; Code → Cursor/Kilo)
+
+---
+
+# Workshop / What to Complete
+
+- Try at least 2 AI tools
+- Complete 3 meaningful tasks:
+  - Explain a concept
+  - Summarize or rewrite content
+  - Explore a simple file or project folder
+- Include one command-line or project-file observation
+- Submit `report.md`, `prompts.md`, `output/`, and `README.md`
+- Write an 800-1000 word reflection
 
 ---
 
 # Self-Check Questions
 
-- Can you recreate your environment from scratch using only `requirements.txt`?
-- Can you explain **why** environments prevent dependency conflicts?
-- If you delete `.venv`, can you recreate it and run the project?
-- If the input file is missing, do you get a clear error?
-- Can you explain how data profiling helps LLM-based analysis later?
+- Can you explain "what is an AI agent"?
+- Can you list 4 tools and when to use each?
+- Have you tried at least 2 tools?
+- Did you save prompts or screenshots/notes?
+- Can you write a specific, contextual prompt?
 
 ---
 
 # References
 
-- Python `venv`: https://docs.python.org/3/library/venv.html
-- pip user guide: https://pip.pypa.io/en/stable/user_guide/
-- Conda environments: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
-- Pandas getting started: https://pandas.pydata.org/docs/getting_started/index.html
+- ChatGPT: https://chatgpt.com
+- Claude: https://claude.ai
+- Cursor: https://cursor.sh
+- Prompt Engineering Guide: https://www.promptingguide.ai

@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: "Fundamentals of AI Engineering"
-footer: "Week 2 — ML Training Loop & Reproducible Baselines"
+footer: "Week 2 — IDE + AI-Assisted Code Practice"
 style: |
   @import 'theme.css';
 ---
@@ -12,7 +12,7 @@ style: |
 
 # Week 2
 
-## The ML Training Loop + Reproducible Baselines
+## IDE + AI-Assisted Code Practice
 
 ---
 
@@ -20,258 +20,328 @@ style: |
 
 By the end of this week, you should be able to:
 
-- Explain why we split data into train/validation
-- Train a baseline model, evaluate it, and save artifacts
-- Compare two runs and write a short failure analysis (post-mortem)
+- Set up Cursor or VS Code with AI integration
+- Use AI to read and understand unfamiliar code
+- Use AI to modify existing code safely
+- Use AI to debug common errors
+- Understand the AI-assisted programming workflow
 
 ---
 
-# What is Machine Learning?
+# From Week 1 to Week 2+
 
-### Traditional Programming
-
-![h:280](images/concepts/traditional_programming.png)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of traditional computer applications.png)</div>
-
-Human writes rules → computer follows them.
-
----
-
-# Machine Learning: The Key Difference
-
-![bg right:40% h:320](images/concepts/machine_learning.png)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Concept of machine learning.png)</div>
-
-### Machine Learning
-
-Computer **learns** rules from data + expected outputs. A **model** is the result — a program that was learned, not hand-written.
-
-An **LLM** (Large Language Model) is a very large ML model trained on massive text data. The same ML discipline applies.
-
----
-
-# What is Training?
-
-![bg right:40% h:420](images/concepts/gradient_descent.gif)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Gradient descent.gif)</div>
-
-**Training** = the process where a model learns from data by adjusting its internal parameters (weights).
-
-- The model sees thousands of examples
-- It makes predictions and checks if they're correct
-- It adjusts weights to reduce errors
-- Repeats until "good enough"
-
----
-
-# From ML to LLM: Classical ML
-
-![bg right:40% h:320](images/concepts/train_test_split_new.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Machine learning nutshell -- Split into train-test set.svg)</div>
-
-Classical ML: train a model on structured data, predict labels.
-
-Tabular data → train classifier → predict labels → save metrics.
-
----
-
-# From ML to LLM: LLM-Augmented Pipeline
-
-![bg right:40% h:320](images/concepts/ai_ml_dl.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (AI-ML-DL.svg)</div>
-
-LLM-augmented: compress data, call LLM API, validate output.
-
-**Different tools, same discipline.**
-
----
-
-# Shared Discipline: ML ↔ LLM Training Loop
-
-
-Even if you **don't train the LLM yourself**, you still need ML discipline:
-
-- **Train/val splits** → test prompt effectiveness on held-out data
-- **Artifact saving** → save prompts, outputs, configs for every run
-- **Metrics comparison** → compare LLM outputs across prompt changes
+| Week 1 | Week 2+ |
+|--------|---------|
+| Browser-based AI tools | IDE-based AI coding tools |
+| Manual file context | Project/file context in workspace |
+| Prompt experiments | Prompt + edit + verify workflow |
+| Reflection on AI output | Recorded code practice evidence |
 
 ---
 
 <!-- _class: part -->
 
 # Part 01
-## The ML Training Loop
+## IDE Setup and AI Configuration
 
-`week_02/01_training_loop.md` · `01_training_loop.ipynb`
-
----
-
-# The ML Training Loop
-
-![bg right:40% h:320](images/concepts/train_test_split_new.svg)
-<div style="position: absolute; bottom: 20px; right: 20px; font-size: 12px; color: #666;">Source: Wikimedia Commons (Machine learning nutshell -- Split into train-test set.svg)</div>
-
-Load → split → train → predict → compute metrics → save artifacts → compare runs.
-
-Artifacts saved at each run:
-- `config.json`
-- `metrics.json`
-- `model.joblib`
-- `val_report.txt`
+`week_02/01_ide_setup.md`
 
 ---
 
-# The Loop: Step by Step
+# Cursor Setup Checklist
 
-![bg right:35% h:280](images/concepts/train_test_split.png)
-
-| Step | What you do | Why it matters |
-|------|------------|---------------|
-| 1. **Load data** | Read CSV into a table | Rows = examples, columns = features |
-| 2. **Split train/val** | Separate learning data from test data | Prevents measuring on data the model has already seen |
-| 3. **Train** | Fit a model on training data | Model learns patterns |
-| 4. **Evaluate** | Predict on validation data | Honest estimate of real-world performance |
-| 5. **Save artifacts** | Store config + metrics + model | Creates evidence trail for every experiment |
-
-Even for LLM work, this disciplined loop is the basis for evaluating prompt/model changes.
+| Step | Action | Success |
+|------|--------|---------|
+| 1 | Download Cursor or VS Code | Installer ready |
+| 2 | Run installer | Cursor opens |
+| 3 | Sign in if needed | AI features active |
+| 4 | Open course repo | Files visible |
+| 5 | Press Cmd+L | AI chat opens |
 
 ---
 
-# Overfitting: The Core Trap
+# Cursor Interface
 
-![h:280](images/concepts/overfitting.png)
+| Element | Shortcut | Purpose |
+|---------|----------|---------|
+| AI Chat | Cmd+L | Conversational AI |
+| Inline Edit | Cmd+K | Edit at cursor |
+| File Explorer | Cmd+B | Browse files |
+| Terminal | Cmd+J | Run commands |
 
-**Overfitting** = the model memorizes training data instead of learning general patterns.
+---
 
-- Training metrics keep improving, but validation metrics **plateau or decline**
-- The gap between train and validation performance reveals overfitting
-- **Analogy**: a student who memorizes answers but can't solve new problems
-- **LLM parallel**: a prompt that works perfectly on your test case but fails on new inputs
+# Two AI Modes
 
-**Why validation split matters**: Without it, you won't detect overfitting until production failures.
+**Chat mode (Cmd+L):**
+- Ask questions about your project
+- Get explanations
+- Plan modifications
+
+**Inline mode (Cmd+K):**
+- Select code → describe change
+- AI edits directly in file
 
 ---
 
 <!-- _class: part -->
 
 # Part 02
-## Reproducibility Package
+## AI-Assisted Workflow
 
-`week_02/02_reproducibility_package.md` · `02_reproducibility_package.ipynb`
-
----
-
-# Reproducibility Package
-
-Reproducibility means:
-- Run the same command twice → results are **identical** (or explainably close)
-- A teammate can reproduce your metrics from your command + config
-
-### The four habits
-
-| Habit | What it does | LLM parallel |
-|-------|-------------|-------------|
-| **Control randomness** | `random_state=42` | Fixed seed for sampling |
-| **Parameterize runs** | `--seed`, `--max_iter` as flags | `--model`, `--temperature` as flags |
-| **Save artifacts** | `config.json` + `metrics.json` | Prompt + response + latency |
-| **Use run IDs** | `run_20260210_073204/` | Timestamped output folders (audit trail) |
+`week_02/02_ai_assisted_workflow.md`
 
 ---
 
-# Saving Artifacts: The Audit Trail
+# The Core Pattern: Ask → Review → Apply → Verify
 
-Every run should produce a traceable folder:
+![h:380](images/concepts/ai_workflow_cycle.svg)
 
-| Artifact | What it answers |
-|----------|----------------|
-| `config.json` | "What did I try?" (parameters, seed, model) |
-| `metrics.json` | "What happened?" (accuracy, F1, latency) |
-| `val_report.txt` | "Detailed breakdown?" (per-class performance) |
-| `model.joblib` | "Can I reproduce predictions later?" |
+```text
+1. ASK:    Describe what you want
+2. REVIEW: Check AI's suggestion
+3. APPLY:  Use the suggestion (if appropriate)
+4. VERIFY: Test that it works
+```
 
-**For LLM work**: replace `model.joblib` with saved prompts and raw responses — same principle, different artifacts.
+---
+
+# Why Each Step Matters
+
+| Step | Why |
+|------|-----|
+| **ASK** | Prompt quality → response quality |
+| **REVIEW** | AI can make mistakes |
+| **APPLY** | You decide, not AI |
+| **VERIFY** | Testing confirms it works |
+
+---
+
+# Iteration is Key
+
+First prompts rarely give perfect results:
+
+```text
+1st: "Explain this function"
+→ Too technical
+
+2nd: "Explain in simpler terms"
+→ Better but incomplete
+
+3rd: "Focus on what it returns, with example"
+→ Good!
+```
 
 ---
 
 <!-- _class: part -->
 
 # Part 03
-## Experiment Comparison + Writing a Report
+## Reading Code with AI
 
-`week_02/03_compare_runs_report.md` · `03_compare_runs_report.ipynb`
-
----
-
-# Experiment Comparison
-
-A useful experiment changes **one variable** at a time.
-
-| | Baseline | Variant |
-|---|---------|---------|
-| **seed** | 42 | 42 (same) |
-| **max_iter** | 200 | **1000** (changed) |
-| **accuracy** | 0.82 | 0.85 |
-| **F1** | 0.79 | 0.83 |
-| **training time** | 2s | 8s |
-
-**Ask**: Did accuracy/F1 improve? Did runtime increase? Is the improvement large enough to matter?
-
-**LLM parallel**: change one thing (model, temperature, prompt wording) and compare outputs.
+`week_02/03_reading_code_with_ai.md`
 
 ---
 
-# Experiment Report
+# Reading Workflow
 
-A good report is short and structured:
-
-| Section | What to write |
-|---------|--------------|
-| **Goal** | What you tried to improve |
-| **Change** | Exactly what you changed (one variable) |
-| **Result** | Metrics before/after |
-| **Interpretation** | Why you think it changed |
-| **Failure analysis** | One run that didn't work + what you learned |
-| **Next experiment** | One clear idea |
-
-**Two rules**: always include exact commands, always point to artifact folders.
+```text
+1. Identify: What file/function?
+2. Ask: Prompt AI to explain
+3. Review: Does explanation make sense?
+4. Iterate: Ask follow-up questions
+5. Apply: Take notes, build understanding
+```
 
 ---
 
-# Common Pitfalls
+# Key Prompts for Reading
 
-| Pitfall | Fix |
-|---------|-----|
-| Evaluating on training data | Always compute metrics on **validation** set |
-| Changing multiple variables at once | Change one thing per experiment |
-| Not saving the config | Save `config.json` every run |
-| Overwriting previous runs | Use per-run folders with timestamps |
-| Treating one metric as truth | Include at least accuracy **and** F1 |
+| Type | Example |
+|------|---------|
+| Overview | "What does this file do?" |
+| Line-by-line | "Explain each line" |
+| Concept | "What does 'def' mean?" |
+| Purpose | "Why is this written this way?" |
+| Example | "Give an example of using this" |
 
 ---
 
-# Workshop / Deliverables
+# Strategy: Start Broad, Then Narrow
 
-- Implement `train.py` (parameterized: `--input`, `--label_col`, `--seed`)
-- Run **2 experiments**: change one hyperparameter or switch models
-- Write `report.md`:
-  - What you changed
-  - What happened (metrics)
-  - One failure analysis + your next experiment idea
+```text
+Broad:     "What does this file do?"
+Narrow:    "Explain the first function"
+Specific:  "What does line 3 do?"
+```
+
+---
+
+<!-- _class: part -->
+
+# Part 04
+## Modifying Code with AI
+
+`week_02/04_modifying_code_with_ai.md`
+
+---
+
+# Modification Workflow
+
+![h:320](images/concepts/code_modification_workflow.svg)
+
+```text
+1. Understand: Read first (Part 03)
+2. Specify: Describe exactly what change
+3. Review: Check AI's suggestion
+4. Apply: Accept change (Cmd+K or manual)
+5. Verify: Test that it works
+```
+
+---
+
+# Types of Modifications
+
+| Type | Example Prompt |
+|------|----------------|
+| Comments | "Add comments explaining each line" |
+| Error handling | "Add check for empty input" |
+| Behavior change | "Return None instead of 0" |
+| New functionality | "Add a function to find the maximum" |
+
+---
+
+# Using Inline Edit (Cmd+K)
+
+1. **Select code**: Highlight function/lines
+2. **Press Cmd+K**: Edit panel appears
+3. **Describe change**: Type what you want
+4. **Review**: Check highlighted change
+5. **Accept or reject**: Click button
+
+---
+
+# Copy Before Edit
+
+Keep `code_templates/` as the original reference.
+
+```bash
+cd week_02
+mkdir -p modified_code
+cp code_templates/simple_math.py modified_code/simple_math.py
+cp code_templates/data_processing.py modified_code/data_processing.py
+```
+
+All modifications go in `modified_code/`.
+
+---
+
+<!-- _class: part -->
+
+# Part 05
+## Debugging with AI
+
+`week_02/05_debugging_with_ai.md`
+
+---
+
+# Types of Errors
+
+| Type | Example |
+|------|---------|
+| Syntax | Missing colon, wrong indentation |
+| Runtime | Division by zero, index out of range |
+| Type | Adding string and number |
+| Logic | Wrong condition, wrong calculation |
+
+---
+
+# Debugging Workflow
+
+```text
+1. Identify: Error message, when it occurs
+2. Ask AI: "Error: X. Code: Y. What's wrong?"
+3. Review: Does AI correctly identify cause?
+4. Apply: Use suggested fix
+5. Verify: Run code, check error gone
+```
+
+---
+
+# What to Tell AI
+
+```text
+I got this error: [exact error message]
+Here's the code: [paste relevant code]
+I was trying to: [describe your goal]
+What's wrong and how do I fix it?
+```
+
+---
+
+# Debugging Practice File
+
+`debugging_practice.py` is intentionally broken.
+
+```bash
+cd week_02
+mkdir -p modified_code
+cp code_templates/debugging_practice.py modified_code/debugging_practice_fixed.py
+python -B -m py_compile modified_code/debugging_practice_fixed.py
+```
+
+Fix one issue at a time, then record the prompt, fix, and verification.
+
+---
+
+# Run and Verify
+
+Use small commands to check your work:
+
+```bash
+cd week_02
+python --version
+python -B -m py_compile modified_code/simple_math.py
+cd modified_code
+python -c "from simple_math import add_numbers; print(add_numbers(2, 3))"
+```
+
+---
+
+# Workshop / What to Complete
+
+- Set up Cursor or VS Code and open the course repo
+- Explain at least 5 functions or code blocks
+- Complete 2-3 small code modifications in `modified_code/`
+- Complete 1 debugging record with error, prompt, fix, verification
+- Write a short AI-assisted code practice reflection
+
+---
+
+# What to Submit
+
+| File/folder | Purpose |
+|-------------|---------|
+| `report.md` | Explanations, modifications, reflection |
+| `modified_code/` | Copied files with your changes |
+| `debugging_record.md` | One complete debugging record |
+| `prompts.md` | Prompt log and AI use notes |
+| `README.md` | How to verify your work |
 
 ---
 
 # Self-Check Questions
 
-- Can you explain overfitting without using equations?
-- If someone runs your command twice, will results be identical or explainably close?
-- Can you point to the saved artifact that proves your reported metric?
-- Can you explain how ML discipline (train/val, artifacts, metrics) applies to LLM work?
+- Is Cursor installed and can you open AI chat?
+- Can you explain the Ask → Review → Apply → Verify pattern?
+- Can you explain 5 functions from templates?
+- Can you make a small code change and verify it?
+- Can you document one debugging process?
 
 ---
 
 # References
 
-- scikit-learn getting started: https://scikit-learn.org/stable/getting_started.html
-- Controlling randomness: https://scikit-learn.org/stable/common_pitfalls.html#controlling-randomness
-- Model evaluation: https://scikit-learn.org/stable/modules/model_evaluation.html
-- F1 score: https://en.wikipedia.org/wiki/F1_score
+- Cursor: https://cursor.sh
+- Code templates: `week_02/code_templates/`
+- Week 1: Prompt patterns for better prompts

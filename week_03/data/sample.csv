@@ -1,0 +1,21 @@
+id,name,age,city,salary,department
+1,Alice,28,New York,72000,Engineering
+2,Bob,35,San Francisco,95000,Engineering
+3,Charlie,,London,68000,Marketing
+4,Diana,42,New York,110000,Management
+5,Eve,31,Berlin,,Engineering
+6,Frank,28,London,72000,Marketing
+7,Grace,45,San Francisco,125000,Management
+8,Hank,,Tokyo,58000,Engineering
+9,Iris,38,New York,88000,Marketing
+10,Jack,28,Berlin,72000,Engineering
+11,Alice,28,New York,72000,Engineering
+12,Karen,55,Tokyo,,Management
+13,Leo,33,London,78000,Engineering
+14,Mona,29,San Francisco,69000,Marketing
+15,Nate,41,New York,98000,Management
+16,Olivia,27,,62000,Engineering
+17,Pete,36,Berlin,83000,Marketing
+18,Quinn,44,Tokyo,105000,Management
+19,Rose,30,London,71000,Engineering
+20,Sam,32,New York,76000,Marketing

@@ -1,47 +1,40 @@
-# Foundations Course — Week 5 Tutorials
+# Week 5 Tutorials: ML Training Loop + Lightweight Baselines
 
 ## Pre-study (Self-learn)
 
-Foundations Course assumes Self-learn is complete. If you need a refresher:
+Self-learn is optional. If you want a refresher:
 
 - [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 4: Hugging Face Platform and Local Inference](../self_learn/Chapters/4/Chapter4.md)
+- [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 ## Overview
 
-This week you run LLMs locally (Ollama) and compare models with a consistent benchmark.
-
-You will practice:
-
-- installing + running a local model
-- sending prompts via HTTP
-- measuring latency
-- saving outputs for comparison
+These tutorials expand Week 5 into a step-by-step, reproducible baseline ML workflow.
 
 ## Navigation
 
-- [01 — Local inference: concepts + setup checklist](01_local_inference_setup.md)
-- [02 — Calling Ollama via HTTP (minimal client)](02_ollama_http_client.md)
-- [03 — Benchmarking script: latency + quality artifacts](03_benchmarking_script.md)
+- [01 — The ML training loop (split → train → evaluate → save)](01_training_loop.md)
+- [02 — Reproducibility package (seeds, configs, artifacts)](02_reproducibility_package.md)
+- [03 — Comparing runs + writing a short report](03_compare_runs_report.md)
 
 ## Recommended order
 
-1. Read 01 and confirm Ollama runs.
-2. Read 02 and run a single prompt end-to-end.
-3. Read 03 and build a benchmark harness.
+1. Read 01 and get a baseline run working.
+2. Read 02 and make your artifacts reproducible.
+3. Read 03 and practice controlled comparisons.
 
 Exercises are included at the end of each notebook.
 
 Why this order works:
 
-1. **Confirm the local runtime first**
-    - Until the local server runs, any “client bug” is actually an environment/runtime issue.
-    - What to verify: `ollama serve` works and you can run one model once.
+1. **Baseline first**
+    - A baseline run proves the whole loop works end-to-end (load → split → train → eval → save).
+    - What to verify: you can produce an `artifacts/run_.../metrics.json` and re-run without overwriting.
 
-2. **Single prompt end-to-end second**
-    - Prove the HTTP contract: request → response → basic validation.
-    - What to verify: you can send a prompt, get a response, and handle timeouts/errors cleanly.
+2. **Reproducibility second**
+    - Once it runs, make it repeatable: same command should produce explainably similar results.
+    - What to verify: your run saves a config (seed, split settings) and you can point to the exact run that produced a metric.
 
-3. **Benchmark harness last**
-    - Once one request works, scale to many requests and measure latency distribution.
-    - What to verify: your benchmark saves outputs and latency metrics so you can compare models later.
+3. **Comparisons third**
+    - Only compare experiments after you’ve controlled variables; otherwise you can’t learn from results.
+    - What to verify: you change one thing at a time (e.g., `max_iter`, model type, or one feature).

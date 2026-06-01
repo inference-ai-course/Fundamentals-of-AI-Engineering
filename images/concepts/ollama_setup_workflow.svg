@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <!-- Background -->
+  <rect width="800" height="350" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#2c3e50">Ollama Setup Workflow</text>
+  
+  <!-- Step 1: Install -->
+  <rect x="30" y="70" width="160" height="130" rx="10" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <circle cx="110" cy="95" r="20" fill="white"/>
+  <text x="110" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#3498db">1</text>
+  <text x="110" y="135" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Install Ollama</text>
+  <rect x="40" y="150" width="140" height="40" rx="5" fill="#2c3e50"/>
+  <text x="110" y="167" font-family="monospace" font-size="8" text-anchor="middle" fill="#ecf0f1">curl -fsSL https://</text>
+  <text x="110" y="180" font-family="monospace" font-size="8" text-anchor="middle" fill="#ecf0f1">ollama.com/install.sh | sh</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M 190 135 L 220 135" stroke="#7f8c8d" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7f8c8d"/>
+    </marker>
+  </defs>
+  
+  <!-- Step 2: Start Service -->
+  <rect x="230" y="70" width="160" height="130" rx="10" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <circle cx="310" cy="95" r="20" fill="white"/>
+  <text x="310" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#2ecc71">2</text>
+  <text x="310" y="135" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Start Service</text>
+  <rect x="240" y="150" width="140" height="40" rx="5" fill="#2c3e50"/>
+  <text x="310" y="175" font-family="monospace" font-size="10" text-anchor="middle" fill="#ecf0f1">ollama serve</text>
+  <text x="310" y="195" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="white">→ localhost:11434</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M 390 135 L 420 135" stroke="#7f8c8d" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Step 3: Pull Model -->
+  <rect x="430" y="70" width="160" height="130" rx="10" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+  <circle cx="510" cy="95" r="20" fill="white"/>
+  <text x="510" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#9b59b6">3</text>
+  <text x="510" y="135" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Pull Model</text>
+  <rect x="440" y="150" width="140" height="40" rx="5" fill="#2c3e50"/>
+  <text x="510" y="167" font-family="monospace" font-size="9" text-anchor="middle" fill="#ecf0f1">ollama pull</text>
+  <text x="510" y="180" font-family="monospace" font-size="9" text-anchor="middle" fill="#ecf0f1">llama3.2:1b</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M 590 135 L 620 135" stroke="#7f8c8d" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Step 4: Test -->
+  <rect x="630" y="70" width="150" height="130" rx="10" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <circle cx="705" cy="95" r="20" fill="white"/>
+  <text x="705" y="100" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#e74c3c">4</text>
+  <text x="705" y="135" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">Test Prompt</text>
+  <rect x="640" y="150" width="130" height="40" rx="5" fill="#2c3e50"/>
+  <text x="705" y="167" font-family="monospace" font-size="8" text-anchor="middle" fill="#ecf0f1">ollama run llama3.2:1b</text>
+  <text x="705" y="180" font-family="monospace" font-size="8" text-anchor="middle" fill="#ecf0f1">"Say hello"</text>
+  
+  <!-- Success indicator -->
+  <rect x="250" y="220" width="300" height="50" rx="8" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#155724">✓ Success! Model is running locally</text>
+  
+  <!-- Verification Commands -->
+  <rect x="30" y="280" width="350" height="60" rx="5" fill="#fff3cd" stroke="#ffc107" stroke-width="1"/>
+  <text x="205" y="300" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#856404">Verification Commands:</text>
+  <text x="50" y="318" font-family="monospace" font-size="10" fill="#856404">ollama --version    # Check version</text>
+  <text x="50" y="333" font-family="monospace" font-size="10" fill="#856404">ollama list         # List downloaded models</text>
+  
+  <!-- Tips Box -->
+  <rect x="420" y="280" width="350" height="60" rx="5" fill="#cce5ff" stroke="#004085" stroke-width="1"/>
+  <text x="595" y="300" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#004085">💡 Tips:</text>
+  <text x="440" y="318" font-family="Arial, sans-serif" font-size="10" fill="#004085">• Start with small models (1B-3B) to test</text>
+  <text x="440" y="333" font-family="Arial, sans-serif" font-size="10" fill="#004085">• First run loads model (slower), subsequent faster</text>
+</svg>

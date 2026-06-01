@@ -1,92 +1,128 @@
-# Foundations Course — Week 6: Capstone Prototype (End-to-End Flow)
+# Week 6: AI-Assisted CSV Data Analyzer Capstone
 
-## Pre-study (Self-learn)
+Week 6 integrates the course into one small project: read a CSV file, profile the data, compress or sample what matters, call a **real LLM** for structured interpretation, and write both JSON and Markdown reports.
 
-Foundations Course assumes Self-learn is complete. If you need a refresher:
+The required MVP is intentionally fixed:
 
-- [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 3: AI Engineering Fundamentals](../self_learn/Chapters/3/Chapter3.md)
-
-## What you should be able to do by the end of this week
-
-- Implement the Capstone "happy path" end-to-end.
-- Keep prompts within limits by sampling/compressing inputs.
-- Produce stable artifacts: `report.json` and `report.md`.
-
-### End-to-end Capstone pipeline
-
-```mermaid
-flowchart TD
-  A[CSV] --> B[Profile]
-  B --> C[profile.json]
-  B --> D[Compress/sample]
-  D --> E[compressed_input.json]
-  E --> F[LLM client]
-  F --> G[Validate + format]
-  G --> H[report.json]
-  G --> I[report.md]
-
-  C --> J[Debug/inspect]
-  E --> J
-  H --> J
+```text
+CSV input -> data overview -> sampled/compressed summary -> real LLM interpretation -> report.json + report.md
 ```
 
-Tutorials:
- 
-- [tutorial.md](tutorial.md)
+## Topic Choices
+
+Default: build a general CSV data analyzer.
+
+Recommended concrete themes:
+
+1. **Customer Feedback / Support Ticket Analyzer**
+   - Good for tickets, reviews, surveys, or support messages.
+   - LLM value: themes, urgent issues, customer risks, recommended actions.
+
+2. **Product Review Insight Reporter**
+   - Good for product/app/course reviews.
+   - LLM value: positive themes, negative themes, feature requests, product risks.
+
+Other CSV topics are allowed if they keep the same input/output contract.
+
+## What You Should Be Able to Do
+
+By the end of this week, you should be able to:
+
+- Reuse Week 3 data profiling ideas.
+- Reuse Week 4 structured prompts, real LLM calls, timeout/retry or repair, and output validation.
+- Use Week 5 data/ML intuition to explain patterns and risks.
+- Produce stable `report.json` and readable `report.md` outputs.
+- Demo the project and explain one design decision.
+
+## Main Materials
+
+Capstone-required:
+
+- [../capstone.md](../capstone.md)
+- [simplified_project.md](simplified_project.md)
+- [capstone_template/](capstone_template/)
 - [01_pipeline_design.md](01_pipeline_design.md)
 - [02_sampling_compression.md](02_sampling_compression.md)
-- [03_chunking_synthesis.md](03_chunking_synthesis.md)
-- [04_capstone_runner.md](04_capstone_runner.md)
 
-Exercises are included at the end of each notebook.
+Useful Week 4 references:
 
-## Key Concepts (Self-learn refresher)
+- [../week_04/01_tokens_context.md](../week_04/01_tokens_context.md)
+- [../week_04/02_prompt_contracts.md](../week_04/02_prompt_contracts.md)
+- [../week_04/03_structured_outputs_validation.md](../week_04/03_structured_outputs_validation.md)
 
-Foundations Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
+Optional/advanced:
 
-- Pipeline and artifact mindset (inputs/outputs/contracts):
-  - ../self_learn/Chapters/3/Chapter3.md
+- [../week_04/09_openai_compatible_api.md](../week_04/09_openai_compatible_api.md)
 
-## Workshop / Implementation Plan
+## Template Workflow
 
-- Implement the full flow:
-  - CSV -> profiling
-  - sampling/compression
-  - LLM call (using your `llm_client.py`)
-  - build `report.json` + `report.md`
-- Ensure the entire pipeline runs with one command.
+Use `capstone_template/` as a scaffold, not as a finished answer. It includes file structure, function signatures, expected keys, and TODO comments.
 
-## Why This Matters for Learning AI
+Target command after you complete the TODOs:
 
-The capstone is where everything comes together. In the real world, AI engineering is never about a single skill in isolation — it's about connecting data processing, model calls, validation, and output formatting into a reliable, end-to-end system. This week proves you can do that.
+```bash
+python analyze.py --input ../data/sample_sales.csv --out output
+```
 
-### End-to-end pipelines are how AI actually gets deployed
+The template is not expected to pass this command before you implement the missing pieces.
 
-In production, no one runs individual scripts by hand. AI systems are *pipelines*: automated sequences of steps where the output of one stage feeds into the next. As [Neptune.ai](https://neptune.ai/blog/building-end-to-end-ml-pipeline) explains, ML pipelines let you *"achieve reproducibility in your workflow, simplify the end-to-end orchestration of multiple steps, and reduce the time it takes for data and models to move from the experimentation phase to the production phase."*
+## MVP Requirements
 
-Building your capstone as a single-command pipeline teaches you to think in systems, not scripts.
+Your completed project should:
 
-### Sampling and compression are essential real-world skills
+- Accept a CSV file path.
+- Compute data overview statistics:
+  - column types
+  - missing values
+  - duplicate rows
+  - basic numeric/categorical summaries
+  - simple anomaly hints
+- Avoid sending the full dataset to the LLM.
+- Make a real LLM call using a structured prompt.
+- Save the prompt and raw/validated LLM output.
+- Add beginner-friendly timeout/retry or repair handling.
+- Write `report.json` with stable top-level fields.
+- Write `report.md` for human readers.
+- Include setup and one-command run instructions.
 
-Real datasets are often too large to fit into an LLM's context window. You can't just dump a 100,000-row CSV into a prompt. Learning to sample representative subsets and compress inputs while preserving the information that matters is a critical skill. This is the same challenge faced by every RAG (Retrieval-Augmented Generation) system, every document summarizer, and every data analysis agent in production today.
+Mock responses are allowed only while debugging. They are not enough for final submission.
 
-### Intermediate artifacts make debugging possible
+## What to Complete
 
-When a multi-stage pipeline produces wrong output, you need to know *which stage* broke. By saving intermediate artifacts (`profile.json`, `compressed_input.json`, `report.json`), you can inspect each stage independently. As [Valohai](https://valohai.com/machine-learning-pipeline/) notes, *"splitting the problem solving into reproducible, predefined, and executable components forces the team to adhere to a joined process"* — and makes debugging tractable instead of impossible.
+| File or Folder | Description |
+|----------------|-------------|
+| Source code | CLI script or small modular project |
+| `output/report.json` | Machine-readable final report |
+| `output/report.md` | Human-readable final report |
+| `README.md` | Setup, API key/provider notes, and one-command run instructions |
+| `requirements.txt` or `pyproject.toml` | Dependencies |
+| sample input or dataset link | Dataset used for the successful run |
+| `postmortem.md` | One issue encountered and how it was handled |
+| `prompts.md` or `ai_usage.md` | Prompt and AI Agent Coding Tool usage notes |
 
-### The capstone mirrors real AI engineering work
+## AI Agent Coding Tool Use
 
-AI engineers don't just train models — they build systems that ingest data, process it, call models, validate outputs, and produce deliverables. This capstone pipeline (CSV → profiling → compression → LLM call → validated report) is a miniature version of what production AI systems look like at companies building with LLMs. Completing it demonstrates that you can own an AI project from input to output.
+You may use Cursor, Kilo, Copilot Chat, ChatGPT, Claude, or similar tools to complete the template. Record:
 
-### References
+- What prompt you used.
+- Which suggestion you accepted.
+- Which suggestion you rejected or changed.
+- What you personally tested or verified.
 
-- [How to Build an End-To-End ML Pipeline (Neptune.ai)](https://neptune.ai/blog/building-end-to-end-ml-pipeline)
-- [What is a Machine Learning Pipeline? (Valohai)](https://valohai.com/machine-learning-pipeline/)
-- [What Is an ML Pipeline? Stages, Architecture & Best Practices (Clarifai)](https://www.clarifai.com/blog/ml-pipeline)
+## Stretch Goals
 
-## Self-check questions
+These are optional:
 
-- Can you identify which stage fails when something breaks?
-- Can you re-run and get stable `report.json` fields?
-- Do you save intermediate outputs to help debugging?
+- Add charts to the Markdown report.
+- Support Excel input.
+- Support both hosted API and Ollama.
+- Add caching based on input file hash.
+- Add a CLI flag for different report styles.
+
+## Self-check Questions
+
+- Can someone run your project from the README without hidden steps?
+- Did your final run call a real LLM?
+- Does `report.json` keep the same top-level shape across runs?
+- What data did you send to the LLM, and what did you intentionally not send?
+- What is one failure case your project handles clearly?

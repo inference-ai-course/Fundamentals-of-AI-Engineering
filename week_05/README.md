@@ -1,105 +1,115 @@
-# Foundations Course — Week 5: Local Inference (Ollama) and Model Comparison
+# Week 5: The ML Training Loop + Lightweight Baselines
 
 ## Pre-study (Self-learn)
 
-Foundations Course assumes Self-learn is complete. If you need a refresher:
+Self-learn is optional. If you want a refresher:
 
 - [Pre-study index (Foundations Course → Self-learn)](../PRESTUDY.md)
-- [Self-learn — Chapter 4: Hugging Face Platform and Local Inference](../self_learn/Chapters/4/Chapter4.md)
+- [Self-learn — Chapter 2: Python and Environment Management](../self_learn/Chapters/2/Chapter2.md)
 
 ## What you should be able to do by the end of this week
 
-- Run at least one model locally using Ollama.
-- Compare 2–3 models on the same task using a consistent benchmark script.
-- Explain the practical constraints: speed, memory (VRAM/RAM), context limits, and output quality.
+- Explain why we split data into train/validation.
+- Train a baseline model, evaluate it, and save artifacts.
+- Compare two lightweight baseline runs and write a short reflection.
 
-### Hosted API vs local inference
+### The ML training loop
 
 ```mermaid
-flowchart LR
-  subgraph Hosted[Hosted API]
-    U1[Your app] --> N1[Internet]
-    N1 --> P1[Provider endpoint]
-    P1 --> M1[Large model cluster]
-    M1 --> P1
-    P1 --> N1
-    N1 --> U1
-  end
+flowchart TD
+  A[Load data] --> B[Split train/val]
+  B --> C[Train model on train]
+  C --> D[Predict on val]
+  D --> E[Compute metrics]
+  E --> F[Save artifacts]
+  F --> G[Compare runs]
 
-  subgraph Local[Local inference]
-    U2[Your app] --> O[Ollama local server]
-    O --> HW[CPU/GPU + RAM/VRAM]
-    HW --> O
-    O --> U2
-  end
+  F --> F1[config.json]
+  F --> F2[metrics.json]
+  F --> F3[model.joblib]
+  F --> F4[val_report.txt]
 ```
 
 Tutorials:
  
 - [tutorial.md](tutorial.md)
-- [01_local_inference_setup.md](01_local_inference_setup.md)
-- [02_ollama_http_client.md](02_ollama_http_client.md)
-- [03_benchmarking_script.md](03_benchmarking_script.md)
+- [01_training_loop.md](01_training_loop.md)
+- [02_reproducibility_package.md](02_reproducibility_package.md)
+- [03_compare_runs_report.md](03_compare_runs_report.md)
 
 Exercises are included at the end of each notebook.
 
 ## Key Concepts (Self-learn refresher)
 
-Foundations Course assumes you already learned the fundamentals in Self-learn. If you need a refresher for this week:
+Self-learn is optional. If you want a refresher for this week:
 
-- Local inference fundamentals and model/platform concepts:
-  - ../self_learn/Chapters/4/Chapter4.md
+- Reproducible environments, dependencies, and basic Python project habits:
+  - ../self_learn/Chapters/2/Chapter2.md
+- Evaluation mindset and metrics (accuracy/precision/recall/F1):
+  - ../self_learn/Chapters/4/02_core_concepts.md
 
-## Workshop / Implementation Plan
-
-- Install Ollama and run one model successfully.
-- Implement `benchmark_local_llm.py`:
-  - define a small prompt set (5–20 items)
-  - run each prompt on each model
-  - record latency and store outputs
-- Write a short conclusion:
-  - best model for quality
-  - best model for speed
-  - “best-fit scenarios” (when you would choose each)
-
-### Benchmark summary flow
+### Overfitting intuition (training vs validation curves)
 
 ```mermaid
 flowchart TD
-  M[Models] -->|loop| R[Run prompt set]
-  P[Prompt set] -->|loop| R
-  R --> L[Record latency_s]
-  R --> Q[Save output artifacts]
-  L --> S[summary.json]
-  Q --> S
+  A[Training begins] --> B[Both train & val metrics improve]
+  B --> C[Val metric peaks — best generalization]
+  C --> D[Train metric keeps improving]
+  C --> E[Val metric starts declining]
+  D --> F[Growing gap = overfitting signal]
+  E --> F
+  F --> G[Mitigation: stop early / regularize / simplify]
 ```
+
+## Common pitfalls
+
+- Evaluating on training data.
+- Changing multiple variables at once (you can’t tell what caused improvement).
+- Not saving the exact config that produced the metrics.
+
+## Workshop / Implementation Plan
+
+- Implement `train.py`:
+  - load data
+  - split train/validation
+  - train a baseline classifier
+  - print metrics
+  - save artifacts
+- Run 2 lightweight baseline experiments:
+  - change one hyperparameter OR switch models OR change one feature choice
+- Write `report.md`:
+  - what you changed
+  - what happened
+  - one next experiment idea
+
+Cross-validation, statistical significance testing, complex visualization, and multi-model systems are optional advanced work, not required for Week 5.
 
 ## Why This Matters for Learning AI
 
-Cloud APIs are convenient, but they're not the only way to run AI models — and in many real-world scenarios, they're not even the best way. Learning to run models locally and benchmark them critically is an essential skill for any AI engineer.
+The training loop is the beating heart of machine learning. Every ML system — from a simple spam filter to a state-of-the-art image classifier — follows the same fundamental cycle: load data, train, evaluate, iterate. Understanding this loop deeply is what separates someone who *uses* AI tools from someone who *builds* them.
 
-### Local inference gives you control, privacy, and independence
+### Train/validation splits prevent self-deception
 
-When you run a model locally with tools like Ollama, your data never leaves your machine. This matters enormously in industries like healthcare, law, and finance where data privacy is non-negotiable. As [Inference.net](https://inference.net/content/ollama) explains, *"Ollama keeps sensitive data on local machines, reducing the risk of exposure through third-party cloud providers."* Local inference also means no recurring cloud costs and no dependency on internet connectivity — you can work offline, in air-gapped environments, or in regions with poor connectivity.
+If you evaluate a model on the same data it was trained on, it will look artificially good — like a student who memorizes test answers without understanding the material. The train/validation split forces you to measure how well your model *generalizes* to data it has never seen. As [Lightly.ai](https://www.lightly.ai/blog/train-test-validation-split) explains, *"The true measure of a machine learning model is how well it can generalize and make accurate predictions on completely unseen data in real-world scenarios."*
 
-### Benchmarking teaches you to think critically about models
+This concept is so fundamental that [Wikipedia's ML article](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets) states: *"The standard machine learning practice is to train on the training set and tune hyperparameters using the validation set, where the validation process selects the model with the lowest validation loss."*
 
-Marketing claims and leaderboard scores don't tell the whole story. A model that tops a benchmark might be too slow for your use case, too large for your hardware, or too expensive for your budget. By building your own benchmark script and measuring latency, memory usage, and output quality on *your* tasks, you learn to evaluate models based on what actually matters for your application.
+### Baselines give you a reference point
 
-As [Dev.to](https://dev.to/worldlinetech/the-ultimate-llm-inference-battle-vllm-vs-ollama-vs-zml-m97) notes in their comparison of inference engines, *"Ollama is the king of usability... unbeaten for local testing and rapid prototyping"* — but different tools excel in different scenarios. The ability to run fair comparisons and draw justified conclusions is a core data science skill.
+You can't know if a fancy model is "good" unless you compare it to something simple. A baseline model (e.g., logistic regression, majority-class predictor) sets the floor. If your complex deep learning model barely beats a baseline, you know something is wrong — or that the problem is harder than expected.
 
-### Understanding hardware constraints is part of AI literacy
+### Saving artifacts makes experiments trustworthy
 
-AI models consume real resources: RAM, VRAM, CPU/GPU cycles. A 7B-parameter model might run fine on a laptop; a 70B model might not fit at all. Understanding these constraints helps you make practical decisions: Which model fits my hardware? Should I use a smaller model locally or pay for a larger one via API? These trade-offs come up in every real AI project.
+Every experiment should produce saved artifacts: the config that was used, the metrics that resulted, and the trained model itself. Without these, you're relying on memory and screenshots — which is how results get lost or misreported. According to [AIMultiple](https://research.aimultiple.com/reproducible-ai/), *"A lack of reproducibility blurs the line between scientific production and marketing"* — saving artifacts is how you stay on the science side.
 
 ### References
 
-- [Scaling AI with Ollama and the Power of Local Inference (Inference.net)](https://inference.net/content/ollama)
-- [The Ultimate LLM Inference Battle: vLLM vs. Ollama vs. ZML (Dev.to)](https://dev.to/worldlinetech/the-ultimate-llm-inference-battle-vllm-vs-ollama-vs-zml-m97)
-- [Running Local LLMs with Ollama: 3 Levels (BentoML)](https://www.bentoml.com/blog/running-local-llms-with-ollama-3-levels-from-local-to-distributed-inference)
+- [Train Test Validation Split: Best Practices & Examples (Lightly.ai)](https://www.lightly.ai/blog/train-test-validation-split)
+- [Training, validation, and test data sets (Wikipedia)](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets)
+- [Reproducible AI: Why it Matters (AIMultiple, 2026)](https://research.aimultiple.com/reproducible-ai/)
 
 ## Self-check questions
 
-- Can you run the same benchmark twice and get comparable latency distributions?
-- Can you justify why one model is "best" for a specific use case?
-- What is the biggest limiting factor on your machine (RAM, VRAM, CPU/GPU)?
+- Can you explain overfitting without using equations?
+- If someone runs your command twice, will results be identical or explainably close?
+- Can you point to the saved artifact that proves your reported metric?

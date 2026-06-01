@@ -1,75 +1,128 @@
-# Foundamental Course Capstone: Intelligent Data Analysis Script
+# Fundamentals Course Capstone: AI-Assisted CSV Data Analyzer
 
-Deliver a reproducible Python project that reads CSV data and produces a structured report via **traditional statistics + LLM explanations**. This Capstone should demonstrate **basic ML/data intuition + production-minded LLM calls + software engineering fundamentals**.
+Deliver a reproducible Python project that reads CSV data, builds a compact data summary, calls a **real LLM**, and writes a structured report.
 
-Pick a topic that is interesting to you, but keep the same I/O contract: **CSV in -> `report.json` + `report.md` out**.
+The required I/O contract is fixed:
 
-*   Sales / revenue analysis (orders, customers, products)
-*   Marketing campaign analysis (impressions, clicks, conversion)
-*   Customer support analysis (tickets, categories, resolution time)
-*   HR / recruiting analysis (applications, funnel stages, time-to-hire)
-*   Operations / quality analysis (defects, incidents, on-call tickets)
-*   Education / learning analytics (quiz scores, completion, engagement)
+```text
+CSV input -> data profiling -> sampled/compressed summary -> real LLM interpretation -> report.json + report.md
+```
 
-If you do not have access to real data, use public datasets or generate synthetic data with a clear schema.
+This capstone is still a **data analyzer**. The goal is not advanced statistics or a full analytics product. The goal is to show that you can combine data profiling, prompt contracts, LLM reliability controls, and reproducible project delivery.
+
+## Topic Choices
+
+You may use a general CSV dataset, but these two themes are strongly recommended because they make the LLM interpretation more meaningful:
+
+1. **Customer Feedback / Support Ticket Analyzer**
+   - Example columns: `ticket_id`, `created_at`, `customer_segment`, `channel`, `message`, `rating`
+   - Useful LLM outputs: common themes, urgent issues, customer risks, recommended actions
+
+2. **Product Review Insight Reporter**
+   - Example columns: `review_id`, `product`, `rating`, `review_text`, `date`, `region`
+   - Useful LLM outputs: positive themes, negative themes, feature requests, product risks
+
+Other topics are allowed if they keep the same CSV input and report output contract.
 
 ## MVP Scope
 
-*   **Input**: CSV file path
-*   **Processing**:
-    *   Data overview: column types, missing values, duplicates, basic statistics
-    *   Anomaly hints: simple rules are fine (IQR / Z-score / custom thresholds)
-    *   Sampling & compression: avoid sending the entire dataset to the model
-    *   LLM interpretation: use structured prompts to generate “insights + recommendations + risk notes”
-*   **Output**:
-    *   `report.json` (machine-readable, stable schema)
-    *   `report.md` (human-readable)
+- **Input**: CSV file path.
+- **Data profiling**:
+  - Column types.
+  - Missing values.
+  - Duplicate rows.
+  - Basic numeric and categorical summaries.
+  - Simple anomaly hints.
+- **Compression**:
+  - Do not send the full CSV to the LLM.
+  - Send a compact summary: schema, row/column counts, selected stats, top categories, representative samples, and anomaly hints.
+- **Real LLM interpretation**:
+  - Use a structured prompt.
+  - Save the prompt and raw response.
+  - Validate the expected fields.
+  - Use timeout/retry or a repair attempt.
+  - Mock responses are allowed for local debugging only; they do **not** satisfy the final capstone requirement.
+- **Output**:
+  - `output/report.json`
+  - `output/report.md`
 
-## Non-Functional Requirements
+## Target `report.json` Skeleton
 
-*   **Reliability**: timeouts, retries, and clear error messages
-*   **Reproducibility**: provide an environment file (`requirements.txt` or `pyproject.toml`) and a README
-*   **Maintainability**: organize code into modules (e.g., data/llm/report/utils)
-*   **Testability**: at least 3 test cases (normal input, empty/missing columns, oversized/invalid data). Automated tests are preferred, but a manual test checklist or a simple `smoke_test.py` is acceptable.
+Students may add theme-specific details, but the final JSON should preserve these top-level fields:
 
-## Suggested Project Structure (Example)
+```json
+{
+  "metadata": {},
+  "dataset_summary": {},
+  "data_quality": {},
+  "compression_summary": {},
+  "llm_interpretation": {},
+  "recommendations": [],
+  "risk_notes": [],
+  "errors_or_warnings": []
+}
+```
 
-*   `analyze.py` (CLI entrypoint)
-*   `src/`
-    *   `data_profile.py`
-    *   `sampling.py`
-    *   `llm_client.py`
-    *   `report_builder.py`
-*   `tests/`
-*   `README.md`
+For customer feedback or support tickets, `llm_interpretation` may include `themes`, `urgent_issues`, and `customer_risks`.
 
-## Deliverables
+For product reviews, `llm_interpretation` may include `positive_themes`, `negative_themes`, and `feature_requests`.
 
-*   Source code repository (or a directory)
-*   One-command run instructions in README:
-    *   `python analyze.py --input data.csv --out output/`
-*   Output samples (the `output/` directory contains at least one successful run)
-*   `postmortem.md`: document one key issue you encountered (e.g., unstable outputs/timeouts/large data) and how you solved it
+## Template
+
+Use the starter scaffold in:
+
+```text
+week_06/capstone_template/
+```
+
+The template is intentionally incomplete. It gives file structure, function signatures, expected keys, and TODO comments. You must complete the profiling, compression, real LLM call, validation, and report-building logic.
+
+You may use AI Agent Coding Tools such as Cursor, Kilo, Copilot Chat, ChatGPT, or Claude to help complete the TODOs, but you must document what prompts you used and what you personally verified.
+
+## Suggested Final Project Structure
+
+```text
+analyze.py
+src/
+  data_profile.py
+  compression.py
+  llm_interpretation.py
+  report_builder.py
+output/
+README.md
+requirements.txt or pyproject.toml
+postmortem.md
+prompts.md or ai_usage.md
+```
+
+## What to Complete
+
+| File or Folder | Description |
+|----------------|-------------|
+| Source code | CLI script or small modular project |
+| `output/report.json` | Machine-readable final report with stable top-level fields |
+| `output/report.md` | Human-readable final report |
+| `README.md` | Setup, API key/provider notes, and one-command run instructions |
+| `requirements.txt` or `pyproject.toml` | Dependencies |
+| sample input or dataset link | Dataset used for the successful run |
+| `postmortem.md` | One issue encountered and how it was handled |
+| `prompts.md` or `ai_usage.md` | Prompt and AI Agent Coding Tool usage notes |
 
 ## Acceptance Criteria
 
-*   Runs reliably on CSV files up to 10MB; failures must have understandable error messages
-*   Stable LLM output schema: `report.json` fields should not drift across runs
-*   Includes retries/timeouts; logs can pinpoint which stage failed (data processing / model call / output writing)
-*   Report must include at least:
-    *   Data overview
-    *   Anomalies and risk notes
-    *   At least 3 actionable recommendations
+- A reviewer can run the project on a small-to-medium CSV using the README.
+- The run performs a real LLM call and saves evidence of the prompt/raw response.
+- The project avoids sending the full dataset to the LLM.
+- `report.json` preserves the required top-level schema across runs.
+- `report.md` includes a readable overview, data quality notes, LLM-generated interpretation, recommendations, and risk notes.
+- Failures have understandable error messages.
 
-## Rubric (Suggested)
+## Stretch Goals (Optional)
 
-*   Engineering quality (structure/readability/runnability/tests): 40%
-*   Reliability and failure handling (timeouts/retries/logging/edge cases): 30%
-*   Report quality (structure, reasonable insights, actionable recommendations): 30%
+These are optional and should not replace the MVP:
 
-## Stretch Goals
-
-*   Add simple visualizations (charts + auto-embedded into the report)
-*   Support multiple data sources (CSV + Excel)
-*   Switchable backends for local inference vs hosted APIs (unified interface)
-*   Add caching: reuse LLM results when the input data hash matches
+- Add charts to the Markdown report.
+- Support Excel input.
+- Support both hosted API and Ollama backends.
+- Add caching based on input file hash.
+- Add a CLI flag for different report styles.
