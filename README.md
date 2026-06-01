@@ -42,13 +42,12 @@ The core philosophy is **"Learn AI with AI"**:
 2. **Week 2**: Use those AI tools to learn Python, set up an environment, run code, and debug errors.
 3. **Weeks 3-6**: Use AI tools to process data, build LLM workflows, run simple experiments, and deliver a capstone.
 
-AI is a learning accelerator, not a replacement for understanding. Students are expected to explain what they submitted, document how AI helped, and verify outputs before trusting them.
+AI is a learning accelerator, not a replacement for understanding. Students are expected to explain their work, document how AI helped, and verify outputs before trusting them.
 
 ## Course Navigation
 
 - [Pre-Study Guide](PRESTUDY.md) - Optional preparation before the course.
 - [Course Syllabus](SYLLABUS.md) - Detailed 6-week schedule.
-- [Assignment Requirements](assignments.md) - Weekly assessment criteria.
 - [Capstone Project](capstone.md) - Final intelligent data analysis script.
 
 ### Optional Self-Study References
@@ -75,7 +74,7 @@ The [old_v1/](old_v1/) directory contains the previous 8-week course and is kept
 
 ## 6-Week Teaching Plan
 
-| Week | Theme | Main Deliverable |
+| Week | Theme | Main Outcome |
 |------|-------|------------------|
 | Week 1 | Agent Tools Introduction | AI tool experience report, representative prompts, and reflection |
 | Week 2 | AI-Assisted Python Setup + Code Practice | AI Python prompt log, environment check, code run evidence, modifications, and debugging record |
@@ -117,19 +116,6 @@ By the end of the course, students will be able to:
    - Build a reproducible intelligent data analysis script.
    - Combine data profiling, LLM explanation, and report generation.
    - Demonstrate the project and explain key decisions.
-
-## Assessment Method
-
-| Component | Weight |
-|-----------|--------|
-| Week 1: Agent Tools Experience Report | 10% |
-| Week 2: AI-Assisted Python Setup + Code Practice | 10% |
-| Week 3: Data Profiling Report | 15% |
-| Week 4: LLM Structured Output + Reliability Practice | 15% |
-| Week 5: ML Baseline Comparison | 10% |
-| Week 6: Intelligent Data Analysis Capstone | 25% |
-| Participation | 15% |
-| **Total** | **100%** |
 
 ## Technology Stack
 

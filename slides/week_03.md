@@ -110,7 +110,7 @@ Use the Week 3 tutorials:
 
 ---
 
-# Deliverables
+# What to Complete
 
 - Runnable data profiling script
 - `output/profile.json`

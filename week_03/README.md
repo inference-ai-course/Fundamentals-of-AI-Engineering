@@ -63,7 +63,7 @@ For local inference and LLM reliability topics, see [Week 4](../week_04/README.m
 5. Run the script on a provided CSV or your own small dataset.
 6. Write a short data quality note.
 
-## Deliverables
+## What to Complete
 
 - A runnable data profiling script.
 - `output/profile.json`.

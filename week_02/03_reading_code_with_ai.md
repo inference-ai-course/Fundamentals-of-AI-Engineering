@@ -288,7 +288,7 @@ Test: Run code, check result
 
 ---
 
-## Deliverable: Code Explanation Exercise
+## Practice: Code Explanation Exercise
 
 By end of this section, complete:
 

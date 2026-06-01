@@ -272,7 +272,7 @@ Kilo is an AI coding assistant for the **terminal**.
 
 ---
 
-# Workshop / Deliverables
+# Workshop / What to Complete
 
 - Try at least 2 AI tools
 - Complete 3 meaningful tasks:

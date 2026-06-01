@@ -70,7 +70,7 @@ Optional/advanced:
    - saved raw responses or basic logs
 5. Write a short note describing one failure mode you observed.
 
-## Deliverables
+## What to Complete
 
 - Structured-output demo code or notebook.
 - Week 3 profile-to-insights output, plus at least 2 additional small test inputs or simulated responses.

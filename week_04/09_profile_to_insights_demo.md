@@ -71,9 +71,9 @@ python profile_to_insights_demo.py --profile ../week_03/output/profile.json --ou
 
 The script should save both the invalid raw response and the repaired response, then write a valid `insights.json`.
 
-## What To Submit
+## What to Complete
 
-For Week 4, include:
+For Week 4, document:
 
 - the prompt contract
 - `raw_responses.json`

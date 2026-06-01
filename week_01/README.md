@@ -118,11 +118,9 @@ Understanding what AI can and cannot do:
 
 ---
 
-## Deliverables & Assignments
+## What to Complete
 
-### Individual Assignments
-
-1. **AI Tool Comparison Report** (Due: End of Week 1)
+1. **AI Tool Comparison Report**
    - Choose two AI tools we covered
    - Complete the same 3 tasks with each
    - Write a brief comparison of the results (300-500 words)

@@ -443,7 +443,7 @@ After fixing, test incrementally:
 
 ---
 
-## Deliverable: Debugging Exercise
+## Practice: Debugging Exercise
 
 Complete at least 2 debugging tasks:
 

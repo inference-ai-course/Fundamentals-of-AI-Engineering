@@ -263,7 +263,7 @@ AI generates the modified version. You review and apply.
 
 ---
 
-## Deliverable: Code Modification Exercise
+## Practice: Code Modification Exercise
 
 By end of this section, complete:
 

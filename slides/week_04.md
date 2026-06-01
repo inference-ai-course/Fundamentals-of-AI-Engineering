@@ -125,7 +125,7 @@ Optional: Ollama or local-vs-cloud benchmarking.
 
 ---
 
-# Deliverables
+# What to Complete
 
 - Structured-output demo
 - At least 3 test inputs and outputs

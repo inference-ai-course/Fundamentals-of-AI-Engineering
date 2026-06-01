@@ -458,9 +458,9 @@ Student task:
 
 ---
 
-## Slide 25: Week 2 Deliverables
+## Slide 25: Week 2 What to Complete
 
-Students submit:
+Students aim to finish:
 
 - AI Python learning prompt log.
 - Environment check output.
@@ -471,7 +471,7 @@ Students submit:
 - Representative prompts.
 - A short reflection on what AI helped with and what they verified.
 
-**Reminder:** The grading focus is understanding, verification, and documentation.
+**Reminder:** Focus on understanding, verification, and documentation.
 
 ---
 

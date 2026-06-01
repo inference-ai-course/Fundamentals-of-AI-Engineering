@@ -21,7 +21,7 @@ Week 1 requires no programming. Students learn how to use AI tools, ask useful q
 
 ### Core Philosophy
 
-**"Learn AI with AI"** - AI tools should accelerate learning, but students still need to verify outputs, explain their work, and understand the workflow they submit.
+**"Learn AI with AI"** - AI tools should accelerate learning, but students still need to verify outputs, explain their work, and understand the workflow they practice.
 
 ## Learning Objectives
 
@@ -52,7 +52,7 @@ Upon completing this course, students will be able to:
 - Hands-on tool practice: writing, summarizing, explaining, and planning tasks.
 - Reflection: when to trust AI, when to verify, and how to document AI usage.
 
-#### Deliverables
+#### What to Complete
 
 - 3 AI tool experience cases.
 - Representative prompts or screenshots/interaction notes.
@@ -87,7 +87,7 @@ Upon completing this course, students will be able to:
 - Code reading with AI using `week_02/code_templates/`.
 - Small modifications and debugging workshop.
 
-#### Deliverables
+#### What to Complete
 
 - AI Python learning prompt log.
 - Environment verification output.
@@ -117,7 +117,7 @@ Upon completing this course, students will be able to:
 - Data profiling: row counts, column types, missing values, duplicates, simple statistics, and Markdown/JSON output.
 - Workshop: run the profiler on a provided or student-selected CSV.
 
-#### Deliverables
+#### What to Complete
 
 - A runnable data profiling script.
 - `profile.json` and `profile.md` sample outputs.
@@ -148,7 +148,7 @@ Upon completing this course, students will be able to:
 - API reliability: timeout, bounded retry/repair, saved raw responses, and basic logging.
 - Offline profile-to-insights demo using Week 3 `profile.json`.
 
-#### Deliverables
+#### What to Complete
 
 - A structured-output demo that returns parseable JSON for Week 3 `profile.json` and at least 2 additional small test inputs or simulated responses.
 - Reliability notes covering timeout/max wait, bounded retry/repair, and saved raw responses.
@@ -176,7 +176,7 @@ Upon completing this course, students will be able to:
 - Guided scikit-learn baseline.
 - Run comparison and short report writing.
 
-#### Deliverables
+#### What to Complete
 
 - Two lightweight baseline runs.
 - Saved configs/metrics or a simple comparison table.
@@ -203,7 +203,7 @@ Upon completing this course, students will be able to:
 - Implementation workshop using provided templates and prior-week components.
 - Demo, reflection, and next learning path.
 
-#### Deliverables
+#### What to Complete
 
 - A reproducible script or small project that accepts a CSV input.
 - `report.json` and `report.md` outputs.

@@ -246,9 +246,9 @@ Write these down. Keep them as your reference.
 
 ---
 
-## Deliverables Reminder
+## What to Complete
 
-By end of Week 1, submit:
+By the end of Week 1, aim to finish:
 
 - 3 different AI task examples (using different tools)
 - Agent Tool Usage Reflection Report (800-1000 words)

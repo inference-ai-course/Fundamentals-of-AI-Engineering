@@ -175,9 +175,9 @@ Optional support materials:
 - [02_debugging_with_ai_lab.ipynb](02_debugging_with_ai_lab.ipynb)
 - [code_templates/debugging_practice.py](code_templates/debugging_practice.py) - final mixed challenge
 
-## Deliverables
+## What to Complete
 
-Students must submit the following by the end of Week 2:
+By the end of Week 2, aim to finish:
 
 ### 1. AI Python Learning Log
 
@@ -216,8 +216,6 @@ A report documenting:
 - Before/after comparison of code quality and functionality
 - At least one runtime error and one logic error debugged with AI
 - Optional: one pandas/data debugging case
-
-Submit all deliverables via the course learning management system.
 
 ## Resources and Tips
 

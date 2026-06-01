@@ -80,7 +80,7 @@ postmortem.md
 prompts.md
 ```
 
-## Deliverables
+## What to Complete
 
 - Source code or notebook/script.
 - `output/report.json`.

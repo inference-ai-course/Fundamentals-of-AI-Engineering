@@ -123,7 +123,7 @@ Keep it simple and runnable.
 
 ---
 
-# Deliverables
+# What to Complete
 
 - Script or notebook that runs the MVP
 - `output/report.json` as the machine-readable result

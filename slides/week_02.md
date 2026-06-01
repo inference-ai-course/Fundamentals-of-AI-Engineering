@@ -264,7 +264,7 @@ What's wrong and how do I fix it?
 
 ---
 
-# Workshop / Deliverables
+# Workshop / What to Complete
 
 - Set up Cursor or VS Code and open `week_02/code_templates/`
 - Explain at least 5 functions or code blocks

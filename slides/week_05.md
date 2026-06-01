@@ -249,7 +249,7 @@ A good report is short and structured:
 
 ---
 
-# Workshop / Deliverables
+# Workshop / What to Complete
 
 - Implement `train.py` (parameterized: `--input`, `--label_col`, `--seed`)
 - Run **2 lightweight baseline experiments**: change one hyperparameter, switch models, or change one feature choice

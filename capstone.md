@@ -43,7 +43,7 @@ If you do not have access to real data, use public datasets or generate syntheti
 *   `tests/`
 *   `README.md`
 
-## Deliverables
+## What to Complete
 
 *   Source code repository (or a directory)
 *   One-command run instructions in README:
@@ -60,12 +60,6 @@ If you do not have access to real data, use public datasets or generate syntheti
     *   Data overview
     *   Anomalies and risk notes
     *   At least 3 actionable recommendations
-
-## Rubric (Suggested)
-
-*   Engineering quality (structure/readability/runnability/tests): 40%
-*   Reliability and failure handling (timeouts/retries/logging/edge cases): 30%
-*   Report quality (structure, reasonable insights, actionable recommendations): 30%
 
 ## Stretch Goals (Optional)
 
