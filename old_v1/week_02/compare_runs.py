@@ -33,7 +33,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--dashboard",
-        action="store_true",
+        action="store_false",
         help="Generate quick dashboard summary"
     )
     args = parser.parse_args()
