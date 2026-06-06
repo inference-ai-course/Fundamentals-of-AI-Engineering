@@ -1,0 +1,23 @@
+[
+  {
+    "run_id": "run_001",
+    "model": "logreg",
+    "accuracy": 0.84,
+    "f1": 0.82,
+    "notes": "baseline"
+  },
+  {
+    "run_id": "run_002",
+    "model": "logreg",
+    "accuracy": 0.87,
+    "f1": 0.86,
+    "notes": "more iterations"
+  },
+  {
+    "run_id": "run_003",
+    "model": "rf",
+    "accuracy": 0.89,
+    "f1": 0.88,
+    "notes": "higher depth"
+  }
+]
