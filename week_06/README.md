@@ -54,7 +54,6 @@ By the end of this week, you should be able to:
 Capstone-required:
 
 - [../capstone.md](../capstone.md)
-- [tutorial.md](tutorial.md)
 - [simplified_project.md](simplified_project.md)
 - [capstone_template/](capstone_template/)
 - [01_pipeline_design.md](01_pipeline_design.md)

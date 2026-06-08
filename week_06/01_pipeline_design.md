@@ -146,6 +146,12 @@ class ProjectRunner:
             "column_count": len(df.columns),
             "columns": list(df.columns),
             "missing_values": df.isna().sum().to_dict(),
+            # Job Posting Skill Analyzer: a cheap, decision-relevant summary.
+            "top_job_titles": (
+                df["job_title"].value_counts().head(10).to_dict()
+                if "job_title" in df.columns
+                else {}
+            ),
         }
         
         artifact_path = self.output_dir / "profile.json"
@@ -246,7 +252,7 @@ class ProjectRunner:
 # Usage
 if __name__ == "__main__":
     runner = ProjectRunner(output_dir=Path("output"))
-    runner.run_all(input_csv=Path("data.csv"))
+    runner.run_all(input_csv=Path("data/sample_job_postings.csv"))
 ```
 
 ---
