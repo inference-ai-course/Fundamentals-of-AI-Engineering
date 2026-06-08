@@ -14,6 +14,10 @@ tech/data roles so the "skill analyzer / learning path" theme is relevant.
   library only), keeps tech/data titles, maps the columns onto the Week 6
   schema, and truncates each `job_description` to ~1500 characters to keep the
   file small. Re-run the script to regenerate the file deterministically.
+- **Step-by-step version:** `scripts/build_job_postings_sample.ipynb` is the
+  same process explained and demonstrated cell by cell (inspect the raw API
+  response, the schema mapping, the tech/data filter, then collect and verify).
+  It writes the identical CSV.
 
 ### Columns
 
