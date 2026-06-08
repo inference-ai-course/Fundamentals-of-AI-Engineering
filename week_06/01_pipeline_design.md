@@ -4,6 +4,12 @@
 
 A pipeline is a sequence of stages.
 
+For Week 6, the pipeline powers a **Job Posting Skill Analyzer**:
+
+```text
+job postings CSV -> profile -> compressed skill summary -> LLM interpretation -> report.json + report.md
+```
+
 Each stage should have:
 
 - clear inputs
@@ -39,25 +45,25 @@ Why it matters here (Week 6):
 For each stage, aim to make the contract explicit.
 
 1. **Load**
-    - **Inputs**: `data/*.csv` (or a single CSV path)
+    - **Inputs**: a job postings CSV such as `data/sample_job_postings.csv`
     - **Outputs**: an in-memory dataframe/table OR a saved intermediate like `output/loaded.parquet`
     - **Common pitfalls**: silent dtype changes, unexpected delimiters/encodings, missing columns that only fail later.
 
 2. **Profile**
     - **Inputs**: loaded table
     - **Outputs**: `output/profile.json` (machine-readable) and optionally `output/profile.md` (human-readable)
-    - **What “profile” means**: row/column counts, missing values per column, basic numeric stats, top categories.
+    - **What “profile” means**: row/column counts, missing values per column, top job titles, top locations, text-length notes, and any basic numeric/categorical stats.
 
 3. **Compress**
     - **Inputs**: table + profiling results
     - **Outputs**: `output/compressed_input.json`
-    - **Goal**: fit the most decision-relevant information into a bounded context window.
-    - **Common pitfalls**: sampling that drops rare-but-important cases; summaries that remove units/definitions.
+    - **Goal**: fit the most decision-relevant job-skill evidence into a bounded context window.
+    - **Common pitfalls**: sending full job descriptions in bulk; sampling that drops rare-but-important roles; summaries that remove tool names or role context.
 
 4. **LLM**
     - **Inputs**: prompt template + `output/compressed_input.json`
     - **Outputs**: `output/llm_prompt.txt` and `output/llm_raw_response.txt`; validated parsed output feeds the report stage
-    - **Common pitfalls**: calling the model without saving the exact prompt/context; not handling timeouts/429s.
+    - **Common pitfalls**: asking for generic career advice instead of evidence from the compressed job postings; calling the model without saving the exact prompt/context; not handling timeouts/429s.
 
 5. **Report**
     - **Inputs**: validated LLM output + (optional) original profile
@@ -173,17 +179,17 @@ class ProjectRunner:
         Call LLM with compressed input.
         """
         # Debug-only placeholder. Final capstone submissions must call a real LLM.
-        prompt = f"Analyze this data:\n{json.dumps(compressed, indent=2)}"
+        prompt = f"Analyze these job postings and identify common skills:\n{json.dumps(compressed, indent=2)}"
         
         # Save the prompt
         (self.output_dir / "llm_prompt.txt").write_text(prompt)
         
         # Simulate LLM response for local pipeline debugging only.
         llm_response = {
-            "summary": "Example analysis",
-            "insights": ["Insight 1", "Insight 2"],
-            "recommendations": ["Example next action"],
-            "risk_notes": ["Example uncertainty"],
+            "summary": "Example job skill analysis",
+            "insights": ["Python and SQL appear across several roles", "Dashboards and communication are recurring requirements"],
+            "recommendations": ["Prioritize SQL, Python, dashboarding, and project documentation"],
+            "risk_notes": ["Small sample; do not treat this as a full labor-market study"],
         }
         
         # Save raw response
@@ -220,7 +226,7 @@ class ProjectRunner:
         
         # Markdown report
         md_lines = [
-            "# Data Analysis Report",
+            "# Job Posting Skill Analysis Report",
             "",
             f"- Rows: {profile['row_count']}",
             f"- Columns: {profile['column_count']}",

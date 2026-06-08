@@ -1,6 +1,6 @@
-# Fundamentals Course Capstone: AI-Assisted CSV Data Analyzer
+# Fundamentals Course Capstone: Job Posting Skill Analyzer
 
-Deliver a reproducible Python project that reads CSV data, builds a compact data summary, calls a **real LLM**, and writes a structured report.
+Deliver a reproducible Python project that reads a CSV of job postings, builds a compact data summary, calls a **real LLM**, and writes a structured skills and learning-priority report.
 
 The required I/O contract is fixed:
 
@@ -8,21 +8,55 @@ The required I/O contract is fixed:
 CSV input -> data profiling -> sampled/compressed summary -> real LLM interpretation -> report.json + report.md
 ```
 
-This capstone is still a **data analyzer**. The goal is not advanced statistics or a full analytics product. The goal is to show that you can combine data profiling, prompt contracts, LLM reliability controls, and reproducible project delivery.
+This capstone is still a **data analyzer**. The goal is not advanced labor-market research, web scraping, or a full career platform. The goal is to show that you can combine data profiling, text compression, prompt contracts, LLM reliability controls, and reproducible project delivery.
 
-## Topic Choices
+## Main Project Theme
 
-You may use a general CSV dataset, but these two themes are strongly recommended because they make the LLM interpretation more meaningful:
+Build a **Job Posting Skill Analyzer**.
 
-1. **Customer Feedback / Support Ticket Analyzer**
-   - Example columns: `ticket_id`, `created_at`, `customer_segment`, `channel`, `message`, `rating`
-   - Useful LLM outputs: common themes, urgent issues, customer risks, recommended actions
+Analyze job descriptions to identify:
 
-2. **Product Review Insight Reporter**
-   - Example columns: `review_id`, `product`, `rating`, `review_text`, `date`, `region`
-   - Useful LLM outputs: positive themes, negative themes, feature requests, product risks
+- common technical skills
+- common tools, platforms, and frameworks
+- repeated role patterns or job families
+- beginner learning priorities
+- suggested beginner learning paths
+- portfolio project ideas
+- risks and limitations in the dataset
 
-Other topics are allowed if they keep the same CSV input and report output contract.
+Helpful CSV columns:
+
+```text
+job_id,job_title,company,location,job_description,job_skills,posted_date,source
+```
+
+Your CSV should include at least `job_title` and `job_description`.
+
+## Job Posting Data Source Options
+
+Use one of these data paths:
+
+### Option A: Use a public Kaggle dataset
+
+Use a public job postings dataset such as:
+
+- [LinkedIn Job Postings (2023 - 2024)](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings)
+- [1.3M Linkedin Jobs & Skills (2024)](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024)
+
+For the MVP, use a small subset of about 50-100 rows. Your CSV should include at least `job_title` and `job_description`. If the full dataset is large, create a smaller CSV before running the analyzer.
+
+### Option B: Collect job postings yourself
+
+This is optional and more advanced. If you collect postings yourself:
+
+- Only collect public pages that allow access.
+- Follow website terms and classroom guidance.
+- Avoid login-gated, paywalled, or protected pages.
+- Do not scrape LinkedIn directly unless your instructor explicitly approves a compliant source.
+- Rate-limit requests and keep the dataset small.
+- Save the collected data as a local CSV before running the analyzer.
+
+Do not make live scraping part of the main analyzer pipeline. The capstone project should still consume a saved CSV file.
 
 ## MVP Scope
 
@@ -63,9 +97,7 @@ Students may add theme-specific details, but the final JSON should preserve thes
 }
 ```
 
-For customer feedback or support tickets, `llm_interpretation` may include `themes`, `urgent_issues`, and `customer_risks`.
-
-For product reviews, `llm_interpretation` may include `positive_themes`, `negative_themes`, and `feature_requests`.
+For job postings, `llm_interpretation` should include `common_skills`, `common_tools`, `role_clusters`, `learning_priorities`, `beginner_learning_path`, and `portfolio_project_ideas`.
 
 ## Template
 
@@ -104,7 +136,7 @@ prompts.md or ai_usage.md
 | `output/report.md` | Human-readable final report |
 | `README.md` | Setup, API key/provider notes, and one-command run instructions |
 | `requirements.txt` or `pyproject.toml` | Dependencies |
-| sample input or dataset link | Dataset used for the successful run |
+| sample input or dataset link | Kaggle dataset link, prepared subset, or documented self-collected CSV |
 | `postmortem.md` | One issue encountered and how it was handled |
 | `prompts.md` or `ai_usage.md` | Prompt and AI Agent Coding Tool usage notes |
 
@@ -116,6 +148,8 @@ prompts.md or ai_usage.md
 - `report.json` preserves the required top-level schema across runs.
 - `report.md` includes a readable overview, data quality notes, LLM-generated interpretation, recommendations, and risk notes.
 - Failures have understandable error messages.
+- The README documents whether the data came from Kaggle or a self-collected CSV.
+- The analysis avoids sending full job descriptions in bulk to the LLM.
 
 ## Stretch Goals (Optional)
 

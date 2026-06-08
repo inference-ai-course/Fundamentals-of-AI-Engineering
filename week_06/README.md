@@ -1,6 +1,6 @@
-# Week 6: AI-Assisted CSV Data Analyzer Capstone
+# Week 6: Job Posting Skill Analyzer Capstone
 
-Week 6 integrates the course into one small project: read a CSV file, profile the data, compress or sample what matters, call a **real LLM** for structured interpretation, and write both JSON and Markdown reports.
+Week 6 integrates the course into one small project: read a CSV of job postings, profile the data, compress or sample what matters, call a **real LLM** for structured interpretation, and write both JSON and Markdown reports about skills and learning priorities.
 
 The required MVP is intentionally fixed:
 
@@ -8,21 +8,36 @@ The required MVP is intentionally fixed:
 CSV input -> data overview -> sampled/compressed summary -> real LLM interpretation -> report.json + report.md
 ```
 
-## Topic Choices
+## Main Project
 
-Default: build a general CSV data analyzer.
+Build a **Job Posting Skill Analyzer**.
 
-Recommended concrete themes:
+Your project should analyze job descriptions to identify:
 
-1. **Customer Feedback / Support Ticket Analyzer**
-   - Good for tickets, reviews, surveys, or support messages.
-   - LLM value: themes, urgent issues, customer risks, recommended actions.
+- common technical skills
+- common tools, platforms, and frameworks
+- repeated role patterns or job families
+- beginner learning priorities
+- suggested beginner learning paths
+- portfolio project ideas
+- risks and limitations in the dataset
 
-2. **Product Review Insight Reporter**
-   - Good for product/app/course reviews.
-   - LLM value: positive themes, negative themes, feature requests, product risks.
+Helpful columns:
 
-Other CSV topics are allowed if they keep the same input/output contract.
+```text
+job_id,job_title,company,location,job_description,job_skills,posted_date,source
+```
+
+Your CSV should include at least `job_title` and `job_description`.
+
+## Data Source Options
+
+Choose one data path:
+
+1. **Use a public Kaggle dataset** such as [LinkedIn Job Postings (2023 - 2024)](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings). The larger [1.3M Linkedin Jobs & Skills (2024)](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024) dataset is also acceptable if you create a small subset first.
+2. **Collect job postings yourself** as an optional advanced path. Only collect public pages that allow access, follow website terms, avoid login-gated pages, do not scrape LinkedIn directly unless your instructor explicitly approves a compliant source, rate-limit requests, and save the result as a CSV before analysis.
+
+For the MVP, analyze about 50-100 rows. The analyzer should always start from a saved local CSV, not from live scraping.
 
 ## What You Should Be Able to Do
 
@@ -47,8 +62,7 @@ Capstone-required:
 
 Theme examples:
 
-- [Customer feedback / support ticket schema](capstone_template/theme_examples/customer_feedback_schema.md)
-- [Product review schema](capstone_template/theme_examples/product_review_schema.md)
+- [Job posting skill analyzer schema](capstone_template/theme_examples/job_posting_schema.md)
 
 Useful Week 4 references:
 
@@ -68,10 +82,10 @@ Use `capstone_template/` as a scaffold, not as a finished answer. It includes fi
 Target command after you complete the TODOs:
 
 ```bash
-python analyze.py --input ../data/sample_sales.csv --out output
+python analyze.py --input ../data/sample_job_postings.csv --out output
 ```
 
-`sample_sales.csv` is a general analyzer sample. For the recommended feedback/review themes, use the theme examples above and the theme-aligned sample CSVs in `data/`.
+`sample_job_postings.csv` is a small classroom sample. For a stronger final project, use a prepared Kaggle subset or a documented self-collected CSV.
 
 The template is not expected to pass this command before you implement the missing pieces.
 
@@ -127,6 +141,10 @@ These are optional:
 - Support both hosted API and Ollama.
 - Add caching based on input file hash.
 - Add a CLI flag for different report styles.
+
+## Optional Alternate Themes
+
+If your instructor approves a different text-heavy CSV topic, you may adapt the same pipeline to customer feedback or product reviews. Keep the same input/output contract and report schema.
 
 ## Self-check Questions
 

@@ -4,7 +4,7 @@
 
 You usually cannot send a full dataset to an LLM.
 
-Instead you send a compressed representation:
+For the Week 6 Job Posting Skill Analyzer, this is especially important because job descriptions can be long. Instead you send a compressed representation:
 
 - descriptive stats
 - missingness summary
@@ -121,14 +121,14 @@ compressed["categorical_summaries"] = cat_summary
 
 ---
 
-## Text-column compression for feedback/review themes
+## Text-column compression for job descriptions
 
-For customer feedback, support tickets, or product reviews, one text column may carry most of the useful signal. Do not send every full message to the LLM. Instead:
+For job postings, `job_description` often carries most of the useful signal. Do not send every full description to the LLM. Instead:
 
-- detect likely text columns such as `message`, `comment`, `feedback`, `review_text`, `pros`, or `cons`
-- include a small deterministic sample of representative text rows
-- include short counts by rating, category, sentiment label, or priority if those columns exist
-- preserve a few edge cases such as very low ratings, urgent tickets, or unusually long comments
+- detect likely text columns such as `job_description`, `description`, `summary`, or `responsibilities`
+- include a small deterministic sample of representative job descriptions
+- include short counts by job title, location, remote/on-site status, seniority, or source if those columns exist
+- preserve a few edge cases such as unusually long descriptions, rare roles, or postings with sparse requirements
 - remove direct personal data before sending text to the LLM
 
 Example compact text summary:
@@ -145,6 +145,27 @@ def compress_text_column(df: pd.DataFrame, text_col: str, sample_n: int = 8) -> 
         "sample_texts": sample.astype(str).str.slice(0, 300).tolist(),
         "note": "Sampled deterministically and truncated to avoid sending the full dataset.",
     }
+```
+
+For a job postings dataset, combine this with title and skill hints:
+
+```python
+def compress_job_postings(df: pd.DataFrame) -> dict:
+    text_col = "job_description" if "job_description" in df.columns else None
+    compressed = {
+        "shape": [int(df.shape[0]), int(df.shape[1])],
+        "columns": list(df.columns),
+        "top_job_titles": df["job_title"].value_counts().head(10).to_dict()
+        if "job_title" in df.columns
+        else {},
+    }
+    if "job_skills" in df.columns:
+        compressed["sample_skill_strings"] = (
+            df["job_skills"].dropna().astype(str).head(20).tolist()
+        )
+    if text_col:
+        compressed["description_summary"] = compress_text_column(df, text_col)
+    return compressed
 ```
 
 ---

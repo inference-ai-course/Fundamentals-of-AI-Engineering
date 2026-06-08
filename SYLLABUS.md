@@ -32,7 +32,7 @@ Upon completing this course, students will be able to:
 3. Generate reproducible CSV profiling reports with pandas.
 4. Design structured prompts, request JSON-like outputs, and add basic reliability controls to LLM calls.
 5. Train and compare two lightweight ML baseline runs.
-6. Build and demo an intelligent data analysis script that turns CSV input into JSON and Markdown reports.
+6. Build and demo a job posting skill analyzer that turns CSV input into JSON and Markdown reports.
 
 ## Weekly Schedule
 
@@ -182,25 +182,25 @@ Upon completing this course, students will be able to:
 
 - [week_05/README.md](week_05/README.md)
 
-### Week 6: Capstone - AI-Assisted CSV Data Analyzer
+### Week 6: Capstone - Job Posting Skill Analyzer
 
-**Theme:** CSV In, AI-Assisted Report Out
+**Theme:** Job Postings In, Skills and Learning Priorities Out
 
 #### Learning Objectives
 
-- Combine data profiling, sampling/compression, and real LLM interpretation.
+- Combine job-posting data profiling, sampling/compression, and real LLM interpretation.
 - Produce stable JSON and Markdown reports.
 - Explain design decisions and demo a reproducible run.
 
 #### Sessions
 
-- Capstone MVP walkthrough: CSV -> profile -> sampled summary -> real LLM interpretation -> report.
+- Capstone MVP walkthrough: job postings CSV -> profile -> sampled/compressed summary -> real LLM interpretation -> report.
 - Implementation workshop using provided templates and prior-week components.
 - Demo, reflection, and next learning path.
 
 #### What to Complete
 
-- A reproducible script or small project that accepts a CSV input.
+- A reproducible script or small project that accepts a job postings CSV input.
 - `report.json` and `report.md` outputs.
 - Evidence of a real LLM call, including saved prompt and raw/validated response.
 - Short demo or walkthrough.
@@ -230,7 +230,7 @@ No. `self_learn/` is optional reference material for students who want extra pra
 No paid subscription is required for the course design. Week 4's required demo runs offline with mock responses; hosted APIs, instructor-provided APIs, and local inference are optional extensions.
 
 **Q: Is the final project open-ended?**
-The required MVP is fixed: CSV input -> `report.json` + `report.md`. Extra UI, Excel support, multi-backend LLM support, and caching are stretch goals.
+The required MVP is fixed: job postings CSV input -> `report.json` + `report.md`. Extra UI, Excel support, multi-backend LLM support, and caching are stretch goals.
 
 ## Course Changelog
 

@@ -48,7 +48,7 @@ AI is a learning accelerator, not a replacement for understanding. Students are 
 
 - [Pre-Study Guide](PRESTUDY.md) - Optional preparation before the course.
 - [Course Syllabus](SYLLABUS.md) - Detailed 6-week schedule.
-- [Capstone Project](capstone.md) - Final AI-assisted CSV data analyzer.
+- [Capstone Project](capstone.md) - Final job posting skill analyzer.
 
 ### Optional Self-Study References
 
@@ -81,7 +81,7 @@ The [old_v1/](old_v1/) directory contains the previous 8-week course and is kept
 | Week 3 | Data Processing + Reproducible Outputs | CSV data profiling script with `profile.json` and `profile.md` |
 | Week 4 | LLM Fundamentals + API Reliability | `profile.json` -> structured insights demo with validation and reliability notes |
 | Week 5 | ML Training Loop | Two lightweight baseline runs and a short comparison report |
-| Week 6 | Capstone: AI-Assisted CSV Data Analyzer | CSV -> real LLM call -> `report.json` + `report.md` + short demo |
+| Week 6 | Capstone: Job Posting Skill Analyzer | Job postings CSV -> real LLM call -> `report.json` + `report.md` + short demo |
 
 ## Learning Outcomes
 
@@ -113,7 +113,7 @@ By the end of the course, students will be able to:
    - Explain results without relying on advanced math.
 
 6. **Deliver a small end-to-end AI project**
-   - Build a reproducible AI-assisted CSV data analyzer.
+   - Build a reproducible job posting skill analyzer.
    - Combine data profiling, compression, real LLM interpretation, and report generation.
    - Demonstrate the project and explain key decisions.
 
