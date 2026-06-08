@@ -1,6 +1,6 @@
 # Week 6 — Capstone Template Completion Guide
 
-This guide explains how to complete the capstone template without turning it into a copy-paste solution. The project remains an **AI-Assisted CSV Data Analyzer**:
+This guide explains how to complete the capstone template without turning it into a copy-paste solution. The Week 6 project is a **Job Posting Skill Analyzer** built on a reusable CSV-to-report pipeline:
 
 ```text
 CSV input -> data profiling -> compressed summary -> real LLM interpretation -> report.json + report.md
@@ -105,25 +105,33 @@ Help me complete build_json_report() and build_markdown_report().
 Keep the JSON top-level schema stable and make the Markdown readable for a nontechnical reviewer.
 ```
 
-## Topic Adaptation
+## Main Project: Job Posting Skill Analyzer
 
-Default: use any CSV and build a general data analyzer.
+- Analyze job descriptions to identify common skills, tools/platforms, role patterns, and beginner learning priorities.
+- Use a CSV with at least `job_title` and `job_description`.
+- Helpful columns include `job_id`, `job_title`, `company`, `location`, `job_description`, `job_skills`, `posted_date`, and `source`.
+- Ask the LLM for common skills, common tools, role clusters, learning priorities, beginner learning path suggestions, portfolio project ideas, and limitations.
 
-Bundled general sample: `data/sample_sales.csv`.
+Choose one data path:
 
-Recommended option 1: **Customer Feedback / Support Ticket Analyzer**
+1. **Use a public Kaggle dataset** such as [LinkedIn Job Postings (2023 - 2024)](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings). Use a small subset of about 50-100 rows for the MVP. The larger [1.3M Linkedin Jobs & Skills (2024)](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024) dataset is also acceptable if you create a small subset first.
+2. **Collect job postings yourself** as an optional advanced path. Only collect public pages that allow access, follow website terms, avoid login-gated pages, do not scrape LinkedIn directly unless your instructor explicitly approves a compliant source, rate-limit requests, and save the result as a CSV before analysis.
 
-- Prioritize text columns such as `message`, `comment`, `ticket_text`, or `feedback`.
-- Ask the LLM for themes, urgent issues, customer risks, and recommended actions.
-- Bundled sample: `data/sample_customer_feedback.csv`.
+Do not make live scraping part of the analyzer pipeline. The analyzer should still start from a local CSV file.
 
-Recommended option 2: **Product Review Insight Reporter**
+Suggested Markdown report sections for this theme:
 
-- Prioritize text columns such as `review_text`, `title`, `pros`, or `cons`.
-- Ask the LLM for positive themes, negative themes, feature requests, and product risks.
-- Bundled sample: `data/sample_product_reviews.csv`.
+- Dataset overview.
+- Data quality notes.
+- Most common roles.
+- Common technical skills.
+- Common tools and platforms.
+- Learning priorities.
+- Suggested beginner learning path.
+- Portfolio project ideas.
+- Risks and limitations.
 
-These are theme adaptations, not separate assignments. Keep the same report contract.
+The project is job-posting-specific, but it still keeps the same report contract.
 
 ## Target Output Schema
 
@@ -154,10 +162,10 @@ Map the validated LLM response into that schema consistently:
 After completing the TODOs, your project should support a command like:
 
 ```bash
-python analyze.py --input ../data/sample_sales.csv --out output
+python analyze.py --input ../data/sample_job_postings.csv --out output
 ```
 
-This is the target command, not a guarantee that the untouched template already works.
+For the final project, replace the sample path with your prepared Kaggle subset or documented self-collected job postings CSV. This is the target command, not a guarantee that the untouched template already works.
 
 ## Minimum Validation Checklist
 
@@ -170,6 +178,7 @@ This is the target command, not a guarantee that the untouched template already 
 - [ ] README includes setup, API key/provider notes, and one-command run instructions.
 - [ ] `prompts.md` or `ai_usage.md` explains AI Agent Coding Tool use.
 - [ ] `postmortem.md` documents one real issue and fix.
+- [ ] For job postings, the README documents whether the CSV came from Kaggle or self-collection.
 
 ## References
 

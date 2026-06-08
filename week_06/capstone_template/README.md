@@ -1,4 +1,4 @@
-# Capstone Template: AI-Assisted CSV Data Analyzer
+# Capstone Template: Job Posting Skill Analyzer
 
 This is a scaffold for the Week 6 capstone. It is intentionally incomplete.
 
@@ -43,10 +43,10 @@ export OPENAI_API_KEY="your-key-here"
 After completing the TODOs, your project should support:
 
 ```bash
-python analyze.py --input ../data/sample_sales.csv --out output
+python analyze.py --input ../data/sample_job_postings.csv --out output
 ```
 
-This command is a target, not proof that the untouched template is complete.
+This command is a target, not proof that the untouched template is complete. For the final project, replace the sample path with your prepared Kaggle subset or documented self-collected job postings CSV.
 
 ## Expected Outputs
 
@@ -79,6 +79,42 @@ output/
 - `risk_notes` <- `risk_notes`
 
 Keep the top-level report keys stable even if your chosen theme adds extra fields inside `llm_interpretation`.
+
+## Job Posting Skill Analyzer Requirements
+
+Your CSV should include at least:
+
+```text
+job_title,job_description
+```
+
+Helpful optional columns include:
+
+```text
+job_id,company,location,job_skills,posted_date,source
+```
+
+You may use a public Kaggle dataset such as [LinkedIn Job Postings (2023 - 2024)](https://www.kaggle.com/datasets/arshkon/linkedin-job-postings), or you may collect a small CSV yourself as an advanced option. The larger [1.3M Linkedin Jobs & Skills (2024)](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024) dataset is also acceptable if you create a small subset first. If you collect data yourself, only collect public pages that allow access, follow website terms, avoid login-gated pages, do not scrape LinkedIn directly unless your instructor explicitly approves a compliant source, rate-limit requests, and save the result as a local CSV before analysis.
+
+For this theme, ask the LLM for job-specific fields such as:
+
+- `common_skills`
+- `common_tools`
+- `role_clusters`
+- `learning_priorities`
+- `beginner_learning_path`
+- `portfolio_project_ideas`
+
+Map those fields inside `llm_interpretation` while preserving the required top-level report schema:
+
+- `llm_interpretation.common_skills` <- `common_skills`
+- `llm_interpretation.common_tools` <- `common_tools`
+- `llm_interpretation.role_clusters` <- `role_clusters`
+- `llm_interpretation.learning_priorities` <- `learning_priorities`
+- `llm_interpretation.beginner_learning_path` <- `beginner_learning_path`
+- `llm_interpretation.portfolio_project_ideas` <- `portfolio_project_ideas`
+
+Do not send full job descriptions in bulk to the LLM. Compress them first with title counts, skill hints, shortened representative descriptions, and any useful data quality notes.
 
 ## Required Final Evidence
 
