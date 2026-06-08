@@ -8,6 +8,24 @@ The required MVP is intentionally fixed:
 CSV input -> data overview -> sampled/compressed summary -> real LLM interpretation -> report.json + report.md
 ```
 
+## How the skill analysis works
+
+The "analysis" — identifying skills, clustering roles, ranking what to learn —
+happens in the **LLM stage**. Every earlier stage exists to gather and compress
+*skill-relevant evidence* so the model can reason over it cheaply and the same
+way every run:
+
+| Stage | Role in the skill analysis |
+|-------|-----------------------------|
+| **Load** | Read the CSV. `job_description` holds most skill signal; `job_skills` is explicit but often empty. |
+| **Profile** | Context: top job titles, missing values, counts. |
+| **Compress** | Cheap, deterministic **skill evidence**: title/location counts, sampled `job_skills`, keyword frequency hints, and short truncated descriptions. Never the full CSV. |
+| **LLM** | The real analysis: extract skills/tools, cluster roles, rank learning priorities, build a beginner path, propose projects — grounded in the evidence. |
+| **Report** | Map the model's skill fields into `report.json` under `llm_interpretation`, with stable top-level keys. |
+
+Walkthrough: [03_skill_analysis.md](03_skill_analysis.md) (lab notebook runs the
+whole flow offline on the real sample).
+
 ## Main Project
 
 Build a **Job Posting Skill Analyzer**.
@@ -58,6 +76,7 @@ Capstone-required:
 - [capstone_template/](capstone_template/)
 - [01_pipeline_design.md](01_pipeline_design.md)
 - [02_sampling_compression.md](02_sampling_compression.md)
+- [03_skill_analysis.md](03_skill_analysis.md)
 
 Theme examples:
 

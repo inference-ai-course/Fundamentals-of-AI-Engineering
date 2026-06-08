@@ -17,6 +17,19 @@ REQUIRED_LLM_KEYS = [
 def build_prompt(compressed: dict) -> str:
     """Build a structured prompt from the compressed data summary."""
     # TODO: adapt this prompt to your chosen topic.
+    #
+    # This is where the skill ANALYSIS happens: the model reads the compressed
+    # evidence and produces structured skill insights. Two rules keep it honest:
+    #   1. Tell it to use ONLY the supplied evidence (no generic career advice),
+    #      and to report uncertainty (small sample, truncated text) in risk_notes.
+    #   2. Ask for JSON only, so validate_llm_output() can parse it reliably.
+    #
+    # For the job-posting theme, request these fields and map them inside
+    # report.json's `llm_interpretation` (keep the top-level report keys stable):
+    #   common_skills, common_tools, role_clusters,
+    #   learning_priorities, beginner_learning_path, portfolio_project_ideas
+    # The default prompt below asks for generic fields; swap in the ones above.
+    # See 03_skill_analysis.md for a worked example.
     return f"""You are a careful data analysis assistant.
 
 Analyze the compressed dataset summary below.
